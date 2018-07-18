@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>绑定手机号</title>
+		<link rel="stylesheet" type="text/css" href="../../../css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../css/mui.css"/>
+<!--		<link rel="stylesheet" type="text/css" href="../../../css/nav_table.css"/>-->
+		<link rel="stylesheet" type="text/css" href="../../../css/set_phone.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../css/reset.css"/>
+		<script src="../../../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-action-back">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
+		    <h1 class="mui-title">绑定手机号</h1>
+		    
+		    <!--<span><img src="../img/faxian_jia.png"/></span>-->
+		</header>
+		<div class="mui-content">
+			<div class="main">
+				<div class="main_li">
+					<div class="li_phone">手机号：</div>
+					<div class="li_number">
+						<input type="tel" name="" id="phone" placeholder="请填写手机号" value="17875032581" />
+					</div>
+				</div>
+				<div class="main_li">
+					<div class="li_phone">验证码：</div>
+					<div class="li_number">
+						<input type="tel" name="" id="li_code"  value="" />
+					</div>
+					<div class="li_code">获取验证码</div>
+				</div>
+				
+				<div class="main_sure">
+					<div class="sure">确定绑定</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+		var phone = document.getElementById('phone').value;
+		var userid=localStorage.getItem('user_id');
+		var code=$('#li_code').val();
+		$('.li_code').click(function(){
+			if($('#phone').val()==''){
+			    	mui.toast('手机号不能为空，请填写')
+			    	return false;
+		    }else if(!(/^1[34578]\d{9}$/.test(phone))){ 
+		        mui.toast("手机号码有误，请重填");  
+		        return false; 
+		    }else{
+		  
+			    $.ajax({
+    	     		url:globalUrl+'index.php/Mobile/JkLg/sendSms',
+    	     		type:'post',
+    	     		data:{mobile:phone},
+    	     		datatype:'json',
+    	     		success:function(data){  	     			
+    	     			if(data.code==0){
+    	     				mui.toast(data.msg)
+    	     				var time = 120;
+				 			var countdown = setInterval(countDown,1000);
+				 			function countDown(){
+				 				$('.li_code').html(time+'秒后失效');
+				     			if(time==0){
+				     				$('.li_code').html('发送验证码');
+				     				clearInterval(countdown);
+				     			}
+				     			time--
+				 			}
+    	     			}
+    	     		}
+    	     	})
+			  	
+		    }
+		})
+		    
+			$('.sure').click(function(){
+				var code=$('#li_code').val();
+				if($('#phone').val()==''){
+			    	mui.toast('手机号不能为空，请填写')
+			    	return false;
+			    }else if(!(/^1[34578]\d{9}$/.test(phone))){ 
+			        mui.toast("手机号码有误，请重填");  
+			        return false; 
+			    }else if($('#li_code').val()==''){
+			    	 mui.toast("验证码不能为空"); 
+			    	 return false; 
+			    }else{
+			    	$.ajax({
+	    	     		url:globalUrl+'index.php/Mobile/JkLg/editPhone',
+	    	     		type:'post',
+	    	     		data:{mobile:phone,code:code,user_id:userid},
+	    	     		datatype:'json',
+	    	     		success:function(res){  	     				    	     			
+	    	     			mui.toast(res.msg);
+	    	     			return;
+	    	     		}
+	    	     	})
+			    }
+			})
+		</script>
+	</body>
+</html>

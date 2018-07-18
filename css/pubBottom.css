@@ -1,0 +1,75 @@
+body {
+  background: #FFFFFF;
+}
+.mui-bar {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.bottom {
+  width: 100%;
+  height: 2.61333333rem;
+  background: #fff;
+  color: #202020;
+  box-shadow: 5px 6px 0px 7px #f0f0f0;
+  font-size: 0.58666667rem;
+}
+.bottom .pubIcon {
+  width: 1.33333333rem;
+  height: 1.06666667rem;
+}
+.bottom .pubIcon1 {
+  background: url('../../img/shouoye_shouye.png') no-repeat;
+  background-size: 100% 100%;
+}
+.bottom .pubIcon2 {
+  background: url('../../img/shouoye_shangxueyuan.png') no-repeat;
+  background-size: 100% 100%;
+}
+.bottom .pubIcon3 {
+  background: url('../../img/shouoye_shangcheng.png') no-repeat;
+  background-size: 100% 100%;
+}
+.bottom .pubIcon4 {
+  background: url('../../img/shouoye_gouwuche.png') no-repeat;
+  background-size: 100% 100%;
+}
+.bottom .pubIcon5 {
+  background: url('../../img/shouoye_gerenzhongxin.png') no-repeat;
+  background-size: 100% 100%;
+}
+.mui-bar-tab .mui-tab-item .mui-icon ~ .mui-tab-label {
+  font-size: 0.58666667rem;
+  height: 1.06666667rem;
+  line-height: 1.06666667rem;
+  color: #cccccc;
+  font-weight: normal;
+  font-stretch: normal;
+}
+.mui-bar-tab .mui-tab-item .mui-icon {
+  width: 1.33333333rem;
+  height: 1.06666667rem;
+  margin-bottom: 0.10666667rem;
+}
+.mui-bar-tab .mui-tab-item.mui-active .mui-tab-label {
+  color: #3bbcdd;
+}
+.mui-bar-tab .mui-tab-item.mui-active .pubIcon1 {
+  background: url('../../img/shouoye_shouye2.png') no-repeat;
+  background-size: 100% 100%;
+}
+.mui-bar-tab .mui-tab-item.mui-active .pubIcon2 {
+  background: url('../../img/shouoye_shangxueyuan2.png') no-repeat;
+  background-size: 100% 100%;
+}
+.mui-bar-tab .mui-tab-item.mui-active .pubIcon3 {
+  background: url('../../img/shouoye_shangcheng2.png') no-repeat;
+  background-size: 100% 100%;
+}
+.mui-bar-tab .mui-tab-item.mui-active .pubIcon4 {
+  background: url('../../img/shouoye_gouwuche2.png') no-repeat;
+  background-size: 100% 100%;
+}
+.mui-bar-tab .mui-tab-item.mui-active .pubIcon5 {
+  background: url('../../img/shouoye_gerenzhongxin2.png') no-repeat;
+  background-size: 100% 100%;
+}

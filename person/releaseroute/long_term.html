@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>长途车</title>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<!--<link rel="stylesheet" type="text/css" href="../../css/nav_table.css"/>-->
+		<link rel="stylesheet" type="text/css" href="../../css/long_term.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/mobiscroll.custom.min.css"/>
+		<link href="https://cdn.bootcss.com/framework7/1.6.5/css/framework7.ios.min.css" rel="stylesheet">
+    	<link href="https://cdn.bootcss.com/framework7/1.6.5/css/framework7.ios.colors.min.css" rel="stylesheet">
+		<script src="../../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/mobiscroll.custom.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.dw-i{
+				text-align: center;
+			}
+			.dwb-c .dwb{
+				color: #333;
+			}
+			.mbsc-ios .dw0{
+				color: #279cfe;
+			}
+			.mbsc-ios .dw-sel{
+				color: #279cfe;
+				font-family: PingFang-SC-Medium;
+				font-size: 26px;
+				font-weight: normal;
+				font-stretch: normal;
+			}
+			/*.dw-liq .dw{
+				background: #fff;
+			}
+			.mbsc-ios .dwwr{
+				background: #fff;
+			}*/
+			.mbsc-ios .dwbc {
+			    border-bottom: 1px solid #f0eff4;
+			}
+			
+			.picker-modal .toolbar {
+			    background: #fff;
+			}
+			.picker-modal.modal-in {
+			    background: #fff;
+			}
+			.picker-item.picker-selected {
+			    color: #279cfe;
+			}
+		</style>
+	</head>
+	<body style="background: #efeff4;">
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;width: 80px;"></a>
+		    <h1 class="mui-title">长途车</h1>
+		    
+		    <!--<span><img src="../../img/faxian_jia.png"/></span>-->
+		</header>
+		<div class="mui-content">
+			<div class="main">
+				<div class="main_ul">
+					<div class="main_li">
+						<div class="li_icon f-left">
+							<img src="../../img/changtuchexiangqing_qidian.png"/>
+						</div>
+						<div class="li_input f-right">
+							<input type="" name="" value="" placeholder="请选择出发地" id="location"/>
+						</div>
+					</div>
+					<div class="main_li">
+						<div class="li_icon f-left">
+							<img src="../../img/changtuchexiangqing_zhongdian.png"/>
+						</div>
+						<div class="li_input f-right">
+							<input type="" name="" value="" placeholder="请选择目的地" id="location1"/>
+						</div>
+					</div>
+					<div class="main_li">
+						<div class="li_icon f-left">
+							<img src="../../img/changtuchexiangqing_shijian.png"/>
+						</div>
+						<div class="li_input f-right">
+							<input type="" name="" value="" placeholder="请选择装货时间" class="demo_datetime" style="border:0;padding: 0;;"/>
+						</div>
+					</div>
+					
+				</div>
+				<div class="main_car">
+					<div class="car_icon f-left">
+						<img src="../../img/fabuluxian_xuanzecheliang.png"/>
+					</div>
+					<div class="car_name f-left">车辆</div>
+					<div class="car f-right" id="carnumber">粤A66666</div>
+				</div>
+				<div class="main_message">
+					<div class="message_name">备注</div>
+					<div class="message">
+						<textarea name="" class="input_message" placeholder="我要备注" ></textarea>
+					</div>
+				</div>
+				<div class="main_sure">
+					<div class="sure">发布</div>
+				</div>
+			</div>	
+		</div>
+	</body>
+	<script src="../../js/framework7.min.js"></script>
+    <script src="../../js/regionsObject2.js"></script>
+    <script src="../../js/cityPicker.js"></script>
+	<script type="text/javascript">
+		var url = location.href;
+		var types = getUrl(url).types;
+		var userid=localStorage.getItem('user_id');
+		var carid;
+		var carnumber;
+		getuserinfo();
+		function getuserinfo(){
+			$.ajax({
+				type:"post",
+				url:globalUrl+"index.php/Mobile/JkUser/myLists",
+				data:{user_id:userid},
+				dataType:'json',
+				success:function(res){
+					var data=res.user.car_info;
+					carid=data.id;
+					carnumber=data.car_number;
+					$('#carnumber').html(carnumber);
+				}
+			});
+		}
+		
+		if(types==2){
+			$('.mui-title').html('长途车')
+		}else if(types==3){
+			$('.mui-title').html('短途车')
+		}
+		var theme = "ios";
+        var mode = "scroller";
+        var display = "bottom";
+        var lang="zh";
+        var myDate = new Date();
+		//获取当前年
+		var year=myDate.getFullYear()-10;
+		//获取当前月
+		var month=myDate.getMonth();
+		//获取当前日
+		var date=myDate.getDate(); 
+		var h=myDate.getHours();       //获取当前小时数(0-23)
+		var m=myDate.getMinutes();     //获取当前分钟数(0-59)
+		// Date & Time demo initialization
+        // Select demo initialization
+        $('.demo_datetime').mobiscroll().datetime({
+            theme: theme,
+            mode: mode,
+            display: display,
+            lang: lang,
+            dateFormat:"yyyy-mm-dd",
+            minDate: new Date(year,month,date,h,m),
+            maxDate: new Date(2030,7,30,15,44),
+            stepMinute: 1
+        });
+		
+		$(".input_message").focus(function(){ 
+			$('.main_sure').addClass("hide")
+		}); 
+		$(".input_message").blur(function(){
+		  $('.main_sure').removeClass("hide")
+		});
+		
+		$('.sure').click(function(){
+	       var $time=$('.demo_datetime').val();
+	       var date = new Date($time);
+	       var time = date.getTime()/1000;
+
+			var $carnumber=$('.f-right').html();
+			var $location=$('#location').val();
+			var $location1=$('#location1').val();
+			var $remakes=$('.input_message').val();
+            var parms={};
+             
+            var $place=$location.split(' ');
+            var $place1=$location1.split(' ');
+            var $place2=$place.join(',');
+            var $place3=$place1.join(',')
+//          alert($place)
+             
+            parms.user_id=userid;
+            parms.type=types;
+            parms.address=$place2;
+            parms.yuyueaddress=$place3;
+            parms.remark=$remakes;
+            parms.load_time=time;
+            parms.car_id=carid;
+//          alert(JSON.stringify(parms));
+//          return
+            if(time==''||$location==''||$location1==''){
+            	mui.toast('信息不完整');
+            	return;
+            }else{
+            	$.ajax({
+            		type:"post",
+            		url:globalUrl+"index.php/Mobile/JkLine/addLine",
+            		data:parms,
+            		success:function(res){
+            			var data=res;
+            			if(data.code==0){
+            				mui.toast('发布成功');
+            				mui.back();
+            			}
+            		}
+            	});
+            }
+            
+            
+		})
+	</script>
+</html>

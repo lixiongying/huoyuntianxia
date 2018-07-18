@@ -1,0 +1,190 @@
+header a {
+  color: white;
+}
+.main {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.mui-bar {
+  width: 20rem;
+  height: 2.34666667rem;
+  background-color: #279cfe;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.mui-title {
+  color: #ffffff;
+  font-size: 0.96rem;
+}
+.system {
+  width: 20rem;
+  height: 2.82666667rem;
+  background-color: #ffffff;
+}
+.system .sys_pic {
+  width: 0.8rem;
+  height: 0.69333333rem;
+  display: inline-block;
+  float: left;
+  margin-top: 1.06666667rem;
+  margin-left: 0.64rem;
+}
+.sys_message {
+  width: 14.66666667rem;
+  height: 2.82666667rem;
+  display: inline-block;
+  float: left;
+  margin-left: 1.33333333rem;
+}
+.sys_message div:first-child {
+  width: 100%;
+  height: 1.44rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.44rem;
+  letter-spacing: 0.02666667rem;
+  color: #1f1f1f;
+}
+.sys_message div:last-child {
+  width: 100%;
+  height: 1.44rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.64rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.44rem;
+  letter-spacing: 0.02666667rem;
+  color: #b3b3b3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sysnext {
+  display: inline-block;
+  float: right;
+  width: 0.42666667rem;
+  height: 0.8rem;
+  margin-top: 1.01333333rem;
+  margin-right: 0.64rem;
+}
+.myfriend {
+  width: 100%;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  text-align: left;
+  padding-left: 0.64rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0.02666667rem;
+  color: #1f1f1f;
+  margin-top: 1.06666667rem;
+  margin-bottom: 0.4rem;
+}
+.friend {
+  width: 20rem;
+  height: 3.46666667rem;
+  background: white;
+}
+.friend .friend_head {
+  width: 2.13333333rem;
+  height: 2.13333333rem;
+  display: inline-block;
+  float: left;
+  margin-top: 0.66666667rem;
+  margin-left: 0.64rem;
+}
+.friend_name {
+  width: 16rem;
+  height: 3.46666667rem;
+  display: inline-block;
+  float: left;
+  margin-left: 0.64rem;
+}
+.friend_name .name {
+  width: 4rem;
+  height: 0.8rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 0.8rem;
+  letter-spacing: 0.02666667rem;
+  color: #1f1f1f;
+  margin-top: 0.8rem;
+}
+.friend_name .descrie {
+  width: 100%;
+  height: 1.06666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.64rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.06666667rem;
+  letter-spacing: 0.02666667rem;
+  color: #b3b3b3;
+  margin-top: 0.53333333rem;
+}
+.mystranger {
+  width: 100%;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  text-align: left;
+  padding-left: 0.64rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0.02666667rem;
+  color: #1f1f1f;
+  margin-top: 1.06666667rem;
+  margin-bottom: 0.4rem;
+}
+.stranger {
+  width: 20rem;
+  height: 3.46666667rem;
+  background: white;
+}
+.stranger .friend_head {
+  width: 2.13333333rem;
+  height: 2.13333333rem;
+  display: inline-block;
+  float: left;
+  margin-top: 0.66666667rem;
+  margin-left: 0.64rem;
+}
+.stranger .friend_name {
+  width: 16rem;
+  height: 3.46666667rem;
+  display: inline-block;
+  float: left;
+  margin-left: 0.64rem;
+}
+.stranger .friend_name .name {
+  width: 4rem;
+  height: 0.8rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 0.8rem;
+  letter-spacing: 0.02666667rem;
+  color: #1f1f1f;
+  margin-top: 0.8rem;
+}
+.stranger .friend_name .descrie {
+  width: 100%;
+  height: 1.06666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.64rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.06666667rem;
+  letter-spacing: 0.02666667rem;
+  color: #b3b3b3;
+  margin-top: 0.53333333rem;
+}

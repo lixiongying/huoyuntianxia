@@ -1,0 +1,150 @@
+.clear::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.f-left {
+  float: left;
+}
+.f-right {
+  float: right;
+}
+.mui-bar {
+  background: #279cfe;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border: 0;
+  height: 2.34666667rem;
+}
+.mui-bar .mui-title {
+  color: #fff;
+}
+.head {
+  width: 100%;
+  height: 8rem;
+}
+.head .head_pic {
+  width: 3.76rem;
+  height: 3.76rem;
+  margin-left: 8.13333333rem;
+  margin-top: 2.13333333rem;
+}
+.head .head_pic img {
+  border-radius: 100%;
+}
+.head_information {
+  width: 100%;
+  height: 1.06666667rem;
+  margin-top: 0.26666667rem;
+}
+.head_information .username {
+  text-align: center;
+  height: 1.06666667rem;
+  float: left;
+  line-height: 1.06666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  margin-left: 8.66666667rem;
+}
+.usernumber {
+  line-height: 1.06666667rem;
+  height: 1.06666667rem;
+  float: left;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.64rem;
+  font-weight: normal;
+  font-stretch: normal;
+  color: #b3b3b3;
+}
+.evalute {
+  width: 18.72rem;
+  margin-left: 0.64rem;
+  height: 5.86666667rem;
+  background-color: #ffffff;
+}
+.evaluteone {
+  text-align: center;
+  padding: 0.05333333rem 0;
+  font-family: MicrosoftYaHei;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  padding-top: 0.93333333rem;
+  letter-spacing: 1px;
+  color: #2a2a2a;
+}
+#rating {
+  width: 100%;
+  margin-left: 4.8rem;
+  margin-top: 0.8rem;
+}
+#rating li {
+  float: left;
+  width: 1.17333333rem;
+  height: 1.12rem;
+  margin-left: 0.53333333rem;
+}
+.evaluteitem {
+  width: 18.72rem;
+  margin-left: 0.64rem;
+  height: 8.53333333rem;
+  background-color: #ffffff;
+  border-top: 1px solid #F5F5F5;
+}
+.evaluteitem .evalutenum {
+  width: 4.26666667rem;
+  padding: 0.13333333rem 0;
+  height: 1.28rem;
+  background-color: #ffffff;
+  border-radius: 0.61333333rem;
+  border: solid 0.02666667rem #CCCCCC;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  text-align: center;
+  letter-spacing: 0px;
+  color: #CCCCCC;
+  line-height: 1.28rem;
+  float: left;
+  margin-left: 1.33333333rem;
+}
+.evaluteitem .addcolor {
+  width: 4.26666667rem;
+  padding: 0.13333333rem 0;
+  height: 1.28rem;
+  background-color: #ffffff;
+  border-radius: 0.61333333rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  text-align: center;
+  letter-spacing: 0px;
+  line-height: 1.28rem;
+  float: left;
+  margin-left: 1.33333333rem;
+  color: #279cfe;
+  border: solid 0.02666667rem #279cfe;
+}
+.publish {
+  width: 100%;
+  height: 2.34666667rem;
+  background-color: #279cfe;
+  text-align: center;
+  line-height: 2.34666667rem;
+  font-family: MicrosoftYaHei;
+  font-size: 0.82666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  position: fixed;
+  letter-spacing: 0.02666667rem;
+  color: #ffffff;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

@@ -1,0 +1,206 @@
+.mui-bar {
+  width: 20rem;
+  height: 2.34666667rem;
+  background-color: #279cfe;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.mui-title {
+  color: #ffffff;
+  font-size: 0.96rem;
+}
+.mui-content {
+  background: url(../img/denglu_bg.png) no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+}
+.piclogo {
+  width: 3.57333333rem;
+  height: 3.57333333rem;
+  margin: 0 auto;
+  margin-top: 2.66666667rem;
+}
+.loginitem {
+  width: 100%;
+  height: 6.66666667rem;
+  padding-left: 2rem;
+}
+.loginitem .tel {
+  width: 100%;
+  height: 1.65333333rem;
+  margin-top: 1.33333333rem;
+}
+.loginitem .picimg {
+  width: 0.85333333rem;
+  height: 0.85333333rem;
+  float: left;
+  display: inline-block;
+  margin-top: 0.4rem;
+}
+.loginitem .inputtype {
+  width: 6.66666667rem;
+  height: 1.65333333rem;
+  display: inline-block;
+  float: left;
+  line-height: 1.65333333rem;
+  border-bottom: 1px solid #279cfe;
+  margin-left: 0.53333333rem;
+}
+.loginitem .inputtype input {
+  padding: 0;
+  margin: 0;
+  line-height: 1.65333333rem;
+  width: 14.66666667rem;
+  height: 1.65333333rem;
+  padding-left: 0.8rem;
+  border: none;
+  border-bottom: 1px solid #279cfe;
+}
+.remberpsd {
+  width: 100%;
+  height: 1.06666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 28px;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 0px;
+  letter-spacing: 1px;
+  color: #b3b3b3;
+  margin-top: 0.53333333rem;
+}
+.remberpsd .iagree {
+  width: 0.69333333rem;
+  height: 0.69333333rem;
+  margin-top: 0.26666667rem;
+  display: inline-block;
+  float: left;
+}
+.remberpsd .agreeworld {
+  width: 8.8rem;
+  height: 1.06666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.06666667rem;
+  letter-spacing: 0.02666667rem;
+  color: #b3b3b3;
+  display: inline-block;
+  float: left;
+  margin-left: 0.4rem;
+}
+.login {
+  width: 16rem;
+  height: 2.34666667rem;
+  background-color: #279cfe;
+  border-radius: 0.26666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.34666667rem;
+  letter-spacing: 0px;
+  color: #ffffff;
+  margin-left: 2rem;
+  text-align: center;
+  margin-top: 0.8rem;
+}
+.forgetpsd {
+  width: 100%;
+  height: 0.8rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 26px;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 0px;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  margin-left: 2rem;
+  margin-top: 0.8rem;
+}
+.forgetpsd div:first-child {
+  height: 0.8rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.69333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 0.8rem;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  display: inline-block;
+  float: left;
+}
+.forgetpsd div:last-child {
+  width: 5.33333333rem;
+  height: 0.8rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.69333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 0.8rem;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  color: #fdbf42;
+  display: inline-block;
+  float: left;
+  margin-left: 9.46666667rem;
+}
+.otherlogin {
+  width: 100%;
+  height: 1.06666667rem;
+  line-height: 1.06666667rem;
+  padding: 0 2rem;
+  margin-top: 1.33333333rem;
+}
+.otherlogin div:first-child {
+  display: inline-block;
+  width: 2.13333333rem;
+  height: 0.10666667rem;
+  margin-top: 0.42666667rem;
+  margin-left: 2.58666667rem;
+  float: left;
+  background-color: #b3b3b3;
+}
+.otherlogin div:last-child {
+  display: inline-block;
+  width: 2.13333333rem;
+  height: 0.10666667rem;
+  margin-top: 0.42666667rem;
+  background-color: #b3b3b3;
+  float: right;
+  margin-right: 2.66666667rem;
+}
+.otherlogin div:nth-child(2) {
+  width: 5.33333333rem;
+  height: 1.06666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.06666667rem;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  display: inline-block;
+  margin-left: 1.06666667rem;
+  float: left;
+}
+.logintype {
+  width: 100;
+  height: 1.22666667rem;
+  padding: 0 2rem;
+}
+.logintype .webchat {
+  width: 1.49333333rem;
+  height: 1.22666667rem;
+  display: inline-block;
+  margin-left: 5.6rem;
+}
+.logintype .qqlogin {
+  margin-top: 1.33333333rem;
+  width: 1.49333333rem;
+  height: 1.22666667rem;
+  display: inline-block;
+  margin-left: 1.86666667rem;
+}

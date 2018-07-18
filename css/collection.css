@@ -1,0 +1,182 @@
+.clear {
+  clear: both;
+}
+.mui-bar {
+  background: #279cfe;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border: 0;
+  height: 2.34666667rem;
+}
+.mui-bar .mui-title {
+  color: #fff;
+}
+.mui-bar-nav ~ .mui-content {
+  padding-top: 2.34666667rem;
+}
+.main {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.main .main_li {
+  width: auto;
+  height: auto;
+  background: #fff;
+  margin-bottom: 0.53333333rem;
+  padding-bottom: 0.26666667rem;
+}
+.main_li .company {
+  width: auto;
+  height: 2.13333333rem;
+  line-height: 2.13333333rem;
+  padding: 0 0.64rem;
+  border-bottom: 1px solid #ccc;
+}
+.company .company_name {
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  float: left;
+}
+.company .click {
+  font-family: PingFang-SC-Medium;
+  font-size: 0.64rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #b3b3b3;
+  float: right;
+}
+.main_li .company_detail {
+  margin: 0.8rem 0.64rem 0;
+}
+.company_detail .company_pic {
+  width: 4.10666667rem;
+  height: 3.73333333rem;
+  float: left;
+}
+.comment_pic .pic {
+  border-radius: 4px;
+  width: 4.10666667rem;
+  height: 3.73333333rem;
+}
+.company_detail .detail {
+  float: left;
+  margin: 0 0.64rem;
+}
+.detail .address,
+.phone {
+  width: 100%;
+  height: 1.06666667rem;
+  line-height: 1.06666667rem;
+  font-family: PingFang-SC-Bold;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  margin-bottom: 0.16rem;
+}
+.address .add_name {
+  float: left;
+}
+.address .add_ress {
+  float: left;
+  margin-left: 0.96rem;
+  width: 9.6rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+.phone .phone_name {
+  float: left;
+}
+.phone .phone_number {
+  float: left;
+  margin-left: 0.96rem;
+  width: 9.6rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+.detail .authentication {
+  width: 100%;
+  height: 1.44rem;
+}
+.authentication .icon {
+  width: 0.53333333rem;
+  height: 0.58666667rem;
+  float: left;
+  margin: 0.42666667rem 0.32rem 0 0;
+}
+.authentication .auth {
+  float: left;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.64rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  line-height: 1.44rem;
+  color: #b3b3b3;
+}
+.reminders {
+  width: 14.93333333rem;
+  left: 2.53333333rem;
+  top: 50%;
+  height: 7.46666667rem;
+  background-color: #ffffff;
+  border-radius: 0.16rem;
+  z-index: 100;
+  position: fixed;
+  display: none;
+}
+.reminders .reminder_title {
+  width: 100%;
+  height: 2.13333333rem;
+  background-color: #f8f8f8;
+  text-align: center;
+  line-height: 2.13333333rem;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #279cfe;
+}
+.reminders .reminder_sc {
+  width: 100%;
+  height: 2.13333333rem;
+}
+.reminders .reminder_world {
+  width: 100%;
+  height: 3.2rem;
+  line-height: 3.2rem;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+}
+.reminders .reminder_sc div {
+  width: 50%;
+  height: 2.13333333rem;
+  line-height: 2.13333333rem;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #cccccc;
+  float: left;
+}
+.reminders .reminder_sc .sure {
+  color: #279cfe;
+}

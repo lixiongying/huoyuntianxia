@@ -1,0 +1,106 @@
+header a {
+  color: white;
+}
+.main {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.mui-bar {
+  width: 20rem;
+  height: 2.34666667rem;
+  background-color: #279cfe;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.mui-title {
+  color: #ffffff;
+  font-size: 0.96rem;
+}
+.product {
+  width: 100%;
+  margin-top: 0.8rem;
+}
+.product .productitem {
+  width: 20rem;
+  height: auto;
+  background-color: #ffffff;
+}
+.product .productitem .itemimg {
+  width: 4.10666667rem;
+  height: 3.73333333rem;
+  display: inline-block;
+  float: left;
+  margin-left: 0.64rem;
+  margin-top: 0.64rem;
+}
+.product .productitem .itemmessage {
+  width: 14.66666667rem;
+  float: left;
+}
+.itemmessage .message {
+  width: 100%;
+  padding: 0.32rem;
+  margin-top: 0.32rem;
+}
+.itemmessage .message .message_one {
+  width: 1.06666667rem;
+  height: 1.04rem;
+  float: left;
+  margin-top: 0.13333333rem;
+}
+.itemmessage .message .message_two {
+  padding-left: 0.26666667rem;
+  width: 12rem;
+  font-family: PingFang-SC-Bold;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  float: right;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+.speicalline {
+  width: 12rem;
+  height: 2.34666667rem;
+  position: absolute;
+  top: 0;
+  left: 6.34666667rem;
+  right: 6.32rem;
+}
+.speicalline .line_one {
+  width: 4rem;
+  height: 2.34666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.34666667rem;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  float: left;
+}
+.speicalline .line_img {
+  width: 1.12rem;
+  height: 0.90666667rem;
+  display: inline-block;
+  float: left;
+  margin-top: 0.72rem;
+}
+.speicalline .line_two {
+  width: 4rem;
+  height: 2.34666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.34666667rem;
+  letter-spacing: 0px;
+  color: white;
+  display: inline-block;
+  float: left;
+  text-align: center;
+}

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>专线详情</title>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/mui.css"/>
+<!--		<link rel="stylesheet" type="text/css" href="../css/nav_table.css"/>-->
+		<link rel="stylesheet" type="text/css" href="../css/hz_railwaydetail.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		
+		<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			/*.mask{
+			  background: black;
+			  opacity: 0.4;
+			  width: 100%;
+			  height: 100%;
+			  position: fixed;
+			  left: 0;
+			  bottom: 0;
+			  top: 0;
+			  z-index: 100;
+			  display: none;
+			}*/
+		</style>
+	</head>
+	<body>
+		
+		<header class="mui-bar mui-bar-nav mui-action-back">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    
+		    	<div class="speicalline">
+	             	 <div class="line_one">
+	             	 	广州
+	             	 </div>
+	             	  <div class="line_img">
+	             	 	<img src="../img/zhuanxianchaxun_xianlu.png"/>
+	             	 </div>
+	             	  <div class="line_two">
+	             	 	深圳
+	             	 </div>
+	            </div>
+		</header>
+		<div class="mui-content">
+			<div class="main">
+
+     			<div class="content" onclick="url(this)" data-url="hz_searchrailway.html">
+     				<div class="company">
+     					<div class="">
+     						广州市顺德物流有限公司
+     					</div>
+     					<div class="">
+     						点击6899次
+     					</div>
+     				</div>
+         			<div class="content_one">
+         				<img src="../img/75c5ca005a7112cea4abb9c55a544f78_t013afb6f9efc2b4880.jpg"/>
+         			</div>
+         			<div class="content_two">
+         				<div class="telphone">
+         					<div class="shouji">
+         						地址：
+         					</div>
+         					<div class="number">
+         						广州市白云区太和镇物流园…
+         					</div>
+         				</div>
+         				<div class="telphone">
+         					<div class="shouji">
+         						电话：
+         					</div>
+         					<div class="number">
+         						020-12345678
+         					</div>
+         				</div>
+         				<div class="renzhen">
+         					<div class="shouji">
+         						<img src="../img/chaxunxianlu_yirenzheng.png"/>
+         					</div>
+         					<div class="number">
+         						已认证
+         					</div>
+         				</div>
+         			</div>
+         		</div>
+         		
+         		<div class="content">
+     				<div class="company">
+     					<div class="">
+     						广州市顺德物流有限公司
+     					</div>
+     					<div class="">
+     						点击6899次
+     					</div>
+     				</div>
+         			<div class="content_one">
+         				<img src="../img/75c5ca005a7112cea4abb9c55a544f78_t013afb6f9efc2b4880.jpg"/>
+         			</div>
+         			<div class="content_two">
+         				<div class="telphone">
+         					<div class="shouji">
+         						地址：
+         					</div>
+         					<div class="number">
+         						广州市白云区太和镇物流园…
+         					</div>
+         				</div>
+         				<div class="telphone">
+         					<div class="shouji">
+         						电话：
+         					</div>
+         					<div class="number">
+         						020-12345678
+         					</div>
+         				</div>
+         				<div class="renzhen">
+         					<div class="shouji">
+         						<img src="../img/chaxunxianlu_yirenzheng.png"/>
+         					</div>
+         					<div class="number">
+         						已认证
+         					</div>
+         				</div>
+         			</div>
+         		</div>
+        
+			    
+			</div>
+			<div class="mask">
+				
+			</div>
+			<div class="reminders">
+				<div class="reminder_title">提示</div>
+					<div class="reminder_world">查看详情将产生<span class="xunibi"></span>个虚拟币的消耗哦</div>
+					<div class="reminder_sc">
+						<div onclick="cancell()">取消</div>
+						<div class="sure" onclick="Makesure()">确定</div>
+					</div>
+				</div>
+			</div>
+	</body>
+	<script type="text/javascript">
+	
+	var isconfirm;
+	
+      	mui.plusReady(function() {
+			var self = plus.webview.currentWebview();
+
+			var address = self.address;
+			var yuyueaddress=self.yuyueaddress;
+			
+			$('.line_one').html(address);
+			$('.line_two').html(yuyueaddress);
+			var p=2
+			var ajaxData={};
+			ajaxData.address=address;
+			ajaxData.yuyueaddress=yuyueaddress;
+			ajaxData.p=1;
+			var totalPage;
+			loaddata();
+			function loaddata(){
+				$.ajax({
+					type:"post",
+					url:globalUrl+"index.php/Mobile/JkLine/zhuanxianList",
+					dataType:'json',
+		            data:ajaxData,
+		            success:function(res){
+		            	totalPage=res.totalPage;
+		            	var str='';
+		            	var data=res.root;
+		            	for(var i=0;i<data.length;i++){
+		            		str+='<div class="content" data-type='+data[i].goods_id+'  onclick="urlnext(this)">';
+		            		str+='<div class="company">';
+		            		str+='<div class="">'+data[i].company+'</div>';
+		            		str+='<div class="">点击'+data[i].click_count+'次</div>';
+		            		str+='</div>';
+		            		str+='<div class="content_one"><img src="'+picUrl+data[i].original_img+'"/></div>';
+		            		str+='<div class="content_two">';
+		            		str+='<div class="telphone">';
+		            		str+='<div class="shouji">地址：</div>';
+		            		str+='<div class="number">'+data[i].address+'</div>';
+		            		str+='</div>';
+		            		str+='<div class="telphone">';
+		            		str+='<div class="shouji">电话：</div>';
+		            		str+='<div class="number">'+data[i].tel+'</div>';
+		            		str+='</div>';
+		            		
+		            		str+='<div class="renzhen">';
+		            		str+='<div class="shouji"><img src="../img/chaxunxianlu_yirenzheng.png"/></div>';
+		            		if(company_status==0||company_status==3){
+		            				str+='<div class="number">未认证</div>';
+		            		}else{
+		            			str+='<div class="number">已认证</div>';
+		            		}
+		            	
+		            		str+='</div>';
+		            		str+='</div>';
+		            		str+='</div>';
+
+//		            		
+		            	}
+		            	$('.main').html(str);
+		            }
+				});
+			}
+			
+			
+			
+			
+			$(window).scroll(function() {
+				if ($(document).scrollTop() >= $(document).height() - $(window).height()){
+					if(p>totalPage){
+						mui.toast('没有更多结果');
+					}else{
+						ajaxData.p = p;
+			//			alert(JSON.stringify(ajaxdata));
+						loaddata();
+						p++
+					}
+				}
+			
+			});	
+
+		})
+      	
+      	var id;
+      	var del_coin;
+      	var company_status;
+      	var userid=localStorage.getItem('user_id');
+      	function userindo(){
+      		$.ajax({
+	  			type:"post",
+	  			url:globalUrl+"index.php/Mobile/JkUser/myLists",
+	  			data:{user_id:userid},
+	  			dataType:'json',
+	  			success:function(res){
+	  				var data=res.user;
+	  				
+	  				 del_coin=data.del_coin;
+	  				 company_status=data.company_status;
+	  				$('.xunibi').html(del_coin)
+	  			}
+	  		});
+      	}
+  		userindo();
+  		
+      	function urlnext(obj){
+
+      		id=$(obj).attr('data-type');
+      		$('.mask').show();
+      		if(company_status==0||company_status==3){
+      			reminder('实名认证后才能查看详情');
+      		}else{
+      			$('.reminders').show();
+      		}
+			
+				
+		}
+      	function makesure(){
+      		mui.openWindow({
+      			url:'../person/set_up/set_id/set_id.html',
+      			id:'../person/set_up/set_id/set_id.html'
+      		})
+      		$('.mask').hide();
+      		$('.reminder').hide();
+      	}
+      	function cancell(){
+  			$('.mask').hide();
+			$('.reminders').hide();
+  		}
+      	function Makesure(){
+      		
+      		mui.openWindow({
+      			url:'hz_searchrailway.html?id='+id+'&del_coin='+del_coin+'',
+      			id:'hz_searchrailway.html'
+      		})
+      		$('.mask').hide();
+			$('.reminders').hide();
+      	}
+     
+	</script>
+</html>

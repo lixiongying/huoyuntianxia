@@ -1,0 +1,185 @@
+header a {
+  color: white;
+}
+.main {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.mui-bar {
+  width: 20rem;
+  height: 2.34666667rem;
+  background-color: #279cfe;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.mui-title {
+  color: #ffffff;
+  font-size: 0.96rem;
+}
+.main {
+  background: white;
+}
+.score {
+  width: 100%;
+  height: 6.66666667rem;
+  background: white;
+}
+.score .score_pic {
+  width: 3.76rem;
+  height: 3.76rem;
+  margin: 0 auto;
+  margin-top: 2.05333333rem;
+}
+.score_pic img {
+  border-radius: 100%;
+}
+.score .star {
+  width: 100%;
+  height: 1.33333333rem;
+}
+#rating {
+  width: 75%;
+  height: 1.33333333rem;
+  padding-left: 5.6rem;
+  margin-top: 0.8rem;
+  display: inline-block;
+  float: left;
+}
+#rating .rating-item {
+  width: 1.17333333rem;
+  height: 1.17333333rem;
+  float: left;
+  margin-left: 0.53333333rem;
+}
+.score .star .number {
+  width: 1.33333333rem;
+  height: 1.33333333rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.33333333rem;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  float: right;
+  display: inline-block;
+  margin-top: 0.8rem;
+  margin-right: 3.2rem;
+}
+.score_item {
+  border-top: 1px solid #F5F5F5;
+  width: 100%;
+  height: auto;
+  margin-top: 1.86666667rem;
+}
+.score_item div {
+  display: inline-block;
+  float: left;
+  max-width: 6.66666667rem;
+  max-height: 1.28rem;
+  white-space: nowrap;
+  background-color: #ffffff;
+  border-radius: 0.61333333rem;
+  border: solid 0.02666667rem #279cfe;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.28rem;
+  letter-spacing: 0px;
+  color: #279cfe;
+  text-align: center;
+  padding: 0 0.26666667rem;
+  margin-top: 0.8rem;
+  width: 20%;
+  margin-left: 1.86666667rem;
+  margin-bottom: 0.53333333rem;
+}
+.order {
+  margin-top: 0.8rem;
+}
+.ordernumber {
+  width: 100%;
+  height: 3.62666667rem;
+  background: white;
+}
+.ordernumber .order_one,
+.order_two {
+  width: 100%;
+  height: 1.81333333rem;
+}
+.order_one .dingdan {
+  display: inline-block;
+  float: left;
+  width: 8rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.81333333rem;
+  letter-spacing: 0px;
+  color: #333333;
+  text-align: left;
+  padding-left: 0.64rem;
+}
+.order_one .date {
+  display: inline-block;
+  float: right;
+  width: 5.33333333rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.81333333rem;
+  letter-spacing: 0px;
+  color: #333333;
+}
+.order_two .address {
+  display: inline-block;
+  float: left;
+  width: 8rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.81333333rem;
+  letter-spacing: 0px;
+  color: #333333;
+  text-align: left;
+  padding-left: 0.64rem;
+}
+.order_two .xingxing {
+  display: inline-block;
+  float: right;
+  width: 5.33333333rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.81333333rem;
+  letter-spacing: 0px;
+  color: #333333;
+}
+.main_user .main_label {
+  width: 100%;
+  height: auto;
+  padding-bottom: 1.44rem;
+  margin-left: 2.05333333rem;
+  border-top: 1px solid #F5F5F5;
+}
+.main_label .label_li {
+  margin-top: 0.74666667rem;
+  float: left;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #279cfe;
+  padding: 0.29333333rem 0.72rem;
+  border-radius: 1.33333333rem;
+  border: 1px solid #279cfe;
+  margin-right: 0.8rem;
+  margin-left: 0.93333333rem;
+}

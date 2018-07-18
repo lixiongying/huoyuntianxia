@@ -1,0 +1,82 @@
+.clear::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+::-webkit-scrollbar {
+  width: 0px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb:active {
+  background-color: transparent;
+}
+body {
+  background: #fff;
+  font-family: PingFang-SC-Regular;
+  font-size: 0.96rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0;
+  color: #202020;
+  line-height: 0;
+}
+ol,
+li,
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #202020;
+}
+img {
+  vertical-align: bottom;
+  display: block;
+}
+.mui-bar {
+  box-shadow: none;
+  z-index: 10000;
+}
+.mui-bar-nav {
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  height: 2.34666667rem;
+  line-height: 2.34666667rem;
+  background: #0082c8;
+}
+.mui-bar-nav .mui-title {
+  color: #fff;
+}
+.mui-bar-nav ~ .mui-content {
+  padding-top: 2.34666667rem;
+}
+.tsAlert {
+  position: fixed;
+  display: none;
+  width: 10.66666667rem;
+  height: 1.6rem;
+  text-align: center;
+  line-height: 1.6rem;
+  font-size: 0.74666667rem;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 0.8rem;
+  top: 8rem;
+  left: 4.66666667rem;
+  color: #fff;
+  font-family: PingFang-SC-Regular;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  z-index: 20000;
+}

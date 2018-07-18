@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>底部导航</title>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="./js/jquery.min.js"></script>
+		<script src="js/w_pub.js"></script>
+		
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/pub/pubBottom.css" />
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+	</head>
+
+	<body>
+		<nav class="mui-bar mui-bar-tab bottom">
+		    <a class="mui-tab-item mui-active" href="homepage/hz_homepage.html">
+		        <span class="mui-icon pubIcon1 pubIcon"></span>
+		        <span class="mui-tab-label">首页</span>
+		    </a>
+		    <a class="mui-tab-item" href="message/message.html">
+		        <span class="mui-icon pubIcon2 pubIcon"></span>
+		        <span class="mui-tab-label">消息</span>
+		    </a>
+		    <a class="mui-tab-item" href="discover/discover.html">
+		        <span class="mui-icon pubIcon3 pubIcon"></span>
+		        <span class="mui-tab-label">发现</span>
+		    </a>
+		    <a class="mui-tab-item" href="person/person.html">
+		        <span class="mui-icon pubIcon4 pubIcon"></span>
+		        <span class="mui-tab-label">我的</span>
+		    </a>
+		</nav>
+	</body>
+	<script>
+		
+		mui.plusReady(function(){
+			var subPages = ['home.html','college.html','shoppingmall.html','car.html'];//定义跳转页面
+			var bottomH = $('.bottom').height();//获取底部高度
+			//2.定义子页面打开的样式 
+			var subPageStyle = {
+				top:'0px',
+				bottom: bottomH + 'px'
+			};
+			var self = plus.webview.currentWebview();//获取当前显示窗体
+			subPages.forEach(function(obj,index){//遍历跳转页面
+				var sub = plus.webview.create(subPages[index],subPages[index],subPageStyle);//获取子窗体对象
+				sub.hide();//隐藏所有页面
+				self.append(sub);//将页面追加到子窗体中
+			});
+			plus.webview.show(subPages[0]);//显示第一个窗体
+			//选中 .mui-bar-tab下的所有的a标签
+			mui(".bottom").on("tap","a",function(e) {
+				if($(this).attr('class') == 'mui-tab-item mui-active'){
+					
+				}else {
+					//获取当前被点击的a标签的href属性值 
+					var targetPage = this.getAttribute('href');
+					
+					//显示指定的子页面 
+					plus.webview.show(targetPage,"fade-in",100);
+				}
+			});
+		});
+		function hide(){
+			$('bottom').hide();
+		}
+		function show(){
+			$('bottom').hide();
+		}	
+		
+	</script>
+
+</html>

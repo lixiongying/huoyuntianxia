@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>发现</title>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/mui.css"/>
+<!--		<link rel="stylesheet" type="text/css" href="../css/nav_table.css"/>-->
+		<link rel="stylesheet" type="text/css" href="../css/hz_homepage.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/swiper-4.3.2.min.css"/>
+		<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		
+		<header class="mui-bar mui-bar-nav mui-action-back">
+		    <!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+		    <h1 class="mui-title">货运天下</h1>
+		    <!--<span><img src="../img/faxian_jia.png"/></span>-->
+		</header>
+		<div class="mui-content">
+			<div class="main">
+				 <div id="slider">
+					<div class="swiper-container clearfix">
+						<ul class="swiper-wrapper">
+							<!--<li class="swiper-slide"><a href=""><img src="../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/></a></li>
+							<li class="swiper-slide"><a href=""><img src="../img/c8e9eef9f1c58ac516b51eaa584e7233_t01a6852a946b324a87.jpg"/></a></li>
+							<li class="swiper-slide"><a href=""><img src="../img/ea11d46b89dcd0c8e1b2a9b3fd06deeb_t01bdfaecfc44eba5e0.jpg"/></a></li>-->
+						</ul>
+					</div>
+			      	<div class="swiper-pagination"></div>	
+			    </div>
+				<div class="content">
+					<div class="content_left">
+						<div class="line_find" onclick="url(this)" data-url="hz_railwayfind.html">
+							专线查询
+						</div>
+						<div class="shipment" onclick="url(this)" data-url="hz_shipment.html">
+							<div class="iwant">
+								我要发货
+							</div>
+						</div>
+					</div>
+					<div class="content_right">
+						<div class="longcar" onclick="url(this)" data-url='hz_longcar.html?type=2'>长途车</div>
+						<div class="shortcar" onclick="url(this)" data-url='hz_longcar.html?type=3'>短途车</div>
+						<div class="find" onclick="checkPhone()">发现</div>
+					</div>
+				</div>
+			    <div class="newsremind">
+			    	<div class="news">
+			    		新消息提醒
+			    	</div>
+			    	<div class="newsworld">
+			    		您有新的订单，请尽快处理！
+			    	</div>
+			    	<div class="newstype">
+			    		<div class="cancel">
+			    			取消
+			    		</div>
+			    		<div class="sure">
+			    			确定
+			    		</div>
+			    	</div>
+			    </div>
+			    <div class="mask">
+			    	
+			    </div>
+		</div>
+	</body>
+	
+    <script type="text/javascript">
+    var userid=localStorage.getItem('user_id');
+    var carstatus=localStorage.getItem('car_status');
+    
+    if(carstatus==1){
+    	$('.iwant').html('我要接单');
+    	$('.shipment').attr('data-url','sj_ordereceive.html');
+    }else{
+    	$('.iwant').html('我要发货');
+    	$('.shipment').attr('data-url','hz_shipment.html');
+    }
+    /*广告*/
+    var str=''
+    $.ajax({
+	   	type:"post",
+	   	url:globalUrl+"index.php/Mobile/JkShare/adList",
+	   	data:{pid:1},
+	   	dataType:'json',
+	   	success:function(res){
+	   		var data=res.list;
+	   		for(var i=0;i<data.length;i++){
+	   			
+	   			str+='<li class="swiper-slide"><img src="'+picUrl+data[i].ad_code+'"/></li>';
+	   		  
+		
+	   		
+	   		}
+	   		
+	   		$('.swiper-wrapper').html(str);
+	   		var mySwiper = new Swiper('.swiper-container', {
+				autoplay: 4000,//可选选项，自动滑动，手指触屏滑动会停止自动轮播
+				autoplayDisableOnInteraction : false,//手指触屏滑动之后，重新开启自动轮播
+				initialSlide :0,//初始显示的li的索引
+				speed : 1000,//滑动的速度
+				observeParents:true,//当容器container宽度改变的时候(window.onresize或者自适应)自动更新Swiper
+				grabCursor : true,//鼠标抓手形状，触屏看不到
+				pagination : '.swiper-pagination',//下面的图标跟随切换
+				loop : true,//无缝轮播 自动在li列表的前面添加最后一个，在li列表后面添加第一个
+			
+		  });
+	   	}
+   	
+    });
+   
+   
+//  	$('.longcar').click(function(){
+//  		mui.openWindow({
+//  			url:'hz_longcar.html',
+//  			id:'hz_longcar.html'
+//  		})
+//  	})
+//  	$('.find').click(function(){
+//  		location.href='../discover/discover.html'
+//  	})
+    	function checkPhone(){
+		    plus.webview.currentWebview().opener().evalJS('discover()');
+		}
+    </script>
+</html>

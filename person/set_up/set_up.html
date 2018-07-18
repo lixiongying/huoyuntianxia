@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>设置</title>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+<!--		<link rel="stylesheet" type="text/css" href="../../css/nav_table.css"/>-->
+		<link rel="stylesheet" type="text/css" href="../../css/set_up.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/reset.css"/>
+		<script src="../../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+	    <style type="text/css">
+	    	
+	    </style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-action-back">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
+		    <h1 class="mui-title">设置</h1>
+		    
+		    <!--<span><img src="../img/faxian_jia.png"/></span>-->
+		</header>
+		<div class="mui-content">
+			<div class="main">
+				<div class="main_li"  onclick="url(this)" data-url="set_phone/set_phone.html">
+					<div class="li_icon">
+						<img src="../../img/shezhi_bangdingshoujihao.png" alt="" />
+					</div>
+					<div class="li_name">
+						<div class="name_left">绑定手机号</div>
+						<div class="name_right phoneNumber">13631049499</div>
+						<div class="clear"></div>
+					</div>
+					<div class="li_img">
+						<img src="../../img/next.png" alt="" />
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="main_li"  onclick="url(this)" data-url="set_newspsd/set_newspsd.html">
+					<div class="li_icon">
+						<img src="../../img/shezhi_xiugaidenglumima.png" alt="" />
+					</div>
+					<div class="li_name">
+						<div class="name_left">修改登录密码</div>
+						<div class="name_right"></div>
+						<div class="clear"></div>
+					</div>
+					<div class="li_img">
+						<img src="../../img/next.png" alt="" />
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="main_li" onclick="urlnext(this)" data-url="set_alipay/set_alipay.html">
+					<div class="li_icon">
+						<img src="../../img/shezhi_bangdingtixianzhanghao.png" alt="" />
+					</div>
+					<div class="li_name">
+						<div class="name_left">绑定提现账号</div>
+						<div class="name_right havesetup">已设置</div>
+						<div class="clear"></div>
+					</div>
+					<div class="li_img">
+						<img src="../../img/next.png" alt="" />
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="main_li" onclick="urlcompany(this)" data-url="set_id/set_id.html" id="comfirm">
+					<div class="li_icon">
+						<img src="../../img/shezhi_shimingrenzheng.png" alt="" />
+					</div>
+					<div class="li_name">
+						<div class="name_left">实名认证</div>
+						<div class="name_right havecomfirm">已认证</div>
+						<div class="clear"></div>
+					</div>
+					<div class="li_img">
+						<img src="../../img/next.png" alt="" />
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="main_li driver" onclick="url(this)" data-url="set_driver/set_driver.html">
+					<div class="li_icon">
+						<img src="../../img/shezhi_chengweisiji.png" alt="" />
+					</div>
+					<div class="li_name">
+						<div class="name_left">成为司机</div>
+						<div class="name_right becomedriver"></div>
+						<div class="clear"></div>
+					</div>
+					<div class="li_img">
+						<img src="../../img/next.png" alt="" />
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="main_li tuijianma" onclick="url(this)" data-url="../code/code.html">
+					<div class="li_icon">
+						<img src="../../img/wode_fenxiangerweima.png" alt="" />
+					</div>
+					<div class="li_name">
+						<div class="name_left">分享推荐码</div>
+						<div class="name_right"></div>
+						<div class="clear"></div>
+					</div>
+					<div class="li_img">
+						<img src="../../img/next.png" alt="" />
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="main_li" onclick="url(this)" data-url="set_truck/set_truck.html">
+					<div class="li_icon">
+						<img src="../../img/shezhi_bangdingcheliang.png" alt="" />
+					</div>
+					<div class="li_name">
+						<div class="name_left">绑定车辆</div>
+						<div class="name_right bcar"></div>
+						<div class="clear"></div>
+					</div>
+					<div class="li_img">
+						<img src="../../img/next.png" alt="" />
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="mask">
+				
+			</div>
+		</div>
+		<script type="text/javascript">
+			var userid=localStorage.getItem('user_id');
+			var carstatus=localStorage.getItem('car_status');
+			if(carstatus==1){
+				$('.driver').hide();
+				$('#comfirm').hide();
+			}else{
+				$('.tuijianma').hide()
+			}
+
+			var car_status;
+			var company_status;
+			var mobile_validated;
+			var alipay;
+			var bg_car;
+			
+			function ajaxstatus(){
+				$.ajax({	
+					type:"post",
+					url:globalUrl+'index.php/Mobile/JkUser/set_user',
+					data:{user_id:userid},
+					dataType:'json',
+					success:function(res){
+						var data=res.user;
+						car_status=data.car_status;/*成为司机*/
+						company_status=data.company_status;/*实名认证*/
+						mobile_validated=data.mobile_validated;/*手机绑定*/
+						alipay=data.alipay;
+						bg_car=data.bg_car;
+					
+						$('.phoneNumber').html(data.mobile);
+						if(car_status==1){
+							reminder('恭喜你通过审核');
+							makesure();
+	//						$('.becomedriver').html('已认证');
+						}else if(car_status==2){
+							$('.becomedriver').html('审核失败');
+						}else if(car_status==0){
+							$('.becomedriver').html('');
+						}
+	//					
+						if(company_status==1||company_status==2){
+							$('.havecomfirm').html('已认证');
+							
+							$('.havecomfirm').addClass('addcolor');
+							
+						
+						}else if(company_status==3||company_status==0){
+							$('.havecomfirm').html('未认证');
+							$('.havecomfirm').removeClass('addcolor');
+							
+						}
+						
+						if(mobile_validated==1){
+							
+							$('.phoneNumber').html(data.mobile);
+							
+						}else{
+							$('.phoneNumber').html('未绑定')
+						}
+						
+						if(alipay==1){
+							$('.havesetup').html('已设置');
+							$('.havesetup').addClass('addcolor');
+							
+						}else if(alipay==2||alipay==0){
+							$('.havesetup').html('未设置');
+							$('.havesetup').removeClass('addcolor');
+						
+						}
+						
+						
+						
+						if(bg_car==1){
+							$('.bcar').html('已通过');
+						}else if(bg_car==2){
+							$('.bcar').html('审核失败');
+						}else if(bg_car==0){
+							$('.bcar').html('');
+						}
+						
+						
+					}
+				})
+			}
+			
+			if(alipay==1){
+				$('.havesetup').html('已设置');
+				$('.havesetup').addClass('addcolor');
+				
+			}else if(alipay==2||alipay==0){
+				$('.havesetup').html('未设置');
+				$('.havesetup').removeClass('addcolor');
+			
+			}
+			ajaxstatus();
+			
+			function urlnext(obj){
+				
+				
+				var url=$(obj).attr('data-url');
+				if(alipay==1){
+					mui.toast('你已设置过，请联系客服');
+					return false;
+				}else{
+					mui.openWindow({
+						url:url,
+						id:url
+					})
+				}
+				
+				
+			}
+			function urlcompany(obj){
+//				alert(company_status)
+				var url=$(obj).attr('data-url');
+				if(company_status==1||company_status==2){
+					mui.toast('你已认证，请联系客服');
+					return;
+				}else{
+					mui.openWindow({
+						url:url,
+						id:url
+					})
+				}
+					
+				
+			}
+			
+			
+			function makesure(){
+				$('.mask').hide();
+				$('.reminder').hide();
+			}
+		</script>
+	</body>
+</html>

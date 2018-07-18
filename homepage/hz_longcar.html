@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>发现</title>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+		<!--<link rel="stylesheet" type="text/css" href="../css/mui.css"/>-->
+        <!--<link href="../css/mui.picker.css" rel="stylesheet" />
+		<link href="../css/mui.poppicker.css" rel="stylesheet" />-->
+		<link rel="stylesheet" type="text/css" href="../css/mui.picker.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/hz_longcar.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/swiper-4.3.2.min.css"/>
+		<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.picker.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../js/city.data.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+	  <style type="text/css">
+	  	.mui-picker{
+	  		background: white;
+	  	}
+	     .mui-pciker-list li.highlight{
+	  		color: #279cfe;
+	  	}
+	  	.tc_typeofcars .carsitem .length_two .box .addcarcolor{
+	    		color: #279cfe;;
+	    	}
+	    	.tc_typeofcars .carsitem .carstype .type_two .addbgcolor{
+		    color: #279cfe;
+		}
+	  /*.cardetails .carsitem .z_place .cl{
+	  	color: chartreuse;
+	  }*/
+	  </style>
+	</head>
+	<body>
+		
+		<header class="mui-bar mui-bar-nav mui-action-back">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">长途车</h1>
+		    
+		    <!--<span><img src="../img/faxian_jia.png"/></span>-->
+		</header>
+		<div class="mui-content">
+			<div class="main">
+				<div class="cartype">
+					
+					<div class="carsitem" id="sel_city">
+						<div class="carplace">
+							出发地
+						</div>
+						<div class="carplace_img">
+							<img src="../img/zhuanxianxiangqing_xiehuowangdian_down.png"/>
+						</div>
+					</div>
+					
+					<div class="carsitem" id="sel_cityone">
+						<div class="carplace">
+							目的地
+						</div>
+						<div class="carplace_img">
+							<img src="../img/zhuanxianxiangqing_xiehuowangdian_down.png"/>
+						</div>
+					</div>
+					<div class="carsitem" id="loading">
+						<div class="carplace">
+							装货时间
+						</div>
+						<div class="carplace_img">
+							<img src="../img/zhuanxianxiangqing_xiehuowangdian_down.png"/>
+						</div>
+					</div>
+					<div class="carsitem" id="carlentype">
+						<div class="carplace">
+							车长车型
+						</div>
+						<div class="carplace_img">
+							<img src="../img/zhuanxianxiangqing_xiehuowangdian_down.png"/>
+						</div>
+					</div>
+				</div>
+				
+				<div class="main_ul">
+					<div class="main_li">
+						<div class="li_icon f-left">
+							<img src="../img/changtuchexiangqing_qidian.png"/>
+						</div>
+						<div class="li_input f-right">
+							<input type="" class="chufadi" name="" value="" placeholder="请选择出发地" id="location"/>
+						</div>
+					</div>
+					<div class="main_li">
+						<div class="li_icon f-left">
+							<img src="../img/changtuchexiangqing_zhongdian.png"/>
+						</div>
+						<div class="li_input f-right">
+							<input type="" name="" class="mudidi" value="" placeholder="请选择目的地" id="location1"/>
+						</div>
+					</div>
+					<div class="main_li">
+						<div class="li_icon f-left">
+							<img src="../img/changtuchexiangqing_shijian.png"/>
+						</div>
+						<div class="li_input f-right">
+							<input type="" name="" class="time_start" value="" placeholder="请选择装货时间" class="demo_datetime" style="border-bottom:2px solid #f0eff4;padding: 0;;"/>
+						</div>
+					</div>
+					<div class="main_li">
+						<div class="li_icon f-left">
+							<img src="../img/changtuche_chexingchechang.png"/>
+						</div>
+						<div class="li_input f-right">
+							<input type="" name="" value="" placeholder="请选择车长类型" class="carsitem" style="border:0;padding: 0;;"/>
+						</div>
+					</div>
+					
+					<div class="search"  onclick="getline()">搜索</div>
+				</div>
+				
+				
+				<div class="cars">
+					<!--<div class="cardetails" onclick="url(this)" data-url='hz_carsdetail.html'>
+						<div class="car_pic">
+							<img src="../img/c8e9eef9f1c58ac516b51eaa584e7233_t01a6852a946b324a87.jpg"/>
+						</div>
+						<div class="carsitem">
+							<div class="z_place">
+								<div><img src="../img/changtuche_zhuangchedizhi.png"/></div>
+								<div class="">广州市天河区</div>
+							</div>
+							<div class="x_place">
+								<div><img src="../img/changtuche_xiehuodizhi.png"/></div>
+								<div class="">广州市白云区</div>
+							</div>
+							<div class="time">
+								<div class="time_pic"><img src="../img/changtuche_shijian.png"/></div>
+								<div class="time_start">2018-05-01 </div>
+							</div>
+							<div class="parameter">
+								<div class="time_pic"><img src="../img/changtuche_chexingchechang.png"/></div>
+								<div class="time_start">6.8米 平板车, 22.1方 6.0吨</div>
+							</div>
+						</div>
+						
+					</div>-->
+					
+					<!--<div class="cardetails">-->
+						<!--<div class="car_pic">
+							<img src="../img/c8e9eef9f1c58ac516b51eaa584e7233_t01a6852a946b324a87.jpg"/>
+						</div>
+						<div class="carsitem">
+							<div class="z_place">
+								<div><img src="../img/changtuche_zhuangchedizhi.png"/></div>
+								<div class="">广州市天河区</div>
+							</div>
+							<div class="x_place">
+								<div><img src="../img/changtuche_xiehuodizhi.png"/></div>
+								<div>广州市白云区</div>
+							</div>
+							<div class="time">
+								<div class="time_pic"><img src="../img/changtuche_shijian.png"/></div>
+								<div class="time_start">2018-05-01 </div>
+							</div>
+							<div class="parameter">
+								<div class="time_pic"><img src="../img/changtuche_chexingchechang.png"/></div>
+								<div class="time_start">6.8米 平板车 22.1方 6.0吨</div>
+							</div>
+						</div>
+						
+					</div>-->
+				</div>
+				<!--出发地开始-->
+				<!--<div class="startedPlace endPlace" style="display: none;">
+					<div class="">
+						
+						<div class="zone" id="zone">
+						   <div class="provinece place">
+						   	选择省
+						   </div>	
+						    <div class="town place">
+						   	选择市
+						   </div>
+						    <div class="district place">
+						   	选择区
+						   </div>
+						</div>
+					
+				        <div id='cityResult' class="ui-alert"></div>
+					</div>
+					
+				</div>-->
+				
+				<!--<div class="selectData">
+					<div class="Data" id="Data">
+					   <div class="Data_year">
+					   	选择年
+					   </div>
+					   <div class="Data_month">
+					   	选择月
+					   </div>	
+					   <div class="Data_date">
+					   	选择日
+					   </div>	
+					    <div class="Data_hours">
+					   	时
+					   </div>
+					    <div class="Data_mintue">
+					   	分
+					   </div>
+					</div>
+					
+				</div>-->
+				
+				<!--车长类型开始-->				
+				 <div class="tc_typeofcars">
+			    	<div class="carcancel">
+			    		<div class="cancel">
+			    			<img src="../img/guanbi.png"/>
+			    		</div>
+			    		
+			    	</div>
+			    	<div class="carsitem">
+			    		<div class="carslength">
+			    			<div class="length_one">
+			    				车长可多选(最多选三个)
+			    			</div>
+			    			<div class="length_two" id="carlen">
+			    				<div class="box">
+			    					<div class="addcarcolor">
+			    					1.7米面包车（0.8吨）
+			    				    </div>
+			    				</div>
+			    				
+			    				<div class="box">
+			    					<div class="">
+			    					1.7米面包车（0.8吨）
+			    				    </div>
+			    				</div>
+			    				<div class="box">
+			    					<div class="">
+			    					1.7米面包车（0.8吨）
+			    				    </div>
+			    				</div>
+			    				<div class="box">
+			    					<div class="">
+			    					1.7米面包车（0.8吨）
+			    				    </div>
+			    				</div>
+			    			</div>
+			    		</div>
+			    		
+			    		<div class="carstype">
+			    			<div class="type_one">
+			    				车型
+			    			</div>
+			    			
+			    			<div class="type_two" id="Cartype">
+			    				<div class="addbgcolor">
+			    					不限车型
+			    				</div>
+			    				<div class="">
+			    					箱式密封
+			    				</div>
+			    			</div>
+			    				
+			    			
+			    		</div>
+			    		
+			    	</div>
+			    	<div class="carsure" onclick="carsure(this)">
+			    		确定
+			    	</div>
+			     </div>
+			    <!--车长类型结束	-->
+				
+				<!--查看详情后的提示-->
+				<div class="reminders" style="display: none;">
+					<div class="reminder_title">提示</div>
+						<div class="reminder_world">查看详情将产生<span class="xunibi"></span>个虚拟币的消耗哦</div>
+						<div class="reminder_sc">
+							<div onclick="cancell()">取消</div>
+							<div class="sure" onclick="Makesure()">确定</div>
+						</div>
+					</div>
+				</div>
+				
+				
+			    </div>
+              <div class="mask">
+              	
+              </div>
+            
+             <!--<div class="" onclick="url(this)" data-url = "hz_carsdetail.html">
+             	dsda
+             </div>-->
+		  </div>
+	</body>
+	<script src="../js/cartype.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+
+	</script>
+	
+</html>

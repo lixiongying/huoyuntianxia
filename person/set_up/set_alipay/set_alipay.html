@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>修改登录密码</title>
+		<link rel="stylesheet" type="text/css" href="../../../css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../css/mui.css"/>
+<!--		<link rel="stylesheet" type="text/css" href="../../../css/nav_table.css"/>-->
+		<link rel="stylesheet" type="text/css" href="../../../css/set_alipay.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../css/reset.css"/>
+		<script src="../../../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-action-back">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
+		    <h1 class="mui-title">绑定支付宝</h1>
+		    
+		    <!--<span><img src="../img/faxian_jia.png"/></span>-->
+		</header>
+		<div class="mui-content">
+			<div class="main">
+				
+				<div class="main_li">
+					<div class="li_phone">支付宝实名：  </div>
+					<div class="li_number">
+						<input type="text" name="" id="username" placeholder="请输入支付宝认证实名" value="" />
+					</div>
+				</div>
+				<div class="main_li">
+					<div class="li_phone">支付宝账户： </div>
+					<div class="li_number" >
+						<input type="text" name="" id="usernumber" placeholder="请输入支付宝账户" value="" />
+					</div>
+				</div>
+				<div class="tishi">说明：此支付宝账户用于本人提现使用，请准确无误输入！</div>
+				<div class="main_sure main_newssure"> <!--main_newssure禁用时样式-->
+					<div class="sure">确定修改</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$('input').change(function(){
+				$('.main_sure').removeClass('main_newssure')
+			})
+			$('.sure').click(function(){
+				var userid=localStorage.getItem('user_id')
+				if($('#username').val()==''||$('#usernumber').val()==''){
+					mui.toast('信息不能为空')
+					return false;
+				}else{
+					var username=$('#username').val();
+					var usernumber=$('#usernumber').val();
+					$.ajax({
+						type:"post",
+						url:globalUrl+"index.php/Mobile/JkUser/zhifubaos",
+						dataType:'json',
+			            data:{alipay_name:username,user_id:userid,alipay_number:usernumber},
+			            success:function(res){
+			            	var data=res;
+			            	if(data.code==1){
+			            		mui.toast(data.msg);
+			            	}else{
+			            		mui.toast(data.msg);
+			            	}
+			            }
+			          })
+				}
+			})
+		</script>
+	</body>
+</html>

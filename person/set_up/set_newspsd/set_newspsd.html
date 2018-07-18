@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>修改登录密码</title>
+		<link rel="stylesheet" type="text/css" href="../../../css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../css/mui.css"/>
+<!--		<link rel="stylesheet" type="text/css" href="../../../css/nav_table.css"/>-->
+		<link rel="stylesheet" type="text/css" href="../../../css/set_psd.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../css/reset.css"/>
+		<script src="../../../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-action-back">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
+		    <h1 class="mui-title">修改登录密码</h1>
+		    
+		    <!--<span><img src="../img/faxian_jia.png"/></span>-->
+		</header>
+		<div class="mui-content">
+			<div class="main">
+				<div class="tishi">请输入6~15位数字/字母/下划线</div>
+				<div class="main_li one_li">
+					<div class="li_phone">原密码</div>
+					<div class="li_number">
+						<input type="password"  placeholder="请输入原来的登录密码" value="" class="originpsd"/>
+					</div>
+				</div>
+				<div class="main_li">
+					<div class="li_phone">新密码</div>
+					<div class="li_number">
+						<input type="password" placeholder="请输入新设置的密码" value="" class="newpsd"/>
+					</div>
+				</div>
+				<div class="main_li">
+					<div class="li_phone">确定密码</div>
+					<div class="li_number last_number" >
+						<input type="password"  placeholder="请再次输入新设置的登录密码" value="" class="comfirmpsd"/>
+					</div>
+				</div>
+				
+				
+				<div class="main_sure ">
+					<div class="sure Sure">确定修改</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+	
+	$('.Sure').click(function(){
+		
+		    var userid=localStorage.getItem('user_id');
+			var originpsd=$('.originpsd').val();
+			
+			var newpsd=$('.newpsd').val();
+			var comfirmpsd=$('.comfirmpsd').val();
+			if(newpsd!=comfirmpsd){
+				mui.toast('原密码和新密码不一致');
+				return false;
+			}else if(originpsd==''||newpsd==''||comfirmpsd==''){
+				mui.toast('密码不能为空');
+				return false;
+			}else{
+			
+				$.ajax({
+					type:"post",
+					url:globalUrl+'index.php/Mobile/JkLg/setPayPassword',
+					data:{user_id:userid,password:originpsd,newPwd:newpsd},
+					dataType:'json',
+					success:function(res){
+						if(res.code==0){
+							mui.toast('修改成功');
+							mui.back();
+						}else{
+							mui.toast(res.msg)
+						}
+						
+					}
+				})
+			}
+
+	})
+			
+			
+
+		</script>
+	</body>
+</html>

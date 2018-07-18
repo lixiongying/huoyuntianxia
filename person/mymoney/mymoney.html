@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>我的钱包</title>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<!--<link rel="stylesheet" type="text/css" href="../../css/nav_table.css"/>-->
+		<link rel="stylesheet" type="text/css" href="../../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/mymoney.css"/>
+		<script src="../../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="../../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+
+		<style type="text/css">
+			#bg_fx{
+				display: block;
+				width: 1.5rem;
+				height: 1.2rem;
+				position: absolute;
+				left: 0.6rem;
+				top: 0.5rem;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a href="javascript:void(0);"><img src="../../img/back.png"/ id="bg_fx"></a>
+		    <h1 class="mui-title">我的钱包</h1>
+		     <span class="account" onclick="url(this)" data-url="detailed.html?type=0">账户明细</span>
+		    <!--<span><img src="../../img/faxian_jia.png"/></span>-->
+		</header>
+		<div class="mui-content">
+			<!-- 货主 -->
+			<div class="main huozhu">
+				<div class="fictitious">
+					<div class="virtual_coin">虚拟币：</div>
+					<div class="fictitious_number fictitious_numberb">120</div>
+					<div class="Virtual_currency" onclick="url(this)" data-url="detailed.html?type=1">
+              	   	  虚拟币明细
+              	   </div>
+				</div>
+				<div class="Recharge">
+					<div class="tishi">充值100元可获得1000虚拟币</div>
+					<div class="Recharge_ul clear">
+						<div class="Recharge_li">
+							<input type="tel" class="input_money"  value="" placeholder="请输入充值金额"/>
+							<div class="li_money">我要充值(元)</div>
+						</div>
+						<div class="Recharge_li">
+							<input type="tel" class="input_recharge" disabled value="" placeholder="自动计算币值"/>
+							<div class="li_coin">可获得币值</div>
+						</div>
+					</div>
+				</div>
+				<div class="Recharge_mode">
+					<div class="tishi">充值方式</div>
+					<div class="mode_ul">
+						<div class="mode_li clear webchat" data-type='0' onclick="change(this)">
+							<div class="li_left clear">
+								<div class="left_icon">
+									<img class="icon" src="../../img/wechatpay.png"/>
+								</div>
+								<div class="left_name">微信</div>
+							</div>
+							<div class="li_right">
+								<img src="../../img/zhuanxianxiangqing_xiehuowangdian_up.png"/>
+							</div>
+						</div>
+						<div class="mode_li clear alipay" data-type='1' onclick="change(this)">
+							<div class="li_left clear">
+								<div class="left_icon">
+									<img class="icon" src="../../img/alipay.png"/>
+								</div>
+								<div class="left_name">支付宝</div>
+							</div>
+							<div class="li_right">
+								<img src="../../img/zhuanxianxiangqing_xiehuowangdian_up.png"/>
+							</div>
+						</div>
+						 <input type="hidden" id="pay_type" value="0" />
+					</div>
+				</div>
+			</div>	
+			
+			<!-- 司机 -->
+			<div class="main siji">
+				<div class="fictitious income">
+					<div class="virtual_coin">收入(元)：</div>
+					<div class="fictitious_number fictitious_numbero user_money">100.00</div>
+				</div>
+				<div class="main_tixian">
+					<div class="tixian" onclick="withdrawal()">我要提现</div>
+				</div>
+				<div class="main_ul">
+					<div class="main_li">
+						<div class="incometime">今日/昨日收入</div>
+						<div class="income_value clear">
+							<div class="left_value today f-left">0.00</div>
+							<div class="right_value f-left yestoaday">100.00</div>
+							<div class="shuxian"></div>
+						</div>
+					</div>
+					<div class="main_li">
+						<div class="incometime">本周/上周收入</div>
+						<div class="income_value clear">
+							<div class="left_value f-left now_week">100.00</div>
+							<div class="right_value f-left up_week">100.00</div>
+							<div class="shuxian"></div>
+						</div>
+					</div>
+					<div class="main_li">
+						<div class="incometime">本月/上月收入</div>
+						<div class="income_value clear">
+							<div class="left_value f-left now_mouth">100.00</div>
+							<div class="right_value f-left up_mouth">100.00</div>
+							<div class="shuxian"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+	    var userid=localStorage.getItem('user_id');
+	    var carsttus=localStorage.getItem('car_status');
+	    
+	    if(carsttus==0){
+	    	$('.huozhu').show();
+	    	$('.siji').hide();
+	    }else if(carsttus==1){
+	    	$('.huozhu').hide();
+	    	$('.siji').show();
+	    }
+		 $.ajax({
+		   	type:"post",
+		   	url:globalUrl+"index.php/Mobile/JkUser/myLists",
+		   	data:{user_id:userid},
+		   	dataType:'json',
+		   	success:function(res){
+		   		var data=res.user;
+		   		if(carsttus==0){
+		   			$('.fictitious_numberb').html(data.vitval_coin)
+		   		}
+		   		
+		   	}
+	    });
+	    
+	    $.ajax({
+	    	type:"post",
+	    	url:globalUrl+"index.php/Mobile/JkUser/user_liushui",
+	    	data:{user_id:userid},
+	        dataType:'json',
+	        success:function(res){
+	        	var data=res.list;
+	        	$('.today').html(data.today);
+	        	$('.yestoaday').html(data.tomorrow);
+	        	$('.now_week').html(data.now_week);
+	        	$('.up_week').html(data.up_week);
+	        	$('.now_mouth').html(data.now_mouth);
+	        	$('.up_mouth').html(data.up_mouth);
+	        	$('.user_money').html(data.user_money);
+	        }
+	    });
+	
+	
+		$('.input_money').bind('input propertychange', function(e) { 
+		 	var money = parseFloat($(this).val());
+		 	var input_recharge = money*10;
+		 	$('.input_recharge').val(input_recharge)
+		});
+		$('#bg_fx').click(function(){
+		   	mui.back()
+		})
+		
+		function withdrawal(){
+			var price=$('.user_money').html();
+			$.ajax({
+				type:"post",
+				url:globalUrl+"index.php/Mobile/JkUser/tixina",
+				data:{user_id:userid,price:price,type:1},
+				dataType:'json',
+				success:function(res){
+					var data=res;
+					if(res.code==0){
+						mui.toast('提现成功');
+						mui.back()
+					}else{
+						mui.toast(data.msg);
+					}
+				}
+			});
+		}
+		
+		
+		function change(obj){
+			
+			if($(obj).attr('data-type')==0){
+				$('#pay_type').attr('value',0);
+				paytype=0;
+				pay('wxpay');
+			}else if($(obj).attr('data-type')==1){
+				$('#pay_type').attr('value',1);
+				paytype=1;
+				pay('alipay')
+			}
+			
+		}
+		
+
+		var pays={};
+		function plusReady(){
+			// 获取支付通道
+			plus.payment.getChannels(function(channels){
+		
+				for(var i in channels){
+					var channel=channels[i];
+					pays[channel.id]=channel;
+	
+					checkServices(channel);
+				}
+		//		info.innerText=txt;
+			},function(e){
+		//		outLine("获取支付通道失败："+e.message);
+			});
+		}
+		document.addEventListener('plusready',plusReady,false);
+		// 检测是否安装支付服务
+		function checkServices(pc){
+			if(!pc.serviceReady){
+				var txt=null;
+				switch(pc.id){
+					case "alipay":
+					txt="检测到系统未安装“支付宝快捷支付服务”，无法完成支付操作，是否立即安装？";
+					break;
+					default:
+					txt="系统未安装“"+pc.description+"”服务，无法完成支付，是否立即安装？";
+					break;
+				}
+				plus.nativeUI.confirm(txt,function(e){
+					if(e.index==0){
+						pc.installService();
+					}
+				},pc.description);
+			}
+		}
+		
+		var w=null;
+		// 支付
+		function pay(id){
+			var Money=$('.input_money').val();
+			var orderSn;
+//			alert('s')
+			if(Money==''||Money==undefined||Money==null||Money==0){
+				mui.toast('请输入充值金额');
+				
+				return;
+			}else{
+				$.ajax({
+	            	type:"post",
+					url:globalUrl+'index.php/Mobile/JkMoney/recharge',
+					data:{account:Money,user_id:userid},
+					success:function(res){
+						var data=res;
+						if(data.code==0){
+							orderSn=data.order_sn;
+							
+						}else{
+							mui.toast(data.msg);
+							return;
+						}
+					}
+	            })
+			}
+
+            
+		
+			if(w){return;}//检查是否请求订单中
+	
+			var appid=plus.runtime.appid;
+			if(navigator.userAgent.indexOf('StreamApp')>=0){
+				appid='Stream';
+			}
+			
+			w=plus.nativeUI.showWaiting();
+		//	alert(JSON.stringify(w))
+			// 请求支付订单
+			
+			var amount = Money;//金额
+			var xhr=new XMLHttpRequest();
+			xhr.onreadystatechange=function(){
+				switch(xhr.readyState){
+					case 4:
+					w.close();
+					w=null;
+					if(xhr.status==200){
+		//				alert(11)
+						var order=xhr.responseText;
+		//				alert(pays[id])
+						plus.payment.request(pays[id],order,function(result){
+		//					plus.nativeUI.alert("支付成功：感谢你的支持，我们会继续努力完善产品。",function(){
+		//						alert(22)
+//								mui.openWindow({
+//									url:"payforsuccess.html?amount="+Money+'&paytype='+paytype,
+////									url:"payforsuccess.html?id='+data[i].id+'&name='+data[i].mobile_name+'",
+////									url:'payforsuccess.html',
+//									id:"payforsuccess.html"
+//								})
+                              plus.webview.getWebviewById('person/person.html').evalJS("shuaxin()");
+                              mui.back();
+		//					},"捐赠");
+							var param={};
+							param.total_amount=Money;
+							param.user_id=localStorage.getItem('user_id')
+							param.orderSn = orderSn;
+							//param.type = 1;
+							if(id=='alipay'){
+								var successUrl=globalUrl+"index.php/Mobile/JkPay/alipaying";
+								
+								mui.post(successUrl,param,function(data){
+								//	alert(JSON.stringify(data))
+								
+	//							   
+								})
+							}
+						},function(e){
+			//					outLine("----- 支付失败 -----");
+			//					plus.nativeUI.alert("更多错误信息请参考支付(Payment)规范文档：http://www.html5plus.org/#specification#/specification/Payment.html",null,"支付失败："+e.code);
+							mui.toast('支付已取消')
+								
+							});
+					}else{
+		//				outLine("----- 请求订单失败 -----");
+		//				outLine( xhr.status );
+		//				plus.nativeUI.alert("获取订单信息失败！",null,"捐赠");
+					mui.toast('请填写充值金额')
+					}
+					break;
+					default:
+					break;
+				}
+			}
+			var user_id=localStorage.getItem('user_id');
+			
+			if(id=='alipay'){
+			  var newUrl=globalUrl+'index.php/Mobile/JkPay/alipaying?total_amount=0.01&orderSn='+orderSn+'&user_id='+user_id
+			  
+			}else if(id=='wxpay'){
+				var newUrl=globalUrl+'index.php/Mobile/JkPay/wechatPay?totalFee=0.01&orderSn='+orderSn+'&user_id='+user_id
+				
+			}
+		
+			xhr.open('GET',newUrl);
+		//	outLine("请求支付订单："+url+amount);
+		//	outLine("请求支付订单："+newUrl+amount);
+			xhr.send();
+		}
+		
+
+		
+	</script>
+</html>

@@ -1,0 +1,158 @@
+header a {
+  color: white;
+}
+.main {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.mui-bar {
+  width: 20rem;
+  height: 2.34666667rem;
+  background-color: #279cfe;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.mui-title {
+  color: #ffffff;
+  font-size: 0.96rem;
+}
+.zone {
+  width: 100%;
+  height: 7.46666667rem;
+  background-color: #ffffff;
+  padding: 0 0.64rem;
+}
+.zone .startplace {
+  width: 100%;
+  height: 3.73333333rem;
+}
+.zone .startplace .place_one {
+  width: 0.96rem;
+  height: 1.06666667rem;
+  margin-top: 1.33333333rem;
+  margin-left: 0.53333333rem;
+  display: inline-block;
+  float: left;
+}
+.zone .startplace .place_two {
+  width: 13.33333333rem;
+  height: 3.73333333rem;
+  display: inline-block;
+  float: left;
+}
+.zone .startplace .place_two input {
+  padding: 0;
+  margin: 0;
+  line-height: 3.73333333rem;
+  height: 3.73333333rem;
+  padding-left: 0.8rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.8rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  border: none;
+  border-bottom: 1px solid #F5F5F5;
+}
+.zone .endplace {
+  width: 100%;
+  height: 3.73333333rem;
+}
+.zone .endplace .place_one {
+  width: 0.96rem;
+  height: 1.06666667rem;
+  margin-top: 1.33333333rem;
+  margin-left: 0.53333333rem;
+  display: inline-block;
+  float: left;
+}
+.zone .endplace .place_two {
+  width: 13.33333333rem;
+  height: 3.73333333rem;
+  display: inline-block;
+  float: left;
+}
+.zone .endplace .place_two input {
+  padding: 0;
+  margin: 0;
+  line-height: 3.73333333rem;
+  height: 3.73333333rem;
+  padding-left: 0.8rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.8rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  border: none;
+  border-bottom: 1px solid #F5F5F5;
+}
+.product {
+  width: 100%;
+}
+.product .productitem {
+  width: 20rem;
+  height: 5.76rem;
+  background-color: #ffffff;
+}
+.product .productitem .itemimg {
+  width: 4.10666667rem;
+  height: 3.73333333rem;
+  display: inline-block;
+  float: left;
+  margin-left: 0.64rem;
+  margin-top: 0.64rem;
+}
+.product .productitem .itemmessage {
+  width: 13.33333333rem;
+  height: 5.76rem;
+  display: inline-block;
+  float: left;
+}
+.itemmessage .message {
+  width: 100%;
+  height: 1.33333333rem;
+  margin-top: 0.64rem;
+  margin-left: 0.66666667rem;
+}
+.itemmessage .message .message_one {
+  width: 1.06666667rem;
+  height: 1.04rem;
+  display: inline-block;
+  float: left;
+  margin-top: 0.13333333rem;
+}
+.itemmessage .message .message_two {
+  padding-left: 0.26666667rem;
+  height: 1.33333333rem;
+  width: 12.26666667rem;
+  font-family: PingFang-SC-Bold;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.33333333rem;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  display: inline-block;
+  float: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.next {
+  width: 100%;
+  height: 2.34666667rem;
+  background-color: #279cfe;
+  text-align: center;
+  line-height: 2.34666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  position: fixed;
+  bottom: 0;
+  letter-spacing: 0px;
+  color: #ffffff;
+}

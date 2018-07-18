@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>我要接单</title>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/mui.picker.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/sj_orderlist.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		
+		<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+	   <style type="text/css">
+	   	.nullData{
+	   		width: 100%;
+	   		height: 10rem;
+	   		text-align: center;
+	   		line-height: 10rem;;
+	   		font-size: 1.2rem;
+	   		color: #CCCCCC;
+	   	}
+	   </style>
+	</head>
+	<body>
+		
+		<header class="mui-bar mui-bar-nav mui-action-back">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <div class="speicalline">
+             	 <div class="line_one">
+             	 	广州
+             	 </div>
+             	  <div class="line_img">
+             	 	<img src="../img/zhuanxianchaxun_xianlu.png"/>
+             	 </div>
+             	  <div class="line_two">
+             	 	深圳
+             	 </div>
+             </div>>
+		   
+		    <!--<span><img src="../img/faxian_jia.png"/></span>-->
+		</header>
+		<div class="mui-content">
+			<div class="main">
+				<div class="nullData">
+						暂无发布线路
+					</div>
+				<div class="product">
+					
+					<div class="productitem clearfix">
+						<div class="itemimg">
+							<img src="../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/>
+						</div>
+						<div class="itemmessage clearfix">
+							<div class="message clearfix">
+								<div class="message_one"><img src="../img/changtuche_zhuangchedizhi.png"/></div>
+								<div class="message_two">广州市白云区太和镇物ssssssssssssssssss</div>
+							</div>
+							
+							<div class="message clearfix">
+								<div class="message_one"><img src="../img/changtuche_xiehuodizhi.png"/></div>
+								<div class="message_two">广州市白云区太和镇物流园K栋sadasdas111</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>  
+		</div>
+		<script type="text/javascript">
+			var url=location.href;
+			var start_address=decodeURI(getUrl(url).start_address);
+			var end_address=decodeURI(getUrl(url).end_address);
+			var $elemtone=decodeURI(getUrl(url).$elemtone);
+			var $elemttwo=decodeURI(getUrl(url).$elemttwo);
+			$('.line_one').html($elemtone);
+			$('.line_two').html($elemttwo);
+			order();
+			function order(){
+				$.ajax({
+					type:'post',
+					url:globalUrl+'index.php/Mobile/JkOrder/userLineList',
+					data:{start_address:$elemtone,end_address:$elemttwo},
+					dataType:'json',
+					success:function(res){
+						var data=res.root;
+						var str='';
+						
+							for(var i=0;i<data.length;i++){
+								if(data.length==0){
+									$('.nullData').show();
+								}else{
+									$('.nullData').hide();
+								
+									str+='<div class="productitem clearfix">';
+									str+='<div class="itemimg"><img src="'+data[i].original_img+'"/></div>';
+									str+='<div class="itemmessage clearfix">';
+									str+='<div class="message clearfix">';
+									str+='<div class="message_one"><img src="../img/changtuche_zhuangchedizhi.png"/></div>';
+									str+='<div class="message_two">'+data[i].start_address+'</div>';
+									str+='</div>';
+									str+='<div class="message clearfix">';
+									str+='<div class="message_one"><img src="../img/changtuche_xiehuodizhi.png"/></div>';
+									str+='<div class="message_two">'+data[i].end_address+'</div>';
+									str+='</div>';
+									str+='</div>';
+									str+='</div>';
+								}
+							}
+							$('.product').html(str);
+						
+						
+					}
+				})
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>身份证验证(企业货主)</title>
+		<link rel="stylesheet" type="text/css" href="../../../css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../css/mui.css"/>
+<!--		<link rel="stylesheet" type="text/css" href="../../../css/nav_table.css"/>-->
+		<link rel="stylesheet" type="text/css" href="../../../css/set_id.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../css/imageviewer.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../css/reset.css"/>
+		<script src="../../../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+	    <!--<script src="../../../js/new_file.js" type="text/javascript" charset="utf-8"></script>-->
+	    	
+	  <script src="../../../js/confirm.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="../../../js/mui.previewimage.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="../../../js/mui.zoom.js" type="text/javascript" charset="utf-8"></script>
+	  
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-action-back">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
+		    <h1 class="mui-title">身份证验证(企业货主)</h1>
+		    
+		    <!--<span><img src="../img/faxian_jia.png"/></span>-->
+		</header>
+		<div class="mui-content">
+			<div class="main">
+				
+				<div class="main_li">
+					<div class="li_idname">请上传法人身份证正面照 </div>
+					<div class="li_id">
+						<div class="id_left">
+							<div class="left_img image-item" onclick="showActionSheet(this)" data-type="1" id="imgone">
+								<img  src="../../../img/woyaofahuo_tianjiatupian.png" class="picBig" />
+							</div>
+							
+						</div>
+						<div class="id_right">
+							<div class="right_img rightone"  id="">
+								<img src="../../../img/shenfenzhengmian.png">
+							</div>
+							<div class="right_yangli">（样例）</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<input type="hidden" id="ckjl.id" name="ckjl.id" value="430">
+				<div class="main_li">
+					<div class="li_idname">请上传法人身份证背面照 </div>
+					<div class="li_id">
+						<div class="id_left">
+							<div class="left_img image-item" onclick="showActionSheet(this)" data-type="2" id="imgtwo">
+								<img src="../../../img/woyaofahuo_tianjiatupian.png"/>
+							</div>
+							
+						</div>
+						<div class="id_right">
+							<div class="right_img righttwo">
+								<img src="../../../img/shenfenbeimian.png">
+							</div>
+							<div class="right_yangli">（样例）</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="main_li companystatus">
+					<div class="li_idname">请上传企业营业执照 </div>
+					<div class="li_id">
+						<div class="id_left">
+							<div class="left_img image-item" onclick="showActionSheet(this)" data-type="3" id="imgthree">
+								<img src="../../../img/woyaofahuo_tianjiatupian.png"/>
+							</div>
+							
+						</div>
+						<div class="id_right">
+							<div class="right_img rightthree"  id="">
+								<img src="../../../img/yingyezhizhao.png">
+							</div>
+							<div class="right_yangli">（样例）</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				
+				<div class="main_sure"> <!--main_newssure禁用时样式-->
+					<div class="sure" onclick="uploadImg()">确定修改</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+		
+			
+					mui.previewImage()
+		</script>
+	</body>
+</html>

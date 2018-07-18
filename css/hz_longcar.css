@@ -1,0 +1,469 @@
+header a {
+  color: white;
+}
+.main {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.mui-bar {
+  width: 20rem;
+  height: 2.34666667rem;
+  background-color: #279cfe;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.mui-title {
+  color: #ffffff;
+  font-size: 0.96rem;
+}
+.f-left {
+  float: left;
+}
+.f-right {
+  float: right;
+}
+.main .main_ul {
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.53333333rem;
+}
+.main_ul .main_li {
+  width: 100%;
+  height: 2.82666667rem;
+  background: #fff;
+}
+.main_li .li_icon {
+  width: 12%;
+  height: 2.82666667rem;
+  padding-left: 0.64rem;
+}
+.li_icon img {
+  margin-top: 0.88rem;
+  width: 1.06666667rem;
+  height: 1.06666667rem;
+}
+.main_li .li_input {
+  width: 88%;
+  height: 2.82666667rem;
+}
+.li_input input {
+  width: 100%;
+  height: 2.77333333rem;
+  border-bottom: 2px solid #f0eff4;
+}
+.main_li:last-child .li_input input {
+  border-bottom: 0;
+}
+.cartype {
+  width: 100%;
+  height: 2.13333333rem;
+  background: white;
+}
+.cartype .carsitem {
+  width: 25%;
+  height: 2.13333333rem;
+  border-right: 1px solid #F5F5F5;
+  display: inline-block;
+  float: left;
+}
+.cartype .carsitem .carplace {
+  width: 3.46666667rem;
+  height: 2.13333333rem;
+  display: inline-block;
+  line-height: 2.13333333rem;
+  float: left;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.69333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  text-align: right;
+  padding-right: 0.26666667rem;
+}
+.cartype .carsitem .carplace_img {
+  width: 0.56rem;
+  height: 0.29333333rem;
+  display: inline-block;
+  margin-top: 0.93333333rem;
+  float: left;
+}
+.tc_typeofcars {
+  width: 100%;
+  height: 16.53333333rem;
+  background: white;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 101;
+  display: none;
+}
+.tc_typeofcars .cancel {
+  width: 0.90666667rem;
+  height: 0.90666667rem;
+  float: right;
+  margin-top: 0.69333333rem;
+  margin-right: 0.66666667rem;
+  border-bottom: 1px solid #F5F5F5;
+}
+.tc_typeofcars .carsitem {
+  width: 100%;
+  height: 12.05333333rem;
+}
+.tc_typeofcars .carsitem .carslength {
+  width: 100%;
+  height: 8.26666667rem;
+}
+.carslength .length_one {
+  width: 100%;
+  height: 1.86666667rem;
+  line-height: 1.86666667rem;
+  margin-left: 0.64rem;
+  text-align: left;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.64rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+}
+.carslength .length_two {
+  width: 100%;
+  height: 6.4rem;
+}
+.carslength .length_two .box {
+  width: 5.33333333rem;
+  height: 2.34666667rem;
+  display: table;
+  float: left;
+  margin-left: 0.93333333rem;
+  margin-top: 0.53333333rem;
+}
+.carslength .length_two .box div {
+  vertical-align: middle;
+  display: table-cell;
+  width: 5.33333333rem;
+  height: 2.34666667rem;
+  font-size: 0.64rem;
+  font-weight: normal;
+  font-stretch: normal;
+  border: solid 0.02666667rem #cccccc;
+  letter-spacing: 0px;
+  color: #b3b3b3;
+  padding: 0 0.26666667rem;
+  text-align: center;
+}
+.carstype {
+  width: 100%;
+  height: 4rem;
+}
+.carstype .type_one {
+  width: 100%;
+  height: 1.06666667rem;
+  text-align: left;
+  line-height: 1.06666667rem;
+  padding-left: 0.64rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.64rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+}
+.carstype .type_two {
+  width: 100%;
+  height: 2.93333333rem;
+  overflow: auto;
+}
+.carstype .type_two div {
+  width: 5.33333333rem;
+  height: 1.44rem;
+  background-color: #ffffff;
+  margin-top: 0.74666667rem;
+  margin-left: 0.93333333rem;
+  border-radius: 0.16rem;
+  border: solid 0.02666667rem #cccccc;
+  float: left;
+  display: inline-block;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.64rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.44rem;
+  letter-spacing: 0px;
+  color: #b3b3b3;
+  text-align: center;
+}
+.carsure {
+  width: 100%;
+  height: 2.13333333rem;
+  background-color: #279cfe;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  line-height: 2.13333333rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #ffffff;
+}
+.startedPlace {
+  width: 20rem;
+  height: 8.53333333rem;
+  background-color: #ffffff;
+}
+.zone {
+  width: 100%;
+  height: 2.13333333rem;
+}
+.zone div {
+  display: inline-block;
+  float: left;
+  width: 6.66666667rem;
+  height: 2.13333333rem;
+  line-height: 2.13333333rem;
+  text-align: center;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  border-right: 1px solid #F5F5F5;
+}
+.Data {
+  width: 100%;
+  height: 2.13333333rem;
+  background: white;
+}
+.Data div {
+  display: inline-block;
+  float: left;
+  width: 4rem;
+  height: 2.13333333rem;
+  line-height: 2.13333333rem;
+  text-align: center;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  border-right: 1px solid #F5F5F5;
+}
+.cardetails {
+  width: 100%;
+  height: 8rem;
+  background-color: #ffffff;
+  margin-top: 0.53333333rem;
+}
+.cardetails .car_pic {
+  width: 4.10666667rem;
+  height: 3.73333333rem;
+  display: inline-block;
+  float: left;
+  margin-left: 0.64rem;
+  margin-top: 0.8rem;
+}
+.cardetails .carsitem {
+  width: 15.2rem;
+  height: 8rem;
+  display: inline-block;
+  float: left;
+}
+.z_place,
+.x_place {
+  width: 100%;
+  height: 1.06666667rem;
+  margin-top: 0.8rem;
+  margin-left: 0.8rem;
+}
+.z_place div {
+  display: inline-block;
+  float: left;
+}
+.x_place div {
+  display: inline-block;
+  float: left;
+}
+.z_place div:first-child {
+  width: 0.74666667rem;
+  height: 0.74666667rem;
+  margin-top: 0.16rem;
+}
+.z_place div:last-child {
+  width: 13.33333333rem;
+  height: 1.06666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.06666667rem;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  margin-left: 0.53333333rem;
+}
+.x_place div:first-child {
+  width: 0.74666667rem;
+  height: 0.74666667rem;
+  margin-top: 0.16rem;
+}
+.x_place div:last-child {
+  display: inline-block;
+  float: left;
+  width: 13.33333333rem;
+  height: 1.06666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.06666667rem;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  margin-left: 0.53333333rem;
+}
+.time {
+  width: 100%;
+  height: 1.06666667rem;
+  margin-top: 0.8rem;
+  margin-left: 0.8rem;
+}
+.time .time_pic {
+  width: 0.74666667rem;
+  height: 0.74666667rem;
+  margin-top: 0.16rem;
+  display: inline-block;
+  float: left;
+}
+.time .time_start {
+  width: 8rem;
+  height: 1.06666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.06666667rem;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  margin-left: 0.53333333rem;
+  display: inline-block;
+  float: left;
+  overflow: auto;
+}
+.parameter {
+  width: 100%;
+  height: 1.06666667rem;
+  margin-top: 0.8rem;
+  margin-left: 0.8rem;
+}
+.parameter .time_pic {
+  width: 0.74666667rem;
+  height: 0.74666667rem;
+  margin-top: 0.16rem;
+  display: inline-block;
+  float: left;
+}
+.parameter .time_start {
+  width: 13.33333333rem;
+  height: 1.06666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.06666667rem;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  margin-left: 0.53333333rem;
+  display: inline-block;
+  float: left;
+}
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: black;
+  opacity: 0.5;
+  display: none;
+}
+.reminders {
+  width: 14.93333333rem;
+  left: 2.53333333rem;
+  top: 50%;
+  height: 7.46666667rem;
+  background-color: #ffffff;
+  border-radius: 0.16rem;
+  z-index: 100;
+  position: fixed;
+  display: none;
+}
+.reminders .reminder_title {
+  width: 100%;
+  height: 2.13333333rem;
+  background-color: #f8f8f8;
+  text-align: center;
+  line-height: 2.13333333rem;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #279cfe;
+}
+.reminders .reminder_sc {
+  width: 100%;
+  height: 2.13333333rem;
+}
+.reminders .reminder_world {
+  width: 100%;
+  height: 3.2rem;
+  line-height: 3.2rem;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+}
+.reminders .reminder_sc div {
+  width: 50%;
+  height: 2.13333333rem;
+  line-height: 2.13333333rem;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #cccccc;
+  float: left;
+}
+.reminders .reminder_sc .sure {
+  color: #279cfe;
+}
+.cartype .carsitem .addbgcolor {
+  color: #279cfe;
+}
+.cartype .carsitem .addbgcolo {
+  color: #1f1f1f;
+}
+.search {
+  width: 16rem;
+  height: 2.34666667rem;
+  background-color: #279cfe;
+  border-radius: 0.26666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.34666667rem;
+  letter-spacing: 0px;
+  color: #ffffff;
+  margin-left: 2rem;
+  text-align: center;
+  margin-top: 0.8rem;
+}

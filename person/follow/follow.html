@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>我的关注</title>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<!--<link rel="stylesheet" type="text/css" href="../../css/nav_table.css"/>-->
+		<link rel="stylesheet" type="text/css" href="../../css/follow.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/swiper-4.3.2.min.css"/>
+		<script src="../../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/idangerous.swiper.min.js" type="text/javascript" charset="utf-8"></script>
+	<style type="text/css">
+		.nullData{
+			width: 100%;
+			height: 10rem;
+			text-align: center;
+			line-height: 10rem;
+			color: #cccc;
+		}
+	</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-action-back">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
+		    <h1 class="mui-title">我的关注</h1>
+		    
+		    <!--<span><img src="../../img/faxian_jia.png"/></span>-->
+		</header>
+		<div class="mui-content">
+			<div class="main">
+				<div class="main_nav clear">
+					<div class="nav_li active_nav" data-type='1' onclick="getfocus(this)">货主</div>
+					<div class="nav_li" data-type='2' onclick="getfocus(this)">司机</div>
+				</div>
+				<div class="shuxian"></div>
+				<div id="slider">
+					<div class="swiper-container clearfix">
+						<ul class="swiper-wrapper">
+							<!--<div class="nullData">
+										
+							</div>-->
+							<li class="swiper-slide huozhu">
+								<!--<div class="shipper_ul">
+									
+									<div class="shipper_li clear">
+										<div class="head_pic">
+											<img src="../../img/fenxiang_qq.png"/>
+										</div>
+										<div class="li_info">
+											<div class="info clear">
+												<div class="nickname">张三</div>
+												<div class="mobile">17875032851</div>
+											</div>
+											<div class="fabu">发布：长途车60次 短途车10次</div>
+										</div>
+										<div class="li_liaotian">聊天</div>
+									</div>
+									<div class="shipper_li clear">
+										<div class="head_pic">
+											<img src="../../img/75c5ca005a7112cea4abb9c55a544f78_t013afb6f9efc2b4880.jpg"/>
+										</div>
+										<div class="li_info">
+											<div class="info clear">
+												<div class="nickname">李四</div>
+												<div class="mobile">17875032851</div>
+											</div>
+											<div class="fabu">发布：长途车60次 短途车10次</div>
+										</div>
+										<div class="li_liaotian">聊天</div>
+									</div>
+								</div>-->
+							</li>
+						
+						    <li class="swiper-slide siji">
+								<!--<div class="driver_ul">
+									<div class="driver_li clear">
+										<div class="head_pic">
+											<img src="../../img/fenxiang_qq.png"/>
+										</div>
+										<div class="driver_info">
+											<div class="driverinfo clear">
+												<div class="nickname">张三</div>
+												<div class="mobile">17875032851</div>
+											</div>
+											<div class="carnumber">车牌号：粤A55555</div>
+											<div class="fabu">信用分：4.6</div>
+										</div>
+										<div class="li_liaotian">聊天</div>
+									</div>
+									<div class="driver_li clear">
+										<div class="head_pic">
+											<img src="../../img/75c5ca005a7112cea4abb9c55a544f78_t013afb6f9efc2b4880.jpg"/>
+										</div>
+										<div class="driver_info">
+											<div class="driverinfo clear">
+												<div class="nickname">李四</div>
+												<div class="mobile">17875032851</div>
+											</div>
+											<div class="carnumber">车牌号：粤A55555</div>
+											<div class="fabu">信用分：4.7</div>
+										</div>
+										<div class="li_liaotian">聊天</div>
+									</div>
+									<div class="driver_li clear">
+										<div class="head_pic">
+											<img src="../../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/>
+										</div>
+										<div class="driver_info">
+											<div class="driverinfo clear">
+												<div class="nickname">李四</div>
+												<div class="mobile">17875032851</div>
+											</div>
+											<div class="carnumber">车牌号：粤A55555</div>
+											<div class="fabu">信用分：4.7</div>
+										</div>
+										<div class="li_liaotian">聊天</div>
+									</div>
+								</div>-->
+							</li>
+						
+						</ul>
+					</div>
+            	</div>
+			</div>	
+		</div>
+	</body>
+	<script type="text/javascript">
+		  
+		
+		
+		var userid=localStorage.getItem('user_id');
+		var p=2;
+		
+		var totalPage;
+		
+		$.ajax({
+			type:"post",
+			url:globalUrl+"index.php/Mobile/JkShare/attentionList",
+			async:true,
+			data:{user_id:userid,p:1,attent_type:1},
+			success:function(res){
+				var str=''
+				var data=res.list;
+				
+				for(var i=0;i<data.length;i++){
+					str+='<div class="shipper_ul">';
+		   			str+='<div class="shipper_li clear">';
+		   			str+='<div class="head_pic"><img src="'+picUrl+data[i].user_info.head_pic+'"/></div>';
+		   			str+='<div class="li_info">';
+		   			str+='<div class="info clear">';
+		   			str+='<div class="nickname">'+data[i].user_info.nick_name+'</div>';
+		   			str+='<div class="mobile">'+data[i].user_info.mobile+'</div>';
+		   			str+='</div>';
+		   			str+='<div class="fabu">发布：长途车<span>'+data[i].user_info.long_sum+'</span>次 短途车<span>'+data[i].user_info.short_sum+'</span>次</div>';
+		   			str+='</div>';
+		   			str+='<div class="li_liaotian">聊天</div>';
+		   			str+='</div>';
+		   			str+='</div>';
+				}
+				$('.huozhu').html(str);
+			}
+		});
+		
+		
+//		getfocus();
+		function getfocus(obj){
+			var attent_type=$(obj).attr('data-type');
+//			alert(attent_type)
+			var ajaxData={};
+			ajaxData.p=1;
+			ajaxData.user_id=userid;
+			ajaxData.attent_type=attent_type;
+			
+			
+			$.ajax({
+			   	type:"post",
+			   	url:globalUrl+"index.php/Mobile/JkShare/attentionList",
+			   	dataType:'json',
+			   	data:ajaxData,
+			   	success:function(res){
+			   		var data=res.list;
+			   		var str='';
+			   		totalPage=res.totalPage;
+//			   		alert(JSON.stringify(data))
+			   		if(data.length==0){
+//			   			$('.nullData').show();
+			   			
+			   		}else{
+//			   			$('.nullData').hide()
+			   			for(var i=0;i<data.length;i++){
+//			   				str+='<div class="swiper-container clearfix">';
+//			   				str+='<ul class="swiper-wrapper">';
+			   				if(attent_type==1){
+//			   					str+='<li class="swiper-slide huozhu">';
+			   					str+='<div class="shipper_ul">';
+					   			str+='<div class="shipper_li clear">';
+					   			str+='<div class="head_pic"><img src="'+picUrl+data[i].user_info.head_pic+'"/></div>';
+					   			str+='<div class="li_info">';
+					   			str+='<div class="info clear">';
+					   			str+='<div class="nickname">'+data[i].user_info.nick_name+'</div>';
+					   			str+='<div class="mobile">'+data[i].user_info.mobile+'</div>';
+					   			str+='</div>';
+					   			str+='<div class="fabu">发布：长途车<span>'+data[i].user_info.long_sum+'</span>次 短途车<span>'+data[i].user_info.short_sum+'</span>次</div>';
+					   			str+='</div>';
+					   			str+='<div class="li_liaotian">聊天</div>';
+					   			str+='</div>';
+					   			str+='</div>';
+//					   			str+='</li>';
+					   		$('.huozhu').html(str);
+			   				}else if(attent_type==2){
+//			   					str+='<li class="swiper-slide siji">';
+					   			str+='<div class="driver_ul clear">';
+					   			str+='<div class="driver_li clear">';
+					   			
+					   			str+='<div class="head_pic"><img src="'+picUrl+data[i].user_info.head_pic+'"/></div>';
+					   			str+='<div class="driver_info">';
+					   			str+='<div class="driverinfo">';
+					   			str+='<div class="nickname">'+data[i].user_info.nick_name+'</div>';
+					   			str+='<div class="mobile">'+data[i].user_info.mobile+'</div>';
+					   			str+='</div>';
+					   			str+='<div class="carnumber">车牌号：<span>'+data[i].car_num+'</span></div>';
+					   			str+='<div class="fabu">信用分：<span>'+data[i].car_avge+'</span></div>';
+					   			
+					   			str+='</div>';
+					   			str+='<div class="li_liaotian">聊天</div>';
+					   			str+='</div>';
+//					   			str+='</li>';
+					   			
+					   			$('.siji').html(str);
+			   				}
+			   				
+//				   			str+='</ul>';
+//				   			str+='</div>';
+				   		}
+//			   			$('.swiper-slide').html(str)
+//			   			$('.swiper-wrapper').html(str);
+//			   			$('.swiper-container').html(str);
+//			   			$('#slider').html(str);
+			   			
+			   		}
+
+			   	}
+		    });
+		       
+		}
+	   $(window).scroll(function() {
+		if ($(document).scrollTop() >= $(document).height() - $(window).height()){
+			if(p>totalPage){
+//				alert(totalPage)
+				mui.toast('没有更多结果');
+			}else{
+				ajaxData.p = p;
+	//			alert(JSON.stringify(ajaxdata));
+				getfocus();
+				p++
+			}
+		}
+	
+	});	
+		var mySwiper = new Swiper('.swiper-container', {
+			autoHeight: true,
+			onSlideChangeStart: function() {
+				$(".main_nav .active_nav").removeClass('active_nav');
+				$(".main_nav .nav_li").eq(mySwiper.activeIndex).addClass('active_nav');
+			}
+		});
+		$(".main_nav .nav_li").on('click', function(e) {
+			$(".tabs .active_nav").removeClass('active_nav');
+			$(this).addClass('active_nav');
+			mySwiper.swipeTo($(this).index());
+			$(window).scrollTop(0);
+        	$('.swiper-slide').scrollTop(0);
+		});
+		
+	</script>
+</html>

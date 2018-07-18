@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>消息</title>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+
+		<link rel="stylesheet" type="text/css" href="../css/message.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/swiper-4.3.2.min.css"/>
+		<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+	
+	
+	</head>
+	<style>
+		.friend stranger{
+			display: none;
+		}
+		.stranger{
+			/*posistion:relative;*/
+			
+		}
+		.addfriend{
+			/*posistion:absolute;*/
+			width:1.1rem;
+			top:0.2rem;
+			right:0.2rem;
+			height:1.1rem;
+			float:right;
+		}
+		.po_add{
+			width:1.1rem;
+			/*margin-right: 5px;*/
+			/*top:0.2rem;*/
+			right:0.2rem;
+			bottom: 2rem;
+			/*height:1.1rem;*/
+		}
+		.po_friends{
+			position: absolute;
+			right: 0.2rem;
+			top: 1rem;
+			font-size: 1.1rem;
+			
+		}
+		
+	</style>
+	<body>
+		
+		<header class="mui-bar mui-bar-nav">
+		    <!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+		    <h1 class="mui-title">消息</h1>
+		    
+		    <!--<span><img src="../img/faxian_jia.png"/></span>-->
+		</header>
+		<div class="mui-content">
+			<div class="main">
+				<div class="system">
+					<div class="sys_pic">
+						<img src="../img/xiaoxi_xitongxiaoxi.png"/>
+					</div>
+					<div class="sys_message">
+						<div>系统消息</div>
+						<!--<div>插画绘制最重要的是能沉下心来去享受涂画的…</div>-->
+					</div>
+					<div class="sysnext">
+						<img src="../img/zhuanxianxiangqing_xiehuowangdian_up.png"/>
+					</div>
+				</div>
+				
+				<div class="">
+	                <div class="myfriend" data-type="0" onclick="showfriendid('myfriend','friend')">
+	                		我的好友
+	                </div>
+	                <div id="myfriend"></div>
+	                <!--<div class="friend nofirends"><span>暂无好友</span></div>-->
+	               <!--<div class="friend" onclick="url(this)" data-url="chat.html" style="position: relative;">
+	                	
+						<div class="friend_head" >
+							<img src="../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/>
+						</div>
+						<div class="po_friends">1</div>
+						<div class="friend_name">
+							<div class="name">
+								黄鲜生
+							</div>
+							<div class="descrie">
+								插画绘制最重要的是能沉下心来去享受涂画的…
+							</div>
+						</div>
+					
+					</div>-->
+				</div>
+				
+				<div class="">	
+					<div class="mystranger" data-type="0" onclick="showfriendid('mystranger','stranger')">
+	                		陌生人
+	                </div>
+	                <div id="mystranger"></div>
+	                
+	               <!--<div class="stranger" style="position: relative;">
+	                	
+						<div class="friend_head">
+							<img src="../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/>
+						</div>
+							<div style="position: absolute;" onclick="add_user(this)" class="po_add">
+									<img src="../img/chat_add.png"/>
+								</div>
+						<div class="friend_name">
+						
+							<div class="name">
+								黄鲜生
+							</div>
+							<div class="descrie">
+								插画绘制最重要的是能沉下心来去享受涂画的…
+							</div>
+						</div>
+					</div>-->
+					
+					<!--<div class="stranger" style="position: relative;">
+	                	
+						<div class="friend_head">
+							<img src="../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/>
+						</div>
+							<div style="position: absolute;" onclick="add_user(this)" class="po_add">
+									<img src="../img/chat_add.png"/>
+								</div>
+						<div class="friend_name">
+						
+							<div class="name">
+								黄鲜生
+							</div>
+							<div class="descrie">
+								插画绘制最重要的是能沉下心来去享受涂画的…
+							</div>
+							
+						</div>
+					
+					</div>-->
+               </div>
+            </div>
+		</div>
+	</body>
+<script type="text/javascript">
+	
+</script>
+<script src="../js/message.js" type="text/javascript" charset="utf-8"></script>
+</html>

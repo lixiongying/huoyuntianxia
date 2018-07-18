@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<script src="../js/jquery.js"></script>
+		<script src="../js/webJs/pubJs.js"></script>
+		<link rel="stylesheet" href="../css/webCss/pubCssTop.css" />
+		<link rel="stylesheet" href="../css/jigou/hotDetails.css" />
+		<script src="../js/webJs/hotDetails.js"></script>
+		<script src="../js/share.js"></script>
+	</head>
+
+	<body>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				swipeBack:true //启用右滑关闭功能
+			})
+		</script>
+		<header class="mui-bar mui-bar-nav top">
+		    <a class="mui-action-back top_icon">
+		    	<i></i>
+		    </a>
+		    <h1 class="mui-title"></h1>
+		    <div class="jgxq_icon" onclick="shareHref()"></div>
+		</header>
+		<div class="main">
+			<div class="hdm1">
+				<div class="black mui-action-back"></div>
+				<img class="kc_img" src="../img/geren/grzx_bg_fengmian.jpg" alt="" />
+				<!--<div class="jgxq_icona"></div>-->
+				<div class="jgxq_iconb" onclick="shareHref()"></div>
+			</div>
+			<div class="hdm2">
+				<div class="hdm_tit">
+					<div class="hdmspan kc_name"></div>
+					<div class="hdmnum clear"><span class="kc_jg_name" data-url="jgxq.html"></span><i></i></div>
+					<div class="jgHb_text_t_right clear">
+						<div class="jgttr_pri"></div><div class="jgttr_line">/</div><div class="jgttr_num"></div>
+					</div>
+				</div>
+			</div>
+			<div class="hdm3 pingjia" data-url="kcPj.html">
+				<div class="hdmcile"></div>
+				<div class="hdm_tit">
+					<div class="hdmspan pingjia_num">评价 ()</div>
+					<div class="xx">
+						<div class="hgmpj_xx clear">
+							
+						</div>
+						<div class='xx_fen'></div>
+						<div class='icon'></div>
+					</div>
+				</div>
+			</div>
+			<div class="hdm3 jianjie">
+				<div class="hdmcile"></div>
+				<div class="hdm_tit">
+					<div class="hdmspan">课程简介</div>
+					<!--<div class="xx">-->
+						<!--<div class="text">详情</div>-->
+						<!--<div class='icon'></div>-->
+					<!--</div>-->
+				</div>
+				<div class="hdm_content kc_jianjie">
+					
+				</div>
+			</div>
+			<div class="hdm3 jianjie">
+				<div class="hdmcile"></div>
+				<div class="hdm_tit">
+					<div class="hdmspan">上课地址</div>
+				</div>
+				<div class="hdm_content">
+					<div class="class_address"></div>
+				</div>
+			</div>
+			<div class="hdm4">
+				<div class="hdmcile"></div>
+				<div class="hdm_tit">
+					<div class="hdmspan">详细介绍</div>
+				</div>
+				<div class="hdmnum kc_jiesao"></div>
+			</div>
+		</div>
+		<div class="btn onBtn" data-url="baoming.html">
+			已报名&nbsp;(0)
+			<!--已经报名-->
+		</div>
+		<!--未报名-->
+		<div class="btn offBtn">
+			<div class="yuyue">免费预约试听</div>
+			<span></span>
+			<div class="lj_baoming" data-url="wanshanZL2.html">立即报名</div>
+		</div>
+		
+		<!--预约弹出框-->
+		<div class='yy'>
+			<div class="yy_con">
+				<div class="yyc_a">
+					请选择以下预约方式
+				</div>
+				<div class="yyc_b clear">
+					<div class="xian" data-url="wanshanZL.html">
+						<i></i><br />
+						<span>在线预约</span>
+					</div>
+					<div class="phone">
+						<i></i><br />
+						<span>电话预约</span>
+					</div>
+				</div>
+				<div class="yyc_c">
+					<div class="yyc_c_btn">取消</div>
+				</div>
+			</div>
+		</div>
+		<div style="display: none;">
+			<textarea id="sharecontent" rows="3">这个APP不错，赶紧跟我一起来体验！</textarea>
+			<input id="sharehref" class="sharehref" type="url" value="" placeholder="请输入要分享的链接地址"/>
+			<input id="sharehrefTitle" class="sharehref" type="text" value="" placeholder="请输入要分享的链接标题"/>
+			<input id="sharehrefDes" class="sharehref" type="text" value="" placeholder="请输入要分享的链接描述"/>	
+		</div>
+		<div class="tsAlert" style="top: initial;bottom: 10rem;"></div>
+	</body>
+	<script>
+		window.addEventListener('refresh1', function(e){//执行刷新
+		    location.reload();
+		});
+	</script>
+</html>

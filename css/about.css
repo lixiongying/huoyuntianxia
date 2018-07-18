@@ -1,0 +1,124 @@
+.clear {
+  clear: both;
+}
+body {
+  background: #fff;
+}
+.mui-bar {
+  background: #279cfe;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border: 0;
+  height: 2.34666667rem;
+}
+.mui-bar .mui-title {
+  color: #fff;
+}
+.mui-bar-nav ~ .mui-content {
+  padding-top: 2.34666667rem;
+}
+.main {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background: #fff;
+  padding: 0.53333333rem 0.64rem;
+}
+.main .main_synopsis {
+  text-align: center;
+  font-family: PingFang-SC-Bold;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  height: 1.76rem;
+  line-height: 1.76rem;
+  letter-spacing: 0rem;
+  color: #1f1f1f;
+}
+.main .synopsis {
+  width: 100%;
+  min-height: 7.04rem;
+  border: 0.08rem solid #f0f0f0;
+}
+.synopsis .synopsis_content {
+  padding: 0.64rem 0.64rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.12rem;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+}
+.main .main_brand {
+  text-align: center;
+  font-family: PingFang-SC-Bold;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  height: 1.76rem;
+  line-height: 1.76rem;
+  letter-spacing: 0rem;
+  color: #1f1f1f;
+  margin-top: 1.6rem;
+}
+.main_brand .brand {
+  width: 100%;
+  height: auto;
+}
+.brand .brand_li {
+  width: 30%;
+  height: auto;
+  margin-right: 4.8%;
+  float: left;
+  border: 0.08rem solid #f0f0f0;
+  margin-bottom: 0.8rem;
+}
+.brand .brand_li:nth-of-type(3n) {
+  margin-right: 0;
+}
+.main .main_email {
+  text-align: center;
+  font-family: PingFang-SC-Bold;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  height: 1.76rem;
+  line-height: 1.76rem;
+  letter-spacing: 0rem;
+  color: #1f1f1f;
+  margin-top: 1.33333333rem;
+}
+.main .email {
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0rem;
+  color: #b3b3b3;
+  line-height: 0.74666667rem;
+}
+.main .main_website {
+  text-align: center;
+  font-family: PingFang-SC-Bold;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  height: 1.76rem;
+  line-height: 1.76rem;
+  letter-spacing: 0rem;
+  color: #1f1f1f;
+  margin-top: 1.46666667rem;
+}
+.main .website {
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0rem;
+  color: #b3b3b3;
+  line-height: 0.74666667rem;
+  margin-bottom: 6.13333333rem;
+}

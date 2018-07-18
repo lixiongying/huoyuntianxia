@@ -1,0 +1,298 @@
+.clear {
+  clear: both;
+}
+body {
+  background: #279cfe;
+}
+.mui-bar {
+  background: #279cfe;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border: 0;
+  height: 2.34666667rem;
+}
+.mui-bar .mui-title {
+  color: #fff;
+}
+.mui-bar-nav ~ .mui-content {
+  padding-top: 2.34666667rem;
+}
+.main {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background: #279cfe;
+  padding: 0.53333333rem 0.64rem;
+}
+.main .main_li {
+  width: 100%;
+  height: auto;
+  border-radius: 0.26666667rem;
+  background: #fff;
+  margin-bottom: 0.8rem;
+}
+.main .red_packets {
+  font-family: PingFang-SC-Medium;
+  font-size: 0.64rem;
+  height: 2.26666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.26666667rem;
+  letter-spacing: 0rem;
+  color: #1f1f1f;
+  margin-left: 0.53333333rem;
+}
+.main_li .money {
+  font-family: ArialMT;
+  height: 2.37333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.37333333rem;
+  letter-spacing: 0rem;
+  color: #fd2929;
+  text-align: center;
+}
+.main_li .money input {
+  padding: 0;
+  margin: 0;
+  border: none;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 1.92rem;
+}
+#input-test::-webkit-input-placeholder {
+  color: #fd2929;
+  font-size: 1.06666667rem;
+}
+.main .main_li_withdrawals {
+  padding-bottom: 1.33333333rem;
+}
+.main_li_withdrawals .withdrawals {
+  margin-bottom: 1.33333333rem;
+  width: 9.06666667rem;
+  height: 2.13333333rem;
+  margin: 0 auto;
+  margin-top: 1.33333333rem;
+  line-height: 2.13333333rem;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  color: #279cfe;
+  border: solid 1px #279cfe;
+}
+.main .main_li:first-child {
+  margin-bottom: 2rem;
+}
+.main .main_li_code {
+  padding-top: 1.49333333rem;
+  padding-bottom: 0.96rem;
+}
+.main_li .invitation_code {
+  margin: 0 0.64rem;
+  border: dotted 0.08rem #279cfe;
+  border-radius: 0.26666667rem;
+  position: relative;
+}
+.invitation_code .code_name {
+  position: absolute;
+  top: -0.32rem;
+  left: 0.26666667rem;
+  font-family: PingFang-SC-Bold;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 0.90666667rem;
+  height: 0.90666667rem;
+  letter-spacing: 0px;
+  color: #f25c5c;
+  background: #fff;
+}
+.invitation_code .code_nums {
+  width: auto;
+  height: auto;
+}
+.code_nums .code {
+  float: left;
+  background-color: #279cfe;
+  border-radius: 0.16rem;
+  width: 2.34666667rem;
+  height: 2.34666667rem;
+  text-align: center;
+  line-height: 2.34666667rem;
+  margin: 2.48rem 0.10666667rem 2.64rem 0.8rem;
+  font-family: PingFang-SC-Bold;
+  font-size: 1.6rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #f5ca1d;
+  border: 1px solid #279CFE;
+  -webkit-box-shadow: 0.16rem 0.16rem 0rem #75bcf6;
+  box-shadow: 0.16rem 0.16rem 0rem #75bcf6;
+}
+.main .main_li_twocode {
+  position: relative;
+  padding-top: 3.41333333rem;
+  padding-bottom: 0.58666667rem;
+}
+.main_li .two_code {
+  margin-bottom: 0.48rem;
+}
+.two_code .code {
+  position: absolute;
+  top: 1.54666667rem;
+  left: 50%;
+  margin-left: -2.45333333rem;
+  width: 3.57333333rem;
+  height: 3.57333333rem;
+}
+.main_li .text_title {
+  height: 2rem;
+  line-height: 2rem;
+  width: 100%;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+}
+.main_li .text_contents {
+  width: auto;
+  line-height: 0.96rem;
+  text-align: center;
+  font-family: PingFang-SC-Regular;
+  font-size: 0.64rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+}
+.text_contents span {
+  font-size: 0.64rem;
+  color: #f5ca1d;
+}
+.text_contents .moneys {
+  font-size: 0.64rem;
+  color: #f25c5c;
+}
+.main_li .share {
+  margin-top: 0.8rem;
+  width: 100%;
+  height: auto;
+}
+.share .share_li {
+  float: left;
+  width: 30%;
+  margin-right: 35%;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.69333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.12rem;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+}
+.share .qq {
+  margin-right: 0;
+}
+.share_li img {
+  display: block;
+  margin: 0 auto;
+  width: 2.13333333rem;
+  height: 2.13333333rem;
+}
+.main .main_user {
+  padding-top: 0.37333333rem;
+}
+.inviteperson {
+  width: 100%;
+  height: 6.4rem;
+  text-align: center;
+  line-height: 6.4rem;
+  font-size: 1.6rem;
+  color: #CCCCCC;
+}
+.main_li .main_li_title {
+  font-family: PingFang-SC-Medium;
+  height: 2.02666667rem;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.02666667rem;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  text-align: center;
+}
+.main_li .main_li_nums {
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.96rem;
+  font-weight: normal;
+  font-stretch: normal;
+  height: 0.96rem;
+  line-height: 0.96rem;
+  letter-spacing: 0px;
+  color: #f25c5c;
+}
+.main_li .lateiy {
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  height: 2.29333333rem;
+  border-top: 2px solid #f0eff4;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.34666667rem;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  margin-top: 0.74666667rem;
+  text-align: center;
+}
+.main_li .main_li_users {
+  width: auto;
+  height: auto;
+  padding: 0 0.64rem;
+}
+.main_li_users .users_li {
+  height: 2.13333333rem;
+}
+.users_li .user_name {
+  width: 33.33%;
+  float: left;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.13333333rem;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+}
+.users_li .user_type {
+  width: 33.33%;
+  float: left;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.69333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.13333333rem;
+  letter-spacing: 0px;
+  color: #279cfe;
+}
+.users_li .user_time {
+  width: 33.33%;
+  float: left;
+  text-align: right;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.64rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.13333333rem;
+  letter-spacing: 0px;
+  color: #b3b3b3;
+}

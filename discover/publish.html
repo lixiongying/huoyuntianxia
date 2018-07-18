@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>发布</title>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+		<!--<link rel="stylesheet" type="text/css" href="css/mui.css"/>-->
+		<link rel="stylesheet" type="text/css" href="../css/nav_table.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/publish.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/swiper-4.3.2.min.css"/>
+		<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		
+		<header class="mui-bar mui-bar-nav mui-action-back">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">发布</h1>
+		   
+		</header>
+		<div class="mui-content">
+			<div class="main">
+				<div class="publish">
+					<div class="publish_content">
+						<textarea class="add_meaasge" id="add_meaasge" rows="" cols="" placeholder="跟大家say个嗨~"></textarea>
+					</div>
+					<div class="addpic clearfix">
+						<!--<div class="publish_img">
+							<img src="../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/>
+						</div>
+						<div class="publish_img">
+							<img src="../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/>
+						    <span class="del_icon"><img src="../img/20180626153627.png"/></span>
+						</div>-->
+						
+						<div class="publishi_img addimg image-item" onclick="showActionSheet(this)" data-check="1" id="imgone">
+							<img src="../img/fabu_tianjiatupian.png"/>
+							
+						</div>
+					</div>
+					
+				</div>
+				
+			</div>
+			<input type="hidden" id="ckjl.id" name="ckjl.id" value="430">
+		<!--<input type="text" />-->
+			<div class="publish_btn" onclick="uploadImg()">
+				发布
+			</div>
+		</div>
+	</body>
+	<!--<script src="../js/publish.js" type="text/javascript" charset="utf-8"></script>-->	
+<script>
+	function add_share(){
+	var user_id=localStorage.getItem('user_id');
+	var content=$('.add_meaasge').val();
+	var image=0;
+	parms={};
+ 	parms.content=content;
+ 	parms.image=image;
+ 	parms.user_id=user_id;
+ 	if($('.add_meaasge').val()==''){
+ 		mui.toast('内容不能为空');
+ 		return false;
+ 	}
+ 	$.ajax({
+ 		type:"post",
+	url:globalUrl+'index.php/Mobile/JkShare/Share',
+	data:parms,
+	dataType:"json",
+ 	success:function(res){
+   			if(res.code==0){
+   				mui.toast('发布成功');
+   				mui.back()
+   			}else{
+   				mui.toast('发布失败');
+   				mui.back()
+   				
+   			}
+ 		}
+ 	});
+ 	
+	}
+	
+		var img_num = 6;//
+        var big_img_num = 9;//最大上传图片数
+
+	
+		var procinstid = 0;
+		
+		function showImgDetail(imgId, imgkey, id, src) {
+			var html = "";
+
+			
+				
+					html += '<div class="imgs publish_img" id="Img' + imgId + imgkey + '">';
+					html += '<img class="picBig" data-preview-src="" data-preview-group="1" ' + src + '/>';
+					html += '<span class="del_icon" onclick="delImg(\'' + imgId + '\',\'' + imgkey + '\',' + id + ')"><img src="../img/shangpinxiangqing_quxiao.png" alt="" /></span>';
+					html += '</div>';
+					$("#imgone").before(html);
+				
+			
+		}
+		//删除图片  
+		//imgId:图片名称：IMG_20160704_112614  
+		//imgkey:字段，例如F_ZDDZZ  
+		//ID：站点编号ID，例如429  
+		function delImg(imgId, imgkey, id) {
+			var bts = ["是", "否"];
+			plus.nativeUI.confirm("是否删除图片？", function(e) {
+				
+				var i = e.index;
+				if(i == 0) {
+					var itemname = id + "img-" + imgkey; //429img-F_ZDDZZ  
+					
+					var itemvalue = plus.storage.getItem(itemname);
+					//{IMG_20160704_112614,_doc/upload/F_ZDDZZ-IMG_20160704_112614.jpg,file:///storage/emulated/0/Android/data/io.dcloud...../doc/upload/F_ZDDZZ-1467602809090.jpg}  
+					if(itemvalue != null) {
+						var index = itemvalue.indexOf(imgId + ",");
+						if(index == -1) { //没有找到  
+							delImgfromint(imgId, imgkey, id, index);
+						} else {
+							delImgFromLocal(itemname, itemvalue, imgId, imgkey, index); //修改，加了一个index参数  
+						}
+
+					} else {
+						delImgfromint(imgId, imgkey, id);
+					}
+				}
+			}, "图片管理", bts);
+			/*var isdel = confirm("是否删除图片？");  
+			if(isdel == false){  
+			    return;  
+			}*/
+
+		}
+
+		function delImgFromLocal(itemname, itemvalue, imgId, imgkey, index) {
+			var wa = plus.nativeUI.showWaiting();
+			var left = itemvalue.substr(0, index - 1);
+			var right = itemvalue.substring(index, itemvalue.length);
+			var end = right.indexOf("}");
+			right = right.substring(end + 1, right.length);
+			var newitem = left + right;
+			plus.storage.setItem(itemname, newitem);
+			//myAlert("删除成功");  
+			$("#Img" + imgId + imgkey).remove();
+			wa.close();
+		}
+		//选取图片的来源，拍照和相册  
+		function showActionSheet(conf) {
+			var divid = conf.id;
+			var imgNum = $('.addpicitem .imgs').length;
+			if(imgNum>=big_img_num){
+				plus.nativeUI.alert('最多只能选择'+big_img_num+'张！');
+				img_num = 0;
+				return;
+			}else {
+				img_num = big_img_num - imgNum;
+			}
+			var actionbuttons = [{
+				title: "拍照"
+			}, {
+				title: "相册选取"
+			}];
+			var actionstyle = {
+				title: "选择照片",
+				cancel: "取消",
+				buttons: actionbuttons
+			};
+			plus.nativeUI.actionSheet(actionstyle, function(e) {
+				if(e.index == 1) {
+					getImage(divid);
+				} else if(e.index == 2) {
+					galleryImg(divid);
+				}
+			});
+		}
+		var lfs = null;//保留图片
+		function galleryImg(divid) {
+			plus.gallery.pick(function(e) {
+				//alert(e.files.length);
+				var zm = 0;
+				setTimeout(file, 100);
+				
+				function file() {
+					plus.io.resolveLocalFileSystemURL(e.files[zm], function(entry) {
+						compressImage(entry.toLocalURL(), entry.name, divid);
+					}, function(e) {
+						plus.nativeUI.toast("读取拍照文件错误：" + e.message);
+					});
+					zm++;
+					if(zm<e.files.length){
+						setTimeout(file, 30);
+					}
+				}
+				lfs = e.files;
+
+			}, function(e) {
+				console.log("取消选择图片");
+			}, {
+				filename: "_doc/camera/",
+				filter: "image",
+				multiple: true,
+				maximum:img_num,
+				system:false,
+				onmaxed:function(){
+                	plus.nativeUI.alert('最多只能选择'+big_img_num+'张！');
+            	},
+			});
+		}
+		// 拍照  
+		function getImage(divid) {
+			if(img_num <= 0) {
+				return;
+			}
+			var cmr = plus.camera.getCamera();
+			cmr.captureImage(function(p) {
+				//alert(p);//_doc/camera/1467602809090.jpg  
+				plus.io.resolveLocalFileSystemURL(p, function(entry) {
+					//alert(entry.toLocalURL());//file:///storage/emulated/0/Android/data/io.dcloud...../doc/camera/1467602809090.jpg  
+					//alert(entry.name);//1467602809090.jpg  
+					compressImage(entry.toLocalURL(), entry.name, divid);
+				}, function(e) {
+					plus.nativeUI.toast("读取拍照文件错误：" + e.message);
+				});
+			}, function(e) {}, {
+				filename: "_doc/camera/",
+				index: 1
+			});
+		}
+		//压缩图片  
+		function compressImage(url, filename, divid) {
+			var name = "_doc/upload/" + divid + "-" + filename; //_doc/upload/F_ZDDZZ-1467602809090.jpg  
+			plus.zip.compressImage({
+					src: url, //src: (String 类型 )压缩转换原始图片的路径  
+					dst: name, //压缩转换目标图片的路径  
+					quality: 20, //quality: (Number 类型 )压缩图片的质量.取值范围为1-100  
+					overwrite: true //overwrite: (Boolean 类型 )覆盖生成新文件  
+				},
+				function(event) {
+					//uploadf(event.target,divid);  
+					var path = name; //压缩转换目标图片的路径  
+					//event.target获取压缩转换后的图片url路  
+					//filename图片名称  
+					saveimage(event.target, divid, filename, path);
+				},
+				function(error) {
+					plus.nativeUI.toast("压缩图片失败，请稍候再试");
+				});
+		}
+		//保存信息到本地  
+		/**  
+		 *   
+		 * @param {Object} url  图片的地址  
+		 * @param {Object} divid  字段的名称  
+		 * @param {Object} name   图片的名称  
+		 */
+		function saveimage(url, divid, name, path) {
+			//alert(url);//file:///storage/emulated/0/Android/data/io.dcloud...../doc/upload/F_ZDDZZ-1467602809090.jpg  
+			//alert(path);//_doc/upload/F_ZDDZZ-1467602809090.jpg  
+			var state = 0;
+			var wt = plus.nativeUI.showWaiting();
+			//  plus.storage.clear();   
+			name = name.substring(0, name.indexOf(".")); //图片名称：1467602809090  
+			var id = document.getElementById("ckjl.id").value;
+			var itemname = id + "img-"+ divid; //429img-
+			var itemvalue = plus.storage.getItem(itemname);
+			if(itemvalue == null) {
+				itemvalue = "{" + name + "," + path + "," + url + "}"; //{IMG_20160704_112614,_doc/upload/F_ZDDZZ-IMG_20160704_112614.jpg,file:///storage/emulated/0/Android/data/io.dcloud...../doc/upload/F_ZDDZZ-1467602809090.jpg}  
+			} else {
+				itemvalue = itemvalue + "{" + name + "," + path + "," + url + "}";
+			}
+			plus.storage.setItem(itemname, itemvalue);
+//				mui.alert(itemname)
+
+			
+			var src = 'src="' + url + '"';
+			//alert("itemvalue="+itemvalue);  
+			showImgDetail(name, divid, id, src);
+//			uploadImg(type)
+			wt.close();
+		}
+
+//		var image1;
+//		var image2;
+//		var image3;
+//		var image4;
+		var userid=localStorage.getItem('user_id')
+	//上传图片\
+	
+	function uploadImg(){
+		var content=$('#add_meaasge').val();
+                  
+                   
+//		var havepublish=sessionStorage.getItem('havepublish');
+//		alert(havepublish)
+		
+		var wa = plus.nativeUI.showWaiting();
+		var DkeyNames = [];
+		var id = document.getElementById("ckjl.id").value;
+		var length = id.toString().length;
+		var idnmae = id.toString();
+		var numKeys = plus.storage.getLength();
+		var parms = {};
+		var type=type;
+//		if(numKeys == 0){
+//				wa.close();
+//				return;
+//		}
+		var task = plus.uploader.createUpload(globalUrl+'index.php/Mobile/JkShare/testUploadPic1',{
+			method: "POST"
+		},function(t, status){
+			wa.close();
+			plus.storage.clear(); 
+			var data = JSON.parse(t.responseText);
+//			  alert(JSON.stringify(data));
+//			  return;
+			if(status==200){
+				
+				if(data==' '||data==undefined||data==null){
+                     mui.toast('上传失败');
+                     return;
+                    
+                }else{
+                	var files=data.paths;
+//              	var parms={};
+//              	parms.image=files.join(',');
+                	
+//                  alert(JSON.stringify(parms));return
+//                 mui.toast('上传成功');
+                   if(files.length==0&&content==''){
+                   	     mui.toast('内容不能为空')
+                   }else{
+                   	var parms = {};
+                   	parms.image = files.join(',');
+                   	parms.user_id = userid;
+                   	parms.content = content;
+                   	alert(JSON.stringify(parms));
+//                 	return;
+	                   	$.ajax({
+		                	type:"post",
+		                	url:globalUrl+"index.php/Mobile/JkShare/Share",
+		                	data:parms,
+		                	dataType:'json',
+		                	success:function(res){
+		                		
+		              		var data=res.code;
+//		              		alert(JSON.stringify(data))
+			              		if(data==0){
+			              			mui.toast('发表成功');
+	//		              			sessionStorage.setItem('havepublish','0')
+	                                 plus.webview.getWebviewById('discover/discover.html').evalJS("shuaxin()");
+			              			mui.back()
+			              		}else{
+			              			mui.toast(res.msg);
+			              			
+			              		}
+		                	}
+		                }); 
+                   }
+               		
+
+                }
+
+              
+//             return false;
+                 
+
+			}else{
+				wa.close();
+				plus.storage.clear(); 
+				mui.toast('上传失败');
+				return;
+			}
+		})
+//         task.addData("id", user_id);
+	       task.addData("dir_name", 'z_pouyouquan');
+			var imgArray = [];//上传图片的id（多少添加图片按钮 ）
+			$('.image-item').each(function(){
+				imgArray.push($(this).attr('id'));
+			});
+			for(var i = 0; i < imgArray.length; i++) {
+				var itemkey = id + 'img-' + imgArray[i];//存储图片的下标
+				if(plus.storage.getItem(itemkey) != null) {
+					var itemvalue = plus.storage.getItem(itemkey).split("{");
+					for(var img = 1; img < itemvalue.length; img++) {
+						var imgname = itemvalue[img].substr(0, itemvalue[img].indexOf(","));
+						var imgurl = itemvalue[img].substring(itemvalue[img].indexOf(",") + 1, itemvalue[img].lastIndexOf(","));
+						task.addFile(imgurl, {
+							key: imgurl
+						});
+					}
+				}
+			}
+			task.start();
+	}
+</script>
+</html>
+

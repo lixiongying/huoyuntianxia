@@ -1,0 +1,166 @@
+.clear::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.mui-bar {
+  background: #279cfe;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border: 0;
+  height: 2.34666667rem;
+}
+.mui-bar .mui-title {
+  color: #fff;
+}
+.mui-bar-nav ~ .mui-content {
+  padding-top: 2.34666667rem;
+}
+.main {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.main .main_user {
+  width: 100%;
+  height: auto;
+  background: #fff;
+  padding-top: 2.05333333rem;
+  margin-bottom: 1.12rem;
+}
+.main_user .user_info {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #E2E2E2;
+}
+.user_info .head_pic {
+  width: 3.73333333rem;
+  height: 3.73333333rem;
+  margin: 0 auto;
+  border-radius: 50%;
+  margin-bottom: 0.53333333rem;
+}
+.head_pic img {
+  width: 3.73333333rem;
+  height: 3.73333333rem;
+  border-radius: 50%;
+}
+.user_info .xingxing {
+  width: 60%;
+  height: auto;
+  margin: 0 auto;
+  margin-bottom: 1.6rem;
+}
+.xingxing .gong {
+  width: 1.17333333rem;
+  height: 1.12rem;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  float: left;
+  margin-right: 0.53333333rem;
+}
+.xingxing .gong:first-child {
+  margin-left: 1.97333333rem;
+}
+.xingxing .huixing {
+  background-image: url(../img/changtuchexiangqing_sijipingfen02.png);
+}
+.xingxing .activexing {
+  background-image: url(../img/changtuchexiangqing_sijipingfen01.png);
+}
+.xingxing .score {
+  margin-top: 0.37333333rem;
+  float: right;
+  font-family: PingFang-SC-Medium;
+  height: 0.74666667rem;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 0.74666667rem;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+}
+.main_user .main_label {
+  width: 100%;
+  height: auto;
+  padding-bottom: 1.44rem;
+  margin-left: 2.05333333rem;
+}
+.main_label .label_li {
+  margin-top: 0.74666667rem;
+  float: left;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #279cfe;
+  padding: 0.29333333rem 0.72rem;
+  border-radius: 1.33333333rem;
+  border: 1px solid #279cfe;
+  margin-right: 0.8rem;
+}
+.main .main_user_ul {
+  width: 100%;
+  height: auto;
+  background: #fff;
+}
+.main_user_ul .user_li {
+  padding: 0.26666667rem 0.64rem 0.48rem;
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #E2E2E2;
+}
+.user_li .order_sn {
+  float: left;
+  font-family: PingFang-SC-Medium;
+  height: 1.76rem;
+  line-height: 1.76rem;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #333333;
+}
+.user_li .order_time {
+  float: right;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  height: 1.76rem;
+  line-height: 1.76rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+}
+.user_li .user_address {
+  float: left;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  height: 0.90666667rem;
+  line-height: 0.90666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #333333;
+  max-width: 13.33333333rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.user_li .user_xingxing {
+  float: right;
+  height: 0.53333333rem;
+  margin-top: 0.32rem;
+}
+.user_xingxing .user_xing {
+  float: left;
+  margin-left: 0.26666667rem;
+  width: 0.53333333rem;
+  height: 0.48rem;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  background-image: url(../img/changtuchexiangqing_sijipingfen01.png);
+}

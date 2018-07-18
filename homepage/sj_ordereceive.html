@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>我要接单</title>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/mui.picker.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/sj_ordereceive.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/swiper-4.3.2.min.css"/>
+		<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="../js/mui.picker.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../js/city.data.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		
+		<header class="mui-bar mui-bar-nav mui-action-back">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">我要接单</h1>
+		   
+		    <!--<span><img src="../img/faxian_jia.png"/></span>-->
+		</header>
+		<div class="mui-content">
+			<div class="main">
+				<div class="zone">
+					<div class="startplace " id="startplace">
+						<div class="place_one">
+							<img src="../img/changtuchexiangqing_qidian.png"/>
+						</div>
+						<div class="place_two nameone" >
+							<input type="" name="" id="staadd" value="" placeholder="请选择出发地"/>
+						</div>
+				    </div>
+				    <div class="endplace" id="endplace">
+						<div class="place_one">
+							<img src="../img/changtuchexiangqing_zhongdian.png"/>
+						</div>
+						<div class="place_two nametwo" >
+							<input type="" name="" id="endadd" value="" placeholder="请选择目的地"/>
+						</div>
+				    </div>
+				</div>
+				<div class="elemtone" style="opacity: 0;">
+					
+				</div>
+				<div class="elemttwo" style="opacity: 0;"> 
+					
+				</div>
+				<!--<div class="product">
+					<div class="productitem clearfix">
+						<div class="itemimg">
+							<img src="../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/>
+						</div>
+						<div class="itemmessage clearfix">
+							<div class="message clearfix">
+								<div class="message_one"><img src="../img/changtuche_zhuangchedizhi.png"/></div>
+								<div class="message_two">广州市白云区太和镇物ssssssssssssssssss</div>
+							</div>
+							
+							<div class="message clearfix">
+								<div class="message_one"><img src="../img/changtuche_xiehuodizhi.png"/></div>
+								<div class="message_two">广州市白云区太和镇物流园K栋sadasdas111</div>
+							</div>
+						</div>
+					</div>
+				</div>-->
+				<div class="next" id="next">
+					下一步
+				</div>
+				
+				
+				
+			</div>  
+		</div>
+	</body>
+	<script type="text/javascript">
+      var cityPicker = new mui.PopPicker({
+		layer: 3
+	  });
+		cityPicker.setData(cityData3);
+
+		var $sel_city=document.getElementById('startplace');
+		var $sel_citytwo=document.getElementById('endplace');
+        var $elemt=$('.nameone');
+        var $elemttwo=$('.nametwo');
+        var $elemtone
+		$sel_city.addEventListener('click', function(event) {
+		cityPicker.show(function(items) {
+			$elemt.html((items[0] || {}).text + " " + (items[1] || {}).text + " " + (items[2] || {}).text);
+            $('.elemtone').html((items[1] || {}).text);
+		});
+	    }, false);
+	    
+	    $sel_citytwo.addEventListener('click', function(event) {
+		cityPicker.show(function(items) {
+			$elemttwo.html((items[0] || {}).text + " " + (items[1] || {}).text + " " + (items[2] || {}).text);
+            $('.elemttwo').html((items[1] || {}).text);
+		});
+	    }, false);
+	 
+	
+	$('#next').click(function(){
+		var $elemtone=encodeURI($('.elemtone').html());
+		var $elemttwo=encodeURI($('.elemttwo').html());
+		var start_address=encodeURI($('.nameone').html());
+//		alert(start_address);
+//		return
+		var end_address=encodeURI($('.nametwo').html());
+		if($('#staadd').val()==''||$('#endadd').val()==''){
+			mui.toast('地址不能为空');
+			return false;
+		}else{
+			mui.openWindow({
+				url:'sj_orderlist.html?start_address='+start_address+'&end_address='+end_address+'&$elemtone='+$elemtone+'&$elemttwo='+$elemttwo+'',
+				id:'sj_orderlist.html'
+			})
+		}
+	})
+		
+
+	</script>
+</html>

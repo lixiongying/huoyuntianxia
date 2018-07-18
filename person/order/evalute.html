@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>订单详情</title>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<!--<link rel="stylesheet" type="text/css" href="../../css/nav_table.css"/>-->
+		<link rel="stylesheet" type="text/css" href="../../css/evalute.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/reset.css"/>
+		
+		<script src="../../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script src="../../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+		
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
+		    <h1 class="mui-title">订单评价</h1>
+		    
+		    <!--<span><img src="../../img/faxian_jia.png"/></span>-->
+		</header>
+		<div class="mui-content">
+			<div class="main">
+				<div class="head">
+					<div class="head_pic">
+						<img src="../../img/75c5ca005a7112cea4abb9c55a544f78_t013afb6f9efc2b4880.jpg" id="userpic"/>
+					</div>
+					<div class="head_information">
+						<div class="username nick_name">
+							黄鲜生
+						</div>
+						<div class="usernumber">
+							粤A66666
+						</div>
+					</div>
+				</div>
+				<div class="evalute">
+					<div class="evaluteone">
+						你好，请评价我的配送服务
+					</div>
+					<div class="evalutetwo">
+						<ul id="rating" class="rating">  
+						    <li class="rating-item" title="很不好"><img src="../../img/fabiaopingjia_pingfen.png" alt="" /></li>  
+						    <li class="rating-item" title="不好"><img src="../../img/fabiaopingjia_pingfen.png" alt="" /></li>  
+						    <li class="rating-item" title="一般"><img src="../../img/fabiaopingjia_pingfen.png" alt="" /></li>  
+						    <li class="rating-item" title="好"><img src="../../img/fabiaopingjia_pingfen.png" alt="" /></li>  
+						    <li class="rating-item" title="很好"><img src="../../img/fabiaopingjia_pingfen.png" alt="" /></li>  
+						</ul>  
+					</div>
+				</div>
+				<div class="evaluteitem">
+					<div class="evalutenum" data-type='1'>
+						准时 
+					</div>
+					<div class="evalutenum" data-type='1'>
+						温文尔雅 
+					</div>
+					<div class="evalutenum" data-type='1'>
+						合作愉快 
+					</div>
+				</div>
+				<div class="publish" onclick="publish()">
+					发布
+				</div>
+			</div>	
+				
+		</div>
+	</body>
+	<script type="text/javascript">
+		var goods_rank;
+		   var rating = (function() {
+	        // 初始点亮的星星数量的函数
+			var lightOn = function($item, num) {
+			  $item.each(function(index) {
+			    if(index < num) {
+			       $(this).children('img').attr('src','../../img/fabiaopingjia_pingfen.png')
+			    } else {
+			      $(this).children('img').attr('src','../../img/fabiaopingjia_pingfen2.png')
+			    }
+			  })
+			}
+			var init = function(el, num) {
+			  var $rating = $(el);
+			  var $item = $rating.find('.rating-item');
+			  // 调用lightOn函数，并传入参数
+			  lightOn($item, num);
+			  // 事件绑定(将子元素的事件委托给父元素处理)
+			  $rating.on('mousemove', '.rating-item', function() {
+			    lightOn($item, $(this).index() + 1);
+			  }).on('click', '.rating-item', function() {
+			    num = $(this).index() + 1;
+			   goods_rank=$(this).index() + 1;
+			   
+			  }).on('mouseout', function() {
+			    lightOn($item, num);
+			  });
+			};
+			// jQuery插件
+		    $.fn.extend({
+		      ratingStar: function(num) {
+		        return this.each(function() {
+		          init(this, num)
+		        })
+		      }
+		    })
+		    return {
+		      initfn: init
+		    }
+		})();
+		
+	   rating.initfn('#rating', 5);
+	  
+	  
+	  $('.evalutenum').each(function(i){
+	  	$(this).click(function(){
+	  		
+//	  		 $(this).attr('data-type',0)
+	  		if($(this).hasClass('addcolor')){
+	  			
+	  			$(this).removeClass('addcolor')
+	  		}else{
+	  			 $(this).addClass('addcolor');
+	  		}
+	  	})
+	  })
+	   
+//	   var goods = $('#rating').children('.rating-item');
+//	   var goods_rank=0;
+//	   for(var i=0;i<goods.length;i++){
+//			if(goods.eq(i).children('img').attr('src')=='../../img/fabiaopingjia_pingfen.png'){
+//				goods_rank +=parseInt(1);
+//			}
+//		}
+//	   
+//	   var urL=location.href;
+//	  
+//	   var order_id=getUrl(urL).order_id;
+//	   var rec_id=getUrl(urL).rec_id;
+//	   var userid=localStorage.getItem('user_id');
+//	   var catstatus=localStorage.getItem('car_status');
+//	   $.ajax({
+//	   	  	type:"post",
+//	   	  	url:globalUrl+"index.php/Mobile/JkUser/myLists",
+//	   	  	async:true,
+//	   	  	data:{user_id:userid},
+//	   	  	dataType:'json',
+//	   	  	success:function(res){
+//	   	  		var data=res.user;
+//	   	  		$('#userpic').attr('src',picUrl+data.head_pic);
+//	   	  		if(catstatus==0){
+//			      $('.usernumber').hide();
+//			   	  
+//			   }else{
+//			   	  $('.usernumber').show();
+//			   	  $('.usernumber').html(data.car_info.car_number);
+//			   }
+//			   $('.nick_name').html(data.nick_name)
+//	   	  	}
+//	   	  });
+//	   
+//	  $.ajax({
+//	  	type:"post",
+//	  	url:globalUrl+"index.php/Mobile/JkOrder/user_comment",
+//	  	async:true,
+//	  	dataType:'json',
+//	  	success:function(res){
+//	  		var data=res.root.font;
+////	  		alert(JSON.stringify(data))
+//	  		var str=data.split('|');
+//	  		var str1=''
+//	  		for(var i=0;i<str.length;i++){
+//	  			str1+='<div class="evalutenum">'+str[i]+'</div>';
+//	  		}
+//	  		$('.evaluteitem').html(str1);
+//	  		$('.evalutenum').each(function(i){
+//			  	$(this).click(function(){
+//			  		 $(this).addClass('addcolor');
+//			  		if($(this).hasClass('addcolor')){
+//			  			$(this).removeClass('addcolor').addClass('evalutenum');
+//			  		}else if($(this).hasClass('evalutenum')){
+//			  			$(this).addClass('addcolor').removeClass('evalutenum');
+//			  		}
+//			  	})
+//			  })
+//	  	
+//	  	}
+//	  });
+	  
+//	  function content(obj){
+//	  	   $(obj).addClass('addcolor');
+//	  	   
+//	  }
+	
+
+
+	
+	  function publish(){
+	      if(goods_rank==1){
+	      	goods_rank=1
+	      }else if(goods_rank==2){
+	      		goods_rank=2
+	      }else if(goods_rank==3){
+	      		goods_rank=3
+	      }else if(goods_rank==4){
+	      		goods_rank=4
+	      }else if(goods_rank==5){
+	      		goods_rank=5
+	      }
+	  	
+	  	  var parms={};
+	  	  parms.order_id=order_id;
+	  	  parms.user_id=userid;
+	  	  parms.content=content;
+	  	  parms.add_comment=1;
+	  	  parms.rec_id=rec_id;
+	  	  parms.goods_rank=goods_rank;
+	  	  
+	  	  $.ajax({
+	  	  	type:"post",
+	  	  	url:globalUrl+"index.php/Mobile/JkOrder/user_comment",
+	  	  
+	  	  	data:parms,
+	  	  	dataType:'json',
+	  	  	success:function(res){
+	  	  		var data=res;
+	  	  		if(res.code==0){
+	  	  			mui.toast(res.msg);
+	  	  			mui.back()
+	  	  		}else{
+	  	  			mui.toast(res.msg)
+	  	  		}
+	  	  	}
+	  	  });
+	  }
+	
+	</script>
+</html>

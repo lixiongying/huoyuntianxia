@@ -1,0 +1,96 @@
+.clear {
+  clear: both;
+}
+.mui-bar {
+  background: #279cfe;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border: 0;
+  height: 2.34666667rem;
+}
+.mui-bar .mui-title {
+  color: #fff;
+}
+.mui-bar-nav ~ .mui-content {
+  padding-top: 2.34666667rem;
+}
+.main {
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  margin: 0.53333333rem 0.64rem 0rem 0.64rem;
+}
+.main .tishi {
+  width: auto;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.64rem;
+  font-weight: normal;
+  font-stretch: normal;
+  color: #b3b3b3;
+  margin-left: 1.17333333rem;
+}
+.main .main_li {
+  background: #fff;
+  width: 100%;
+  height: 2.82666667rem;
+  border-bottom: 0.05333333rem solid #f0eff4;
+  padding: 0 0.64rem;
+  position: relative;
+  border-radius: 0.16rem;
+}
+.main .one_li {
+  margin-bottom: 0.32rem;
+}
+.main_li .li_phone {
+  float: left;
+}
+.li_phone {
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.82666667rem;
+  letter-spacing: 0rem;
+  color: #333333;
+}
+.main_li .li_number {
+  float: left;
+}
+.li_number input {
+  width: 13.33333333rem;
+  margin-bottom: 0rem;
+  padding: 0rem 0rem 0rem 1.54666667rem;
+  margin-top: 0.32rem;
+  border: 0;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  color: #666666;
+}
+.last_number input {
+  padding: 0rem 0rem 0rem 0.8rem;
+}
+.main .main_sure {
+  width: auto;
+  margin: 14.98666667rem 0.64rem 0rem;
+}
+.main .main_newssure {
+  margin: 18.18666667rem 0.64rem 0rem;
+}
+.main_sure .sure {
+  width: 100%;
+  height: 2.34666667rem;
+  line-height: 2.34666667rem;
+  background: #279cfe;
+  border-radius: 0.16rem;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0.02666667rem;
+  color: #ffffff;
+}

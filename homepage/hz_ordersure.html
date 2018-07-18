@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>订单发布</title>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/mui.css"/>
+<!--		<link rel="stylesheet" type="text/css" href="../css/nav_table.css"/>-->
+		<link rel="stylesheet" type="text/css" href="../css/hz_ordersure.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/swiper-4.3.2.min.css"/>
+		<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<style type="text/css">
+		.nodriver{
+			width: 100%;
+			height: 10rem;
+			text-align: center;
+			line-height: 10rem;
+			color: #CCCCCC;
+		}
+	</style>
+	</head>
+	<body>
+		
+		<header class="mui-bar mui-bar-nav mui-action-back">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">订单发布</h1>
+		   
+		    <!--<span><img src="../img/faxian_jia.png"/></span>-->
+		</header>
+		<div class="mui-content">
+			<div class="main">
+				<div class="content">
+					<div class="pricecontent">
+				    	<div class="price_one">
+				    		<div>估计价格：</div>
+				    		<div><img src="../img/help.png"/></div>
+				    	</div>
+				    	<div class="price_two">
+				    		<span>¥</span>&nbsp&nbsp<input type="text" class="shop_price"/>&nbsp&nbsp元
+				    	</div>
+				    	<div class="price_three">
+				    		提示：如果低于系统评估价可能没司机接单
+				    	</div>
+				    </div>
+				    
+				     <!--出发地：-->
+				    <div class="place">
+					    <div class="startplace">
+					    	<div class="number_one">
+					    		
+					    	</div>
+					    	<div class="number_two start_address">
+					    		广东省-广州市-天河区-车陂路100号-天河区-车陂路100号
+					    	</div>
+					    	
+					    </div>
+					    
+					    
+					    <div class="endplace">
+					    	<div class="number_one">
+					    		
+					    	</div>
+					    	<div class="number_two end_address">
+					    		广东省-深圳市-罗湖区-金鹏物流园北区8-13号
+					    	</div>
+					    </div>
+				    </div>
+				    
+				    <div class="goodtypeandtime">
+					    <div class="goodstype">
+					    	<div class="type_one">
+					    		货物类型：
+					    	</div>
+					    	<div class="type_two cat_name">
+					    		化工药品
+					    	</div>
+					    	<div class="type_three">
+					    		<div class="weight">
+					    			重量/体积：
+					    		</div>
+					    		<div class="number">
+					    			<span class="ton"></span>吨<span class="cube"></span>方
+					    		</div>
+					    		
+					    	</div>
+					    </div>
+					    
+					     <div class="startime">
+					    	<div class="number_one">
+					    		出发时间：
+					    	</div>
+					    	<div class="number_two load_time">
+					    		2018-05-01
+					    	</div>
+					    	
+					    </div>
+			        </div>
+				    
+				</div>
+			    
+			
+			     <div class="orderdriver">
+			     	接单司机
+			     </div>
+			     <div class="drivercontent">
+				     
+				     
+				     <div class="driver">
+				     	<div class="nodriver">
+				     		暂无接单司机
+				     	</div>
+				     	<div class="carimg">
+				     		<img src="../img/c8e9eef9f1c58ac516b51eaa584e7233_t01a6852a946b324a87.jpg"/>
+				     	</div>
+				     	<div class="drivermessage">
+				     		<div class="dv_contact">
+				     		     <div class="">
+				     		               联系人：
+				     	         </div>
+				     	         <div class="">
+				     		               黄鲜生
+				     	         </div>
+				     	         <div class="">
+				     		       <img src="../img/dingdanxiangqing_weixuanzhong.png" class="surebtn" data-type="0"/>
+				     	         </div>	
+				     	    </div>
+				     	    <div class="dv_tele">
+				     		    <div class="">
+				     		                手机号：
+				     	        </div>
+				     	        <div class="">
+				     		         17875032581  
+				     	        </div>
+				     	        <div class="">
+				     	        	<!--<img src="../img/dingdanxiangqing_weixuanzhong.png"/>-->
+				     		           <img src="../img/zhuanxianxiangqing_phone.png"/>  
+				     	        </div>
+				     	    </div>
+				     	    <div class="cartype">
+				     		 6.8米 平板车 22.1方 6.0吨
+				     	    </div>
+				     	</div>
+				     </div>
+			    </div>
+			</div>
+			
+			 <!--支付弹窗-->
+			    <div class="payforitem">
+			    	<div class="payfor">
+			    		<div class="payfor_one">
+			    			选择支付方式
+			    		</div>
+			    		<div class="payfor_two  cancelpay">
+			    			<img src="../img/guanbi.png"/>
+			    		</div>
+			    	</div>
+			    	<div class="zhifubao">
+			    		<div class="zhifubao_pic">
+			    			<img src="../img/alipay.png"/>
+			    		</div>
+			    		<div class="zhifubao_wrold">
+			    			支付宝支付
+			    		</div>
+			    		<div class="zhifubao_next">
+			    			<img src="../img/zhuanxianxiangqing_xiehuowangdian_up.png"/>
+			    		</div>
+			    	</div>
+			    	<div class="webchat">
+			    		<div class="webchat_pic">
+			    			<img src="../img/wechatpay.png"/>
+			    		</div>
+			    		<div class="webchat_wrold">
+			    			微信支付
+			    		</div>
+			    		<div class="webchat_next">
+			    			<img src="../img/zhuanxianxiangqing_xiehuowangdian_up.png"/>
+			    		</div>
+			    	</div>
+			    </div>
+			    <!--遮罩-->
+			    <div class="mask">
+			    	
+			    </div>
+			
+			
+			<div class="surepublish">
+				确认支付
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+	
+         $('.surebtn').click(function(){
+         	
+         	var type=$(this).attr('data-type')
+         	if(type==0){
+         		$(this).attr('data-type',1);
+         		$(this).attr('src','../img/dingdanxiangqing_xuanzhong.png');
+         		$(this).parents('.driver').siblings().find('.surebtn').attr('src','../img/dingdanxiangqing_weixuanzhong.png')
+         		
+         	}else if(type==1){
+         		$(this).attr('src','../img/dingdanxiangqing_weixuanzhong.png');
+         		$(this).attr('data-type',0);
+         	}
+         })
+         $('.surepublish').click(function(){
+			$('.payforitem').show();
+			$('.mask').show()
+		})
+		$('.cancelpay').click(function(){
+			$('.mask').hide()
+			$('.payforitem').hide();
+		})
+		$('.mask').click(function(){
+			$('.mask').hide()
+			$('.payforitem').hide();
+		})
+		
+		var urL=location.href;
+		var shop_price=getUrl(urL).shop_price;
+		var goodsid=getUrl(urL).goodsid;
+		
+		$('.shop_price').val(shop_price);
+		var userid=localStorage.getItem('user_id');
+		getgoods()
+		function getgoods(){
+			$.ajax({
+				type:"post",
+				url:globalUrl+"index.php/Mobile/JkOrder/userline",
+				data:{user_id:userid,goods_id:goodsid},
+				dataType:'json',
+				success:function(res){
+						var data=res.root;
+		         		var str='';
+		         	
+		         	
+		         		$('.start_address').html(data.start_address);
+		         		$('.end_address').html(data.end_address);
+		         		$('.cat_name').html(data.cat_name);
+		         		$('.ton').html(data.ton);
+		         		$('.cube').html(data.cube);
+		         		var time=timeToDate(data.load_time);
+		         		$('.load_time').html(time);
+		         		$('.goods_remark').html(data.goods_remark);
+		         		
+		         		  /*接单司机列表*/
+		         		 if(data.car.userinfo==null||data.car.userinfo==undefined){
+		         		 	$('.nodriver').show();
+		         		 }else{
+		         		 	$('.nodriver').hide();
+		         		 
+			         		 for(var i=0;i<data.car.length;i++){
+			         		 	str+='<div class="driver">';
+			         		 	str+='<div class="carimg"><img src="'+picUrl+data.car[i].image2+'"/></div>';
+			         		 	str+='<div class="drivermessage">';
+			         		 	str+='<div class="dv_contact">';
+			         		 	str+='<div class=""> 联系人： </div>';
+			         		 	str+='<div class="">'+data.car[i].user_info.nick_name+'</div>';
+			         		 	str+='<div class=""><img src="../img/dingdanxiangqing_weixuanzhong.png" class="surebtn" data-type="0"/></div>';
+			         		 	str+='</div>';
+			         		 	str+='<div class="dv_tele">';
+			         		 	str+='<div class="">手机号：</div>';
+			         		 	str+='<div class="">'+data.car[i].user_info.mobile+'</div>';
+			         		 	str+='<div class=""><img src="../img/zhuanxianxiangqing_phone.png"/></div>';
+			         		 	str+='</div>';
+			         		 	str+='<div class="cartype"><span>'+data.car[i].meter+'</span>米 平板车<span>'+data.car[i].cat+'</span>方<span>'+data.car[i].ton+'</span>吨</div>';
+			         		 	str+='</div>';	
+			         		 	str+='</div>';
+			         		 }
+		         		 }
+		         		 
+		         		 $('.drivercontent').html(str);
+	         	        
+					}
+			});
+		}
+		
+		
+		
+		
+		
+		
+	
+	 
+	</script>
+</html>

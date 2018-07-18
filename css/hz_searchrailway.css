@@ -1,0 +1,456 @@
+header a {
+  color: white;
+}
+.main {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.mui-bar {
+  width: 20rem;
+  height: 2.34666667rem;
+  background-color: #279cfe;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.mui-title {
+  color: #ffffff;
+  font-size: 0.96rem;
+}
+.map {
+  width: 100%;
+  height: 13.86666667rem;
+}
+.map .baidumap {
+  width: 100%;
+  height: 11.2rem;
+}
+.map .mapplace {
+  width: 100%;
+  height: 2.66666667rem;
+  background: white;
+}
+.map .mapplace .place {
+  width: 70%;
+  height: 2.66666667rem;
+  line-height: 2.66666667rem;
+  font-family: PingFang-SC-Bold;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0.02666667rem;
+  color: #279cfe;
+  display: inline-block;
+  float: left;
+  padding-left: 0.64rem;
+}
+.map .mapplace .collect {
+  width: 20%;
+  height: 1.44rem;
+  line-height: 1.44rem;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  margin-right: 0.64rem;
+  font-family: PingFang-SC-Bold;
+  letter-spacing: 0.02666667rem;
+  color: #fdbf42;
+  display: inline-block;
+  float: right;
+  margin-top: 0.64rem;
+  border: 1px solid #fdbf42;
+}
+.map .mapplace .collecthave {
+  width: 20%;
+  height: 1.44rem;
+  line-height: 1.44rem;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  margin-right: 0.64rem;
+  font-family: PingFang-SC-Bold;
+  letter-spacing: 0.02666667rem;
+  color: white;
+  background: #CCCCCC;
+  display: inline-block;
+  float: right;
+  margin-top: 0.64rem;
+  border: 1px solid #CCCCCC;
+}
+.linkman {
+  width: 20rem;
+  height: 2.82666667rem;
+  background-color: #ffffff;
+  margin-top: 1.06666667rem;
+}
+.linkman .link_img {
+  width: 0.66666667rem;
+  height: 0.66666667rem;
+  display: inline-block;
+  float: left;
+  margin-left: 0.66666667rem;
+  margin-top: 1.06666667rem;
+}
+.linkman .linkman_item {
+  width: 4rem;
+  height: 2.82666667rem;
+  background-color: #ffffff;
+  line-height: 2.82666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0.02666667rem;
+  color: #1f1f1f;
+  display: inline-block;
+  float: left;
+  margin-left: 0.4rem;
+  white-space: nowrap;
+}
+.linkman .linkman_message {
+  width: 8rem;
+  height: 2.82666667rem;
+  background-color: #ffffff;
+  line-height: 2.82666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0.02666667rem;
+  color: #1f1f1f;
+  display: inline-block;
+  float: left;
+  white-space: nowrap;
+}
+.tel {
+  width: 20rem;
+  height: 2.82666667rem;
+  background-color: #ffffff;
+  margin-top: 0.05333333rem;
+}
+.tel .link_img {
+  width: 0.66666667rem;
+  height: 0.66666667rem;
+  display: inline-block;
+  float: left;
+  margin-left: 0.66666667rem;
+  margin-top: 1.06666667rem;
+}
+.tel .linkman_item {
+  width: 4rem;
+  height: 2.82666667rem;
+  background-color: #ffffff;
+  line-height: 2.82666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0.02666667rem;
+  color: #1f1f1f;
+  display: inline-block;
+  float: left;
+  margin-left: 0.4rem;
+  white-space: nowrap;
+}
+.tel .linkman_message {
+  width: 5.33333333rem;
+  height: 2.82666667rem;
+  background-color: #ffffff;
+  line-height: 2.82666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0.02666667rem;
+  color: #1f1f1f;
+  display: inline-block;
+  float: left;
+  white-space: nowrap;
+}
+.tel .linkman_phone {
+  width: 0.96rem;
+  display: inline-block;
+  float: left;
+  height: 0.98666667rem;
+  margin-top: 0.93333333rem;
+  margin-left: 0.8rem;
+}
+.address {
+  width: 20rem;
+  height: 2.82666667rem;
+  background-color: #ffffff;
+  margin-top: 0.05333333rem;
+}
+.address .link_img {
+  width: 0.66666667rem;
+  height: 0.66666667rem;
+  display: inline-block;
+  float: left;
+  margin-left: 0.66666667rem;
+  margin-top: 1.06666667rem;
+}
+.address .linkman_item {
+  width: 4rem;
+  height: 2.82666667rem;
+  background-color: #ffffff;
+  line-height: 2.82666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0.02666667rem;
+  color: #1f1f1f;
+  display: inline-block;
+  float: left;
+  margin-left: 0.4rem;
+  white-space: nowrap;
+}
+.address .linkman_message {
+  width: 13.33333333rem;
+  height: 2.82666667rem;
+  background-color: #ffffff;
+  line-height: 2.82666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0.02666667rem;
+  color: #1f1f1f;
+  display: inline-block;
+  float: left;
+  white-space: nowrap;
+}
+.through {
+  width: 20rem;
+  height: 2.82666667rem;
+  background-color: #ffffff;
+  margin-top: 0.05333333rem;
+}
+.through .link_img {
+  width: 0.66666667rem;
+  height: 0.66666667rem;
+  display: inline-block;
+  float: left;
+  margin-left: 0.66666667rem;
+  margin-top: 1.06666667rem;
+}
+.through .linkman_item {
+  width: 4rem;
+  height: 2.82666667rem;
+  background-color: #ffffff;
+  line-height: 2.82666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0.02666667rem;
+  color: #1f1f1f;
+  display: inline-block;
+  float: left;
+  margin-left: 0.4rem;
+  white-space: nowrap;
+}
+.through .linkman_message {
+  width: 13.33333333rem;
+  height: 2.82666667rem;
+  background-color: #ffffff;
+  line-height: 2.82666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0.02666667rem;
+  color: #1f1f1f;
+  display: inline-block;
+  float: left;
+  white-space: nowrap;
+}
+.cover {
+  width: 20rem;
+  height: 2.82666667rem;
+  background-color: #ffffff;
+  margin-top: 0.05333333rem;
+}
+.cover .link_img {
+  width: 0.66666667rem;
+  height: 0.66666667rem;
+  display: inline-block;
+  float: left;
+  margin-left: 0.66666667rem;
+  margin-top: 1.06666667rem;
+}
+.cover .linkman_item {
+  width: 4rem;
+  height: 2.82666667rem;
+  background-color: #ffffff;
+  line-height: 2.82666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0.02666667rem;
+  color: #1f1f1f;
+  display: inline-block;
+  float: left;
+  margin-left: 0.4rem;
+  white-space: nowrap;
+}
+.cover .linkman_message {
+  width: 13.33333333rem;
+  height: 2.82666667rem;
+  background-color: #ffffff;
+  line-height: 2.82666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0.02666667rem;
+  color: #1f1f1f;
+  display: inline-block;
+  float: left;
+  white-space: nowrap;
+}
+.unloadnet {
+  margin-top: 1.06666667rem;
+  width: 100%;
+  background-color: #ffffff;
+}
+.unloadnet .net_title {
+  width: 100%;
+  height: 2.34666667rem;
+}
+.net_title .wangdian {
+  width: 5.33333333rem;
+  height: 2.34666667rem;
+  line-height: 2.34666667rem;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0.02666667rem;
+  color: #1f1f1f;
+  display: inline-block;
+  float: left;
+}
+.net_title .wangdianimg {
+  width: 0.8rem;
+  height: 0.42666667rem;
+  display: inline-block;
+  float: right;
+  margin-top: 0.96rem;
+  margin-right: 0.64rem;
+}
+.net_content {
+  width: 100%;
+  height: auto;
+}
+.content {
+  width: 100%;
+  height: auto;
+  padding: 0.26666667rem 0.32rem;
+  border-bottom: 1px solid #F5F5F5;
+}
+.content .content_one {
+  width: 4.10666667rem;
+  height: 3.73333333rem;
+  float: left;
+  margin-left: 0.64rem;
+  margin-top: 0.8rem;
+}
+.content .content_two {
+  width: 13.33333333rem;
+  height: auto;
+  float: left;
+  margin-top: 0.53333333rem;
+}
+.content .content_two .telphonet {
+  width: 100%;
+  padding: 0.26666667rem 0.37333333rem;
+}
+.content .content_two .telphonet .shouji {
+  width: 2.66666667rem;
+  line-height: 0.8rem;
+  float: left;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+}
+.content .content_two .telphonet .number {
+  width: 9.33333333rem;
+  padding: 0 0.26666667rem;
+  word-break: normal;
+  word-wrap: break-word;
+  line-height: 0.8rem;
+  display: inline-block;
+  float: left;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #1f7ecc;
+}
+.reminder {
+  width: 14.93333333rem;
+  left: 2.53333333rem;
+  top: 50%;
+  height: 7.46666667rem;
+  background-color: #ffffff;
+  border-radius: 0.16rem;
+  z-index: 100;
+  position: fixed;
+}
+.reminder .reminder_title {
+  width: 100%;
+  height: 2.13333333rem;
+  background-color: #f8f8f8;
+  text-align: center;
+  line-height: 2.13333333rem;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #279cfe;
+}
+.reminder_sc {
+  width: 100%;
+  height: 2.13333333rem;
+}
+.reminder_world {
+  width: 100%;
+  height: 3.2rem;
+  line-height: 3.2rem;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+}
+.reminder_sc div {
+  width: 50%;
+  height: 2.13333333rem;
+  line-height: 2.13333333rem;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #cccccc;
+  float: left;
+}
+.reminder_sc .sure {
+  color: #279cfe;
+}

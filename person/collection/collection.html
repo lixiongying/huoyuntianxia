@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>我的收藏</title>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<!--<link rel="stylesheet" type="text/css" href="../../css/nav_table.css"/>-->
+		<link rel="stylesheet" type="text/css" href="../../css/collection.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/reset.css"/>
+		<script src="../../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+	    <style type="text/css">
+	    	/*.mask{
+			  background: black;
+			  opacity: 0.4;
+			  width: 100%;
+			  height: 100%;
+			  position: fixed;
+			  left: 0;
+			  bottom: 0;
+			  top: 0;
+			  z-index: 100;
+			  display: none;
+			}*/
+	    </style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-action-back">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
+		    <h1 class="mui-title">我的收藏</h1>
+		    
+		    <!--<span><img src="../../img/faxian_jia.png"/></span>-->
+		</header>
+		<div class="mui-content">
+			<div class="main">
+				<div class="main_li" onclick="url(this)" data-url="collection_detail/collection_detail.html">
+					<div class="company">
+						<div class="company_name">广州市顺德物流有限公司</div>
+						<div class="click">点击6899次</div>
+						<div class="clear"></div>
+					</div>
+					<div class="company_detail">
+						<div class="company_pic">
+							<img  class="pic" src="../../img/75c5ca005a7112cea4abb9c55a544f78_t013afb6f9efc2b4880.jpg"/>
+						</div>
+						<div class="detail">
+							<div class="address">
+								<div class="add_name">地址：</div>
+								<div class="add_ress">广州市白云区太和镇物流园公路旁边126号</div>
+								<div class="clear"></div>
+							</div>
+							<div class="phone">
+								<div class="phone_name">电话：</div>
+								<div class="phone_number">020-12345678</div>
+								<div class="clear"></div>
+							</div>
+							<div class="authentication">
+								<div class="icon"><img src="../../img/chaxunxianlu_yirenzheng.png"/></div>
+								<div class="auth">已认证</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="main_li" onclick="url(this)" data-url="collection_detail/collection_detail.html">
+					<div class="company">
+						<div class="company_name">广州市顺德物流有限公司</div>
+						<div class="click">点击6899次</div>
+						<div class="clear"></div>
+					</div>
+					<div class="company_detail">
+						<div class="company_pic">
+							<img class="pic" src="../../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/>
+						</div>
+						<div class="detail">
+							<div class="address">
+								<div class="add_name">地址：</div>
+								<div class="add_ress">广州市白云区太和镇物流园…</div>
+								<div class="clear"></div>
+							</div>
+							<div class="phone">
+								<div class="phone_name">电话：</div>
+								<div class="phone_number">020-12345678</div>
+								<div class="clear"></div>
+							</div>
+							<div class="authentication">
+								<div class="icon"><img src="../../img/chaxunxianlu_yirenzheng.png"/></div>
+								<div class="auth">已认证</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+		
+		    <div class="mask">
+				
+			</div>
+			<div class="reminders">
+				<div class="reminder_title">提示</div>
+					<div class="reminder_world">查看详情将产生<span class="xunibi"></span>个虚拟币的消耗哦</div>
+					<div class="reminder_sc">
+						<div onclick="cancell()">取消</div>
+						<div class="sure" onclick="Makesure()">确定</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+	var userid=localStorage.getItem('user_id');
+	var ajaxData={};
+	var p=2;
+	var totalPage;
+	ajaxData.user_id=userid;
+	ajaxData.p=1;
+	loaddata();
+		function loaddata(){
+	
+			$.ajax({
+				type:"post",
+				url:globalUrl+"index.php/Mobile/JkUser/collectList",
+				data:ajaxData,
+				dataType:'json',
+				success:function(res){
+					totalPage=res.totalPage
+					var data=res.root;
+				
+					var str='';
+					for(var i=0;i<data.length;i++){
+						str+='<div class="main_li" onclick="urlnext(this)" data-type='+data[i].goods_id+' data-collect='+data[i].collect_id+'>';
+						str+='<div class="company">';
+						str+='<div class="company_name">'+data[i].company+'</div>';
+						str+='<div class="click">点击<span>'+data[i].click_count+'</span>次</div>';
+						str+='<div class="clear"></div>';
+						str+='</div>';
+						str+='<div class="company_detail">';
+						str+='<div class="company_pic"><img class="pic" src="'+picUrl+data[i].original_img+'"/></div>';
+						str+='<div class="detail">';
+						str+='<div class="address">';
+						str+='<div class="add_name">地址：</div>';
+						str+='<div class="add_ress">'+data[i].address+'</div>';
+						str+='<div class="clear"></div>';
+						str+='</div>';
+						str+='<div class="phone">';
+						str+='<div class="phone_name">电话：</div>';
+						str+='<div class="phone_number">'+data[i].tel+'</div>';
+						str+='<div class="clear"></div>';
+						str+='</div>';
+						str+='<div class="authentication">';
+						str+='<div class="icon"><img src="../../img/chaxunxianlu_yirenzheng.png"/></div>';
+						str+='<div class="auth">已认证</div>';
+						str+='<div class="clear"></div>';
+						str+='</div>';
+						str+='</div>';
+						str+='<div class="clear"></div>';
+						str+='</div>';
+						str+='</div>';
+
+					}
+					$('.main').html(str)
+				}
+			});
+		}
+		
+		$(window).scroll(function() {
+			if ($(document).scrollTop() >= $(document).height() - $(window).height()){
+				if(p>totalPage){
+					mui.toast('没有更多结果');
+				}else{
+					ajaxData.p = p;
+		//			alert(JSON.stringify(ajaxdata));
+					loaddata();
+					p++
+				}
+			}
+			
+		});	
+		
+		
+		var id;
+      	var del_coin;
+      	var userid=localStorage.getItem('user_id');
+      	function userindo(){
+      		$.ajax({
+	  			type:"post",
+	  			url:globalUrl+"index.php/Mobile/JkUser/myLists",
+	  			data:{user_id:userid},
+	  			dataType:'json',
+	  			success:function(res){
+	  				var data=res.user;
+	  				
+	  				 del_coin=data.del_coin;
+	  				$('.xunibi').html(del_coin)
+	  			}
+	  		});
+      	}
+  		userindo();
+  		
+      	function urlnext(obj){
+
+      		id=$(obj).attr('data-type');
+      		$('.mask').show();
+			$('.reminders').show();
+				
+		}
+      	function cancell(){
+      		$('.mask').hide();
+			$('.reminders').hide();
+				
+      	}
+      	function Makesure(){
+      		
+      		mui.openWindow({
+      			url:'../../homepage/hz_searchrailway.html?id='+id+'&del_coin='+del_coin+'',
+      			id:'../../homepage/hz_searchrailway.html'
+      		})
+      		$('.mask').hide();
+			$('.reminders').hide();
+      	}
+	</script>
+</html>

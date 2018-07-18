@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>订单详情</title>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<!--<link rel="stylesheet" type="text/css" href="../../css/nav_table.css"/>-->
+		<link rel="stylesheet" type="text/css" href="../../css/order_detail.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/swiper-4.3.2.min.css"/>
+		<script src="../../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/idangerous.swiper.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
+		    <h1 class="mui-title">订单详情</h1>
+		    
+		    <!--<span><img src="../../img/faxian_jia.png"/></span>-->
+		</header>
+		<div class="mui-content">
+			<div class="main">
+				<div class="main_tishi">
+					<div class="touming"></div>
+					<div class="tishi">已发布</div>
+				</div>
+				<div class="main_banner">
+					<img src="../../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/>
+				</div>
+				<div class="main_ul">
+					<div class="order_detail clear">
+						<div class="f-left icon">
+							<img src="../../img/dingdanxiangqing_jine.png"/>
+						</div>
+						<div class="f-left order_mname">金额：</div>
+						<div class="f-left order_money goods_price">¥ 1200.00</div>
+						<div class="f-right order_typecar">长途车</div>
+					</div>
+					<div class="order_li order_detail clear huozhuitem">
+						<div class="f-left icon">
+							<img src="../../img/zhuanxianxiangqing_lianxiren.png"/>
+						</div>
+						<div  class="f-left order_mname catid" data-type=''>货主方：</div>
+						<div class="f-left order_nick huozhuname">张三</div>
+						<div class="f-left order_mobile huozhumobile">17875032851</div>
+					</div>
+					<div class="order_li order_detail clear sijiitem">
+						<div class="f-left icon">
+							<img src="../../img/zhuanxianxiangqing_lianxiren.png"/>
+						</div>
+						<div  class="f-left order_mname">司机方：</div>
+						<div class="f-left order_nick sijiname">李四</div>
+						<div class="f-left order_mobile sijimobile">17875032851</div>
+					</div>
+					<div class="order_li order_detail clear">
+						<div class="f-left icon">
+							<img src="../../img/zhuanxianxiangqing_dizhi.png"/>
+						</div>
+						<div  class="f-left order_mname">出发地：</div>
+						<div class="f-left order_address start_address">广州市白云区太和镇物流园K栋111流园K栋111广州市白云区太和镇物流园K栋111流园K栋111广州市白云区太和镇物流园K栋111流园K栋111</div>
+					</div>
+					
+					<div class="order_li order_detail order_bottom clear">
+						<div class="f-left icon">
+							<img src="../../img/zhuanxianxiangqing_dizhi.png"/>
+						</div>
+						<div  class="f-left order_mname">目的地：</div>
+						<div class="f-left order_address">深圳市罗湖区金鹏物流园8-11号</div>
+					</div>
+					
+					<div class="order_li order_detail clear">
+						<div class="f-left icon">
+							<img src="../../img/zhuanxianxiangqing_dizhi.png"/>
+						</div>
+						<div  class="f-left order_mname">货物类型：</div>
+						<div class="f-left  order_value cat_id1">化工药品</div>
+					</div>
+					<div class="order_li order_detail clear">
+						<div class="f-left icon">
+							<img src="../../img/zhuanxianxiangqing_dizhi.png"/>
+						</div>
+						<div  class="f-left order_mname">重量/体积：</div>
+						<div class="f-left  order_value"><span class="ton"></span>吨<span class="cube"></span>方</div>
+					</div>
+					<div class="order_li order_detail clear">
+						<div class="f-left icon">
+							<img src="../../img/zhuanxianxiangqing_dizhi.png"/>
+						</div>
+						<div  class="f-left order_mname">出发时间：</div>
+						<div class="f-left  order_value load_time">2018-05-01 下午12-18点</div>
+					</div>
+					<div class="order_li order_detail clear">
+						<div class="f-left icon">
+							<img src="../../img/zhuanxianxiangqing_dizhi.png"/>
+						</div>
+						<div  class="f-left order_mname order_name">备注 ：</div>
+						<div class="f-left order_address ">深圳市罗湖区金鹏物流园8-11号金鹏物流园8-11号</div>
+					</div>
+				</div>
+				<div class="main_comment">
+					<div class="comment" onclick="change()">修改</div>
+				</div>	
+			</div>	
+				
+		</div>
+	</body>
+	<script type="text/javascript">
+		  
+		$ (function (){
+
+            $ ('.main_tishi').show ().delay (3000).fadeOut ();
+	       
+	    });
+	    var urL=location.href;
+	    var order_id=getUrl(urL).order_id;
+	    var carstatus=localStorage.getItem('car_status');
+	    var type=getUrl(urL).type;
+	    var shop_price;
+	    
+	    if(type==0){
+	    	if(carstatus==0){
+    			$('.sijiitem').hide();
+    			$('.tishi').html('已发布')
+    			$('.comment').html('修改')
+    		}else{
+    			$('.sijiitem').show();
+    			$('.tishi').html('接单');
+    			$('.comment').hide();
+    		}
+	    }else if(type==1){
+	    	$('.tishi').html('已确认');
+	    	$('.comment').hide()
+	    }else if(type==2){
+	    	$('.tishi').html('送货中');
+	    	$('.comment').hide()
+	    }else if(type==3){
+	    	$('.tishi').html('待评价');
+	    	$('.comment').html('去评价')
+	    }
+	     var rec_id;
+	    $.ajax({
+	    	type:"post",
+	    	url:globalUrl+"index.php/Mobile/JkOrderlist/orderDetails",
+	    	data:{order_id:order_id},
+	    	dataType:'json',
+	    	success:function(res){
+	    		var data=res.info;
+	    		
+	    	   rec_id=data.goodsInfo.rec_id;
+	    	   $('.catid').attr('data-type',rec_id);
+	    	  
+	    		$('.start_address').html(data.goodsInfo.start_address);
+	    		$('.end_address').html(data.goodsInfo.end_address);
+	    		$('.cat_id1').html(data.goodsInfo.cat_id1);
+	    		var time=data.goodsInfo.load_time;
+	    		var timeone=timeToDate2(time)
+	    		$('.load_time').html(timeone);
+	    		$('.goods_price').html(data.goodsInfo.goods_price);
+	    		$('.ton').html(data.goodsInfo.ton);
+	    		$('.cube').html(data.goodsInfo.cube);
+	    		shop_price=data.goodsInfo.goods_price;
+	    		
+	    		var type_id=data.goodsInfo.type_id;
+	    		if(type_id==2){
+	    			$('.order_typecar').html('长途车')
+	    		}else{
+	    			$('.order_typecar').html('短途车')
+	    		}
+	    		$('.huozhuname').html(data.goodsInfo.user_info.nick_name);
+	    		$('.huozhumobile').html(data.goodsInfo.user_info.mobile);
+	    		
+	    		if(carstatus==0){
+	    			$('.sijiitem').hide();
+	    			
+	    		}else{
+	    			$('.sijiitem').show();
+	    			$('.sijiname').html(data.goodsInfo.siji_info.nick_name);
+	    		    $('.sijimobile').html(data.goodsInfo.siji_info.mobile);
+	    		}
+	    		
+	    	}
+	    });
+	   
+	    if(type==0){
+	    	function change(){
+		   	   mui.openWindow({
+		   	   		url:'../../homepage/hz_ordersure.html?shop_price='+shop_price+'&goodsid='+order_id+'',
+		   	   		id:'../../homepage/hz_ordersure.html'
+		   	   	})
+	        }
+	   }else if(type==3){
+//	   var rec_id=$('.catid').attr('data-type');
+	     var rec_id=$('.catid').attr('data-type')
+	   	   function change(){
+	   	   	
+		   	   mui.openWindow({
+		   	   		url:'./evalute.html?order_id='+order_id+'&rec_id='+rec_id+'',
+	   	   		   id:'./evalute.html'
+		   	   	})
+	        }
+	   }
+//	   function change(){
+//	   	   mui.openWindow({
+//	   	   	
+//	   	   		url:'../../homepage/hz_ordersure.html?shop_price='+shop_price+'&goodsid='+order_id+'',
+//	   	   		id:'../../homepage/hz_ordersure.html'
+//	   	   	else if(type==3){
+//	   	   		url:'./evalute.html',
+//	   	   		id:'./evalute.html'
+//	   	   	}
+//	   	   	    
+//	   	   	    
+//	   	   })
+//	   }
+	</script>
+</html>

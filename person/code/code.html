@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>分享赚红包</title>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<!--<link rel="stylesheet" type="text/css" href="../../css/nav_table.css"/>-->
+		<link rel="stylesheet" type="text/css" href="../../css/code.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/reset.css"/>
+		<script src="../../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-action-back">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
+		    <h1 class="mui-title">分享赚红包</h1>
+		    
+		    <!--<span><img src="../../img/faxian_jia.png"/></span>-->
+		</header>
+		<div class="mui-content">
+			<div class="main">
+				<div class="main_li">
+					<div class="red_packets">我的红包(元)：</div>
+					<div class="money"><input type="number" id="input-test" value="" placeholder="请输入提现金额"/></div>
+					<div class="main_li_withdrawals">
+						<div class="withdrawals">我要提现</div>
+					</div>
+				</div>
+				<div class="main_li main_li_code">
+					<div class="invitation_code">
+						<div class="code_name">&nbsp;&nbsp;邀请你成为伙伴，邀请码为：&nbsp;</div>
+						<div class="code_nums">
+							<div class="code codeone">8</div>
+							<div class="code codetwo">8</div>
+							<div class="code codethree">8</div>
+							<div class="code codefour">a</div>
+							<div class="code codefive">C</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+				<div class="main_li main_li_twocode">
+					<div class="two_code">
+						<div class="car">
+							<img src="../../img/fenxiang_bg.png"/>
+						</div>
+						<div class="code">
+							<img src="../../img/20180427173649.jpg"/>
+						</div>
+					</div>
+					<div class="text_title">邀请好友赚红包</div>
+					<div class="text_contents">
+						每邀请一个企业货主成功注册，您将获得<span class="moneys">5</span>元红包<br/>及<span>5</span>个虚拟币；每邀请一个普通货主将获得<br/><span>5</span>个虚拟币，快去邀请好友注册吧~
+					
+					</div>
+					<div class="share">
+						<!--<div class="share_li wachat">
+							<img src="../../img/fenxiang_weixin.png" alt="" />
+							微信
+						</div>-->
+						<div class="share_li friend">
+							<img src="../../img/fenxiang_weixin.png" alt="" />
+							微信
+						</div>
+						
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="main_li main_user">
+					<div class="main_li_title">已邀请用户</div>
+					<div class="main_li_nums">5</div>
+					<div class="lateiy">最近邀请</div>
+					<div class="main_li_users clearfix">
+						<div class="inviteperson" style="display: none;">
+							暂无邀请人数
+						</div>
+						<div class="users_li clearfix">
+							<div class="user_name">张三</div>
+							<div class="user_type">普通货主</div>
+							<div class="user_time">2018-05-01</div>
+							<div class="clear"></div>
+						</div>
+						<div class="users_li">
+							<div class="user_name">李四</div>
+							<div class="user_type">普通货主</div>
+							<div class="user_time">2018-04-01</div>
+							<div class="clear"></div>
+						</div>
+						<div class="users_li">
+							<div class="user_name">王五</div>
+							<div class="user_type">企业货主</div>
+							<div class="user_time">2018-03-01</div>
+							<div class="clear"></div>
+						</div>
+						<div class="users_li">
+							<div class="user_name">张三</div>
+							<div class="user_type">普通货主</div>
+							<div class="user_time">2018-02-01</div>
+							<div class="clear"></div>
+						</div>
+						<div class="users_li">
+							<div class="user_name">张三</div>
+							<div class="user_type">普通货主</div>
+							<div class="user_time">2018-01-01</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+				
+				
+		</div>
+	</body>
+	<script type="text/javascript">
+	var user_id=localStorage.getItem('user_id');
+		$('.withdrawals').click(function(){
+			
+			var price=$('#input-test').val();
+			
+			var type=2;
+			if(price==''){
+				mui.toast('提现金额不能为空');
+				return false;
+			}else{
+				$.ajax({
+					type:"post",
+					url:globalUrl+"index.php/Mobile/JkUser/tixina",
+					data:{price:price,user_id:user_id,type:2},
+					dataType:'json',
+					success:function(res){
+						
+						
+						var data=res;
+						if(data.code==0){
+							mui.toast('提现成功')
+						}else if(data.code==1){
+							mui.toast(data.msg);
+						}
+					}
+				});
+			}
+			
+		})
+		
+		//邀请码
+		$.ajax({
+			type:"post",
+			url:globalUrl+"index.php/Mobile/JkUser/shar_no",
+			data:{user_id:user_id},
+			dataType:'json',
+			success:function(res){
+				if(res.code==0){
+					var data=res.root;
+					var invitecode=data.promo_code.promo_code;
+				    var obj = invitecode.split("");  
+				    var str=''
+				    $('.main_li_nums').html(data.count)
+					$('.codeone').html(obj[0]);
+					$('.codetwo').html(obj[1]);
+					$('.codethree').html(obj[2]);
+					$('.codefour').html(obj[3]);
+					$('.codefive').html(obj[4]);
+					
+					var dataone=res.root.list;
+					if(dataone==''||dataone==undefined||dataone==null){
+						$('.inviteperson').show();
+					}else{
+						$('.inviteperson').hide();
+						for(var i=0;i<dataone.length;i++){
+							$('.inviteperson').hide();
+							str+='<div class="users_li">';
+							str+='<div class="user_name">'+dataone[i].nick_name+'</div>';
+							if(dataone[i].company_status==0||dataone[i].company_status==1){
+									str+='<div class="user_type">普通货主</div>';
+							}else if(dataone[i].company_status==2){
+								str+='<div class="user_type">企业货主</div>';
+							}
+						    str+='<div class="user_time">'+dataone[i].reg_time+'</div>';
+						    str+='<div class="clear"></div>';
+						}
+						$('.main_li_users').html(str);
+						var time=$('.user_time').html();
+						var datatime=timeToDate(time);
+						$('.user_time').html(datatime);
+                        
+					}
+					
+				}
+			
+			}
+		});
+		
+	</script>
+</html>

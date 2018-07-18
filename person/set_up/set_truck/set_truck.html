@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>我的车辆</title>
+		<link rel="stylesheet" type="text/css" href="../../../css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../css/mui.css"/>
+		<!--<link rel="stylesheet" type="text/css" href="../../../css/nav_table.css"/>-->
+		<link rel="stylesheet" type="text/css" href="../../../css/set_truck.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../css/reset.css"/>
+		<script src="../../../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+	   
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-action-back">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
+		    <h1 class="mui-title">我的车辆</h1>
+		    
+		    <!--<span><img src="../img/faxian_jia.png"/></span>-->
+		</header>
+		<div class="mui-content">
+			<div class="main">
+				<div class="main_li" onclick="editname(this)">
+					<div class="li_names">车牌号：</div>
+					<div class="li_img">
+							<img src="../../../img/next.png" alt="" />
+						</div>
+					<div class="li_value license" style="margin-right: 15px;">粤A55555</div>
+					
+					<div class="clear"></div>
+				</div>
+				<div class="main_li" onclick="edittype(this)">
+					
+					<div class="li_names">车型：</div>
+					<div class="li_values">
+						<div class="value type_value">选择车型</div>
+						<div class="li_img">
+							<img src="../../../img/next.png" alt="" />
+						</div>
+						<div class="clear"></div>
+					</div>
+					
+					<div class="clear"></div>
+				</div>
+				<div class="main_li " onclick="editcarlength(this)">
+					
+					<div class="li_names">车长：</div>
+					<div class="li_values">
+						<div class="value length_value">选择车长</div>
+						<div class="li_img">
+							<img src="../../../img/next.png" alt="" />
+						</div>
+						<div class="clear"></div>
+					</div>
+					
+					<div class="clear"></div>
+				</div>
+				<div class="main_li" onclick="editspecial()">
+					
+					<div class="li_names">特种装载：</div>
+					<div class="li_values">
+						<div class="value special_value"></div>
+						<div class="li_img">
+							<img src="../../../img/next.png" alt="" />
+						</div>
+						<div class="clear"></div>
+					</div>
+					
+					<div class="clear"></div>
+				</div>
+				<div class="main_li photos"  onclick="url(this)" data-url="./truck_photo.html">
+					
+					<div class="li_names">车辆照片：</div>
+					<div class="li_values">
+						<div class="value">车辆照片</div>
+						<div class="li_img">
+							<img src="../../../img/next.png" alt="" />
+						</div>
+						<div class="clear"></div>
+					</div>
+					
+					<div class="clear"></div>
+				</div>
+				<div class="main_sure sures"> <!--main_newssure禁用时样式-->
+					<div class="sure" onclick="surechange()">确定修改</div>
+				</div>
+			</div>
+			
+		</div>
+		<div class="zhizhao_plate hide">
+			<div class="zhizhao"></div>
+			<div class="plate">
+				<div class="plate_top">
+					<div class="value">
+						<textarea name="" class="textarea" ></textarea>
+					</div>
+				</div>
+				<div class="plate_bottom">
+					确定
+				</div>
+			</div>
+		</div>
+		<div class="zhizhao_type editcarlength hide">
+			<div class="zhizhao"></div>
+			<div class="type_ul">
+				<div class="chacha">
+					<img src="../../../img/guanbi.png"/>
+				</div>
+				<div class="type_list carlong clearfix">
+					<!--<div class="type_list_li length_list_li_active" onclick="xuanzelength(this)" >
+						<div class="li_i">
+							<div class="li_name">2.3米面包车（1.2吨）</div>
+						</div>
+					</div>
+					<div class="type_list_li" onclick="xuanzelength(this)">
+						<div class="li_i">
+							<div class="li_name">1.7米面包车（0.8吨）</div>
+						</div>
+					</div>
+					<div class="type_list_li" onclick="xuanzelength(this)">
+						<div class="li_i">
+							<div class="li_name">1.5米面包车（0.6吨）</div>
+						</div>
+					</div>-->
+					<div class="clear"></div>
+				</div>
+				<div class="main_sure length_sure"> <!--main_newssure禁用时样式-->
+					<div class="sure">确定</div>
+				</div>
+			</div>
+				
+		</div>
+		<div class="zhizhao_type edittype hide">
+			<div class="zhizhao"></div>
+			<div class="type_ul">
+				<div class="chacha">
+					
+					<img src="../../../img/guanbi.png"/>
+				</div>
+				<div class="type_list carstype clearfix">
+					<div class="type_list_li type_list_li_active" onclick="xuanze(this)">
+						<div class="li_i type_i">
+							<div class="li_name">不限车型</div>
+						</div>
+					</div>
+					<div class="type_list_li" onclick="xuanze(this)">
+						<div class="li_i type_i">
+							<div class="li_name">箱式密封</div>
+						</div>
+					</div>
+					<div class="type_list_li" onclick="xuanze(this)">
+						<div class="li_i type_i">
+							<div class="li_name">高栏</div>
+						</div>
+					</div>
+					<div class="type_list_li " onclick="xuanze(this)">
+						<div class="li_i type_i">
+							<div class="li_name">不限车型</div>
+						</div>
+					</div>
+					<div class="type_list_li" onclick="xuanze(this)">
+						<div class="li_i type_i">
+							<div class="li_name">箱式密封</div>
+						</div>
+					</div>
+					<div class="type_list_li" onclick="xuanze(this)">
+						<div class="li_i type_i">
+							<div class="li_name">高栏</div>
+						</div>
+					</div>
+					
+					<div class="clear"></div>
+				</div>
+				<div class="main_sure type_sure"> <!--main_newssure禁用时样式-->
+					<div class="sure">确定</div>
+				</div>
+			</div>
+		</div>
+		<div class="zhizhao_type editspecial hide">
+			<div class="zhizhao"></div>
+			<div class="type_ul">
+				<div class="chacha">
+					
+					<img src="../../../img/guanbi.png"/>
+				</div>
+				<div class="type_list">
+					<div class="type_list_lis special_list_li_active" onclick="xuanzespecial(this)" data-type='1'>
+						<div class="li_i type_i">
+							<div class="li_name">是</div>
+						</div>
+					</div>
+					
+					<div class="type_list_lis " onclick="xuanzespecial(this)" data-type='0'>
+						<div class="li_i type_i">
+							<div class="li_name">否</div>
+						</div>
+					</div>
+				</div>
+				<div class="main_sure special_sure"> <!--main_newssure禁用时样式-->
+					<div class="sure">确定</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+//		修改车牌
+		function editname(obj){
+			var value = $(obj).find('.li_value').html();
+			$('.zhizhao_plate').removeClass("hide");
+			$('.zhizhao_plate').find('textarea').val(value);
+			$('.sures').addClass("hide");
+
+		}
+		$('.zhizhao').on('click',function(e){
+			$(this).parent().addClass("hide");
+			$('.sures').removeClass("hide");
+
+		})
+		
+		$('.plate_bottom').on('click',function(e){
+			var value = $(this).parent().find("textarea").val();
+			$('.license').html(value);
+			$(this).parent().parent().addClass("hide");
+			$('.sures').removeClass("hide");
+
+		})
+//		修改车型
+//		function edittype(obj){
+//			$('.edittype').removeClass("hide");
+//			$('.sures').addClass("hide");
+//		}
+//		$('.chacha img').on('click',function(e){
+//			$(this).parent().parent().parent().addClass("hide");
+//			$('.sures').removeClass("hide");
+//
+//		})
+//		function xuanze(obj){
+//			$('.type_list_li_active').removeClass("type_list_li_active");
+//			$(obj).addClass("type_list_li_active");
+//		}
+//		$('.type_sure').on('click',function(e){
+//			var value = $('.type_list_li_active').find('.li_name').html();
+//			$('.type_value').html(value);
+//			$(this).parent().parent().addClass("hide");
+//			$('.sures').removeClass("hide");
+//		})
+//		修改车长
+//		function editcarlength(obj){
+//			$('.editcarlength').removeClass("hide");
+//			$('.sures').addClass("hide");
+//		}
+//		function xuanzelength(obj){
+//			$('.length_list_li_active').removeClass("length_list_li_active");
+//			$(obj).addClass("length_list_li_active");
+//		}
+//		$('.length_sure').on('click',function(e){
+//			var value = $('.length_list_li_active').find('.li_name').html();
+//			$('.length_value').html(value);
+//			$(this).parent().parent().addClass("hide");
+//			$('.sures').removeClass("hide");
+//		})
+//		修改特种
+//		function editspecial(obj){
+//			$('.editspecial').removeClass("hide");
+//			$('.sures').addClass("hide");
+//		}
+//		function xuanzespecial(obj){
+//			$('.special_list_li_active').removeClass("special_list_li_active");
+//			$(obj).addClass("special_list_li_active");
+//		}
+//		$('.special_sure').on('click',function(e){
+//			var value = $('.special_list_li_active').find('.li_name').html();
+//			$('.special_value').html(value);
+//			$(this).parent().parent().addClass("hide");
+//			$('.sures').removeClass("hide");
+//		})
+		
+		
+		
+		
+	</script>
+	 <script src="../../../js/driver.js" type="text/javascript" charset="utf-8"></script>
+</html>

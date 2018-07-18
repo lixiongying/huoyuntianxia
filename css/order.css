@@ -1,0 +1,207 @@
+.clear::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.f-left {
+  float: left;
+}
+.f-right {
+  float: right;
+}
+.mui-bar {
+  background: #279cfe;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border: 0;
+  height: 2.34666667rem;
+}
+.mui-bar .mui-title {
+  color: #fff;
+}
+.mui-bar-nav ~ .mui-content {
+  padding-top: 2.34666667rem;
+}
+.main {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+}
+.main .main_nav {
+  width: 100%;
+  height: auto;
+  background: #fff;
+  margin-bottom: 0.53333333rem;
+  border-bottom: 1px solid #279CFE;
+}
+.main_nav .nav_li {
+  text-align: center;
+  float: left;
+  width: 25%;
+  height: 2.13333333rem;
+  line-height: 2.13333333rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.69333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+}
+.main_nav .active_nav {
+  color: #279cfe;
+}
+.main .shuxian0 {
+  width: 1px;
+  height: 2.13333333rem;
+  position: absolute;
+  top: 0;
+  left: 25%;
+  background: #E2E2E2;
+  z-index: 1000;
+}
+.main .shuxian1 {
+  width: 1px;
+  height: 2.13333333rem;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  background: #E2E2E2;
+  z-index: 1000;
+}
+.main .shuxian2 {
+  width: 1px;
+  height: 2.13333333rem;
+  position: absolute;
+  top: 0;
+  left: 75%;
+  background: #E2E2E2;
+  z-index: 1000;
+}
+.main .order_ul {
+  width: 100%;
+  height: auto;
+}
+.order_ul .order_li {
+  width: 100%;
+  height: auto;
+  background: #fff;
+  margin-bottom: 1.44rem;
+}
+.order_li .order_top {
+  margin: 0 0.64rem;
+  height: 2.13333333rem;
+  line-height: 2.13333333rem;
+  border-bottom: 3px solid #eaeaea;
+  font-weight: normal;
+  font-stretch: normal;
+  font-family: PingFang-SC-Medium;
+  letter-spacing: 0px;
+}
+.order_top .order_sn {
+  float: left;
+  font-size: 0.74666667rem;
+  color: #1f1f1f;
+}
+.order_top .over_fabu {
+  float: right;
+  font-size: 0.64rem;
+  color: #fdbf42;
+}
+.order_li .order_bottom {
+  padding: 0 0.64rem;
+  width: 100%;
+  height: auto;
+}
+.order_bottom .order_bottom_s {
+  width: 100%;
+  height: auto;
+  margin-top: 0.8rem;
+}
+.order_bottom_s .order_pic {
+  width: 4.10666667rem;
+  height: 3.73333333rem;
+  background-color: #bf7676;
+  border-radius: 0.16rem;
+}
+.order_bottom_s .order_detail {
+  margin-left: 0.8rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  font-family: PingFang-SC-Bold;
+}
+.order_detail .order_address {
+  height: 1.33333333rem;
+  line-height: 1.33333333rem;
+  font-size: 0.85333333rem;
+  color: #1f1f1f;
+}
+.order_detail .order_type {
+  height: 1.12rem;
+  line-height: 1.12rem;
+  font-size: 0.64rem;
+  color: #1f1f1f;
+}
+.order_type .type {
+  margin-right: 0.53333333rem;
+}
+.order_detail .order_date {
+  margin-top: 0.32rem;
+  height: 0.96rem;
+  line-height: 0.96rem;
+  font-size: 0.64rem;
+  color: #1f1f1f;
+}
+.order_bottom_s .car_type {
+  height: 1.44rem;
+  font-size: 0.64rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.44rem;
+  letter-spacing: 0px;
+  color: #279cfe;
+}
+.order_bottom .order_bottom_x {
+  width: 100%;
+  height: auto;
+  font-family: PingFang-SC-Medium;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  height: 1.86666667rem;
+  line-height: 1.86666667rem;
+  padding-bottom: 0.24rem;
+}
+.order_bottom_x .xiaoji {
+  font-size: 0.64rem;
+  color: #b3b3b3;
+}
+.order_bottom_x .order_money {
+  font-size: 0.85333333rem;
+  color: #f25c5c;
+}
+.order_li .border_bottom {
+  border-bottom: 2px solid #eaeaea;
+}
+.order_li .order_com {
+  width: 100%;
+  height: auto;
+  padding: 0.26666667rem 0;
+}
+.order_com .out_com {
+  width: auto;
+  padding: 0 1.04rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  background-color: #ffffff;
+  border-radius: 0.26666667rem;
+  border: solid 1px #279cfe;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #279cfe;
+  margin-right: 0.64rem;
+}

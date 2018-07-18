@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>专线详情</title>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/mui.css"/>
+<!--		<link rel="stylesheet" type="text/css" href="../css/nav_table.css"/>-->
+		<link rel="stylesheet" type="text/css" href="../css/hz_searchrailway.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/swiper-4.3.2.min.css"/>
+		<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			/*.collecthave{
+				
+				border: 1px solid #CCCCCC;
+				color: #CCCCCC;
+			}*/
+		</style>
+	</head>
+	<body>
+		
+		<header class="mui-bar mui-bar-nav mui-action-back">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">专线详情</h1>
+		    
+		    <!--<span><img src="../img/faxian_jia.png"/></span>-->
+		</header>
+		<div class="mui-content">
+			<div class="main">
+				<div class="map">
+					<div class="baidumap">
+						
+					</div>
+					<div class="mapplace">
+						<div class="place">
+							广州市德之顺物流有限公司
+						</div>
+						<div class="collect" onclick="collect()">
+							收藏
+						</div>
+					</div>
+				</div>
+                 
+                <div class="linkman">
+                 	<div class="link_img">
+                 		<img src="../img/zhuanxianxiangqing_lianxiren.png"/>
+                 	</div>
+                 	<div class="linkman_item">
+                 		联系人：
+                 	</div>
+                 	<div class="linkman_message username">
+                 		张仨
+                 	</div>
+                 </div>
+                 
+                 <div class="tel">
+                 	<div class="link_img">
+                 		<img src="../img/zhuanxianxiangqing_shouji.png"/>
+                 	</div>
+                 	<div class="linkman_item">
+                 		手机：
+                 	</div>
+                 	<div class="linkman_message telphone">
+                 		17875032851
+                 	</div>
+                 	<div class="linkman_phone">
+                 		<img src="../img/zhuanxianxiangqing_phone.png"/>
+                 	</div>
+                 </div>
+                 
+                 <div class="tel">
+                 	<div class="link_img">
+                 		<img src="../img/zhuanxianxiangqing_dianhua.png"/>
+                 	</div>
+                 	<div class="linkman_item">
+                 		电话：
+                 	</div>
+                 	<div class="linkman_message telnumber">
+                 		020-12345678
+                 	</div>
+                 	<div class="linkman_phone">
+                 		<img src="../img/zhuanxianxiangqing_phone.png"/>
+                 	</div>
+                 </div>
+                 
+                  <div class="address">
+                 	<div class="link_img">
+                 		<img src="../img/zhuanxianxiangqing_dizhi.png"/>
+                 	</div>
+                 	<div class="linkman_item">
+                 		地址：
+                 	</div>
+                 	<div class="linkman_message addressplace">
+                 		广州市白云区太和镇物流园K栋111
+                 	</div>
+                 </div>
+                 
+                <div class="through">
+                 	<div class="link_img">
+                 		<img src="../img/zhuanxianxiangqing_zhida.png"/>
+                 	</div>
+                 	<div class="linkman_item">
+                 		直达：
+                 	</div>
+                 	<div class="linkman_message placeremaks">
+                 		深圳
+                 	</div>
+                 </div>
+                 
+                  <div class="cover">
+                 	<div class="link_img">
+                 		<img src="../img/zhuanxianxiangqing_fugai.png"/>
+                 	</div>
+                 	<div class="linkman_item">
+                 		覆盖：
+                 	</div>
+                 	<div class="linkman_message fullplace">
+                 		深圳全境
+                 	</div>
+                 </div>
+                 
+                 <!--卸载网点	-->
+                 <div class="unloadnet">
+                 	<div class="net_title">
+                 		<div class="wangdian">
+                 			卸货网点
+                 		</div>
+                 		<div class="wangdianimg">
+                 			<img src="../img/zhuanxianxiangqing_xiehuowangdian_down.png"/>
+                 		</div>
+                 	</div>
+                 	<div class="net_content">
+                 		<div class="content clearfix">
+                 			<div class="content_one">
+                 				<img src="../img/75c5ca005a7112cea4abb9c55a544f78_t013afb6f9efc2b4880.jpg"/>
+                 			</div>
+                 			<div class="content_two clearfix">
+                 				<div class="telphonet clearfix">
+                 					<div class="shouji">
+                 						手机：
+                 					</div>
+                 					<div class="number telnum">
+                 						17875032851
+                 					</div>
+                 				</div>
+                 				<div class="telphonet clearfix">
+                 					<div class="shouji">
+                 						电话：
+                 					</div>
+                 					<div class="number telnumber">
+                 						020-12345678
+                 					</div>
+                 				</div>
+                 				<div class="telphonet clearfix">
+                 					<div class="shouji">
+                 						地址：
+                 					</div>
+                 					<div class="number addressitem" style="color: #1f1f1f;">
+                 						深圳市罗湖区太和镇物流园…
+                 					</div>
+                 				</div>
+                 			</div>
+                 		</div>
+                 	</div>
+                 	
+                 	
+                 	<!--<div class="content">
+                 		<div class="">
+                 			
+                 		
+                 			<div class="content_one">
+                 				<img src="../img/75c5ca005a7112cea4abb9c55a544f78_t013afb6f9efc2b4880.jpg"/>
+                 			</div>
+                 			<div class="content_two">
+                 				<div class="telphone">
+                 					<div class="shouji">
+                 						手机：
+                 					</div>
+                 					<div class="number">
+                 						17875032851
+                 					</div>
+                 				</div>
+                 				<div class="telphone">
+                 					<div class="shouji">
+                 						电话：
+                 					</div>
+                 					<div class="number">
+                 						020-12345678
+                 					</div>
+                 				</div>
+                 				<div class="telphone">
+                 					<div class="shouji">
+                 						地址：
+                 					</div>
+                 					<div class="number" style="color: #1f1f1f;">
+                 						深圳市罗湖区太和镇物流园…
+                 					</div>
+                 				</div>
+                 			</div>
+                 		
+                 		
+                 		
+                 		</div>
+                 	</div>-->
+                 	
+                 </div>
+                 
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+          var userid=localStorage.getItem('user_id');
+          var urL=location.href;
+         
+          var goods_id=getUrl(urL).id;
+          var del_coin=getUrl(urL).del_coin;
+          var collect_id=getUrl(urL).collect_id;
+          var collect_count;
+          $.ajax({
+          	type:"post",
+          	url:globalUrl+"index.php/Mobile/JkLine/zhuanxianinfo",
+          	data:{user_id:userid,goods_id:goods_id,del_coin:del_coin},
+          	dataType:'json',
+          	success:function(res){
+          		
+                var str='';
+                var data=res.info;
+                collect_count=data.collect_count;
+              
+                if(collect_count>1||collect_count==1){
+                	$('.collect').addClass('collecthave');
+                	$('.collect').html('已收藏')
+                }else{
+                	$('.collect').removeClass('collecthave');
+                }
+          		if(res.code==0){
+	                $('.username').html(data.contact);
+	      			$('.telphone').html(data.mobile);
+	      			$('.telnumber').html(data.tel);
+	      			$('.addressplace').html(data.address);
+	      			$('.placeremaks').html(data.goods_remark);
+	      			$('.fullplace').html(data.full);
+	      			$('.place').html(data.company);
+          			for(var i=0;i<data.length;i++){
+	          			str+='<div class="content clearfix">';
+	          			str+='<div class="content_one"><img src="../img/75c5ca005a7112cea4abb9c55a544f78_t013afb6f9efc2b4880.jpg"/></div>';
+	          			str+='<div class="content_two clearfix">';
+	          			str+='<div class="telphonet clearfix">';
+	          			str+='<div class="shouji">手机：</div>';
+	          			str+='<div class="number telnum">'+data[i].mobile+'</div>';
+	          			str+='</div>';
+	          			str+='<div class="telphonet clearfix">';
+	          			str+='<div class="shouji">电话:</div>';
+	          			str+='<div class="number telnumber">'+data[i].tel+'</div>';
+	          			str+='</div>';
+	          			str+='<div class="telphonet clearfix">';
+	          			str+='<div class="shouji">地址:</div>';
+	          			for(var l=0;l<data.yuyueaddress.length;l++){
+	          				str+='<div class="number addressitemr" style="color: #1f1f1f;">'+data.yuyueaddress[l]+'</div>';
+	          			}
+	          			
+	          			str+='</div>';
+	          			str+='</div>';
+	          			str+='</div>';			
+	          			
+	          		}
+	          		
+	          		$('.net_content').html(str);
+	          		
+	          	}
+          			
+          		}
+          		
+          });
+          
+          function collect(){
+          	
+	          	if($('.collect').hasClass('collecthave')){
+	          		$.ajax({
+		          	   	type:"post",
+			          	url:globalUrl+"index.php/Mobile/JkUser/del_collect",
+			          	data:{user_id:userid,goods_id:goods_id},
+			          	dataType:'json',
+			          	success:function(res){
+			          		var data=res;
+			          		if(res.code==0){
+			          			mui.toast('取消收藏');
+//			          			plus.webview.getWebviewById('collection/collection.html').evalJS("shuaxin()");
+			          			$('.collect').html('收藏');
+			          			$('.collect').removeClass('collecthave');
+			          		}
+			          		
+			           	}
+	          	   })
+	          	}else{
+	          		$.ajax({
+		          	   	type:"post",
+			          	url:globalUrl+"index.php/Mobile/JkUser/addCollent",
+			          	data:{user_id:userid,goods_id:goods_id},
+			          	dataType:'json',
+			          	success:function(res){
+			          		var data=res;
+			          		if(res.code==0){
+			          			mui.toast('收藏成功');
+//			          			plus.webview.getWebviewById('collection/collection.html').evalJS("shuaxin()");
+			          			$('.collect').html('已收藏');
+			          			$('.collect').addClass('collecthave');
+			          		}
+			          		
+			           	}
+	          	   })
+	          	}
+          	   
+          }
+          
+	</script>
+</html>

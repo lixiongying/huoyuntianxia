@@ -1,0 +1,81 @@
+.clear {
+  clear: both;
+}
+.mui-bar {
+  background: #279cfe;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border: 0;
+  height: 2.34666667rem;
+}
+.mui-bar .mui-title {
+  color: #fff;
+}
+.mui-bar-nav ~ .mui-content {
+  padding-top: 2.34666667rem;
+}
+.main {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.main .main_li {
+  width: auto;
+  height: auto;
+  margin: 0.53333333rem 0.74666667rem;
+}
+.main_li .main_li_photo {
+  width: auto;
+  height: auto;
+  background: #fff;
+  padding: 0.53333333rem 0.53333333rem;
+}
+.main_li .main_li_photo .photo {
+  position: relative;
+  width: 17.38666667rem;
+  height: 7.46666667rem;
+}
+.main_li .main_li_photo .imgs {
+  width: 17.38666667rem;
+  height: 7.46666667rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.main_li .main_li_photo .del_icon {
+  position: absolute;
+  width: 0.8rem;
+  height: 0.8rem;
+  right: -0.4rem;
+  top: -0.4rem;
+}
+.main_li .main_li_name {
+  text-align: center;
+  margin-top: 0.48rem;
+  margin-bottom: 1.06666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.8rem;
+  font-weight: normal;
+  font-stretch: normal;
+  color: #333333;
+}
+.main_sure {
+  width: auto;
+  height: 2.34666667rem;
+  z-index: 2000;
+  margin: 3.36rem 0.64rem 4.26666667rem;
+}
+.main_sure .sure {
+  border-radius: 0.16rem;
+  width: 100%;
+  height: 2.34666667rem;
+  line-height: 2.34666667rem;
+  background: #279cfe;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0.02666667rem;
+  color: #ffffff;
+}

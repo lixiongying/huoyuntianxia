@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>我的</title>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/mui.css"/>
+<!--		<link rel="stylesheet" type="text/css" href="../css/nav_table.css"/>-->
+		<link rel="stylesheet" type="text/css" href="../css/personal_index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.mask{
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				background: black;
+				opacity: 0.4;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+
+		    <h1 class="mui-title">我的</h1>
+		    
+		    <!--<span><img src="../img/faxian_jia.png"/></span>-->
+		</header>
+		<div class="mui-content">
+			<div class="main">
+				<div class="main_top">
+					<div class="main_top_blue"></div>
+					<div class="main_top_white"></div>
+					<div class="main_top_info">
+						<div class="info_img">
+							<img class="photo head_pic" src="../img/pic.png"/>
+						</div> 
+						<div class="info_phone">
+							<div class="phone tel nologin" onclick="url(this)" data-url="">17875035281</div>
+						</div>
+						<div class="info_money nologin" onclick="url(this)" data-url="mymoney/mymoney.html">
+							<div class="money">100.00</div>
+							<div class="img">
+								<img src="../img/wode_wodeqianbao.png" alt="钱包" />
+							</div>
+							<div class="wallet">我的钱包</div>
+							<div class="clear"></div>
+						</div>
+						<!--<div class="shuxian"></div>-->
+						<div class="info_order nologin" onclick="url(this)" data-url="order/order.html">
+							<div class="number">10</div>
+							<div class="img">
+								<img src="../img/wode_wodefahuodan.png" alt="发货单" />
+							</div>
+							<div class="order">我的发货单</div>
+							<div class="clear"></div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="main_botton">
+					<div class="main_botton_li nologin publishway" onclick="url(this)" data-url="releaseroute/releaseroute.html">
+						<div class="li_icon">
+							<img src="../img/wode_fabuluxian.png" alt="" />
+						</div>
+						<div class="li_name">发布线路</div>
+						<div class="li_img">
+							<img src="../img/next.png" alt="" />
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="main_botton_li nologin" onclick="url(this)" data-url="userinfo/userinfo.html">
+						<div class="li_icon">
+							<img src="../img/wode_gerenxinxi.png" alt="" />
+						</div>
+						<div class="li_name">个人信息</div>
+						<div class="li_img">
+							<img src="../img/next.png" alt="" />
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="main_botton_li nologin" onclick="url(this)" data-url="follow/follow.html">
+						<div class="li_icon">
+							<img src="../img/wode_wodeguanzhu.png" alt="" />
+						</div>
+						<div class="li_name">我的关注</div>
+						<div class="li_img">
+							<img src="../img/next.png" alt="" />
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="main_botton_li nologin" onclick="url(this)" data-url="creditrating/creditrating.html">
+						<div class="li_icon">
+							<img src="../img/wode_xinyongpingjia.png" alt="" />
+						</div>
+						<div class="li_name">信用评价</div>
+						<div class="li_img">
+							<img src="../img/next.png" alt="" />
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="main_botton_li nologin" onclick="url(this)" data-url="collection/collection.html">
+						<div class="li_icon">
+							<img src="../img/wode_wodeshoucang.png" alt="" />
+						</div>
+						<div class="li_name">我的收藏</div>
+						<div class="li_img">
+							<img src="../img/next.png" alt="" />
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="main_botton_li nologin" onclick="url(this)" data-url="code/code.html">
+						<div class="li_icon">
+							<img src="../img/wode_fenxiangerweima.png" alt="" />
+						</div>
+						<div class="li_name">分享二维码</div>
+						<div class="li_img">
+							<img src="../img/next.png" alt="" />
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="main_botton_li nologin" onclick="url(this)" data-url="about/about.html">
+						<div class="li_icon">
+							<img src="../img/wode_guanyuwomen.png" alt="" />
+						</div>
+						<div class="li_name">关于我们</div>
+						<div class="li_img">
+							<img src="../img/next.png" alt="" />
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="main_botton_li nologin" onclick="url(this)" data-url="set_up/set_up.html">
+						<div class="li_icon">
+							<img src="../img/wode_shezhi.png" alt="" />
+						</div>
+						<div class="li_name">设置</div>
+						<div class="li_img">
+							<img src="../img/next.png" alt="" />
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="main_logout">
+					<div class="logout">退出登录</div>
+				</div>
+				<div class="mask">
+					
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	<script src="../js/person.js" type="text/javascript" charset="utf-8"></script>
+</html>

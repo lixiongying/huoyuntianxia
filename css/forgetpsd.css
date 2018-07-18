@@ -1,0 +1,131 @@
+header a {
+  color: white;
+}
+.mui-bar {
+  width: 20rem;
+  height: 2.34666667rem;
+  background-color: #279cfe;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.mui-title {
+  color: #ffffff;
+  font-size: 0.96rem;
+}
+.piclogo {
+  width: 3.57333333rem;
+  height: 3.57333333rem;
+  margin: 0 auto;
+  margin-top: 2.66666667rem;
+}
+.regiseritem {
+  width: 100%;
+  height: 16rem;
+  background: white;
+}
+.tel {
+  width: 100%;
+  height: 3.2rem;
+  margin-bottom: 0.8rem;
+  padding-top: 0.8rem;
+  border-bottom: 1px solid #f5f5f5;
+  padding-left: 0.4rem;
+}
+.regiseritem .number {
+  width: 4rem;
+  height: 2.13333333rem;
+  float: left;
+  display: inline-block;
+  line-height: 2.13333333rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0.02666667rem;
+  color: #1f1f1f;
+}
+.regiseritem .inputtype {
+  width: 12rem;
+  height: 2.13333333rem;
+  display: inline-block;
+  float: left;
+  line-height: 2.13333333rem;
+}
+.regiseritem .inputtype input {
+  padding: 0;
+  margin: 0;
+  line-height: 2.13333333rem;
+  width: 12rem;
+  height: 2.13333333rem;
+  padding-left: 0.8rem;
+  border: none;
+}
+.agree {
+  width: 100%;
+  height: 1.06666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 28px;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 0px;
+  letter-spacing: 1px;
+  color: #b3b3b3;
+  margin-left: 2rem;
+}
+.yanzhengma {
+  position: relative;
+}
+.getcode {
+  position: absolute;
+  right: 0.85333333rem;
+  top: 1.09333333rem;
+  width: 4.08rem;
+  height: 1.22666667rem;
+  border-radius: 0.16rem;
+  border-left: 1px solid grey;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.64rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.22666667rem;
+  letter-spacing: 0px;
+  color: #279cfe;
+  text-align: right;
+}
+.agree .iagree {
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-top: 0.13333333rem;
+  display: inline-block;
+  float: left;
+}
+.agree .agreeworld {
+  width: 8.8rem;
+  height: 1.06666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.06666667rem;
+  letter-spacing: 0.02666667rem;
+  color: #b3b3b3;
+  display: inline-block;
+  float: left;
+  margin-left: 0.4rem;
+}
+.save {
+  width: 16rem;
+  height: 2.34666667rem;
+  background-color: #279cfe;
+  border-radius: 0.26666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.34666667rem;
+  letter-spacing: 0px;
+  color: #ffffff;
+  margin-left: 2rem;
+  text-align: center;
+  margin-top: 8.8rem;
+}

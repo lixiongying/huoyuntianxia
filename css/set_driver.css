@@ -1,0 +1,203 @@
+.clear {
+  clear: both;
+}
+.mui-bar {
+  background: #279cfe;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border: 0;
+  height: 2.34666667rem;
+}
+.mui-bar .mui-title {
+  color: #fff;
+}
+.mui-bar-nav ~ .mui-content {
+  padding-top: 2.34666667rem;
+}
+.main {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-bottom: 2.34666667rem;
+}
+.main .main_driver_license {
+  background: #fff;
+  widows: 100%;
+  height: auto;
+  margin-bottom: 0.69333333rem;
+}
+.main_driver_license .add_name {
+  font-family: PingFang-SC-Medium;
+  padding: 0.8rem 0.64rem 0.48rem;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  color: #333333;
+}
+.main_driver_license .adddriver {
+  position: relative;
+  width: 14.98666667rem;
+  height: 7.46666667rem;
+  margin: 0 auto;
+}
+.main_driver_license .add_pic {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 0.8rem;
+}
+.adddriver .imgitem {
+  width: 14.98666667rem;
+  height: 7.46666667rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.adddriver .imgitem .del_icon {
+  position: inherit;
+  top: -0.26666667rem;
+  right: -0.26666667rem;
+  width: 0.53333333rem;
+  height: 0.53333333rem;
+}
+.add_pic img {
+  width: 14.98666667rem;
+  height: 7.46666667rem;
+  display: block;
+  margin: 0 auto;
+}
+.main .main_group_photo {
+  width: 100%;
+  height: auto;
+  background: #fff;
+}
+.main_group_photo .add_photo_name {
+  width: 100%;
+  height: auto;
+}
+.add_photo_name .add_name {
+  float: left;
+  height: 2.77333333rem;
+  line-height: 2.77333333rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0rem;
+  color: #333333;
+  margin-left: 0.64rem;
+}
+.add_photo_name .add_photo {
+  width: auto;
+  height: auto;
+  float: right;
+  margin-right: 0.64rem;
+  margin-top: 0.8rem;
+  position: relative;
+}
+.add_photo .photo {
+  width: 4.26666667rem;
+  height: 1.44rem;
+}
+.add_photo .photo_name {
+  position: absolute;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.64rem;
+  height: 1.44rem;
+  line-height: 1.44rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0rem;
+  color: #ffffff;
+  top: 0rem;
+  left: 0.42666667rem;
+}
+.main_group_photo .photo_list {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+.main_group_photo .photo_listlist {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+}
+.photo_list .photo_li {
+  width: 50%;
+  height: auto;
+  float: left;
+}
+.photo_list .photo_lii {
+  width: 50%;
+  height: auto;
+  float: left;
+}
+.photo_li .photo_li_i {
+  width: 9.06666667rem;
+  height: 8rem;
+  background-color: #ffffff;
+  border-radius: 0.16rem;
+  border: dashed 0.02666667rem #cccccc;
+  margin-top: 0.26666667rem;
+  margin-bottom: 0.32rem;
+}
+.photo_list .imgs {
+  width: 9.06666667rem;
+  height: 8rem;
+  float: left;
+  background-color: #ffffff;
+  border-radius: 0.16rem;
+  border: dashed 0.02666667rem #cccccc;
+  margin-top: 0.26666667rem;
+  margin-bottom: 0.32rem;
+  margin-left: 0.34666667rem;
+  position: relative;
+}
+.photo_list .imgs .del_icon {
+  position: absolute;
+  right: -0.4rem;
+  top: -0.4rem;
+  width: 0.8rem;
+  height: 0.8rem;
+}
+.photo_lii:nth-of-type(2n-1) .imgs {
+  margin-left: 0.53333333rem;
+}
+.photo_lii:nth-of-type(2n) .imgs {
+  margin-left: 0.26666667rem;
+}
+.photo_li:nth-of-type(2n-1) .photo_li_i {
+  margin-left: 0.64rem;
+}
+.photo_li:nth-of-type(2n) .photo_li_i {
+  margin-left: 0.29333333rem;
+}
+.photo_li_i img {
+  border: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.main_sure .sure {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2.34666667rem;
+  line-height: 2.34666667rem;
+  background: #279cfe;
+  border-radius: 0.16rem;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0.02666667rem;
+  color: #ffffff;
+}
+.photo_list .imgs {
+  width: 9.06666667rem;
+  height: 8rem;
+}

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>发现</title>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/mui.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/mui.picker.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/hz_shipment.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/swiper-4.3.2.min.css"/>
+		<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+	     <script src="../js/mui.picker.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../js/city.data.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="../js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+	    <style type="text/css">
+	    	.tc_typeofcars .carsitem .length_two .box .addcarcolor{
+	    		color: #279cfe;;
+	    	}
+	    </style>
+	</head>
+	<body>
+		
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <!--<h1 class="mui-title">货运天下</h1>-->
+		    <div class="car">
+		    	<div class="cars Cars" data-type="2">
+		    		长途车
+		    	</div>
+		    	<div class="cars" data-type="3">
+		    		短途车
+		    	</div>
+		    </div>
+		    <!--<span><img src="../img/faxian_jia.png"/></span>-->
+		</header>
+		<div class="mui-content">
+			<div class="main">
+				<!--出发地-->
+				<div class="startplace">
+						<div class="place" id="goplace">
+							
+						    <div class="place_one">出发地</div>
+						    <div class="place_two chufadi">广东省广州市天河区</div>
+						    
+						    <div class="place_three"><img src="../img/zhuanxianxiangqing_xiehuowangdian_up.png"/></div>
+					    </div>
+					    
+					    <div class="detailedaddress">
+						     <input type="text" name=""  value="" id="stdeaddress" placeholder="详细地址"/>
+					    </div>
+				    </div>
+			   
+			    <!--目的地-->
+			    <div class="destination">
+						<div class="place"  id="endplace">
+						    <div class="place_one">目的地</div>
+						    <div class="place_two mudidi">广东省广州市天河区</div>
+						    <div class="place_three"><img src="../img/zhuanxianxiangqing_xiehuowangdian_up.png"/></div>
+					    </div>
+					    
+					    <div class="detailedaddress">
+						     <input type="text" name="" id="endeaddress" value="" placeholder="详细地址"/>
+					    </div>
+				    </div>
+			    </div>	
+			    <!--货物类型-->
+			    <div class="goodstype" id="showUserPicker">
+				    <div class="type_one">货物类型</div>
+				    
+				    <div class="type_three"><img src="../img/zhuanxianxiangqing_xiehuowangdian_up.png"/></div>
+				    <div class="type_two" id="goodsResult" data-type=''></div>
+			    </div>
+			    <!--货物重量体积-->
+			     <div class="goodsvolume">
+				    <div class="volume_one">货物重量体积</div>
+				    
+				    <div class="volume_three"><input type="text" id="fang"/>&nbsp;&nbsp;方</div>
+				    <div class="volume_two"><input type="text" id="ton"/>&nbsp;&nbsp;吨</div>
+			    </div>
+			    
+			    <!--车长及车型-->
+			     <div class="cartypeandlen">
+				    <div class="typeandlen_one">车长及车型</div>
+				    
+				    <div class="typeandlen_three"><img src="../img/zhuanxianxiangqing_xiehuowangdian_up.png"/></div>
+				    <div class="typeandlen_two"><span class="carspec" data-type=""></span> <span class="car_cat" data-type=""></span></div>
+				    
+			    </div>
+			    <!--装车时间-->
+			     <div class="Loadingtime" id="loading" data-options='{"type":"date"}'>
+				    <div class="typeandlen_one">装车时间</div>
+				    
+				    <div class="typeandlen_three"><img src="../img/zhuanxianxiangqing_xiehuowangdian_up.png"/></div>
+				    <div class="typeandlen_two" id="result"></div>
+				    
+			    </div>
+			    
+			    <!--货物图片-->
+			    <div class="goodsimg">
+			    	<div class="pic_one">
+			    		货物图片	
+			    	</div>
+			    	<div class="pic_two">
+			    		<div class="addpic">
+			    			<div class="picwh" id="carid" onclick="showActionSheet(this)">
+			    				<img src="../img/woyaofahuo_tianjiatupian.png"/>
+			    			</div>
+			    			<div class="num">
+			    				可添加3张图片
+			    			</div>
+			    		</div>
+			    		<div class="addpicitem" id="F_CKJLB">
+			    			<!--<div class="imgs">
+			    				<img src="../img/woyaofahuo_tianjiatupian.png"/>
+			    				<span class="del_icon"><img src="../img/shangpinxiangqing_quxiao.png" alt="" /></span>
+			    			</div>
+			    			<div class="imgs">
+			    				<img src="../img/woyaofahuo_tianjiatupian.png"/>
+			    			</div>
+			    			<div class="imgs">
+			    				<img src="../img/woyaofahuo_tianjiatupian.png"/>
+			    			</div>-->
+			    		   <!--  <img src="../img/woyaofahuo_tianjiatupian.png"/>-->
+			    		</div>
+			    	</div>
+			    	 <input type="hidden" id="ckjl.id" name="ckjl.id" value="429">
+			    </div>
+			
+			    <!--备注-->
+			    <div class="remarks">
+			    	<div class="remarks_one">
+			    		备注
+			    	</div>
+			    	<div class="remarks_two">
+			    		<textarea name="" rows="" cols="" placeholder="我要备注" id="textarea"></textarea>
+			    	</div>
+			    </div>
+			    
+			    <!--下一步-->
+			    <div class="nextbtn"  onclick="uploadImg()" data-url='hz_orderpublish.html'>
+			    	下一步
+			    </div>	
+			  
+     
+			    </div>	
+			     <!--支付弹窗-->
+			    <div class="payforitem">
+			    	<div class="payfor">
+			    		<div class="payfor_one">
+			    			选择支付方式
+			    		</div>
+			    		<div class="payfor_two  cancelpay">
+			    			<img src="../img/guanbi.png"/>
+			    		</div>
+			    	</div>
+			    	<div class="zhifubao">
+			    		<div class="zhifubao_pic">
+			    			<img src="../img/alipay.png"/>
+			    		</div>
+			    		<div class="zhifubao_wrold">
+			    			支付宝支付
+			    		</div>
+			    		<div class="zhifubao_next">
+			    			<img src="../img/zhuanxianxiangqing_xiehuowangdian_up.png"/>
+			    		</div>
+			    	</div>
+			    	<div class="webchat">
+			    		<div class="webchat_pic">
+			    			<img src="../img/wechatpay.png"/>
+			    		</div>
+			    		<div class="webchat_wrold">
+			    			微信支付
+			    		</div>
+			    		<div class="webchat_next">
+			    			<img src="../img/zhuanxianxiangqing_xiehuowangdian_up.png"/>
+			    		</div>
+			    	</div>
+			    </div>
+			    <!--遮罩-->
+			    <div class="mask">
+			    	
+			    </div>
+			    
+			    <!--选择货物类型弹窗-->
+			    <div class="tc_typeofgoods">
+			    	<div class="sure">
+			    		确定
+			    	</div>
+			    	<div class="goodsitem">
+			    		<div class="goodselect">
+			    			<input type="text" />
+			    		</div>
+			    	</div>
+			    </div>
+
+			    <div class="tc_typeofcars">
+			    	<div class="carcancel">
+			    		<div class="cancel">
+			    			<img src="../img/guanbi.png"/>
+			    		</div>
+			    		
+			    	</div>
+			    	<div class="carsitem">
+			    		<div class="carslength">
+			    			<div class="length_one">
+			    				车长可多选(最多选三个)
+			    			</div>
+			    			<div class="length_two" id="carlen">
+			    				<div class="box">
+			    					<div class="addcarcolor">
+			    					1.7米面包车（0.8吨）
+			    				    </div>
+			    				</div>
+			    				
+			    				<div class="box">
+			    					<div class="">
+			    					1.7米面包车（0.8吨）
+			    				    </div>
+			    				</div>
+			    				<div class="box">
+			    					<div class="">
+			    					1.7米面包车（0.8吨）
+			    				    </div>
+			    				</div>
+			    				<div class="box">
+			    					<div class="">
+			    					1.7米面包车（0.8吨）
+			    				    </div>
+			    				</div>
+			    			</div>
+			    		</div>
+			    		
+			    		<div class="carstype">
+			    			<div class="type_one">
+			    				车型
+			    			</div>
+			    			
+			    			<div class="type_two" id="Cartype">
+			    				<div class="addbgcolor">
+			    					不限车型
+			    				</div>
+			    				<div class="">
+			    					箱式密封
+			    				</div>
+			    			</div>
+			    				
+			    			
+			    		</div>
+			    		
+			    	</div>
+			    	<div class="carsure" onclick="carsure(this)">
+			    		确定
+			    	</div>
+			     </div>
+			     
+			     <!--装车弹窗-->
+			    <div class="tc_loadingtime" style="display: none;">
+			    	<div class="sure">
+			    		确定
+			    	</div>
+			    	<div class="timesitem">
+			    		<div class="timeselect">
+			    			<input type="text" />
+			    		</div>
+			    		<div class="timeselect">
+			    			<input type="text" />
+			    		</div>
+			    	</div>
+			    </div>
+			     
+			     
+			    
+		  </div>
+	</body>
+	<script type="text/javascript">
+
+		    
+//	城市三级选择
+    var cityPicker = new mui.PopPicker({
+			layer: 3
+	});
+		cityPicker.setData(cityData3);
+
+		var goplace=document.getElementById('goplace');
+		var endplace=document.getElementById('endplace');
+        
+			goplace.addEventListener('click', function(event) {
+			cityPicker.show(function(items) {
+				$('.chufadi').html((items[0] || {}).text + " " + (items[1] || {}).text + " " + (items[2] || {}).text);
+
+			});
+		}, false);
+		    endplace.addEventListener('click', function(event) {
+			cityPicker.show(function(items) {
+                $('.mudidi').html((items[0] || {}).text + " " + (items[1] || {}).text + " " + (items[2] || {}).text);
+			});
+		}, false);
+		
+
+		
+		/*货物类型*/
+//		var userPicker = new mui.PopPicker();
+//		$.ajax({
+//			type:"post",
+//			url:globalUrl+"index.php/Mobile/JkOrder/getcat",
+//			dataType:'json',
+//			success:function(res){
+//				var data =res.info;
+//				var str='';
+//				var datas = [];
+//				if(Array.isArray(data)){
+//					data.forEach(function(obj,index){
+//						datas.push(obj.name);
+////						datas.push(obj.id);
+//					});
+//					userPicker.setData(datas);
+//					var showUserPickerButton = document.getElementById('showUserPicker');
+//			        var goodsResult=document.getElementById('goodsResult')
+//			        showUserPickerButton.addEventListener('tap', function(event) {
+//						userPicker.show(function(items) {
+//							var str1=JSON.stringify(items[0]);
+////							var Id=JSON.stringify(items[1])
+//							var reg = /^[\'\"]+|[\'\"]+$/g;
+//							var  str = str1;
+//							str2=str.replace(reg,"");
+////						   goodsResult.attr('data-type',Id);
+//						   
+//							goodsResult.innerText = str2;
+//							data.forEach(function(obj,index){
+//								if(obj.name==str2){
+//									alert(obj.id)
+//								}
+//							});
+//							//返回 false 可以阻止选择框的关闭
+//							//return false;
+//						});
+//					}, false);
+//				}
+//					
+//			}
+//		});
+			
+		
+			
+			
+			
+			/*装车时间*/
+			
+//			//日期选择
+////		var result = $('#result')[0];
+//		var loading = document.getElementById('loading');
+//		var result=document.getElementById('result')
+//		loading.addEventListener('click', function() {			
+//			var optionsJson = this.getAttribute('data-options') || '{}';
+//			var options = JSON.parse(optionsJson);
+//			var id = this.getAttribute('id');
+//		
+//			var picker = new mui.DtPicker(options);
+//			picker.show(function(rs) {
+//				/*
+//				 * rs.value 拼合后的 value
+//				 * rs.text 拼合后的 text
+//				 * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
+//				 * rs.m 月，用法同年
+//				 * rs.d 日，用法同年
+//				 * rs.h 时，用法同年
+//				 * rs.i 分（minutes 的第二个字母），用法同年
+//				 */
+//				result.innerText = rs.text;
+//			
+//				picker.dispose();
+//			});
+//		}, false);
+		//日期选择
+		var result = $('#result')[0];
+		var loading = document.getElementById('loading');
+		var result=document.getElementById('result');
+		loading.addEventListener('click', function() {
+
+			var id = this.getAttribute('id');
+
+			var picker = new mui.DtPicker();
+			picker.show(function(rs) {
+
+                result.innerText = rs.text;
+				picker.dispose();
+			});
+		}, false);
+		
+
+		
+		
+	</script>
+	<script src="../js/hz_shipment.js" type="text/javascript" charset="utf-8"></script>
+</html>

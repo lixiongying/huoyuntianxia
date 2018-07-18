@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>关于我们</title>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<!--<link rel="stylesheet" type="text/css" href="../../css/nav_table.css"/>-->
+		<link rel="stylesheet" type="text/css" href="../../css/about.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/reset.css"/>
+		<script src="../../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-action-back">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
+		    <h1 class="mui-title">关于我们</h1>
+		    
+		    <!--<span><img src="../../img/faxian_jia.png"/></span>-->
+		</header>
+		<div class="mui-content">
+			<div class="main">
+				<div class="main_synopsis">公司介绍</div>
+				<div class="synopsis">
+					<div class="synopsis_content">公司简介:公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介</div>
+				</div>
+				<div class="main_brand">公司品牌</div>
+				<div class="brand">
+					<div class="brand_li">
+						<img src="../../img/fenxiang_pengyouquan.png"/>
+					</div>
+					<div class="brand_li">
+						<img src="../../img/fenxiang_pengyouquan.png"/>
+					</div>
+					<div class="brand_li">
+						<img src="../../img/fenxiang_pengyouquan.png"/>
+					</div>
+					<div class="brand_li">
+						<img src="../../img/fenxiang_pengyouquan.png"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="main_email">公司邮箱</div>
+				<div class="email">123@123.com</div>
+				<div class="main_website">公司官网</div>
+				<div class="website">www.baidu.com</div>
+			</div>
+			
+		</div>
+		<script type="text/javascript">
+			$.ajax({
+				url:globalUrl + 'index.php/Mobile/JkUser/about',
+				type: 'post',
+				
+				dataType: 'json',
+				success:function(res){
+					var data=res.root;
+					
+					$('.email').html(data.email);
+					$('.website').html(data.link);
+					$('.synopsis_content').html(data.content);
+				}
+			})
+		</script>
+	</body>
+</html>

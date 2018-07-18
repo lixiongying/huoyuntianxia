@@ -1,0 +1,231 @@
+header a {
+  color: white;
+}
+.main {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.mui-bar {
+  width: 20rem;
+  height: 2.34666667rem;
+  background-color: #279cfe;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.mui-title {
+  color: #ffffff;
+  font-size: 0.96rem;
+}
+.content {
+  width: 100%;
+  height: 7.46666667rem;
+  border-bottom: 1px solid #F5F5F5;
+  background: white;
+  margin-bottom: 0.8rem;
+}
+.company {
+  width: 100%;
+  height: 2.13333333rem;
+}
+.company div:first-child {
+  width: 10.66666667rem;
+  height: 2.13333333rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.13333333rem;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  text-align: left;
+  margin-left: 0.64rem;
+  display: inline-block;
+  float: left;
+}
+.company div:last-child {
+  width: 5.86666667rem;
+  height: 2.13333333rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.64rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.13333333rem;
+  letter-spacing: 0px;
+  color: #b3b3b3;
+  text-align: right;
+  margin-right: 0.64rem;
+  display: inline-block;
+  float: right;
+}
+.content .content_one {
+  width: 4.10666667rem;
+  height: 3.73333333rem;
+  display: inline-block;
+  float: left;
+  margin-left: 0.64rem;
+  margin-top: 0.8rem;
+}
+.content .content_two {
+  width: 13.33333333rem;
+  height: 5.33333333rem;
+  display: inline-block;
+  float: left;
+  margin-left: 0.64rem;
+  margin-top: 0.53333333rem;
+}
+.content .content_two .telphone {
+  width: 100%;
+  height: 1.33333333rem;
+}
+.content .content_two .telphone .shouji {
+  width: 2.66666667rem;
+  height: 1.33333333rem;
+  line-height: 1.33333333rem;
+  display: inline-block;
+  float: left;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+}
+.content .content_two .telphone .number {
+  width: 10.66666667rem;
+  height: 1.33333333rem;
+  line-height: 1.33333333rem;
+  display: inline-block;
+  float: left;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.renzhen {
+  width: 100%;
+  height: 1.33333333rem;
+}
+.renzhen .shouji {
+  width: 0.58666667rem;
+  height: 0.58666667rem;
+  margin-top: 0.37333333rem;
+  display: inline-block;
+  float: left;
+}
+.renzhen .number {
+  width: 5.33333333rem;
+  height: 1.33333333rem;
+  line-height: 1.33333333rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.64rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #b3b3b3;
+  display: inline-block;
+  float: left;
+  margin-left: 0.53333333rem;
+}
+.speicalline {
+  width: 12rem;
+  height: 2.34666667rem;
+  position: absolute;
+  top: 0;
+  left: 6.34666667rem;
+  right: 6.32rem;
+}
+.speicalline .line_one {
+  width: 4rem;
+  height: 2.34666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.34666667rem;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  float: left;
+}
+.speicalline .line_img {
+  width: 1.12rem;
+  height: 0.90666667rem;
+  display: inline-block;
+  float: left;
+  margin-top: 0.72rem;
+}
+.speicalline .line_two {
+  width: 4rem;
+  height: 2.34666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.34666667rem;
+  letter-spacing: 0px;
+  color: white;
+  display: inline-block;
+  float: left;
+  text-align: center;
+}
+.reminders {
+  width: 14.93333333rem;
+  left: 2.53333333rem;
+  top: 50%;
+  height: 7.46666667rem;
+  background-color: #ffffff;
+  border-radius: 0.16rem;
+  z-index: 100;
+  position: fixed;
+  display: none;
+}
+.reminders .reminder_title {
+  width: 100%;
+  height: 2.13333333rem;
+  background-color: #f8f8f8;
+  text-align: center;
+  line-height: 2.13333333rem;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #279cfe;
+}
+.reminders .reminder_sc {
+  width: 100%;
+  height: 2.13333333rem;
+}
+.reminders .reminder_world {
+  width: 100%;
+  height: 3.2rem;
+  line-height: 3.2rem;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+}
+.reminders .reminder_sc div {
+  width: 50%;
+  height: 2.13333333rem;
+  line-height: 2.13333333rem;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #cccccc;
+  float: left;
+}
+.reminders .reminder_sc .sure {
+  color: #279cfe;
+}

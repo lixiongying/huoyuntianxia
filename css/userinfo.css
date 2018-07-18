@@ -1,0 +1,239 @@
+.clear::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.mui-bar {
+  background: #279cfe;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border: 0;
+  height: 2.34666667rem;
+}
+.mui-bar .mui-title {
+  color: #fff;
+}
+.mui-bar-nav ~ .mui-content {
+  padding-top: 2.34666667rem;
+}
+.main {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-top: 0.53333333rem;
+}
+.main .userinfo {
+  width: 100$;
+  height: auto;
+}
+.userinfo .info_li_one {
+  padding: 0 0.64rem;
+  width: 100%;
+  height: 3.2rem;
+  line-height: 3.2rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #333333;
+  background: #fff;
+  margin-bottom: 1px;
+}
+.info_li_one .photo_name {
+  float: left;
+}
+.info_li_one .head_pic {
+  float: right;
+  width: 2.13333333rem;
+  height: 2.13333333rem;
+  border-radius: 50%;
+  background: #facece;
+  margin-top: 0.53333333rem;
+}
+.head_pic img {
+  width: 2.13333333rem;
+  height: 2.13333333rem;
+  border-radius: 50%;
+}
+.userinfo .info_li {
+  padding: 0 0.64rem;
+  width: 100%;
+  height: 2.82666667rem;
+  line-height: 2.82666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-family: PingFang-SC-Medium;
+  letter-spacing: 0px;
+  background: #fff;
+  margin-bottom: 1px;
+}
+#birthday {
+  width: 100%;
+}
+.info_li .li_name {
+  float: left;
+  font-size: 0.74666667rem;
+  color: #333333;
+  width: 2.66666667rem;
+}
+.info_li .liname {
+  float: right;
+  font-size: 0.8rem;
+  color: #666666;
+  width: 16rem;
+  border: none;
+  padding: 0;
+  margin: 0;
+  text-align: right;
+  height: 100%;
+  line-height: 2.82666667rem;
+  background: #fff;
+}
+.info_li .li_select {
+  float: left;
+  width: auto;
+  height: auto;
+  margin-left: 3.09333333rem;
+}
+.li_select .select_li {
+  float: left;
+  margin-right: 4.74666667rem;
+}
+.li_select .select_li:last-child {
+  margin-right: 0;
+}
+.select_li .sex_xuan {
+  float: left;
+  width: 1.06666667rem;
+  height: 1.06666667rem;
+  margin-top: 0.88rem;
+  margin-right: 0.53333333rem;
+  background-image: url(../img/dingdanxiangqing_weixuanzhong.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+}
+.select_li .sex_activexuan {
+  float: left;
+  width: 1.06666667rem;
+  height: 1.06666667rem;
+  margin-top: 0.88rem;
+  margin-right: 0.53333333rem;
+  background-image: url(../img/dingdanxiangqing_xuanzhong.png);
+}
+.select_li .sex_name {
+  float: left;
+  font-size: 0.8rem;
+  color: #666666;
+}
+.main .main_sure {
+  width: auto;
+  margin: 4.16rem 0.64rem;
+}
+.main_sure .sure {
+  width: 100%;
+  height: 2.34666667rem;
+  line-height: 2.34666667rem;
+  background: #279cfe;
+  border-radius: 0.16rem;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #ffffff;
+}
+.main_sure .cancel {
+  background: #cccccc;
+}
+.tishi {
+  margin-left: 0.64rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.64rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.44rem;
+  letter-spacing: 0px;
+  color: #b3b3b3;
+}
+/*
+ * 
+ * 用户名
+ */
+.hide {
+  display: none;
+}
+.zhizhao_plate {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+.zhizhao_plate .zhizhao {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+  background: #000;
+  z-index: 101;
+}
+.zhizhao_plate .plate {
+  width: 14.93333333rem;
+  height: 8.05333333rem;
+  position: absolute;
+  top: 9.33333333rem;
+  left: 50%;
+  margin-left: -7.46666667rem;
+  z-index: 102;
+  background: #fff;
+  border-radius: 0.16rem;
+}
+.plate .plate_top {
+  width: 100%;
+  height: auto;
+}
+.plate_top .value {
+  margin: 0 auto;
+  width: 13.86666667rem;
+  height: auto;
+  background: #ffffff;
+  border-radius: 0.16rem;
+}
+.value .textarea {
+  margin: 1.01333333rem 0 0;
+  width: 100%;
+  height: 4.26666667rem;
+  background: #f8f8f8;
+  border-radius: 0.16rem;
+  border: 0;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  color: #1f1f1f;
+}
+.plate .plate_bottom {
+  border-top: 1px solid #acacb4;
+  text-align: center;
+  width: 100%;
+  height: 2.13333333rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.13333333rem;
+  letter-spacing: 0rem;
+  color: #279cfe;
+  background: #FFFFFF;
+  z-index: 9999;
+}
+/*
+ * 
+ * 用户名end
+ */

@@ -1,0 +1,529 @@
+@rem:37.5rem;
+
+header a{
+   color: white;
+}
+.main{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.mui-bar{
+    width: 750/@rem;
+    height: 88/@rem;
+    background-color: #279cfe; 
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+.mui-title{
+    color: #ffffff;
+    font-size: 36/@rem;
+}
+.mui-content{
+    
+}
+.f-left{
+    float: left;
+}
+.f-right{
+    float: right;
+}
+.main .main_ul{
+    width: 100%;
+    height: auto;
+    margin-bottom: 20/@rem;
+}
+.main_ul .main_li{
+    width: 100%;
+    height: 106/@rem;
+    background: #fff;
+}
+.main_li .li_icon{
+    width: 12%;
+    height: 106/@rem;
+    padding-left: 24/@rem;
+}
+.li_icon img{
+    margin-top: 33/@rem;
+    width: 40/@rem;
+    height: 40/@rem;
+}
+.main_li .li_input{
+    width: 88%;
+
+    height: 106/@rem;
+}
+.li_input input{
+    width: 100%;
+    height: 104/@rem;
+    border-bottom: 2px solid #f0eff4;
+}
+.main_li:last-child .li_input input{
+    border-bottom:0;
+}
+.cartype{
+    width: 100%;
+    height: 80/@rem;
+    background: white;
+}
+.cartype .carsitem{
+    width: 25%;
+    height: 80/@rem;
+    border-right: 1px solid #F5F5F5;
+    display: inline-block;
+    float: left;
+}
+
+.cartype .carsitem .carplace{
+    width:130/@rem;
+    height: 80/@rem;
+    display: inline-block;
+    line-height: 80/@rem;
+    float: left;
+    font-family: PingFang-SC-Medium;
+    font-size: 26/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #1f1f1f;
+    text-align: right;
+    padding-right: 10/@rem;
+//  margin-left: 40/@rem;
+}
+.cartype .carsitem .carplace_img{
+    width: 21/@rem;
+    height: 11/@rem;
+    display: inline-block;
+    margin-top: 35/@rem;
+    float: left;
+  
+}
+
+//车长及类型
+.tc_typeofcars{
+    width: 100%;
+    height: 620/@rem;
+    background: white;
+    position: fixed;
+    left: 0;
+    bottom:0;
+    right: 0;
+    z-index: 101;
+    display: none;
+}
+
+.tc_typeofcars .cancel{
+    width: 34/@rem;
+    height: 34/@rem;
+    float: right;
+    margin-top: 26/@rem;
+    margin-right: 25/@rem;
+    border-bottom: 1px solid #F5F5F5;
+}
+.tc_typeofcars .carsitem{
+    width: 100%;
+    height:452/@rem;
+    
+}
+.tc_typeofcars .carsitem .carslength{
+     width: 100%;
+     height: 310/@rem;
+}
+.carslength .length_one{
+    width: 100%;
+    height: 70/@rem;
+    line-height: 70/@rem;
+    margin-left: 24/@rem;
+    text-align: left;
+    font-family: PingFang-SC-Medium;
+    font-size: 24/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #1f1f1f;
+}
+.carslength .length_two{
+    width: 100%;
+    height: 240/@rem;
+    
+}
+.carslength .length_two .box{
+     width: 200/@rem;
+     height: 88/@rem;
+     display: table;
+     float: left;
+      margin-left: 35/@rem;
+    margin-top: 20/@rem;
+     
+}
+.carslength .length_two .box div{
+    vertical-align: middle;
+display: table-cell;
+    width: 200/@rem;
+    height: 88/@rem;
+    font-size: 24/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    border: solid 1/@rem #cccccc;
+    letter-spacing: 0px;
+    color: #b3b3b3;
+    padding: 0 10/@rem;
+//  display: inline-block;
+    
+   
+    text-align: center;
+//  line-height: 88/@rem;
+//  white-space: nowrap;
+//word-wrap: break-word;
+//overflow: hidden;
+
+}
+.carstype{
+    width: 100%;
+    height: 150/@rem;
+    
+}
+.carstype .type_one{
+    width: 100%;
+    height: 40/@rem;
+    text-align: left;
+    line-height: 40/@rem;
+    padding-left: 24/@rem;
+    font-family: PingFang-SC-Medium;
+    font-size: 24/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #1f1f1f;
+}
+.carstype .type_two{
+     width: 100%;
+     height: 110/@rem;
+     overflow: auto;
+}
+.carstype .type_two div{
+    width: 200/@rem;
+    height: 54/@rem;
+    background-color: #ffffff;
+    margin-top: 28/@rem;
+    margin-left: 35/@rem;
+    border-radius: 6/@rem;
+    border: solid 1/@rem #cccccc;
+    float: left;
+    display: inline-block;
+    font-family: PingFang-SC-Medium;
+    font-size: 24/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 54/@rem;
+    letter-spacing: 0px;
+    color: #b3b3b3;
+    text-align: center;
+}
+.carsure{
+    width: 100%;
+    height: 80/@rem;
+    background-color: #279cfe;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    line-height:80/@rem;
+    font-family: PingFang-SC-Medium;
+    font-size: 32/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #ffffff;
+}
+
+//出发地开始
+.startedPlace{
+    width: 750/@rem;
+    height: 320/@rem;
+    background-color: #ffffff;
+}
+//select{
+//  padding: 0;
+//  margin: 0;
+// 
+//}
+//.startedPlace .zone{
+//  
+//  display: inline-block;
+//  float: left;
+//  width: 250/@rem;
+//  height: 80/@rem;
+//  line-height: 80/@rem;
+//  text-align: center;
+//  font-size: 28/@rem;
+//  font-weight: normal;
+//  font-stretch: normal;
+//  letter-spacing: 0px;
+//  color: #1f1f1f;
+//  padding-left:90/@rem;
+//  border-right: 1px solid red;
+//}
+.zone{
+    width: 100%;
+    height: 80/@rem;
+}
+.zone div{
+    display: inline-block;
+    float: left;
+    width: 250/@rem;
+    height: 80/@rem;
+    line-height: 80/@rem;
+    text-align: center;
+    font-size: 28/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #1f1f1f;
+  
+    border-right: 1px solid #F5F5F5;
+    
+}
+.Data{
+    width: 100%;
+    height: 80/@rem;
+    background: white;
+}
+.Data div{
+    display: inline-block;
+    float: left;
+    width: 150/@rem;
+    height: 80/@rem;
+    line-height: 80/@rem;
+    text-align: center;
+    font-size: 28/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #1f1f1f;
+  
+    border-right: 1px solid #F5F5F5;
+    
+}
+.cardetails{
+    width: 100%;
+    height: 300/@rem;
+    background-color: #ffffff;
+    margin-top: 20/@rem;
+}
+.cardetails .car_pic{
+    width: 154/@rem;
+    height: 140/@rem;
+    display: inline-block;
+    float: left;
+    margin-left: 24/@rem;
+    margin-top: 30/@rem;
+}
+.cardetails .carsitem{
+    width:570/@rem;
+    height: 300/@rem;
+    display: inline-block;
+    float: left;
+}
+
+.z_place,.x_place{
+    width:100%;
+    height: 40/@rem;
+    margin-top: 30/@rem;
+    margin-left: 30/@rem;
+}
+.z_place div{
+    display: inline-block;
+    float: left;
+}
+.x_place div{
+    display: inline-block;
+    float: left;
+}
+.z_place div:first-child{
+    width: 28/@rem;
+    height: 28/@rem;
+    margin-top: 6/@rem;
+}
+.z_place div:last-child{
+    width: 500/@rem;
+    height: 40/@rem;
+    font-family: PingFang-SC-Medium;
+    font-size: 28/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 40/@rem;
+    letter-spacing: 0px;
+    color: #1f1f1f;
+    margin-left: 20/@rem;
+    
+}
+.x_place div:first-child{
+    width: 28/@rem;
+    height: 28/@rem;
+    margin-top: 6/@rem;
+}
+.x_place div:last-child{
+    display: inline-block;
+    float: left;
+    width: 500/@rem;
+    height: 40/@rem;
+    font-family: PingFang-SC-Medium;
+    font-size: 28/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 40/@rem;
+    letter-spacing: 0px;
+    color: #1f1f1f;
+    margin-left: 20/@rem;
+}
+.time{
+    width:100%;
+    height: 40/@rem;
+    margin-top: 30/@rem;
+    margin-left: 30/@rem;
+}
+.time .time_pic{
+    width: 28/@rem;
+    height: 28/@rem;
+    margin-top: 6/@rem;
+    display: inline-block;
+    float: left;
+}
+.time .time_start{
+    display: inline-block;
+    float: left;
+    width: 300/@rem;
+    height: 40/@rem;
+    font-family: PingFang-SC-Medium;
+    font-size: 28/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 40/@rem;
+    letter-spacing: 0px;
+    color: #1f1f1f;
+    margin-left: 20/@rem;
+    display: inline-block;
+    float: left;
+    overflow: auto;
+}
+
+.parameter{
+    width:100%;
+    height: 40/@rem;
+    margin-top: 30/@rem;
+    margin-left: 30/@rem;
+}
+.parameter .time_pic{
+    width: 28/@rem;
+    height: 28/@rem;
+    margin-top: 6/@rem;
+    display: inline-block;
+    float: left;
+}
+.parameter .time_start{
+    display: inline-block;
+    float: left;
+    width: 500/@rem;
+    height: 40/@rem;
+    font-family: PingFang-SC-Medium;
+    font-size: 28/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 40/@rem;
+    letter-spacing: 0px;
+    color: #1f1f1f;
+    margin-left: 20/@rem;
+    display: inline-block;
+    float: left;
+}
+.mask{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: black;
+    opacity: 0.5;
+    display: none;
+}
+.reminders{
+    width: 560/@rem;
+    left: 95/@rem;
+    top: 50%;
+    height: 280/@rem;
+    background-color: #ffffff;
+    border-radius: 6/@rem;
+    z-index: 100;
+    position: fixed;
+    display: none;
+}
+.reminders .reminder_title{
+    width: 100%;
+    height: 80/@rem;
+    background-color: #f8f8f8;
+    text-align: center;
+    line-height: 80/@rem;
+    font-size: 28/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #279cfe;
+}
+.reminders  .reminder_sc{
+    width: 100%;
+    height: 80/@rem;
+}
+.reminders .reminder_world{
+    width: 100%;
+    height: 120/@rem;
+    line-height: 120/@rem;
+    
+    text-align: center;
+    font-family: PingFang-SC-Medium;
+    font-size: 32/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #1f1f1f;
+}
+.reminders  .reminder_sc div{
+    width: 50%;
+    height: 80/@rem;
+    line-height: 80/@rem;
+    text-align: center;
+    font-family: PingFang-SC-Medium;
+    font-size: 32/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #cccccc;
+    float: left;
+}
+.reminders  .reminder_sc .sure{
+    color:#279cfe;
+}
+.cartype .carsitem .addbgcolor{
+   
+    color: #279cfe;
+}
+.cartype .carsitem .addbgcolo{
+   
+    color: #1f1f1f;
+}
+.search{
+    width: 600/@rem;
+    height: 88/@rem;
+    background-color: #279cfe;
+    border-radius: 10/@rem;
+    font-family: PingFang-SC-Medium;
+    font-size: 32/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 88/@rem;
+    letter-spacing: 0px;
+    color: #ffffff;
+    margin-left: 75/@rem;
+    text-align: center;
+    margin-top: 30/@rem;
+}

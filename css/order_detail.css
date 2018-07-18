@@ -1,0 +1,161 @@
+.clear::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.f-left {
+  float: left;
+}
+.f-right {
+  float: right;
+}
+.mui-bar {
+  background: #279cfe;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border: 0;
+  height: 2.34666667rem;
+}
+.mui-bar .mui-title {
+  color: #fff;
+}
+.mui-bar-nav ~ .mui-content {
+  padding-top: 2.34666667rem;
+}
+.main {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+}
+.main .main_tishi {
+  position: absolute;
+  top: 0;
+  z-index: 9999;
+  left: 0;
+  width: 100%;
+  height: 2.34666667rem;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.34666667rem;
+  letter-spacing: 0px;
+  color: #ffffff;
+}
+.main_tishi .touming {
+  width: 100%;
+  height: 2.34666667rem;
+  background: #279cfe;
+  opacity: 0.5;
+}
+.main_tishi .tishi {
+  position: absolute;
+  width: 100%;
+  height: 2.34666667rem;
+  top: 0;
+  left: 0;
+}
+.main .main_banner {
+  z-index: 8888;
+}
+.main .main_banner {
+  width: 100%;
+  height: 11.2rem;
+  overflow: hidden;
+}
+.main .main_ul {
+  width: 100%;
+  height: auto;
+}
+.main_ul .order_detail {
+  padding: 0 0.64rem;
+  background: #FFFFFF;
+  font-family: PingFang-SC-Bold;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  margin-bottom: 1.12rem;
+}
+.main_ul .icon {
+  margin-top: 1.12rem;
+  width: 0.64rem;
+  height: 0.64rem;
+  margin-right: 0.16rem;
+}
+.order_detail .order_mname {
+  padding: 1.06666667rem 0;
+  line-height: 0.74666667rem;
+  font-size: 0.74666667rem;
+  letter-spacing: 1px;
+  color: #1f1f1f;
+  margin-right: 0.26666667rem;
+}
+.order_detail .order_money {
+  font-size: 0.96rem;
+  color: #f25c5c;
+  line-height: 2.82666667rem;
+}
+.order_detail .order_typecar {
+  font-size: 0.8rem;
+  color: #f5ca1d;
+  line-height: 2.82666667rem;
+}
+.order_detail .order_nick {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  color: #279cfe;
+  line-height: 2.82666667rem;
+}
+.order_detail .order_mobile {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  color: #1f1f1f;
+  margin-left: 1.06666667rem;
+  line-height: 2.82666667rem;
+}
+.order_detail .order_address {
+  width: 14.13333333rem;
+  word-wrap: break-word;
+  word-break: normal;
+  padding-top: 0.96rem;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  color: #1f1f1f;
+  line-height: 0.96rem;
+  padding-bottom: 0.26666667rem;
+}
+.order_detail .order_name {
+  letter-spacing: 0.26666667rem;
+}
+.order_detail .order_value {
+  line-height: 2.82666667rem;
+}
+.main_ul .order_li {
+  margin-bottom: 2px;
+}
+.main_ul .order_bottom {
+  margin-bottom: 0.53333333rem;
+}
+.main .main_comment {
+  width: 100%;
+  height: auto;
+  padding: 0 0.64rem;
+  margin-top: 4.69333333rem;
+  margin-bottom: 1.6rem;
+}
+.main_comment .comment {
+  width: 100%;
+  height: 2.34666667rem;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.34666667rem;
+  letter-spacing: 1px;
+  color: #ffffff;
+  background: #279CFE;
+  border-radius: 0.16rem;
+}
