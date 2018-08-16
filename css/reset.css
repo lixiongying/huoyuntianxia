@@ -141,5 +141,5 @@ textarea {
   background: black;
   opacity: 0.5;
   display: none;
-  z-index: 99;
+  z-index: 100;
 }

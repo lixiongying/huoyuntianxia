@@ -101,7 +101,7 @@
   height: 1.28rem;
   background-color: #ffffff;
   border-radius: 0.61333333rem;
-  border: solid 0.02666667rem #CCCCCC;
+  border: solid 0.02666667rem #cccccc;
   font-family: PingFang-SC-Medium;
   font-size: 0.74666667rem;
   font-weight: normal;
@@ -112,6 +112,7 @@
   line-height: 1.28rem;
   float: left;
   margin-left: 1.33333333rem;
+  margin-top: 0.53333333rem;
 }
 .evaluteitem .addcolor {
   width: 4.26666667rem;

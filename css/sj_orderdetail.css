@@ -511,3 +511,258 @@ header a {
 #slider .swiper-pagination span.swiper-pagination-bullet-active {
   background: #fd5e5e;
 }
+.payforitem {
+  width: 100%;
+  height: 12.8rem;
+  background: white;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: none;
+  z-index: 1000;
+}
+.payforitem .payfor {
+  width: 100%;
+  height: 2.13333333rem;
+}
+.payforitem .payfor_one {
+  width: 5.33333333rem;
+  height: 2.13333333rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.13333333rem;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  display: inline-block;
+  float: left;
+  margin-left: 0.66666667rem;
+}
+.payforitem .payfor_two {
+  width: 0.90666667rem;
+  height: 0.90666667rem;
+  margin-right: 0.61333333rem;
+  display: inline-block;
+  float: right;
+  margin-top: 0.61333333rem;
+}
+.zhifubao {
+  width: 20rem;
+  height: 2.82666667rem;
+  background-color: #ffffff;
+  margin-top: 1.33333333rem;
+}
+.zhifubao .zhifubao_pic {
+  display: inline-block;
+  width: 0.90666667rem;
+  height: 0.90666667rem;
+  float: left;
+  margin-top: 0.96rem;
+  margin-left: 0.64rem;
+}
+.zhifubao .zhifubao_wrold {
+  width: 5.33333333rem;
+  height: 2.82666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.82666667rem;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  display: inline-block;
+  float: left;
+  margin-left: 0.8rem;
+}
+.zhifubao .zhifubao_next {
+  width: 0.42666667rem;
+  height: 0.8rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  margin-top: 1.01333333rem;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  display: inline-block;
+  float: right;
+  margin-right: 0.8rem;
+}
+.webchat {
+  width: 20rem;
+  height: 2.82666667rem;
+  background-color: #ffffff;
+  margin-top: 1.33333333rem;
+}
+.webchat .webchat_pic {
+  display: inline-block;
+  width: 0.90666667rem;
+  height: 0.90666667rem;
+  float: left;
+  margin-top: 0.96rem;
+  margin-left: 0.64rem;
+}
+.webchat .webchat_wrold {
+  width: 5.33333333rem;
+  height: 2.82666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.82666667rem;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  display: inline-block;
+  float: left;
+  margin-left: 0.8rem;
+}
+.webchat .webchat_next {
+  width: 0.42666667rem;
+  height: 0.8rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  margin-top: 1.01333333rem;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  display: inline-block;
+  float: right;
+  margin-right: 0.8rem;
+}
+.goodsperson .guanzhu {
+  width: 3.2rem;
+  height: 1.33333333rem;
+  border-radius: 0.16rem;
+  border: solid 0.02666667rem #279cfe;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  text-align: center;
+  letter-spacing: 0.02666667rem;
+  color: #279cfe;
+  display: inline-block;
+  float: right;
+  line-height: 1.33333333rem;
+  margin-top: 0.85333333rem;
+  margin-right: 0.53333333rem;
+}
+.goodsperson .haveguanzhu {
+  border: solid 0.02666667rem #cccccc;
+  color: #CCCCCC;
+}
+.deposit {
+  z-index: 1002;
+  width: 14.93333333rem;
+  height: 13.33333333rem;
+  background-color: #ffffff;
+  border-radius: 0.16rem;
+  position: fixed;
+  left: 50%;
+  margin-left: -7.46666667rem;
+  top: 50%;
+  margin-top: -6.66666667rem;
+  background: white;
+}
+.deposit_pic {
+  width: 5.84rem;
+  height: 3.76rem;
+  margin: 0 auto;
+  margin-top: 1.76rem;
+}
+.close {
+  width: 0.90666667rem;
+  height: 0.90666667rem;
+  position: absolute;
+  right: 0.53333333rem;
+  top: 0.53333333rem;
+}
+.deposit_world {
+  width: 100%;
+  height: 1.06666667rem;
+  font-family: PingFang-SC-Regular;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 0.85333333rem;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  text-align: center;
+  line-height: 1.06666667rem;
+  margin-top: 1.06666667rem;
+}
+.deposit_pay {
+  width: 9.6rem;
+  height: 1.92rem;
+  background-color: #279cfe;
+  border-radius: 0.16rem;
+  margin: 0 auto;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.8rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.92rem;
+  letter-spacing: 0px;
+  color: #ffffff;
+  margin-top: 1.46666667rem;
+  text-align: center;
+}
+.reminders {
+  width: 14.93333333rem;
+  left: 2.53333333rem;
+  top: 50%;
+  height: 7.46666667rem;
+  background-color: #ffffff;
+  border-radius: 0.16rem;
+  z-index: 10000;
+  position: fixed;
+  display: none;
+  margin-top: -3.73333333rem;
+}
+.reminders .reminder_title {
+  width: 100%;
+  height: 2.13333333rem;
+  background-color: #f8f8f8;
+  text-align: center;
+  line-height: 2.13333333rem;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #279cfe;
+}
+.reminders .reminder_sc {
+  width: 100%;
+  height: 2.13333333rem;
+}
+.reminders .reminder_world {
+  width: 100%;
+  height: 3.2rem;
+  line-height: 3.2rem;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+}
+.reminders .reminder_sc div {
+  width: 50%;
+  height: 2.13333333rem;
+  line-height: 2.13333333rem;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #cccccc;
+  float: left;
+}
+.reminders .reminder_sc .sure {
+  color: #279cfe;
+}

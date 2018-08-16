@@ -8,15 +8,56 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
 		<title>登录</title>
 		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
-		<!--<link rel="stylesheet" type="text/css" href="css/mui.css"/>-->
+		 <link rel="stylesheet" type="text/css" href="css/mui.picker.min.css"/>
 		<link rel="stylesheet" type="text/css" href="css/nav_table.css"/>
 		<link rel="stylesheet" type="text/css" href="css/register.css"/>
 		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
 		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
-
+        <script src="js/mui.picker.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/city.data.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
 		<title></title>
+		<style type="text/css">
+			.Argeement{
+				display: none;
+				position:fixed;
+				width: 80%;
+				height: 80%;
+				background: #fff;
+			    z-index: 100;
+			    top: 10%;
+			    left:10%;
+			    border-radius: 0.2rem;
+			    -moz-box-shadow:0px 1px 10px #1482E6; -webkit-box-shadow:0px 1px 10px #1482E6``; box-shadow:0px 1px 10px #1482E6;
+			}
+			.ArgeementContent{
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			}
+			.Argeement-text::-webkit-scrollbar{
+				width: 0;
+			}
+			.Argeement-title{
+				text-align: center;
+				padding: 0.3rem 0px;
+		    	border-bottom: 1px solid #a1c5fc;
+			}
+			.Argeement-text{
+				width: 100%;
+				height: 100%;
+				overflow: auto;
+				padding: 0.1rem 0.3rem;
+				text-indent: 2em;
+				text-align: justify;
+			}
+			
+		</style>
+		<script type="text/javascript">
+		mui.init()
+	</script>
 	</head>
 	<body>
 		
@@ -57,9 +98,65 @@
 				</div>
 				<div class="agree">
 					<div class="iagree"><img src="img/dingdanxiangqing_xuanzhong.png"/ data-type='1' class="selectpic"></div>
-					<div class="agreeworld">我同意并遵守用户协议</div>
+					<div class="agreeworld" id="agreement">我同意并遵守用户协议</div>
+				</div>
+				<!--<div class="agreement" style="display: none;">
+					<div class="delete"><img src="img/cha.png"/></div>
+					<p class="content">哈哈哈哈哈哈哈哈dasdas哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈sds</p>
+				</div>-->
+				<div class="Argeement">
+					<div class="ArgeementContent">
+						<div class="Argeement-title">
+							用户协议
+						</div>
+						<div class="Argeement-text">
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							打手机打开拉萨的克拉生的看哈数据库的好打手机打开拉萨的克拉生的看哈数据库的好
+							
+						</div>
+					</div>
 				</div>
 				<div class="regiser">立即注册</div>
+				
+			</div>
+			<div class="mask">
+				
+			</div>
+			<div class="reminders">
+				<div class="reminder_title">提示</div>
+					<div class="reminder_world" id="showCityPicker"><span class="province">请选择</span><span class="city">你所在</span><span class="district">的地区</span><div class="san"></div></div>
+					<div class="reminder_sc">
+						
+						<div class="sure" onclick="Makesure()">确定</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</body>
@@ -69,13 +166,42 @@
 				$(this).attr('src',"img/dingdanxiangqing_weixuanzhong.png");
 				$(this).attr('data-type',2);
 			}else{
+//				$('.agreement').show()
 				$(this).attr('src',"img/dingdanxiangqing_xuanzhong.png");
 				$(this).attr('data-type',1)
 			}
 			
 		})
 		
-
+		$('body').bind('click',function(e){ 
+	       e.stopPropagation(); 
+	        $('.Argeement').hide();
+	    });
+	    $('#agreement').bind('click',function(e){ 
+	      e.stopPropagation(); 
+	        $('.Argeement').show();
+	    });
+	    
+	    
+		$.ajax({
+			type:"post",
+			url:globalUrl+"index.php/Mobile/JkLg/about",
+			async:true,
+			data:{id:1},
+			dataType:'json',
+			success:function(res){
+				var data=res;
+				if(data.code==0){
+					$('.content').html(data.root.content);
+				}
+			}
+		});
+//      function delete(){
+//      	
+//      }
+//      $('.delete').click(function(){
+//      	$('.agreement').hide()
+//      })
 		//发送验证码
     	 $('.code').click(function(){
     	 	 			
@@ -99,7 +225,8 @@
     	     		type:'post',
     	     		data:parms,
     	     		datatype:'json',
-    	     		success:function(data){  	     			
+    	     		success:function(data){  
+//  	     			alert(JSON.stringify(data))
     	     			if(data.code==0){
     	     				mui.toast(data.msg)
     	     				var time = 120;
@@ -120,7 +247,9 @@
          })
 
       /*立即注册*/
+     var user_id;
 		 $('.regiser').click(function(){
+		 	
 	       	 var $authinvitecode=$('.authinvitecode').val().trim();/*验证邀请码*/
 			 var $registerPass=$('.registerPass').val().trim();/*密码*/
 			 var $registerPsdagain=$('.registerPsdagain').val().trim();/*再次输密码*/
@@ -156,12 +285,17 @@
 	       	  	data:parms,
 				dataType:'json',
 				success:function(res){
-					alert(JSON.stringify(res))
+					
 					if(res.code==1){
 						mui.toast(res.msg)
 					}else{
-						mui.toast('注册成功');
-						location.href="login.html";
+						
+						user_id=res.user_id;
+						$('.mask').show();
+						$('.reminders').show()
+						
+//						location.href="login.html";
+//                      mui.back();
 						
 					}
 				}
@@ -169,6 +303,46 @@
 	       	  })
 	       	 
 	       })
-        
+		
+		  var cityPicker = new mui.PopPicker({
+				layer: 3
+			});
+			cityPicker.setData(cityData3);
+			var showCityPickerButton = document.getElementById('showCityPicker');
+//			var showCityPickerone = document.getElementById('showCityPickerone');
+			showCityPickerButton.addEventListener('tap', function(event) {
+				cityPicker.show(function(items) {
+//					cityPicker.html((items[0] || {}).text));
+//					$('#showCityPicker').html((items[0] || {}).text + "," + (items[1] || {}).text + "," + (items[2] || {}).text);
+					$('.province').html((items[0] || {}).text);
+
+					$('.city').html((items[1] || {}).text);
+					$('.district').html((items[2] || {}).text);
+					//返回 false 可以阻止选择框的关闭
+					//return false;
+				});
+			}, false);
+        function Makesure(){
+	         var province=$('.province').html();
+			 var city=$('.city').html();
+			 var district=$('.district').html();
+			
+             $.ajax({
+             	type:"post",
+             	url:globalUrl+"index.php/Mobile/JkUser/useraddress",
+             	dataType:'json',
+             	data:{user_id:user_id,province:province,city:city,district:district},
+             	success:function(res){
+             		var data=res;
+             		if(data.code==0){
+             			mui.toast('注册成功');
+             			$('.mask').hide();
+						$('.reminders').hide()
+             			mui.back()
+             		}
+             	}
+             	
+             });
+        }
 		</script>
 </html>

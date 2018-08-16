@@ -109,3 +109,7 @@ textarea:-ms-input-placeholder {
   bottom: 0;
   left: 0;
 }
+video {
+  width: 4.58666667rem;
+  height: 4.58666667rem;
+}

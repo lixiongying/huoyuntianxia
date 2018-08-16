@@ -1,6 +1,6 @@
 {
 	"@platforms": ["android", "iPhone", "iPad"],
-	"id": "H57C14E40",/*应用的标识，创建应用时自动生成，勿手动修改*/
+	"id": "wx5d937999af5b3d08",/*应用的标识，创建应用时自动生成，勿手动修改*/
 	"name": "cargoworld",/*应用名称，程序桌面图标名称*/
 	"version": {
 		"name": "1.0.0",/*应用版本名称*/
@@ -110,7 +110,7 @@
 		},
 		"runmode": "liberate",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
 		"signature": "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==",/*可选，保留给应用签名，暂不使用*/
-		"distribute": {"plugins":{"payment":{"weixin":{"description":"微信支付","appid":"wx5d937999af5b3d08"},"alipay":{"description":"阿里支付","scheme":""}},"oauth":{"weixin":{"appid":"wx5d937999af5b3d08","appsecret":"07101e0a3be2878628efe7d4887ea409"}},"share":{"weixin":{"appid":"wx5d937999af5b3d08","appsecret":"07101e0a3be2878628efe7d4887ea409","description":"可选，微信分享"}}},
+		"distribute": {"plugins":{"maps":{"baidu":{"appkey_ios":"","appkey_android":"q3awjC6RH3nvY59sUlkSSKBGd9GOSP6I","appkey":"","description":""}},"payment":{"weixin":{"description":"微信支付","appid":"wx5d937999af5b3d08"},"alipay":{"description":"阿里支付","scheme":""}},"oauth":{"weixin":{"appid":"wx5d937999af5b3d08","appsecret":"07101e0a3be2878628efe7d4887ea409"}},"share":{"weixin":{"appid":"wx5d937999af5b3d08","appsecret":"07101e0a3be2878628efe7d4887ea409","description":"可选，微信分享"}}},
 			"apple": {
 				"appid": "",/*iOS应用标识，苹果开发网站申请的appid，如io.dcloud.HelloH5*/
 				"mobileprovision": "",/*iOS应用打包配置文件*/
@@ -124,13 +124,14 @@
 				"keystore": "",/*Android应用打包使用的密钥库文件*/
 				"password": "",/*Android应用打包使用密钥库中证书的密码*/
 				"aliasname": "",/*Android应用打包使用密钥库中证书的别名*/
+				"hardwareAccelerated": "true",/*Android应用打包使用密钥库中证书的别名*/
 				"permissions": ["<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>","<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>","<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>","<uses-permission android:name=\"com.android.launcher.permission.INSTALL_SHORTCUT\"/>","<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>","<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>","<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>","<uses-permission android:name=\"android.permission.INTERNET\"/>","<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>","<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>","<uses-permission android:name=\"android.permission.VIBRATE\"/>","<uses-permission android:name=\"android.permission.READ_LOGS\"/>","<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>","<uses-permission android:name=\"android.permission.CALL_PHONE\"/>","<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>","<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>","<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>","<uses-feature android:name=\"android.hardware.camera.autofocus\"/>","<uses-feature android:name=\"android.hardware.camera\"/>","<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>","<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>","<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>","<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>","<uses-permission android:name=\"com.android.launcher.permission.UNINSTALL_SHORTCUT\"/>","<uses-permission android:name=\"android.permission.CAMERA\"/>"]
 			},
 			"orientation": ["portrait-primary", "portrait-secondary"],/*应用支持的方向，portrait-primary：竖屏正方向；portrait-secondary：竖屏反方向；landscape-primary：横屏正方向；landscape-secondary：横屏反方向*/
 			"icons": {
 				"ios": {
 					"prerendered": true, /*应用图标是否已经高亮处理，在iOS6及以下设备上有效*/
-					"auto": "", /*应用图标，分辨率：512x512，用于自动生成各种尺寸程序图标*/
+					 /*应用图标，分辨率：512x512，用于自动生成各种尺寸程序图标*/
 					"iphone": {
 						"normal": "",/*iPhone普通屏幕程序图标，分辨率：57x57*/
 						"retina": "",/*iPhone高分屏程序图标，分辨率：114x114*/
@@ -152,7 +153,7 @@
 						"spotlight-retina7": "",/*iPad iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
 						"settings-normal": "",/*iPad设置页面程序图标，分辨率：29x29*/
 						"settings-retina": ""
-					}
+					},"appstore":"C:/Users/asus/Desktop/cargo.png"
 				},
 				"android": {
 					"mdpi": "", /*普通屏程序图标，分辨率：48x48*/
@@ -214,7 +215,9 @@
 				],
 				"refer": [
 					"discover/discover.html",
-					"message/message.html"
+					"message/message.html",
+					"login.html",
+					"discover/pullrefresh.html"
 				],
 				"priority": 0
 			},
@@ -245,7 +248,11 @@
 					"homepage/hz_railwaydetail.html",
 					"homepage/hz_railwayfind.html",
 					"homepage/hz_shipment.html",
-					"homepage/sj_ordereceive.html"
+					"homepage/sj_ordereceive.html",
+					"person/set_up/set_id/set_id.html",
+					"login.html",
+					"person/set_up/set_up.html",
+					"person/mymoney/mymoney.html"
 				],
 				"priority": 0
 			},
@@ -269,7 +276,8 @@
 					"css/reset.css"
 				],
 				"refer": [
-					"discover/publish.html"
+					"discover/publish.html",
+					"login.html"
 				],
 				"priority": 0
 			},
@@ -309,7 +317,10 @@
 					"person/userinfo/userinfo.html",
 					"person/mymoney/mymoney.html",
 					"person/order/order.html",
-					"person/mymoney/hz_mywallet.html"
+					"person/mymoney/hz_mywallet.html",
+					"person/order/evalute.html",
+					"person/set_up/set_driver/set_driver.html",
+					"person/order/historyorder.html"
 				],
 				"priority": 0
 			},
@@ -340,7 +351,8 @@
 					"person/set_up/set_id/set_id.html",
 					"person/set_up/set_driver/set_driver.html",
 					"person/set_up/set_truck/set_truck.html",
-					"person/code/code.html"
+					"person/code/code.html",
+					"person/deposit.html"
 				],
 				"priority": 0
 			},
@@ -358,7 +370,8 @@
 					"css/reset.css"
 				],
 				"refer": [
-					"person/set_up/set_truck/truck_photo.html"
+					"person/set_up/set_truck/truck_photo.html",
+					"person/set_up/examine.html"
 				],
 				"priority": 0
 			},
@@ -479,7 +492,9 @@
 					"js/public.js",
 					"js/jquery-1.10.2.min.js"
 				],
-				"refer": [],
+				"refer": [
+					"person/set_up/examine.html"
+				],
 				"priority": 0
 			},
 			"person/set_up/set_truck/truck_photo.html": {
@@ -613,7 +628,9 @@
 					"img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg",
 					"css/reset.css"
 				],
-				"refer": [],
+				"refer": [
+					"message/im-chat.html"
+				],
 				"priority": 0
 			},
 			"person/userinfo/userinfo.html": {
@@ -668,7 +685,8 @@
 					"img/changtuchexiangqing_qidian.png"
 				],
 				"refer": [
-					"homepage/hz_carsdetail.html"
+					"homepage/hz_carsdetail.html",
+					"person/set_up/set_id/set_id.html"
 				],
 				"priority": 0
 			},
@@ -689,7 +707,8 @@
 				],
 				"refer": [
 					"message/chat.html",
-					"message/im-chat.html"
+					"message/im-chat.html",
+					"message/sysmessage.html"
 				],
 				"priority": 0
 			},
@@ -810,7 +829,8 @@
 				],
 				"refer": [
 					"homepage/hz_searchrailway.html",
-					"homepage/hz_railwaydetail.html"
+					"homepage/hz_railwaydetail.html",
+					"homepage/hz_longcar.html"
 				],
 				"priority": 0
 			},
@@ -861,7 +881,9 @@
 					"js/jquery-1.10.2.min.js",
 					"homepage/hz_longcar.html"
 				],
-				"refer": [],
+				"refer": [
+					"message/im-chat.html"
+				],
 				"priority": 0
 			},
 			"homepage/hz_shipment.html": {
@@ -890,7 +912,8 @@
 					"js/hz_shipment.js"
 				],
 				"refer": [
-					"homepage/hz_orderpublish.html"
+					"homepage/hz_orderpublish.html",
+					"homepage/goodstype.html"
 				],
 				"priority": 0
 			},
@@ -1064,7 +1087,62 @@
 			"homepage/sj_ordereceive.html": {
 				"resources": [],
 				"refer": [
-					"homepage/sj_orderlist.html"
+					"homepage/sj_orderlist.html",
+					"homepage/sj_orderdetail.html"
+				],
+				"priority": 0
+			},
+			"homepage/sj_orderlist.html": {
+				"resources": [],
+				"refer": [
+					"homepage/hz_orderpublish.html",
+					"homepage/sj_orderdetail.html"
+				],
+				"priority": 0
+			},
+			"discover/pullrefresh.html": {
+				"resources": [],
+				"refer": [
+					"discover/publish.html",
+					"login.html",
+					"discover/mylist.html",
+					"discover/mymesage.html"
+				],
+				"priority": 0
+			},
+			"person/order/historyorder.html": {
+				"resources": [],
+				"refer": [
+					"person/order/order_detail.html"
+				],
+				"priority": 0
+			},
+			"homepage/sj_orderdetail.html": {
+				"resources": [],
+				"refer": [
+					"person/deposit.html",
+					"person/set_up/set_truck/set_truck.html"
+				],
+				"priority": 0
+			},
+			"discover/mylist.html": {
+				"resources": [],
+				"refer": [
+					"discover/mymesage.html"
+				],
+				"priority": 0
+			},
+			"discover/mymesage.html": {
+				"resources": [],
+				"refer": [
+					"discover/mylist.html"
+				],
+				"priority": 0
+			},
+			"message/im-chat.html": {
+				"resources": [],
+				"refer": [
+					"discover/mymesage.html"
 				],
 				"priority": 0
 			}

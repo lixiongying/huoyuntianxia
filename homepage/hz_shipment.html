@@ -8,25 +8,34 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
 		<title>发现</title>
 		<link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
-		<link rel="stylesheet" type="text/css" href="../css/mui.css"/>
-        <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+		
+       
         <link rel="stylesheet" type="text/css" href="../css/mui.picker.min.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/hz_shipment.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
-		<link rel="stylesheet" type="text/css" href="../css/swiper-4.3.2.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/imageviewer.css"/>
 		<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
-	     <script src="../js/mui.picker.min.js" type="text/javascript" charset="utf-8"></script>
+		
+	    <script src="../js/mui.picker.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../js/city.data.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.previewimage.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="../js/mui.zoom.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
-	    <script src="../js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
-	    <style type="text/css">
+	   	
+	   <style type="text/css">
 	    	.tc_typeofcars .carsitem .length_two .box .addcarcolor{
-	    		color: #279cfe;;
+	    		color: #279cfe;
+	    		border: 1px solid #279cfe !important;
 	    	}
+	    	 p, span {
+		      font-family: 'Microsoft Yahei'!important;
+		    }
 	    </style>
+	    <script>
+			mui.init();
+		</script>
 	</head>
 	<body>
 		
@@ -47,24 +56,24 @@
 			<div class="main">
 				<!--出发地-->
 				<div class="startplace">
-						<div class="place" id="goplace">
-							
-						    <div class="place_one">出发地</div>
-						    <div class="place_two chufadi">广东省广州市天河区</div>
-						    
-						    <div class="place_three"><img src="../img/zhuanxianxiangqing_xiehuowangdian_up.png"/></div>
-					    </div>
+					<div class="place" id="goplace">
+						
+					    <div class="place_one">出发地</div>
+					    <div class="place_two chufadi"></div>
 					    
-					    <div class="detailedaddress">
-						     <input type="text" name=""  value="" id="stdeaddress" placeholder="详细地址"/>
-					    </div>
+					    <div class="place_three"><img src="../img/zhuanxianxiangqing_xiehuowangdian_up.png"/></div>
 				    </div>
+				    
+				    <div class="detailedaddress">
+					     <input type="text" name=""  value="" id="stdeaddress" placeholder="详细地址"/>
+				    </div>
+			    </div>
 			   
 			    <!--目的地-->
 			    <div class="destination">
 						<div class="place"  id="endplace">
 						    <div class="place_one">目的地</div>
-						    <div class="place_two mudidi">广东省广州市天河区</div>
+						    <div class="place_two mudidi">请 选  择 目 的 地</div>
 						    <div class="place_three"><img src="../img/zhuanxianxiangqing_xiehuowangdian_up.png"/></div>
 					    </div>
 					    
@@ -73,8 +82,13 @@
 					    </div>
 				    </div>
 			    </div>	
+			    
+			    <div class="baidumap container" id="container1" style="display: none;">
+					
+				</div>
+				<!--id="showUserPicker"-->
 			    <!--货物类型-->
-			    <div class="goodstype" id="showUserPicker">
+			    <div class="goodstype" onclick="url(this)" data-url="goodstype.html">
 				    <div class="type_one">货物类型</div>
 				    
 				    <div class="type_three"><img src="../img/zhuanxianxiangqing_xiehuowangdian_up.png"/></div>
@@ -84,8 +98,8 @@
 			     <div class="goodsvolume">
 				    <div class="volume_one">货物重量体积</div>
 				    
-				    <div class="volume_three"><input type="text" id="fang"/>&nbsp;&nbsp;方</div>
-				    <div class="volume_two"><input type="text" id="ton"/>&nbsp;&nbsp;吨</div>
+				    <div class="volume_three"><input type="number" id="fang"/>&nbsp;&nbsp;方</div>
+				    <div class="volume_two"><input type="number" id="ton"/>&nbsp;&nbsp;吨</div>
 			    </div>
 			    
 			    <!--车长及车型-->
@@ -146,10 +160,25 @@
 			    	</div>
 			    </div>
 			    
+			    
 			    <!--下一步-->
-			    <div class="nextbtn"  onclick="uploadImg()" data-url='hz_orderpublish.html'>
+			    <div class="nextbtn"  onclick="next()" data-url='hz_orderpublish.html'>
 			    	下一步
-			    </div>	
+			    </div
+			    
+			    <!--虚拟币弹窗-->
+			    <div class="mask">
+				
+				</div>
+				<div class="reminders">
+					<div class="reminder_title">提示</div>
+						<div class="reminder_world">发货需要消耗<span class="xunibi"></span>个虚拟币哦</div>
+						<div class="reminder_sc">
+							<div onclick="cancell()">取消</div>
+							<div class="sure" onclick="uploadImg()">确定</div>
+						</div>
+					</div>
+				</div>
 			  
      
 			    </div>	
@@ -187,9 +216,9 @@
 			    	</div>
 			    </div>
 			    <!--遮罩-->
-			    <div class="mask">
+			    <!--<div class="mask">
 			    	
-			    </div>
+			    </div>-->
 			    
 			    <!--选择货物类型弹窗-->
 			    <div class="tc_typeofgoods">
@@ -216,7 +245,7 @@
 			    				车长可多选(最多选三个)
 			    			</div>
 			    			<div class="length_two" id="carlen">
-			    				<div class="box">
+			    				<!--<div class="box">
 			    					<div class="addcarcolor">
 			    					1.7米面包车（0.8吨）
 			    				    </div>
@@ -236,7 +265,7 @@
 			    					<div class="">
 			    					1.7米面包车（0.8吨）
 			    				    </div>
-			    				</div>
+			    				</div>-->
 			    			</div>
 			    		</div>
 			    		
@@ -282,7 +311,58 @@
 			    
 		  </div>
 	</body>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=q3awjC6RH3nvY59sUlkSSKBGd9GOSP6I"></script>
+	<script src="../js/jquery.baiduMap.min.js"></script>
 	<script type="text/javascript">
+
+
+        mui.previewImage();
+        var currentLon;
+		var currentLat;
+		
+		mui.plusReady(function() {
+		    plus.geolocation.getCurrentPosition(translatePoint,function(e){
+		//      	alert(JSON.stringify(e));
+		//          mui.toast("异常:" + e.message);
+			});
+	    });
+	   	var province;
+		var city;
+		var district;
+		var address;
+		function translatePoint(position){	
+//			alert(JSON.stringify(position))
+		   province=position.address.province;
+			
+		   city=position.address.city;
+		   district=position.address.district;
+		   currentLon = position.coords.longitude;
+		   currentLat = position.coords.latitude;
+		   address=province+' '+city+' '+district;
+		   $('.chufadi').html(address)
+		}
+		
+
+		function ShowMap(lng,lat,addrsee,mobile,tel) {
+//	        
+			var lon=lng;
+			var lat=lat;
+//			var zoom=20;
+			//var address=data.address
+			var mobile=mobile;
+			var addrsee=addrsee;
+			var tel=tel;
+	        var map = new BMap.Map("container1");
+	        map.centerAndZoom(new BMap.Point(lon, lat), 20);
+	        map.addControl(new BMap.NavigationControl());
+	        var marker = new BMap.Marker(new BMap.Point(lon, lat));
+	        map.addOverlay(marker);
+	        var infoWindow = new BMap.InfoWindow('<p class="placeadddress">地址：' + addrsee + '</p><p>电话：' + mobile + '</p><p>传真：' + tel + '</p>');
+	        marker.addEventListener("click", function () {
+	            this.openInfoWindow(infoWindow);
+	        });
+	        marker.openInfoWindow(infoWindow);
+	    }
 
 		    
 //	城市三级选择
@@ -294,7 +374,7 @@
 		var goplace=document.getElementById('goplace');
 		var endplace=document.getElementById('endplace');
         
-			goplace.addEventListener('click', function(event) {
+		goplace.addEventListener('click', function(event) {
 			cityPicker.show(function(items) {
 				$('.chufadi').html((items[0] || {}).text + " " + (items[1] || {}).text + " " + (items[2] || {}).text);
 
@@ -306,82 +386,10 @@
 			});
 		}, false);
 		
+		
 
 		
-		/*货物类型*/
-//		var userPicker = new mui.PopPicker();
-//		$.ajax({
-//			type:"post",
-//			url:globalUrl+"index.php/Mobile/JkOrder/getcat",
-//			dataType:'json',
-//			success:function(res){
-//				var data =res.info;
-//				var str='';
-//				var datas = [];
-//				if(Array.isArray(data)){
-//					data.forEach(function(obj,index){
-//						datas.push(obj.name);
-////						datas.push(obj.id);
-//					});
-//					userPicker.setData(datas);
-//					var showUserPickerButton = document.getElementById('showUserPicker');
-//			        var goodsResult=document.getElementById('goodsResult')
-//			        showUserPickerButton.addEventListener('tap', function(event) {
-//						userPicker.show(function(items) {
-//							var str1=JSON.stringify(items[0]);
-////							var Id=JSON.stringify(items[1])
-//							var reg = /^[\'\"]+|[\'\"]+$/g;
-//							var  str = str1;
-//							str2=str.replace(reg,"");
-////						   goodsResult.attr('data-type',Id);
-//						   
-//							goodsResult.innerText = str2;
-//							data.forEach(function(obj,index){
-//								if(obj.name==str2){
-//									alert(obj.id)
-//								}
-//							});
-//							//返回 false 可以阻止选择框的关闭
-//							//return false;
-//						});
-//					}, false);
-//				}
-//					
-//			}
-//		});
-			
 		
-			
-			
-			
-			/*装车时间*/
-			
-//			//日期选择
-////		var result = $('#result')[0];
-//		var loading = document.getElementById('loading');
-//		var result=document.getElementById('result')
-//		loading.addEventListener('click', function() {			
-//			var optionsJson = this.getAttribute('data-options') || '{}';
-//			var options = JSON.parse(optionsJson);
-//			var id = this.getAttribute('id');
-//		
-//			var picker = new mui.DtPicker(options);
-//			picker.show(function(rs) {
-//				/*
-//				 * rs.value 拼合后的 value
-//				 * rs.text 拼合后的 text
-//				 * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
-//				 * rs.m 月，用法同年
-//				 * rs.d 日，用法同年
-//				 * rs.h 时，用法同年
-//				 * rs.i 分（minutes 的第二个字母），用法同年
-//				 */
-//				result.innerText = rs.text;
-//			
-//				picker.dispose();
-//			});
-//		}, false);
-		//日期选择
 		var result = $('#result')[0];
 		var loading = document.getElementById('loading');
 		var result=document.getElementById('result');
@@ -397,9 +405,8 @@
 			});
 		}, false);
 		
-
-		
-		
+	
+	
 	</script>
 	<script src="../js/hz_shipment.js" type="text/javascript" charset="utf-8"></script>
 </html>

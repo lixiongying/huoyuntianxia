@@ -18,6 +18,9 @@
 	    <style type="text/css">
 	    	
 	    </style>
+	    <script type="text/javascript">
+			mui.init()
+		</script>
 	</head>
 	<body>
 		<header class="mui-bar mui-bar-nav mui-action-back">
@@ -28,7 +31,7 @@
 		</header>
 		<div class="mui-content">
 			<div class="main">
-				<div class="main_li"  onclick="url(this)" data-url="set_phone/set_phone.html">
+				<div class="main_li" id="phone" data-url="">
 					<div class="li_icon">
 						<img src="../../img/shezhi_bangdingshoujihao.png" alt="" />
 					</div>
@@ -70,12 +73,26 @@
 					</div>
 					<div class="clear"></div>
 				</div>
-				<div class="main_li" onclick="urlcompany(this)" data-url="set_id/set_id.html" id="comfirm">
+				<div class="main_li Generalcargo" onclick="urlcompany(this)" data-url="set_id/set_id.html?type=2" id="Generalcargo">
 					<div class="li_icon">
 						<img src="../../img/shezhi_shimingrenzheng.png" alt="" />
 					</div>
 					<div class="li_name">
-						<div class="name_left">实名认证</div>
+						<div class="name_left">普通货主</div>
+						<div class="name_right havecomfirm">未认证</div>
+						<div class="clear"></div>
+					</div>
+					<div class="li_img">
+						<img src="../../img/next.png" alt="" />
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="main_li qiyecargo" onclick="urlcompany(this)" data-url="set_id/set_id.html?type=1" id="comfirm">
+					<div class="li_icon">
+						<img src="../../img/shezhi_shimingrenzheng.png" alt="" />
+					</div>
+					<div class="li_name">
+						<div class="name_left">企业货主</div>
 						<div class="name_right havecomfirm">已认证</div>
 						<div class="clear"></div>
 					</div>
@@ -98,7 +115,7 @@
 					</div>
 					<div class="clear"></div>
 				</div>
-				<div class="main_li tuijianma" onclick="url(this)" data-url="../code/code.html">
+				<!--<div class="main_li tuijianma" onclick="url(this)" data-url="../code/code.html">
 					<div class="li_icon">
 						<img src="../../img/wode_fenxiangerweima.png" alt="" />
 					</div>
@@ -111,8 +128,8 @@
 						<img src="../../img/next.png" alt="" />
 					</div>
 					<div class="clear"></div>
-				</div>
-				<div class="main_li" onclick="url(this)" data-url="set_truck/set_truck.html">
+				</div>-->
+				<div class="main_li driveritem">
 					<div class="li_icon">
 						<img src="../../img/shezhi_bangdingcheliang.png" alt="" />
 					</div>
@@ -126,6 +143,35 @@
 					</div>
 					<div class="clear"></div>
 				</div>
+				<div class="main_li deposit" style="display: none;" onclick="url(this)" data-url="../deposit.html">
+					<div class="li_icon">
+						<img src="../../img/tuiyajin.png" alt="" />
+					</div>
+					<div class="li_name">
+						<div class="name_left baozhengjin">支付押金</div>
+						<div class="name_right"></div>
+						<div class="clear"></div>
+					</div>
+					<div class="li_img">
+						<img src="../../img/next.png" alt="" />
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="main_li" onclick="clearcache(this)">
+					<div class="li_icon">
+						<img src="../../img/huancun.png" alt="" />
+					</div>
+					<div class="li_name">
+						<div class="name_left">清楚本地缓存</div>
+						<div class="name_right"></div>
+						<div class="clear"></div>
+					</div>
+					<div class="li_img">
+						<img src="../../img/next.png" alt="" />
+					</div>
+					<div class="clear"></div>
+				</div>
+				
 			</div>
 			<div class="mask">
 				
@@ -133,19 +179,29 @@
 		</div>
 		<script type="text/javascript">
 			var userid=localStorage.getItem('user_id');
-			var carstatus=localStorage.getItem('car_status');
-			if(carstatus==1){
-				$('.driver').hide();
-				$('#comfirm').hide();
-			}else{
-				$('.tuijianma').hide()
-			}
-
-			var car_status;
+			var carstatus=localStorage.getItem('car_status');		    
 			var company_status;
 			var mobile_validated;
 			var alipay;
 			var bg_car;
+			var mobile;
+			var baozhengjin ;
+			var car_status;/*成为司机状态*/
+			if(carstatus==1){
+				
+				$('.driver').hide();
+				$('#Generalcargo').hide();
+				$('#comfirm').hide();
+//				$('.mask').show();
+				
+				$('.deposit').show()
+//				reminder('你已经是司机啦');
+			}else{
+				$('.tuijianma').hide();
+				$('.Generalcargo').show();
+				$('#comfirm').show();
+			}
+			
 			
 			function ajaxstatus(){
 				$.ajax({	
@@ -157,28 +213,55 @@
 						var data=res.user;
 						car_status=data.car_status;/*成为司机*/
 						company_status=data.company_status;/*实名认证*/
+						baozhengjin=data.baozhengjin;/*保证金*/
+							
+						
+						if(car_status==1&&company_status==1){
+							
+								$('#Generalcargo').hide();
+//								$('#comfirm').hide();
+							
+						}
 						mobile_validated=data.mobile_validated;/*手机绑定*/
 						alipay=data.alipay;
 						bg_car=data.bg_car;
-					
-						$('.phoneNumber').html(data.mobile);
+					    mobile=data.mobile;
+
+						
 						if(car_status==1){
-							reminder('恭喜你通过审核');
-							makesure();
+//							$('.mask').show()
+//							reminder('你已经是司机啦');
+//							localStorage.setItem('car_status',1);
+//							makesure();
 	//						$('.becomedriver').html('已认证');
 						}else if(car_status==2){
 							$('.becomedriver').html('审核失败');
 						}else if(car_status==0){
 							$('.becomedriver').html('');
 						}
+//						
+						if(baozhengjin==1){
+							$('.baozhengjin').html('退押金')
+						}else{
+							$('.baozhengjin').html('支付押金')
+						}
+						
 	//					
 						if(company_status==1||company_status==2){
+							$('.driver').hide()
+							if(company_status==1){
+								$('.Generalcargo').show();
+								$('.qiyecargo').hide();
+							}else if(company_status==2){
+								$('.Generalcargo').hide();
+								$('.qiyecargo').show();
+							}
 							$('.havecomfirm').html('已认证');
 							
 							$('.havecomfirm').addClass('addcolor');
 							
 						
-						}else if(company_status==3||company_status==0){
+						}else if(company_status==3||company_status==0||company_status==null||company_status==undefined){
 							$('.havecomfirm').html('未认证');
 							$('.havecomfirm').removeClass('addcolor');
 							
@@ -196,7 +279,7 @@
 							$('.havesetup').html('已设置');
 							$('.havesetup').addClass('addcolor');
 							
-						}else if(alipay==2||alipay==0){
+						}else if(alipay==2||alipay==0||alipay==null){
 							$('.havesetup').html('未设置');
 							$('.havesetup').removeClass('addcolor');
 						
@@ -206,6 +289,7 @@
 						
 						if(bg_car==1){
 							$('.bcar').html('已通过');
+							$('.bcar').addClass('addcolor');
 						}else if(bg_car==2){
 							$('.bcar').html('审核失败');
 						}else if(bg_car==0){
@@ -248,12 +332,15 @@
 //				alert(company_status)
 				var url=$(obj).attr('data-url');
 				if(company_status==1||company_status==2){
-					mui.toast('你已认证，请联系客服');
+					mui.toast('你已认证，如需修改请联系客服');
 					return;
 				}else{
 					mui.openWindow({
 						url:url,
-						id:url
+						id:url,
+						extras: {
+							company_status: company_status
+						}
 					})
 				}
 					
@@ -264,6 +351,49 @@
 			function makesure(){
 				$('.mask').hide();
 				$('.reminder').hide();
+//		
+			}
+			if(mobile_validated==1){
+				$('#phone').click(function(){
+					 mui.toast('你已绑定手机号');
+					 return
+				})
+               
+                
+			}else{
+				$('#phone').click(function(){
+					mui.openWindow({
+						url:'set_phone/set_phone.html',
+						id:'set_phone/set_phone.html'
+					})
+				})
+			}
+//			function photo(){
+//				mui.openWindow({
+//					url:'set_phone/set_phone.html?mobile='+mobile+'',
+//					id:'set_phone/set_phone.html'
+//				})
+//			}
+			$('.driveritem').click(function(){
+				mui.openWindow({
+					url:'set_truck/set_truck.html?bg_car='+bg_car+'',
+					id:'set_truck/set_truck.html'
+				})
+			})
+			
+			function clearcache(){
+		//		alert(1)
+				plus.cache.calculate(function(size) {
+		//          alert(size)
+		            sizeCache = size;
+		            mui.confirm("您目前的系统缓存为" + parseFloat(sizeCache / (1024 * 1024)).toFixed(1) + "M？", "清除缓存", ["确认", "取消"], function(e) {
+		                if(e.index == 1) {} else {
+		                 
+		                        mui.alert("缓存清除完毕",'')
+		                 
+		                }
+		            });
+		        });
 			}
 		</script>
 	</body>

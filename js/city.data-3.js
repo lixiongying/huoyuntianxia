@@ -3,7 +3,7 @@ var cityData3 = [{
 	text: '北京市',
 	children: [{
 		value: "110100",
-		text: "北京市",
+		text: "市辖区",
 		children: [{
 			value: "110101",
 			text: "东城区"
@@ -68,7 +68,7 @@ var cityData3 = [{
 	text: '天津市',
 	children: [{
 		value: "120100",
-		text: "天津市",
+		text: "市辖区",
 		children: [{
 			value: "120101",
 			text: "和平区"
@@ -2747,7 +2747,7 @@ var cityData3 = [{
 	text: '上海市',
 	children: [{
 		value: '310100',
-		text: '上海市',
+		text: '市辖区',
 		children: [{
 			value: "310101",
 			text: "黄浦区"
@@ -6899,9 +6899,6 @@ var cityData3 = [{
 		}, {
 			value: "440308",
 			text: "盐田区"
-		}, {
-			value: "440309",
-			text: "其它区"
 		}]
 	}, {
 		value: "440400",

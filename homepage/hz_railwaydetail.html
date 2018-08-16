@@ -17,19 +17,19 @@
 		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
 		
 		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			mui.init();
+		</script>
 		<style type="text/css">
-			/*.mask{
-			  background: black;
-			  opacity: 0.4;
-			  width: 100%;
-			  height: 100%;
-			  position: fixed;
-			  left: 0;
-			  bottom: 0;
-			  top: 0;
-			  z-index: 100;
-			  display: none;
-			}*/
+		
+			.nullData{
+				width: 100%;
+				/*height: 150px;
+				text-align: center;
+				line-height: 150px;
+				font-size: 1.2rem;
+				color: #CCCCCC;*/
+			}
 		</style>
 	</head>
 	<body>
@@ -53,7 +53,7 @@
 			<div class="main">
 
      			<div class="content" onclick="url(this)" data-url="hz_searchrailway.html">
-     				<div class="company">
+     				<!--<div class="company">
      					<div class="">
      						广州市顺德物流有限公司
      					</div>
@@ -89,11 +89,11 @@
          						已认证
          					</div>
          				</div>
-         			</div>
+         			</div>-->
          		</div>
          		
          		<div class="content">
-     				<div class="company">
+     				<!--<div class="company">
      					<div class="">
      						广州市顺德物流有限公司
      					</div>
@@ -129,7 +129,7 @@
          						已认证
          					</div>
          				</div>
-         			</div>
+         			</div>-->
          		</div>
         
 			    
@@ -153,12 +153,14 @@
 	
       	mui.plusReady(function() {
 			var self = plus.webview.currentWebview();
-
+         
 			var address = self.address;
 			var yuyueaddress=self.yuyueaddress;
-			
-			$('.line_one').html(address);
-			$('.line_two').html(yuyueaddress);
+	        var addressone=address.replace(/,/g, "");
+	      
+	        var yuyueaddressone=yuyueaddress.replace(/,/g, "");
+			$('.line_one').html(addressone);
+			$('.line_two').html(yuyueaddressone);
 			var p=2
 			var ajaxData={};
 			ajaxData.address=address;
@@ -176,37 +178,47 @@
 		            	totalPage=res.totalPage;
 		            	var str='';
 		            	var data=res.root;
-		            	for(var i=0;i<data.length;i++){
-		            		str+='<div class="content" data-type='+data[i].goods_id+'  onclick="urlnext(this)">';
-		            		str+='<div class="company">';
-		            		str+='<div class="">'+data[i].company+'</div>';
-		            		str+='<div class="">点击'+data[i].click_count+'次</div>';
-		            		str+='</div>';
-		            		str+='<div class="content_one"><img src="'+picUrl+data[i].original_img+'"/></div>';
-		            		str+='<div class="content_two">';
-		            		str+='<div class="telphone">';
-		            		str+='<div class="shouji">地址：</div>';
-		            		str+='<div class="number">'+data[i].address+'</div>';
-		            		str+='</div>';
-		            		str+='<div class="telphone">';
-		            		str+='<div class="shouji">电话：</div>';
-		            		str+='<div class="number">'+data[i].tel+'</div>';
-		            		str+='</div>';
-		            		
-		            		str+='<div class="renzhen">';
-		            		str+='<div class="shouji"><img src="../img/chaxunxianlu_yirenzheng.png"/></div>';
-		            		if(company_status==0||company_status==3){
-		            				str+='<div class="number">未认证</div>';
-		            		}else{
-		            			str+='<div class="number">已认证</div>';
-		            		}
-		            	
-		            		str+='</div>';
-		            		str+='</div>';
-		            		str+='</div>';
-
-//		            		
+		            	if(res.count==0){
+		            		str+='<div class="nullData"><img class="pic" src="../img/null.png"/></div>'
+		            	}else{
+		            		for(var i=0;i<data.length;i++){
+			            		str+='<div class="content" data-type='+data[i].goods_id+'  onclick="urlnext(this)">';
+			            		str+='<div class="company">';
+			            		str+='<div class="">'+data[i].company+'</div>';
+			            		str+='<div class="">点击'+data[i].click_count+'次</div>';
+			            		str+='</div>';
+			            		str+='<div class="content_one"><img src="'+picUrl+data[i].original_img+'"/></div>';
+			            		str+='<div class="content_two">';
+			            		str+='<div class="telphone">';
+			            		str+='<div class="shouji">地址：</div>';
+			            		str+='<div class="number">'+data[i].address+'</div>';
+			            		str+='</div>';
+			            		str+='<div class="telphone">';
+			            		str+='<div class="shouji">电话：</div>';
+			            		str+='<div class="number">'+data[i].tel+'</div>';
+			            		str+='</div>';
+			            		
+			            		str+='<div class="renzhen">';
+			            		str+='<div class="shouji"><img src="../img/chaxunxianlu_yirenzheng.png"/></div>';
+			            		if(carstatus==1){
+			            			str+='<div class="number">已认证</div>';
+			            		}else{
+			            			if(company_status==0||company_status==3){
+			            				str+='<div class="number">未认证</div>';
+				            		}else{
+				            			str+='<div class="number">已认证</div>';
+				            		}
+			            		}
+			            		
+			            	
+			            		str+='</div>';
+			            		str+='</div>';
+			            		str+='</div>';
+	
+	//		            		
+			            	}
 		            	}
+		            	
 		            	$('.main').html(str);
 		            }
 				});
@@ -235,6 +247,7 @@
       	var del_coin;
       	var company_status;
       	var userid=localStorage.getItem('user_id');
+      	var carstatus=localStorage.getItem('car_status');
       	function userindo(){
       		$.ajax({
 	  			type:"post",
@@ -253,38 +266,48 @@
   		userindo();
   		
       	function urlnext(obj){
-
       		id=$(obj).attr('data-type');
-      		$('.mask').show();
-      		if(company_status==0||company_status==3){
-      			reminder('实名认证后才能查看详情');
+      		if(carstatus==0){
+      			if(company_status==0||company_status==3){
+	      			$('.mask').show();
+	      			reminder('实名认证后才能查看详情');
+	      		}else{
+	      			mui.openWindow({
+		      			url:'hz_searchrailway.html?id='+id+'',
+		      			id:'hz_searchrailway.html'
+		      		})
+	      			$('.mask').hide();
+					$('.reminders').hide();
+	      		}
       		}else{
-      			$('.reminders').show();
+      			mui.openWindow({
+	      			url:'hz_searchrailway.html?id='+id+'',
+	      			id:'hz_searchrailway.html'
+	      		})
+      			$('.mask').hide();
+				$('.reminders').hide();
       		}
+      		
+      	
+
+      		
 			
 				
 		}
-      	function makesure(){
-      		mui.openWindow({
-      			url:'../person/set_up/set_id/set_id.html',
-      			id:'../person/set_up/set_id/set_id.html'
-      		})
-      		$('.mask').hide();
-      		$('.reminder').hide();
-      	}
-      	function cancell(){
-  			$('.mask').hide();
-			$('.reminders').hide();
-  		}
-      	function Makesure(){
-      		
-      		mui.openWindow({
-      			url:'hz_searchrailway.html?id='+id+'&del_coin='+del_coin+'',
-      			id:'hz_searchrailway.html'
-      		})
-      		$('.mask').hide();
-			$('.reminders').hide();
-      	}
+//    	
+//    	function cancell(){
+//			$('.mask').hide();
+//			$('.reminders').hide();
+//		}
+//    	function Makesure(){
+//    		
+//    		mui.openWindow({
+//    			url:'hz_searchrailway.html?id='+id+'&del_coin='+del_coin+'',
+//    			id:'hz_searchrailway.html'
+//    		})
+//    		$('.mask').hide();
+//			$('.reminders').hide();
+//    	}
      
 	</script>
 </html>

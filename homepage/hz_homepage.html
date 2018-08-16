@@ -18,44 +18,49 @@
 		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 		
 		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+		
 	</head>
 	<body>
 		
 		<header class="mui-bar mui-bar-nav mui-action-back">
 		    <!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
-		    <h1 class="mui-title">货运天下</h1>
-		    <!--<span><img src="../img/faxian_jia.png"/></span>-->
+		    <h1 class="mui-title">共运网</h1>
+		    
 		</header>
-		<div class="mui-content">
+		<div id="pullrefresh" class="mui-content">
 			<div class="main">
-				 <div id="slider">
+				<div id="slider">
 					<div class="swiper-container clearfix">
 						<ul class="swiper-wrapper">
-							<!--<li class="swiper-slide"><a href=""><img src="../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/></a></li>
+							<li class="swiper-slide"><a href=""><img src="../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/></a></li>
 							<li class="swiper-slide"><a href=""><img src="../img/c8e9eef9f1c58ac516b51eaa584e7233_t01a6852a946b324a87.jpg"/></a></li>
-							<li class="swiper-slide"><a href=""><img src="../img/ea11d46b89dcd0c8e1b2a9b3fd06deeb_t01bdfaecfc44eba5e0.jpg"/></a></li>-->
+							<li class="swiper-slide"><a href=""><img src="../img/ea11d46b89dcd0c8e1b2a9b3fd06deeb_t01bdfaecfc44eba5e0.jpg"/></a></li>
 						</ul>
 					</div>
 			      	<div class="swiper-pagination"></div>	
 			    </div>
 				<div class="content">
 					<div class="content_left">
-						<div class="line_find" onclick="url(this)" data-url="hz_railwayfind.html">
+						<div class="line_find car" onclick="url(this)" data-url="hz_railwayfind.html">
 							专线查询
 						</div>
-						<div class="shipment" onclick="url(this)" data-url="hz_shipment.html">
+						<div class="shipment" onclick="goods(this)" data-url="hz_shipment.html">
 							<div class="iwant">
 								我要发货
 							</div>
 						</div>
 					</div>
 					<div class="content_right">
-						<div class="longcar" onclick="url(this)" data-url='hz_longcar.html?type=2'>长途车</div>
-						<div class="shortcar" onclick="url(this)" data-url='hz_longcar.html?type=3'>短途车</div>
+						<div class="longcar car" onclick="url(this)" data-url='hz_longcar.html?type=2'>长途车</div>
+						<div class="shortcar car" onclick="url(this)" data-url='hz_longcar.html?type=3'>短途车</div>
 						<div class="find" onclick="checkPhone()">发现</div>
 					</div>
 				</div>
-			    <div class="newsremind">
+				
+				
+			</div>
+			
+			    <!--<div class="newsremind">
 			    	<div class="news">
 			    		新消息提醒
 			    	</div>
@@ -70,26 +75,82 @@
 			    			确定
 			    		</div>
 			    	</div>
-			    </div>
-			    <div class="mask">
-			    	
-			    </div>
+			    </div>-->
+		    <div class="mask">
+		    	
+		    </div>
+		    <div class="reminders" style="display: none;">
+				<div class="reminder_title">提示</div>
+					<div class="reminder_world">你的虚拟币不足，建议充值后再操作</div>
+					<div class="reminder_sc">
+						<div onclick="cancell()">取消</div>
+						<div class="sure" onclick="Makesure()">确定</div>
+					</div>
+			</div>
 		</div>
 	</body>
 	
     <script type="text/javascript">
+    mui.init();
     var userid=localStorage.getItem('user_id');
     var carstatus=localStorage.getItem('car_status');
-    
+    var Url;
+    var vitval_coin;
+	var del_coin;
+	/*用户状态*/
+    var company_status;
+    if(userid!=undefined&&userid!=null&&userid!=''){
+    	userindo()
+    }
+	function userindo(){
+  		$.ajax({
+  			type:"post",
+  			url:globalUrl+"index.php/Mobile/JkUser/myLists",
+  			data:{user_id:userid},
+  			dataType:'json',
+  			success:function(res){
+  				var data=res.user;
+  				
+  				 del_coin=data.del_coin;
+  				 vitval_coin=data.vitval_coin;
+  				 company_status=data.company_status;
+  				
+  				
+  			}
+  		});
+  	}
+
+   
+   
     if(carstatus==1){
+    	Url=globalUrl+'index.php/Mobile/JkOrderlist/userList'
     	$('.iwant').html('我要接单');
     	$('.shipment').attr('data-url','sj_ordereceive.html');
     }else{
+    	Url=globalUrl+'index.php/Mobile/JkOrderlist/userLis'
     	$('.iwant').html('我要发货');
     	$('.shipment').attr('data-url','hz_shipment.html');
     }
+    if(userid==''||userid==null||userid==undefined){
+    	$('.car').attr('data-url','../login.html');
+    }
+    
+
+   
+// 	 $.ajax({
+//	   	type:"post",
+//	   	url:globalUrl+"index.php/Mobile/JkUser/myLists",
+//	   	data:{user_id:userid},
+//	   	dataType:'json',
+//	   	success:function(res){
+//	   		var data=res.user;
+//	   		company_status=data.company_status;
+//	   	}
+//	   })
+  
+
     /*广告*/
-    var str=''
+    var str='';
     $.ajax({
 	   	type:"post",
 	   	url:globalUrl+"index.php/Mobile/JkShare/adList",
@@ -101,8 +162,7 @@
 	   			
 	   			str+='<li class="swiper-slide"><img src="'+picUrl+data[i].ad_code+'"/></li>';
 	   		  
-		
-	   		
+
 	   		}
 	   		
 	   		$('.swiper-wrapper').html(str);
@@ -120,19 +180,130 @@
 	   	}
    	
     });
-   
-   
-//  	$('.longcar').click(function(){
-//  		mui.openWindow({
-//  			url:'hz_longcar.html',
-//  			id:'hz_longcar.html'
-//  		})
-//  	})
-//  	$('.find').click(function(){
-//  		location.href='../discover/discover.html'
-//  	})
+
     	function checkPhone(){
 		    plus.webview.currentWebview().opener().evalJS('discover()');
 		}
+//  	function imdriver(){
+//		    plus.webview.currentWebview().opener().evalJS('driver()');
+//		}
+    	function goods(obj){
+    		var url=$(obj).attr('data-url');
+    		if(userid==''||userid==null||userid==undefined){
+    			mui.openWindow({
+    				url:'../login.html',
+    				id:'../login.html'
+    			})
+    		}else{
+    			if(carstatus==1){
+    				if(del_coin>vitval_coin){
+    					$('reminders').show()
+					}else{
+						mui.openWindow({
+		    				url:url,
+		    				id:url
+		    			})
+					}
+	    			
+    		}else if(carstatus==0){
+    			if(company_status==1||company_status==2){
+    				
+    				if(del_coin>vitval_coin){
+    					$('.mask').show()
+    					$('.reminders').show()
+					}else{
+						mui.openWindow({
+							url:url,
+							id:url
+			    		})
+					}
+
+	    		}else{
+	    			mui.toast('需认证货主身份后才能发货哦');
+	    			mui.openWindow({
+	    				url:"../person/set_up/set_up.html",
+	    				id:"../person/set_up/set_up.html"
+	    			})
+	    		}
+    		}
+    		
+    		}
+ 		
+    	}
+    	$('.mask').click(function(){
+    		$('.reminders').hide();
+    		$('.mask').hide()
+    	})
+    	function Makesure(){
+    		mui.openWindow({
+				url:"../person/mymoney/mymoney.html",
+				id:"../person/mymoney/mymoney.html"
+			})
+    		$('.reminders').hide();
+    		$('.mask').hide()
+    	}
+    	function cancell(){
+    		if(carstatus==1){
+    			mui.openWindow({
+					url:'sj_ordereceive.html',
+					id:'sj_ordereceive.html'
+	    		})
+    			$('.reminders').hide();
+    			$('.mask').hide()
+    		}else{
+    			mui.openWindow({
+					url:'hz_shipment.html',
+					id:'hz_shipment.html'
+	    		})
+    			$('.reminders').hide();
+    			$('.mask').hide()
+    		}
+    		
+    		
+    	}
+    	
+    	$.ajax({
+    		type:"post",
+    		url:globalUrl+"index.php/Mobile/JkLg/seemessage",
+    		data:{user_id:userid},
+    		dataType:'json',
+    		success:function(res){
+    			var data=res.list;
+    			
+    			var str='';
+    			if(data!=''&&data.length>0&&data!=undefined){
+    				$('.mask').show()
+    				for(var i=0;i<data.length;i++){
+	    				str+='<div class="newsremind" data-id='+data[i].id+'>';
+		    			str+='<div class="news">新消息提醒</div>';
+		    			str+='<div class="newsworld">'+data[i].message+'</div>';
+		    			str+='<div class="newstype">';
+		    			str+='<div class="cancel" onclick="sure(this)">取消</div>';
+		    			str+='<div class="sure" onclick="sure(this)">确定</div>';
+		    			str+='</div>';
+		    			str+='</div>';
+	    			}
+	    			$('body').append(str)
+    			}
+    			
+    		}
+    	});
+    
+    	function sure(obj){
+    		$('.mask').hide();
+    		$('.newsremind').hide();
+    		var id=$(obj).parents('.newsremind').attr('data-id');
+    		$.ajax({
+    			type:"post",
+    			url:globalUrl+"index.php/Mobile/JkLg/saveessage",
+    			data:{id:id},
+    			dataType:'json',
+    			success:function(res){
+    				
+    			}
+    		});
+    	}
+    	
+    	
     </script>
 </html>

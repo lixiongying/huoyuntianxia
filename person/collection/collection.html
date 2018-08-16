@@ -28,8 +28,27 @@
 			  z-index: 100;
 			  display: none;
 			}*/
+			/*.nulldata{
+				width: 100%;
+				height: 300px;
+				font-size: 1.2rem;
+				line-height: 300px;
+				text-align: center;
+				color: #CCCCCC;
+			}*/
+			.nulldata{
+				width: 100%;
+				height: auto;
+				/*font-size: 1.2rem;*/
+				/*line-height: 300px;*/
+				/*text-align: center;*/
+				/*color: #CCCCCC;*/
+			}
 	    </style>
 	</head>
+	<script>
+		mui.init();
+	</script>
 	<body>
 		<header class="mui-bar mui-bar-nav mui-action-back">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
@@ -40,7 +59,7 @@
 		<div class="mui-content">
 			<div class="main">
 				<div class="main_li" onclick="url(this)" data-url="collection_detail/collection_detail.html">
-					<div class="company">
+					<!--<div class="company">
 						<div class="company_name">广州市顺德物流有限公司</div>
 						<div class="click">点击6899次</div>
 						<div class="clear"></div>
@@ -67,10 +86,10 @@
 							</div>
 						</div>
 						<div class="clear"></div>
-					</div>
+					</div>-->
 				</div>
 				<div class="main_li" onclick="url(this)" data-url="collection_detail/collection_detail.html">
-					<div class="company">
+					<!--<div class="company">
 						<div class="company_name">广州市顺德物流有限公司</div>
 						<div class="click">点击6899次</div>
 						<div class="clear"></div>
@@ -97,7 +116,7 @@
 							</div>
 						</div>
 						<div class="clear"></div>
-					</div>
+					</div>-->
 				</div>
 			</div>
 		
@@ -118,6 +137,8 @@
 	
 	<script type="text/javascript">
 	var userid=localStorage.getItem('user_id');
+	var carstatus=localStorage.getItem('car_status');
+//	alert(userid)
 	var ajaxData={};
 	var p=2;
 	var totalPage;
@@ -136,37 +157,42 @@
 					var data=res.root;
 				
 					var str='';
-					for(var i=0;i<data.length;i++){
-						str+='<div class="main_li" onclick="urlnext(this)" data-type='+data[i].goods_id+' data-collect='+data[i].collect_id+'>';
-						str+='<div class="company">';
-						str+='<div class="company_name">'+data[i].company+'</div>';
-						str+='<div class="click">点击<span>'+data[i].click_count+'</span>次</div>';
-						str+='<div class="clear"></div>';
-						str+='</div>';
-						str+='<div class="company_detail">';
-						str+='<div class="company_pic"><img class="pic" src="'+picUrl+data[i].original_img+'"/></div>';
-						str+='<div class="detail">';
-						str+='<div class="address">';
-						str+='<div class="add_name">地址：</div>';
-						str+='<div class="add_ress">'+data[i].address+'</div>';
-						str+='<div class="clear"></div>';
-						str+='</div>';
-						str+='<div class="phone">';
-						str+='<div class="phone_name">电话：</div>';
-						str+='<div class="phone_number">'+data[i].tel+'</div>';
-						str+='<div class="clear"></div>';
-						str+='</div>';
-						str+='<div class="authentication">';
-						str+='<div class="icon"><img src="../../img/chaxunxianlu_yirenzheng.png"/></div>';
-						str+='<div class="auth">已认证</div>';
-						str+='<div class="clear"></div>';
-						str+='</div>';
-						str+='</div>';
-						str+='<div class="clear"></div>';
-						str+='</div>';
-						str+='</div>';
-
+					if(res.count==0){
+						str+='<div class="nulldata"><img class="pic" src="../../img/null.png"/></div>';
+					}else{
+						for(var i=0;i<data.length;i++){
+							str+='<div class="main_li" onclick="urlnext(this)" data-type='+data[i].goods_id+' data-collect='+data[i].collect_id+'>';
+							str+='<div class="company">';
+							str+='<div class="company_name">'+data[i].company+'</div>';
+							str+='<div class="click">点击<span>'+data[i].click_count+'</span>次</div>';
+							str+='<div class="clear"></div>';
+							str+='</div>';
+							str+='<div class="company_detail">';
+							str+='<div class="company_pic"><img class="pic" src="'+picUrl+data[i].original_img+'"/></div>';
+							str+='<div class="detail">';
+							str+='<div class="address">';
+							str+='<div class="add_name">地址：</div>';
+							str+='<div class="add_ress">'+data[i].address+'</div>';
+							str+='<div class="clear"></div>';
+							str+='</div>';
+							str+='<div class="phone">';
+							str+='<div class="phone_name">电话：</div>';
+							str+='<div class="phone_number">'+data[i].tel+'</div>';
+							str+='<div class="clear"></div>';
+							str+='</div>';
+							str+='<div class="authentication">';
+							str+='<div class="icon"><img src="../../img/chaxunxianlu_yirenzheng.png"/></div>';
+							str+='<div class="auth">已认证</div>';
+							str+='<div class="clear"></div>';
+							str+='</div>';
+							str+='</div>';
+							str+='<div class="clear"></div>';
+							str+='</div>';
+							str+='</div>';
+	
+						}
 					}
+					
 					$('.main').html(str)
 				}
 			});
@@ -190,6 +216,8 @@
 		var id;
       	var del_coin;
       	var userid=localStorage.getItem('user_id');
+      	var vitval_coin;
+      	var company_status;
       	function userindo(){
       		$.ajax({
 	  			type:"post",
@@ -198,8 +226,9 @@
 	  			dataType:'json',
 	  			success:function(res){
 	  				var data=res.user;
-	  				
-	  				 del_coin=data.del_coin;
+	  				vitval_coin=data.vitval_coin
+	  				del_coin=data.del_coin;
+	  				company_status=data.company_status;
 	  				$('.xunibi').html(del_coin)
 	  			}
 	  		});
@@ -209,23 +238,41 @@
       	function urlnext(obj){
 
       		id=$(obj).attr('data-type');
-      		$('.mask').show();
-			$('.reminders').show();
-				
-		}
-      	function cancell(){
-      		$('.mask').hide();
-			$('.reminders').hide();
-				
-      	}
-      	function Makesure(){
       		
-      		mui.openWindow({
-      			url:'../../homepage/hz_searchrailway.html?id='+id+'&del_coin='+del_coin+'',
-      			id:'../../homepage/hz_searchrailway.html'
-      		})
-      		$('.mask').hide();
-			$('.reminders').hide();
-      	}
+      	    if(carstatus==0){
+      	    	if(company_status==0||company_status==3){
+					reminder('实名认证后才能查看详情');
+				    $('.mask').show();
+				    
+				}else{
+					mui.openWindow({
+		      			url:'../../homepage/hz_searchrailway.html?id='+id+'',
+		      			id:'../../homepage/hz_searchrailway.html'
+		      		})
+		      		$('.mask').hide();
+					$('.reminder').hide();
+				}
+      	    }else{
+      	    	mui.openWindow({
+	      			url:'../../homepage/hz_searchrailway.html?id='+id+'',
+	      			id:'../../homepage/hz_searchrailway.html'
+	      		})
+	      		$('.mask').hide();
+				$('.reminder').hide();
+      	    }
+  			
+
+		}
+      	
+      	function makesure(){
+	  		mui.openWindow({
+	  			url:'../person/set_up/set_id/set_id.html',
+	  			id:'../person/set_up/set_id/set_id.html'
+	  		})
+	  		$('.mask').hide();
+	  		$('.reminder').hide();
+	  	}
+     
+      
 	</script>
 </html>

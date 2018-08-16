@@ -133,15 +133,13 @@ header a {
   margin-left: 0.53333333rem;
 }
 .speicalline {
-  width: 12rem;
   height: 2.34666667rem;
   position: absolute;
   top: 0;
-  left: 6.34666667rem;
-  right: 6.32rem;
+  left: 1.06666667rem;
 }
 .speicalline .line_one {
-  width: 4rem;
+  width: 8.66666667rem;
   height: 2.34666667rem;
   font-family: PingFang-SC-Medium;
   font-size: 0.85333333rem;
@@ -161,7 +159,7 @@ header a {
   margin-top: 0.72rem;
 }
 .speicalline .line_two {
-  width: 4rem;
+  width: 8.66666667rem;
   height: 2.34666667rem;
   font-family: PingFang-SC-Medium;
   font-size: 0.85333333rem;

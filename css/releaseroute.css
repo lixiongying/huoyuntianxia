@@ -41,35 +41,137 @@
   width: auto;
   padding: 2.13333333rem 0.64rem 0;
 }
-.long-term .long {
+.cardetails {
   width: 100%;
-  height: 2.82666667rem;
-  line-height: 2.82666667rem;
-  text-align: center;
-  font-family: PingFang-SC-Bold;
-  font-size: 0.85333333rem;
+  height: 8rem;
+  background-color: #ffffff;
+  margin-top: 0.53333333rem;
+  position: relative;
+}
+.cardetails .car_pic {
+  width: 4.10666667rem;
+  height: 3.73333333rem;
+  display: inline-block;
+  float: left;
+  margin-left: 0.64rem;
+  margin-top: 0.8rem;
+}
+.cardetails .carsitem {
+  width: 15.2rem;
+  height: 8rem;
+  display: inline-block;
+  float: left;
+}
+.z_place,
+.x_place {
+  width: 100%;
+  height: 1.06666667rem;
+  margin-top: 0.8rem;
+  margin-left: 0.8rem;
+}
+.z_place div {
+  display: inline-block;
+  float: left;
+}
+.x_place div {
+  display: inline-block;
+  float: left;
+}
+.z_place div:first-child {
+  width: 0.74666667rem;
+  height: 0.74666667rem;
+  margin-top: 0.16rem;
+}
+.z_place div:last-child {
+  width: 13.33333333rem;
+  height: 1.06666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
   font-weight: normal;
   font-stretch: normal;
+  line-height: 1.06666667rem;
   letter-spacing: 0px;
-  color: #feffff;
-  background: #fdbf42;
-  border-radius: 0.16rem;
+  color: #1f1f1f;
+  margin-left: 0.53333333rem;
 }
-.main .short-term {
-  width: auto;
-  padding: 1.6rem 0.64rem 0;
+.x_place div:first-child {
+  width: 0.74666667rem;
+  height: 0.74666667rem;
+  margin-top: 0.16rem;
 }
-.short-term .short {
-  width: 100%;
-  height: 2.82666667rem;
-  line-height: 2.82666667rem;
-  text-align: center;
-  font-family: PingFang-SC-Bold;
-  font-size: 0.85333333rem;
+.x_place div:last-child {
+  display: inline-block;
+  float: left;
+  width: 13.33333333rem;
+  height: 1.06666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
   font-weight: normal;
   font-stretch: normal;
+  line-height: 1.06666667rem;
   letter-spacing: 0px;
-  color: #feffff;
-  background: #279cfe;
-  border-radius: 0.16rem;
+  color: #1f1f1f;
+  margin-left: 0.53333333rem;
+}
+.time {
+  width: 100%;
+  height: 1.06666667rem;
+  margin-top: 0.8rem;
+  margin-left: 0.8rem;
+}
+.time .time_pic {
+  width: 0.74666667rem;
+  height: 0.74666667rem;
+  margin-top: 0.16rem;
+  display: inline-block;
+  float: left;
+}
+.time .time_start {
+  width: 8rem;
+  height: 1.06666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.06666667rem;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  margin-left: 0.53333333rem;
+  display: inline-block;
+  float: left;
+  overflow: auto;
+}
+.parameter {
+  width: 100%;
+  height: 1.06666667rem;
+  margin-top: 0.8rem;
+  margin-left: 0.8rem;
+}
+.parameter .time_pic {
+  width: 0.74666667rem;
+  height: 0.74666667rem;
+  margin-top: 0.16rem;
+  display: inline-block;
+  float: left;
+}
+.parameter .time_start {
+  width: 13.33333333rem;
+  height: 1.06666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.06666667rem;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  margin-left: 0.53333333rem;
+  display: inline-block;
+  float: left;
+}
+.delete {
+  position: absolute;
+  width: 1.06666667rem;
+  height: 1.12rem;
+  right: 0.53333333rem;
+  top: 0.8rem;
 }

@@ -9,7 +9,7 @@
 		<title>长途车详情</title>
 		<link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/mui.css"/>
-<!--		<link rel="stylesheet" type="text/css" href="../css/nav_table.css"/>-->
+
 		<link rel="stylesheet" type="text/css" href="../css/hz_carsdetail.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/swiper-4.3.2.min.css"/>
@@ -17,7 +17,9 @@
 		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
-		
+		<script>
+			mui.init();
+		</script>
 	</head>
 	<body>
 		
@@ -32,9 +34,9 @@
 				<div id="slider">
 					<div class="swiper-container clearfix">
 						<ul class="swiper-wrapper">
-							<li class="swiper-slide"><a href=""><img src="../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/></a></li>
-							<li class="swiper-slide"><a href=""><img src="../img/c8e9eef9f1c58ac516b51eaa584e7233_t01a6852a946b324a87.jpg"/></a></li>
-							<li class="swiper-slide"><a href=""><img src="../img/ea11d46b89dcd0c8e1b2a9b3fd06deeb_t01bdfaecfc44eba5e0.jpg"/></a></li>
+							<li class="swiper-slide"><a href=""><img id="image1" src=""/></a></li>
+							<li class="swiper-slide"><a href=""><img id="image2" src=""/></a></li>
+							<li class="swiper-slide"><a href=""><img id="image3" src=""/></a></li>
 						</ul>
 					</div>
 				<div class="swiper-pagination"></div>
@@ -45,15 +47,21 @@
 				<div class="">
 					<div class="z_place">
 						<div><img src="../img/changtuche_zhuangchedizhi.png"/></div>
-						<div class="address">广州市天河区</div>
+						<div class="address"></div>
+						<div class="number_three startaddress" onclick="addresss()" data-type='1'>
+				    		<img src="../img/dingdanxiangqing_dizhi.png"/>
+				    	</div>
 					</div>
 					<div class="x_place">
 						<div><img src="../img/changtuche_xiehuodizhi.png"/></div>
-						<div class="yuyueaddress">广州市白云区</div>
+						<div class="yuyueaddress"></div>
+						<div class="number_three endaddress" onclick="addresssone()" data-type='2'>
+				    		<img src="../img/dingdanxiangqing_dizhi.png"/>
+				    	</div>
 					</div>
 					<div class="time">
 						<div class="time_pic"><img src="../img/changtuche_shijian.png"/></div>
-						<div class="time_start load_time">2018-05-01 </div>
+						<div class="time_start load_time"> </div>
 					</div>
 					
 				</div>
@@ -66,26 +74,26 @@
 				</div>
 				<div class="carstype">
 					<div class="type_one">
-						车型：
+						车牌号：
 					</div>
 					<div class="type_two">
-						<span class="carcat">开顶箱车</span>/<span class="carnumber">粤A2W1TS</span>
+						<span class="carnumber">粤A2W1TS</span>
 					</div>
 				</div>
 				<div class="carstype">
 					<div class="type_one">
-						载重：
+					  载重：
 					</div>
 					<div class="type_two">
-						<span class="meter">4.2</span>米/<span class="ton"></span>吨
+						<span class="ton">4.2</span>吨/<span class="bulk"></span>方
 					</div>
 				</div>
 				<div class="carstype">
 					<div class="type_one">
-						体积：
+						车规格：
 					</div>
 					<div class="type_two">
-						长<span class="long"></span>米 宽<span class="width">2.2</span>米 高<span class="height">1.6</span>米/<span class="bulk">16.0</span>方
+						<span class="long"></span>/<span class="width">2.2</span>
 					</div>
 				</div>
 				<div class="remarks clearfix">
@@ -93,7 +101,7 @@
 						备注：
 					</div>
 					<div class="remarks_two">
-						备注：备注：备注：
+						
 					</div>
 				</div>
 			</div>
@@ -112,7 +120,7 @@
 					<div class="name">
 						<div class="name_one">
 							<div class="names nick_name">
-								黄鲜生
+								<!--黄鲜生-->
 							</div>
 							<div class="star">
 								<ul id="ratingOne" class="rating">  
@@ -138,14 +146,14 @@
 						<div class="chat_one">
 							<img src="../img/changtuchexiangqing_liaotain.png"/>
 						</div>
-						<div class="chat_two">
+						<div class="chat_two" onclick="chat()">
 							聊天
 						</div>
 						
 					</div>
 					<div class="contactdriver">
 						<div class="driver_one">
-							<img src="../img/changtuchexiangqing_lianxisiji.png"/>
+							<a href="tel:"></a><img src="../img/changtuchexiangqing_lianxisiji.png"/>
 						</div>
 						<div class="driver_two" onclick="">
 							联系司机
@@ -158,44 +166,74 @@
 	</body>
 	<script type="text/javascript">
 		
-      var mySwiper = new Swiper('.swiper-container', {
-				autoplay: 4000,//可选选项，自动滑动，手指触屏滑动会停止自动轮播
-				autoplayDisableOnInteraction : false,//手指触屏滑动之后，重新开启自动轮播
-				initialSlide :0,//初始显示的li的索引
-				speed : 1000,//滑动的速度
-				observeParents:true,//当容器container宽度改变的时候(window.onresize或者自适应)自动更新Swiper
-				grabCursor : true,//鼠标抓手形状，触屏看不到
-				pagination : '.swiper-pagination',//下面的图标跟随切换
-				loop : true,//无缝轮播 自动在li列表的前面添加最后一个，在li列表后面添加第一个
-			
-		  });
+     
 		  
 		  var userid=localStorage.getItem('user_id');
 		  var urL=location.href;
 		  var goods_id=getUrl(urL).goodsid;
-		  var del_coin=getUrl(urL).del_coin;
+		  var type=getUrl(urL).type;
 		  var carstatus=localStorage.getItem('car_status');
-		 
+//		 alert(goods_id)
 		  var attent_type;
 		  if(carstatus==0){
-		  	attent_type=1
-		  }else{
 		  	attent_type=2
+		  }else{
+		  	attent_type=1
 		  }
-		  
-		  getcardetail();
-		  var userinfoid;
-		  function getcardetail(){
+		  if(type==2){
+		  	$('.mui-title').html('长途车详情')
+		  }else{
+		  	$('.mui-title').html('短途车详情')
+		  }
+		 
+		 var userinfoid;
+		 var attent_id;/*关注的id*/
+		 var guanzhu_status;/*是否是关注*/
+		 var eye_id; 
+		 var nick_name;
+		 var lon;/*起始经纬度*/
+		 var lat;
+		 var lonone;/*终点经纬度*/
+		 var lattwo;
+		
+		 var currentLon;/*当前位置经纬度*/
+		 var currentLat;
+		mui.plusReady(function() {
+		    plus.geolocation.getCurrentPosition(translatePoint,function(e){
+		//      	alert(JSON.stringify(e));
+		//          mui.toast("异常:" + e.message);
+			});
+	    });
+	    
+	   
+		function translatePoint(position){				
+		   currentLon = position.coords.longitude;
+		   currentLat = position.coords.latitude;
+		}
+		 function getcardetail(){
+		  	
 		  	$.ajax({
 		  		type:"post",
 		  		url:globalUrl+"index.php/Mobile/JkLine/cdinfo",
-		  		data:{user_id:userid,goods_id:goods_id,del_coin:del_coin},
+		  		data:{user_id:userid,goods_id:goods_id},
 		  		dataType:'json',
 		  		success:function(res){
 		  			var data=res.info;
 //		  			alert(JSON.stringify(data))
 //		  			var addres=data.address;
 		  			var len=data.car.lwhd;
+		  			guanzhu_status=data.guanzhu_status;
+		  			lon=data.address_lat.lng;
+		  			lat=data.address_lat.lat;
+		  			lonone=data.yuyue_lat.lng;
+		  			latone=data.yuyue_lat.lat;
+		  			if(guanzhu_status>0){
+						$('.guanzhu').html('已关注');
+						$('.guanzhu').addClass('haveguanzhu');
+					}else{
+						$('.guanzhu').html('关注')
+						$('.guanzhu').removeClass('haveguanzhu');
+					}
 		  			str = "";
 		            var strs = new Array(); //定义一数组 
 		            strs = len.split(","); //字符分割 
@@ -207,11 +245,18 @@
 		            }
 			  		var c=data.load_time;
 			  	    var b=timeToDate(c);
-//		            
-		  			$('.address').html(data.address);
-		  			$('.yuyueaddress').html(data.yuyueaddress);
+			
+                    var dataaddress=data.address;
+                    var dataaddressone=dataaddress.replace(/,/g, ""); 
+                  
+		  			$('.address').html(dataaddressone);
+		  			var dataaddress1=data.yuyueaddress;
+                    var dataaddressone1=dataaddress1.replace(/,/g, ""); 
+		  			$('.yuyueaddress').html(dataaddressone1);
 		  			$('.load_time').html(b);
 		  			$('.carcat').html(data.car.cat);
+		  			$('.long').html(data.spec_name.cat_name);
+		  			$('.width').html(data.spec_name.car_spec);
 		  			$('.carnumber').html(data.car.car_number);
 		  			$('.meter').html(data.car.meter);
 		  			$('.ton').html(data.car.ton);
@@ -219,13 +264,30 @@
 		  			$('.remarks_two').html(data.car.remark);
 		  			var car_info=data.car_info;
 		  			userinfoid=data.car.user_id;
+		  			attent_id=data.attent_id;
+		  			nick_name=data.car_info.nick_name;
 		  			if(userinfoid==userid){
 		  				$('.driver_two').hide()
-		  				$('.guanzhu').hide()
+		  				$('.guanzhu').hide();
 		  			}else{
 		  				$('.driver_two').show()
 		  				$('.guanzhu').show()
 		  			}
+		  			
+		  			$('#image1').attr('src',picUrl+data.car.image2);
+		  			$('#image2').attr('src',picUrl+data.car.image3);
+		  			$('#image3').attr('src',picUrl+data.car.image4);
+		  			var mySwiper = new Swiper('.swiper-container', {
+						autoplay: 4000,//可选选项，自动滑动，手指触屏滑动会停止自动轮播
+						autoplayDisableOnInteraction : false,//手指触屏滑动之后，重新开启自动轮播
+						initialSlide :0,//初始显示的li的索引
+						speed : 1000,//滑动的速度
+						observeParents:true,//当容器container宽度改变的时候(window.onresize或者自适应)自动更新Swiper
+						grabCursor : true,//鼠标抓手形状，触屏看不到
+						pagination : '.swiper-pagination',//下面的图标跟随切换
+						loop : true,//无缝轮播 自动在li列表的前面添加最后一个，在li列表后面添加第一个
+				 	
+				    })
 		  			$('.guanzhu').attr('data-type',userinfoid);
 		  			$('#userinfo').attr('src',picUrl+car_info.head_pic);
 		  			$('.nick_name').html(car_info.nick_name);
@@ -233,7 +295,16 @@
 		  			$('.die_goods').html(car_info.die_goods);
 		  			$('.mobile').html(car_info.mobile);
 		  			var comment_age=car_info.comment_age;
-		  			var str1=''
+		  			var str1='';
+		  			var str2='';
+		  			str2+='<a href="tel:'+car_info.mobile+'">';
+		  			str2+='<div class="driver_one"><img src="../img/changtuchexiangqing_lianxisiji.png"/></div>';
+		  			
+		  			str2+='<div class="driver_two" onclick="">联系司机</div>';
+		  			str2+='</a>'
+		  			$('.contactdriver').html(str2);
+		  		    
+						
 		  			if(comment_age==5){
 		  				str1+='<ul id="ratingOne" class="rating">';
 		  				str1+=' <li class="rating-item" title="很不好"><img src="../img/fabiaopingjia_pingfen.png" alt="" /></li>';
@@ -280,35 +351,154 @@
 		  		}
 		  	});
 		  }
+			 getcardetail();
+			 
+		function chat(){
 			
-		$('.guanzhu').click(function(){
-//			
-			if($(this).hasClass('haveguanzhu')){
-				$(this).removeClass('haveguanzhu');
-				$(this).html('关注');
-			}else{
-				focus();
-				$(this).addClass('haveguanzhu');
-				$(this).html('已关注');
-				
-				
+        	if(guanzhu_status==0){
+        		mui.toast('请关注后再聊天');
+        		return;
+        	}else{
+        		mui.openWindow({
+        			url:'../message/im-chat.html',
+        			id:'../message/im-chat.html',
+        			extras: {
+						ids: userinfoid,
+						nick_name:nick_name
+	//					name: 'shabi'
+					}
+        		})
+        	}
+        }
+		
+		 $('.siji').on('tap','.joinLt',function(){
+		
+			var ids = $(this).attr('data-id');
+			var url = $(this).attr('data-url');
+			var nick_name = $(this).attr('data-nick');
+			if(url){
+				mui.openWindow({
+					url: url,
+					id: url,
+					styles: {  
+	        			top: '0px',
+	        			bottom: 0,
+					},
+					extras: {
+						ids: ids,
+						nick_name:nick_name
+	//					name: 'shabi'
+					}
+				})
 			}
 		})
 		
-		function focus(){
-			$.ajax({
-				type:"post",
-				url:globalUrl+"index.php/Mobile/JkShare/attention",
-				data:{user_id:userid,eye_id:userinfoid,attent_type:attent_type},
-				dataType:'json',
-				success:function(res){
-					alert(JSON.stringify(res))
-					var data=res.code;
-					if(data==1){
-						mui.toast('已经关注')
+  
+        $('.guanzhu').click(function(){
+        	
+        	if($(this).hasClass('haveguanzhu')){
+				$(this).removeClass('haveguanzhu');
+				$(this).html('关注');
+				$.ajax({
+					type:"post",
+					url:globalUrl+"index.php/Mobile/JkShare/attention",
+					data:{attent_id:attent_id},
+					dataType:'json',
+					success:function(res){
+	//					alert(JSON.stringify(res))
+						var data=res.code;
+						if(data==0){
+							mui.toast('取消关注');
+							plus.webview.getWebviewById('discover/pullrefresh.html').evalJS("shuaxin()");
+							shuaxin()
+						}
 					}
-				}
-			});
+				});
+				
+			}else{
+				
+				$(this).addClass('haveguanzhu');
+				$(this).html('已关注');
+				$.ajax({
+					type:"post",
+					url:globalUrl+"index.php/Mobile/JkShare/attention",
+					data:{user_id:userid,eye_id:userinfoid,attent_type:attent_type},
+					dataType:'json',
+					success:function(res){
+						
+						var data=res.code;
+						if(data==0){
+							mui.toast('已经关注');
+							plus.webview.getWebviewById('discover/pullrefresh.html').evalJS("shuaxin()");
+							shuaxin()
+						}
+					}
+				});
+				$.ajax({
+					type:"post",
+					url:globalUrl+"index.php/Mobile/JkShare/attention",
+					data:{user_id:userinfoid,eye_id:userid,attent_type:1},
+					dataType:'json',
+					success:function(res){
+	//					
+					}
+				});
+				
+				
+			}
+        })
+        
+        function addresss(){
+           
+		   var btnArray = ['否', '是'];
+            mui.confirm('请确认手机是否安装导航类APP', '', btnArray, function(e) {
+//			window.location.href = 'http://api.map.baidu.com/geocoder?address=广东省广州市天河区驻村东环路&output=html&src=yourCompanyName|yourAppName'
+				 if (e.index == 1) {
+              		 navigateWithMap()
+				 }
+
+              })
 		}
+		
+		
+		function navigateWithMap(){
+			// 设置目标位置坐标点和其实位置坐标点
+		//	alert(currentLon)
+			var dst = new plus.maps.Point(currentLon,currentLat); //终点
+			var src = new plus.maps.Point(lon,lat); //起点
+			// 调用系统地图显示 
+			var addName=$('.address').html()
+			plus.maps.openSysMap( dst, addName, src );
+		}
+        
+        
+         function addresssone(){
+           
+		   var btnArray = ['否', '是'];
+            mui.confirm('请确认手机是否安装导航类APP', '', btnArray, function(e) {
+//			window.location.href = 'http://api.map.baidu.com/geocoder?address=广东省广州市天河区驻村东环路&output=html&src=yourCompanyName|yourAppName'
+				 if (e.index == 1) {
+              		 navigateWithMaone()
+				 }
+
+              })
+		}
+		
+		
+		function navigateWithMaone(){
+			// 设置目标位置坐标点和其实位置坐标点
+		//	alert(currentLon)
+			var dst = new plus.maps.Point(currentLon,currentLat); //终点
+			var src = new plus.maps.Point(lonone,latone); //起点
+			// 调用系统地图显示 
+			var addName=$('.yuyueaddress').html()
+			plus.maps.openSysMap( dst, addName, src );
+		}
+		
+		
+        
+
 	</script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=q3awjC6RH3nvY59sUlkSSKBGd9GOSP6I"></script>
+    <script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
 </html>

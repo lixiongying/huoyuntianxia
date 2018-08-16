@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>审核中</title>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+<!--		<link rel="stylesheet" type="text/css" href="../../../css/nav_table.css"/>-->
+		<link rel="stylesheet" type="text/css" href="../../css/examine.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/reset.css"/>
+		<script src="../../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<!--<script src="../../js/setid.js" type="text/javascript" charset="utf-8"></script>-->
+	</head>
+	<script type="text/javascript">
+		mui.init()
+	</script>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-action-back">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
+		    <h1 class="mui-title">审核中</h1>
+		    
+		    <!--<span><img src="../img/faxian_jia.png"/></span>-->
+		</header>
+		<div class="mui-content">
+			<div class="main">
+				
+				<div class="pic" onclick="beforeback()">
+					 <img src="../../img/shenhezhong.png"/>
+				</div>
+				<div class="shenhezhong">
+					审核中
+				</div>
+				<div class="shenhezhong1">
+					您的资料已提交审核
+				</div>
+				<div class="shenhezhong2">
+					审核时间大约1-3个工作日，请耐心等待。
+				</div>
+				<div class="shenhezhong3">
+					如有问题请与在线客服联系，或致电客服热线：
+				</div>
+				<div class="shenhezhong4">
+					020-12345678
+				</div>
+			</div>
+		</div>	
+		<script type="text/javascript">
+			mui.init({
+			beforeback: function() {
+			　　 //获得父页面的webview
+			var list = plus.webview.currentWebview().opener();
+			　　 //触发父页面的自定义事件(refresh),从而进行刷新
+			mui.fire(list, 'refresh');
+			//返回true,继续页面关闭逻辑
+			return true;
+			}
+			});
+		</script>
+	</body>
+	
+	
+		
+</html>

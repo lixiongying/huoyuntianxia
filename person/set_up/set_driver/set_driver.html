@@ -17,6 +17,9 @@
 		<script src="../../../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../../js/setid.js" type="text/javascript" charset="utf-8"></script>
 	</head>
+	<script type="text/javascript">
+		mui.init()
+	</script>
 	<body>
 		<header class="mui-bar mui-bar-nav mui-action-back">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
@@ -36,50 +39,45 @@
 					
 				</div>
 				<input type="hidden" id="ckjl.id" name="ckjl.id" value="431">
-				<div class="main_group_photo">
-					<div class="add_photo_name">
-						<div class="add_name">手持身份证与车合照（4张）：</div>
-						<div class="add_photo image-item" onclick="showActionSheet(this)" data-type="2" id="imgtwo">
-							<div class="photo_name">添加图片</div>
-							<div class="photo">
-								<img src="../../../img/chengweijisi_tainjiatupian.png"/>
-							</div>
+				
+				
+				<div class="main_driver_license">
+					<div class="add_name">添加行驶证：</div>
+					<div class="adddriver">
+						<div class="add_pic image-item" onclick="showActionSheet(this)" data-type="2" id="imgtwo">
+							<img src="../../../img/chengweisiji_tinajiajiashizheng.png"/>
 						</div>
-						<div class="clear"></div>
 					</div>
 					
-					<div class="photo_list">
-						<div class="photo_listlist clearfix">
-						      <div class="clear"></div>	
-						</div>
-						<div class="photo_li">
-							<div class="photo_li_i">
-								<img src="../../../img/75c5ca005a7112cea4abb9c55a544f78_t013afb6f9efc2b4880.jpg"/>
-							</div>
-							
-						</div>
-						<input type="hidden" id="ckjl.id" name="ckjl.id" value="430">
-						<div class="photo_li">
-							<div class="photo_li_i">
-								<!--<img src=""/>-->
-							</div>
-							
-						</div>
-						<div class="photo_li">
-							<div class="photo_li_i">
-								<!--<img src=""/>-->
-							</div>
-							
-						</div>
-						<div class="photo_li">
-							<div class="photo_li_i">
-								<!--<img src=""/>-->
-							</div>
-							
-						</div>
-						<div class="clear"></div>
-					</div>
 				</div>
+				<div class="main_driver_license">
+					<div class="add_name">添加身份证(正面)：</div>
+					<div class="adddriver">
+						<div class="add_pic image-item" onclick="showActionSheet(this)" data-type="3" id="imgthree">
+							<img src="../../../img/chengweisiji_tinajiajiashizheng.png"/>
+						</div>
+					</div>
+					
+				</div>
+				<div class="main_driver_license">
+					<div class="add_name">手持身份证与车合照：</div>
+					<div class="adddriver">
+						<div class="add_pic image-item" onclick="showActionSheet(this)" data-type="4" id="imgfour">
+							<img src="../../../img/chengweisiji_tinajiajiashizheng.png"/>
+						</div>
+					</div>
+					
+				</div>
+				<div class="main_driver_license">
+					<div class="add_name">车侧面：</div>
+					<div class="adddriver">
+						<div class="add_pic image-item" onclick="showActionSheet(this)" data-type="5" id="imgfive">
+							<img src="../../../img/chengweisiji_tinajiajiashizheng.png"/>
+						</div>
+					</div>
+					
+				</div>
+				
 				<div class="main_sure"> <!--main_newssure禁用时样式-->
 					<div class="sure" onclick="uploadImg()">确定修改</div>
 				</div>
@@ -105,24 +103,20 @@
 		//src：src="file:///storage/emulated/0/Android/data/io.dcloud.HBuilder/.HBuilder/apps/HBuilder/doc/upload/F_ZDDZZ-1467602809090.jpg"  
 			function showImgDetail(imgId, imgkey, id, src, type) {
 				var html = "";
-
+                var type=type;
+				
+				
+				html += '<div class="imgs imgitem" id="Img' + imgId + imgkey + '">';
+				html += '<img class="picBig" data-preview-src="" data-preview-group="1" ' + src + '/>';
+				html += '<span class="del_icon" onclick="delImg(\'' + imgId + '\',\'' + imgkey + '\',' + id + ')"><img src="../../../img/shangpinxiangqing_quxiao.png" alt="" /></span>';
+				html += '</div>';
+				$('.add_pic').each(function(){
+					var cate=$(this).attr('data-type');
+					if(type==cate){
+						$(this).parent('.adddriver').append(html)
+					}
+				})
 			
-				if(type==1){
-					html += '<div class="imgs imgitem" id="Img' + imgId + imgkey + '">';
-					html += '<img class="picBig" data-preview-src="" data-preview-group="1" ' + src + '/>';
-					html += '<span class="del_icon" onclick="delImg(\'' + imgId + '\',\'' + imgkey + '\',' + id + ')"><img src="../../../img/shangpinxiangqing_quxiao.png" alt="" /></span>';
-					html += '</div>';
-					$(".adddriver").append(html);
-				}else if(type==2){
-					html+='<div class="photo_lii">';
-					html += '<div class="imgs imgitem" id="Img' + imgId + imgkey + '">';
-					html += '<img class="picBig" data-preview-src="" data-preview-group="1" ' + src + '/>';
-					html += '<span class="del_icon" onclick="delImg(\'' + imgId + '\',\'' + imgkey + '\',' + id + ')"><img src="../../../img/shangpinxiangqing_quxiao.png" alt="" /></span>';
-					html += '</div>';
-					html += '</div>';
-					$(".photo_listlist").append(html);
-//					$('.photo_li').hide()
-				}
 
 			
 		}
@@ -196,7 +190,7 @@
 			plus.nativeUI.actionSheet(actionstyle, function(e) {
 				if(e.index == 1) {
 					getImage(divid,$(conf).attr('data-type'));
-				} else if(e.index == 2) {
+				}else if(e.index == 2){
 					galleryImg(divid,$(conf).attr('data-type'));
 				}
 			});
@@ -315,7 +309,8 @@
 	
 	//上传图片
 	var userid=localStorage.getItem('user_id');
-	function uploadImg(type){
+	function uploadImg(){
+	
 		var haveid=sessionStorage.getItem('haveid');
 		
 		if(haveid==1){
@@ -341,7 +336,7 @@
 			wa.close();
 			plus.storage.clear(); 
 			var data = JSON.parse(t.responseText);
-//			alert(JSON.stringify(data));
+			alert(JSON.stringify(data));
 //			return
 			if(status==200){
 				
@@ -374,10 +369,19 @@
                 		 		var data=res;
                 		 		if(data.status==0){
                 		 			mui.toast('提交成功');
-                		 			shuaxin();
                 		 			sessionStorage.setItem('haveid',data.root);
+                		 			mui.openWindow({
+                		 				url:'../examine.html',
+                		 				id:'../examine.html'
+                		 			})
+//              		 			shuaxin();
+                		 			
                 		 		}else{
                 		 			mui.toast(data.msg)
+                		 			mui.openWindow({
+                		 				url:'../examine.html',
+                		 				id:'../examine.html'
+                		 			})
                 		 		}
                 		 	}
                 		 });
@@ -415,5 +419,9 @@
 			}
 			task.start();
 	}
+	
+window.addEventListener('refresh', function(e){//执行刷新
+location.reload();
+});
 	</script>
 </html>

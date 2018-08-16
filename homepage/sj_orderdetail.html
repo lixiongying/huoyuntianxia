@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<meta name="format-detection" content="telephone=no">
+		<meta name="format-detection" content="telephone=yes">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
@@ -12,13 +12,18 @@
 <!--		<link rel="stylesheet" type="text/css" href="../css/nav_table.css"/>-->
 		<link rel="stylesheet" type="text/css" href="../css/sj_orderdetail.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
-		<link rel="stylesheet" type="text/css" href="../css/swiper-4.3.2.min.css"/>
+		<!--<link rel="stylesheet" type="text/css" href="../css/imageviewer.css"/>-->
+	    <link rel="stylesheet" type="text/css" href="../css/swiper-4.3.2.min.css"/>
 		<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="" type="text/javascript" charset="utf-8"></script>
+		<!--<script src="../js/mui.previewimage.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="../js/mui.zoom.js" type="text/javascript" charset="utf-8"></script>-->
 		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+	    
 	</head>
+		
 	<body>
 		
 		<header class="mui-bar mui-bar-nav mui-action-back">
@@ -33,8 +38,8 @@
 					 <div id="slider">
 						<div class="swiper-container clearfix">
 							<ul class="swiper-wrapper">
-								<li class="swiper-slide"><a href=""><img src="../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/></a></li>
-								<li class="swiper-slide"><a href=""><img src="../img/c8e9eef9f1c58ac516b51eaa584e7233_t01a6852a946b324a87.jpg"/></a></li>
+								<!--<li class="swiper-slide"><a href=""><img src="../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/></a></li>
+								<li class="swiper-slide"><a href=""><img src="../img/c8e9eef9f1c58ac516b51eaa584e7233_t01a6852a946b324a87.jpg"/></a></li>-->
 								<li class="swiper-slide"><a href=""><img src="../img/ea11d46b89dcd0c8e1b2a9b3fd06deeb_t01bdfaecfc44eba5e0.jpg"/></a></li>
 							</ul>
 						</div>
@@ -47,12 +52,12 @@
 			    		<img src="../img/dingdanxiangqing_jine.png"/>
 			    	</div>
 			    	<div class="price_two">
-			    		金额：
+			    		金额:
 			    	</div>
 			    	<div class="price_three">
-			    		¥ 1200.00
+			    		¥ <span class="shop_price">1200.00</span>
 			    	</div>
-			    	<div class="price_four">
+			    	<div class="price_four carstype">
 			    		长途车
 			    	</div>
 			    </div>
@@ -63,9 +68,12 @@
 			    		
 			    		联系人：
 			    	</div>
-			    	<div class="number_two">
-			    		张三
+			    	<div class="number_two nick_name">
+			    		<!--张三-->
 			    	</div>
+			    	<div class="guanzhu" data-type='1'>
+							关注
+					</div>
 			    	
 			    </div>
 			    <!--手机-->
@@ -75,11 +83,11 @@
 			    		
 			    		手机：
 			    	</div>
-			    	<div class="number_two">
-			    		17875032851
+			    	<div class="number_two mobile">
+			    		<!--17875032851-->
 			    	</div>
 			    	<div class="number_three">
-			    		<img src="../img/zhuanxianxiangqing_phone.png"/>
+			    		<!--<a href="tel:17875032851"><img src="../img/zhuanxianxiangqing_phone.png"/></a>-->
 			    	</div>
 			    	
 			    </div>
@@ -91,10 +99,12 @@
 			    		
 			    		出发地：
 			    	</div>
-			    	<div class="number_two">
-			    		广东省-广州市-天河区-车陂路100号-天河区-车陂路100号
+			    	<div class="number_two start_address">
+			    		<!--广东省-广州市-天河区-车陂路100号-天河区-车陂路100号-->
 			    	</div>
-			    	
+			    	<div class="number_three" onclick="startaddress()">
+			    		<img src="../img/dingdanxiangqing_dizhi.png"/>
+			    	</div>
 			    </div>
 			    
 			    
@@ -104,10 +114,10 @@
 			    		
 			    		目的地：
 			    	</div>
-			    	<div class="number_two">
-			    		广东省-广州市-天河区-车陂路100号-天河区-车陂路100号
+			    	<div class="number_two end_address">
+			    		<!--广东省-广州市-天河区-车陂路100号-天河区-车陂路100号-->
 			    	</div>
-			    	<div class="number_three">
+			    	<div class="number_three" onclick="address()">
 			    		<img src="../img/dingdanxiangqing_dizhi.png"/>
 			    	</div>
 			    </div>
@@ -116,7 +126,7 @@
 			    	<div class="type_one">
 			    		货物类型：
 			    	</div>
-			    	<div class="type_two">
+			    	<div class="type_two cat_name">
 			    		化工药品
 			    	</div>
 			    	<div class="type_three">
@@ -124,7 +134,7 @@
 			    			重量/体积：
 			    		</div>
 			    		<div class="number">
-			    			2吨16方
+			    			<span class="ton">2</span>吨<span class="cube">16</span>方
 			    		</div>
 			    		
 			    	</div>
@@ -135,19 +145,19 @@
 			    	<div class="number_one">
 			    		出发时间：
 			    	</div>
-			    	<div class="number_two">
+			    	<div class="number_two load_time">
 			    		2018-05-01 下午12-18点 
 			    	</div>
 			    	
 			    </div>
 			    
 			    <div class="uploadImg">
-			    	<div class="">
+			    	<!--<div class="">
 			    		<img src="../img/75c5ca005a7112cea4abb9c55a544f78_t013afb6f9efc2b4880.jpg"/>
 			    	</div>
 			    	<div class="">
 			    		<img src="../img/75c5ca005a7112cea4abb9c55a544f78_t013afb6f9efc2b4880.jpg"/>
-			    	</div>
+			    	</div>-->
 			    	
 			    </div>
 		
@@ -159,40 +169,533 @@
 			    	备注:
 			    	</div>
 			    	<div class="number_two">
-			    		备注备注
+			    		<!--备注备注-->
 			    	</div>
 			    	
 			    </div>
-			    
-			    
+ 
 			</div>
+			<!--司机交付押金提示-->
+			<div class="deposit" style="display: none;">
+				<div class="close">
+					<img src="../img/guanbi.png"/>
+				</div>
+				<div class="deposit_pic">
+					<img src="../img/yajintwo.png"/>
+				</div>
+				<div class="deposit_world">
+					需支付押金才能接单哦
+				</div>
+				<div class="deposit_pay" onclick="gopay()">
+					立即支付
+				</div>
+			</div>
+			
+			
 			<div class="surepublish">
 				确认接单
 			</div>
+			 <div class="payforitem">
+		    	<div class="payfor">
+		    		<div class="payfor_one">
+		    			选择支付方式
+		    		</div>
+		    		<div class="payfor_two cancelpay">
+		    			<img src="../img/guanbi.png"/>
+		    		</div>
+		    	</div>
+		    	<div class="zhifubao" data-type='0' onclick="change(this)">
+		    		<div class="zhifubao_pic">
+		    			<img src="../img/alipay.png"/>
+		    		</div>
+		    		<div class="zhifubao_wrold">
+		    			支付宝支付
+		    		</div>
+		    		<div class="zhifubao_next">
+		    			<img src="../img/zhuanxianxiangqing_xiehuowangdian_up.png"/>
+		    		</div>
+		    	</div>
+		    	<div class="webchat" data-type='1' onclick="change(this)">
+		    		<div class="webchat_pic">
+		    			<img src="../img/wechatpay.png"/>
+		    		</div>
+		    		<div class="webchat_wrold">
+		    			微信支付
+		    		</div>
+		    		<div class="webchat_next">
+		    			<img src="../img/zhuanxianxiangqing_xiehuowangdian_up.png"/>
+		    		</div>
+		    	</div>
+		    </div>
+			    <!--遮罩-->
+			   
 			<div class="mask">
 				
+			</div>
+			<!--图片放大-->
+			<div id="outerdiv" style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:2;width:100%;height:100%;display:none;">  
+			    <div id="innerdiv" style="position:absolute;">  
+			        <img id="bigimg" src="" />  
+			    </div>  
+	        </div> 
+			<div class="reminders">
+				<div class="reminder_title">提示</div>
+					<div class="reminder_world">接单需要消耗<span class="xunibi"></span>个虚拟币哦</div>
+					<div class="reminder_sc">
+						<div onclick="cancell()">取消</div>
+						<div class="sure" onclick="surepublish()">确定</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</body>
 	<script type="text/javascript">
-    var mySwiper = new Swiper('.swiper-container', {
-			autoplay: 4000,//可选选项，自动滑动，手指触屏滑动会停止自动轮播
-			autoplayDisableOnInteraction : false,//手指触屏滑动之后，重新开启自动轮播
-			initialSlide :0,//初始显示的li的索引
-			speed : 1000,//滑动的速度
-			observeParents:true,//当容器container宽度改变的时候(window.onresize或者自适应)自动更新Swiper
-			grabCursor : true,//鼠标抓手形状，触屏看不到
-			pagination : '.swiper-pagination',//下面的图标跟随切换
-			loop : true,//无缝轮播 自动在li列表的前面添加最后一个，在li列表后面添加第一个
+	var userid=localStorage.getItem('user_id');
+//  mui.previewImage();    
+	  
+	window.addEventListener('refresh', function(e){//执行刷新
+	  location.reload();
+	});
+	  
+	    
+		var urL=location.href;
+		var goods_id=getUrl(urL).goods_id;
+	
+		var cash_depoit;
+		var result;
+        var eyes_id;
+        var guanzhu_status;
+		var attent_id;
+		var currentLon;
+        var currentLat;
+        var currentLonone;
+        var currentLattwo;
+        var baozhengjin;
+        var del_coin;
+        var bg_car;
+        $.ajax({
+		  	type:"post",
+		  	url:globalUrl+"index.php/Mobile/JkUser/set_user",
+		  	data:{user_id:userid},
+		  	dataType:'json',
+		  	success:function(res){
+		  		
+		  		var data=res.user;
+		  	
+		  		baozhengjin=data.baozhengjin;
+		  	}
+		 });
+		 
+		getuserinfo()
+		function getuserinfo(){
+		    $.ajax({
+		    	type:"post",
+		    	url:globalUrl+"index.php/Mobile/JkUser/myLists",
+		    	data:{user_id:userid},
+		    	dataType:'json',
+		    	success:function(res){
+		    		var data=res.user;
+		    		company_status=data.company_status;
+		    		vitval_coin=data.vitval_coin;
+		    		del_coin=data.del_coin;
+		    		$('.xunibi').html(del_coin)
+		    	}
+		    });
+		}
+		bg_car();
+		function bg_car(){
+			$.ajax({
+		    	type:"post",
+		    	url:globalUrl+"index.php/Mobile/JkUser/set_user",
+		    	data:{user_id:userid},
+		    	dataType:'json',
+		    	success:function(res){
+		    		var data=res.user;
+		    		bg_car=data.bg_car;
+		    	}
+		    });
+		}
 		
-	  });
+	if(userid!=undefined&&userid!=null&&userid!=''){
+    	userindo()
+    }
+	var bg_car;
+	function userindo(){
+  		$.ajax({	
+			type:"post",
+			url:globalUrl+'index.php/Mobile/JkUser/set_user',
+			data:{user_id:userid},
+			dataType:'json',
+			success:function(res){
+				var data=res.user;
+				bg_car=data.bg_car;
+			}
+		})
+  	}
 	  
-	  $('.surepublish').click(function(){
-	  	$('.mask').show()
-	  	reminder('接单后请立即与货主联系');
-	  })
+		$('.surepublish').click(function(){
+			if(bg_car==2||bg_car==null||bg_car=='null'||bg_car==undefined||bg_car==''){
+				mui.toast('请先绑定车辆在接单哦');
+				mui.openWindow({
+					url:'../person/set_up/set_truck/set_truck.html?bg_car='+bg_car+'',
+					id:'../person/set_up/set_truck/set_truck.html'
+				})
+			}else if(bg_car==0){
+				mui.toast('您的车辆信息待审核，请你耐心等待');
+				return;
+			}else{
+				$('.mask').show();
+		  		$('.reminders').show();
+			}
+
+		  	
+		  	
+		  
+		})
+		function cancell(){
+			$('.mask').hide();
+		  	$('.reminders').hide();
+		}
+//		$('.mask').click(function({
+//			
+//		})
+		$('.mask').click(function(){
+			$('.mask').hide();
+		  	$('.reminders').hide();
+		})
+		function surepublish(){
+			$('.reminders').hide();
+			if(baozhengjin==''||baozhengjin==undefined||baozhengjin==null||baozhengjin==0||baozhengjin==2){
+		  		$('.deposit').show();
+		  	}else if(baozhengjin==3||baozhengjin==4){
+		  		mui.toast('账户异常，请联系客服');
+		  		return;
+		  	}else{
+		  		reminder('接单后请立即与货主联系');
+		  		
+		  	}
+		}
+	
+		function gopay(){
+			mui.openWindow({
+				url:'../person/deposit.html',
+				id:'../person/deposit.html'
+			})
+			$('.mask').hide();
+			$('.deposit').hide();
+		}
+	
+	
+		$('.cancelpay').click(function(){
+		  	$('.mask').hide();
+		  	$('.payforitem').hide();
+	    })
+	
+		$('.mask').click(function(){
+		  	$('.mask').hide();
+		  	$('.payforitem').hide();
+		  	$('.reminder').hide();
+		  	$('.deposit').hide();
+		})
+		$('.close').click(function(){
+			$('.deposit').hide();
+			$('.mask').hide();
+		})
+        
+//      alert(goods_id)
+        
+		function makesure(){
+			 $.ajax({
+		  	   	type:"post",
+		  	   	url:globalUrl+"index.php/Mobile/JkOrder/sijidaaorder",
+		  	   	data:{user_id:userid,goods_id:goods_id,del_coin:del_coin},
+		  	   	dataType:'json',
+		  	   	success:function(res){
+		  	   		var data=res;
+		  	   		
+		  	   		if(data.code==1){
+		  	   			mui.toast(res.msg);
+		  	   			('.reminder').hide();
+			            $('.mask').hide();
+		  	   			return;
+		  	   			
+		  	   		}else{
+		  	   			
+		  	   			mui.toast('提交订单成功');
+		  	   			mui.back();
+//		  	   			$('.reminder').hide();
+//			            $('.mask').hide();
+		  	   		}
+		  	   	}
+		  	});
+			
+			
+			
+		  	  
+		}
+//		alert(goods_id)
+        $.ajax({
+         	type:"post",
+         	url:globalUrl+"index.php/Mobile/JkOrder/userline",
+         	data:{goods_id:goods_id,user_id:userid},
+         	dataType:'json',
+         	success:function(res){
+         		var data=res.root;
+         		var image=data.original_img;
+         		var strimage=image.split(',');
+         		var shop_price=data.shop_price;
+         		eyes_id=data.huo_info.user_id;	
+         		
+         		$('.shop_price').html(shop_price);
+         		var str='';
+         		var str1='';
+         		var str2='';
+         		$('.ordersn').html(data.goods_sn);
+         		guanzhu_status=data.guanzhu_status;
+         		
+         		if(guanzhu_status>0){
+					$('.guanzhu').html('已关注');
+					$('.guanzhu').addClass('haveguanzhu');
+				}else{
+					$('.guanzhu').html('关注')
+					$('.guanzhu').removeClass('haveguanzhu');
+				}
+         		var type_id=data.type_id;
+         		if(type_id==2){
+         			$('.carstype').html('长途车')
+         		}else if(type_id==3){
+         			$('.carstype').html('短途车')
+         		}
+         		attent_id=data.attent_id;
+         		currentLon=data.lat_address.lng;
+         		currentLat=data.lat_address.lat;
+         		currentLonone=data.lat_endaddress.lng;
+         		currentLattwo=data.lat_endaddress.lat;
+         	    $('.nick_name').html(data.huo_info.nick_name);
+         	    $('.mobile').html(data.huo_info.mobile);
+         	    /*出发地和目的地*/
+         	    var firstaddress=data.start_address;
+         	    var endaddress=data.end_address;
+         	    var replaceStr = ',';//要替换的字符串
+                firstaddress=firstaddress.replace(new RegExp(replaceStr,'gm'),'')
+         		endaddress=endaddress.replace(new RegExp(replaceStr,'gm'),'')
+         		$('.start_address').html(firstaddress);
+         		$('.end_address').html(endaddress);
+         		
+         		if(data.cargo!=''&&data.cargo!=undefined&&data.cargo!=null){
+         			$('.cat_name').html(data.cargo);
+         		}else{
+         			$('.cat_name').html(data.cat_name);
+         		}
+         		
+         		
+         		$('.ton').html(data.ton);
+         		$('.cube').html(data.cube);
+         		var time=timeToDate(data.load_time);
+         		$('.load_time').html(time);
+         		$('.goods_remark').html(data.goods_remark);
+         		for(var i=0;i<strimage.length;i++){
+         			str+='<div class=""><img src="'+picUrl+strimage[i]+'" data-preview-src="" data-preview-group="1" class="pimg"/></div>';
+         		}
+         		
+         		for(var i=0;i<strimage.length;i++){
+         			str2+='<li class="swiper-slide"><img src="'+picUrl+strimage[i]+'"/></li>';
+         		}
+         		
+         		$('.uploadImg').html(str);
+         		/*点击图片放大*/
+         		$(".pimg").click(function(){
+         		 	
+		            var _this = $(this);//将当前的pimg元素作为_this传入函数  
+		            imgShow("#outerdiv", "#innerdiv", "#bigimg", _this);  
+		        });
+         		$('.swiper-wrapper').html(str2);
+         		var mySwiper = new Swiper('.swiper-container', {
+					autoplay: 4000,//可选选项，自动滑动，手指触屏滑动会停止自动轮播
+					autoplayDisableOnInteraction : false,//手指触屏滑动之后，重新开启自动轮播
+					initialSlide :0,//初始显示的li的索引
+					speed : 1000,//滑动的速度
+					observeParents:true,//当容器container宽度改变的时候(window.onresize或者自适应)自动更新Swiper
+					grabCursor : true,//鼠标抓手形状，触屏看不到
+					pagination : '.swiper-pagination',//下面的图标跟随切换
+					loop : true,//无缝轮播 自动在li列表的前面添加最后一个，在li列表后面添加第一个
+				
+			  });
+         		str1+='<div class="number_one">手机：</div>';
+         		str1+='<div class="number_two mobile">'+data.huo_info.mobile+'</div>';
+         		str1+='<div class="number_three"><a href="tel:'+data.huo_info.mobile+'"><img src="../img/zhuanxianxiangqing_phone.png"/></a>'
+		        $('.tel').html(str1);
+			 
+         	}
+     });
+     
+      function imgShow(outerdiv, innerdiv, bigimg, _this){  
+	        var src = _this.attr("src");//获取当前点击的pimg元素中的src属性  
+	        $(bigimg).attr("src", src);//设置#bigimg元素的src属性  
+	      
+	            /*获取当前点击图片的真实大小，并显示弹出层及大图*/  
+	        $("<img/>").attr("src", src).load(function(){  
+	            var windowW = $(window).width();//获取当前窗口宽度  
+	            var windowH = $(window).height();//获取当前窗口高度  
+	            var realWidth = this.width;//获取图片真实宽度  
+	            var realHeight = this.height;//获取图片真实高度  
+	            var imgWidth, imgHeight;  
+	            var scale = 0.8;//缩放尺寸，当图片真实宽度和高度大于窗口宽度和高度时进行缩放  
+	              
+	            if(realHeight>windowH*scale) {//判断图片高度  
+	                imgHeight = windowH*scale;//如大于窗口高度，图片高度进行缩放  
+	                /*等比例缩放宽度  */
+	                imgWidth = imgHeight/realHeight*realWidth;
+	                
+	                if(imgWidth>windowW*scale) {//如宽度扔大于窗口宽度  
+	                    imgWidth = windowW*scale;//再对宽度进行缩放  
+	                }  
+	            } else if(realWidth>windowW*scale) {//如图片高度合适，判断图片宽度  
+	                imgWidth = windowW*scale;//如大于窗口宽度，图片宽度进行缩放  
+	                //等比例缩放高度
+	                imgHeight = imgWidth/realWidth*realHeight;
+	                            
+	            } else {//如果图片真实高度和宽度都符合要求，高宽不变  
+	                imgWidth = realWidth;  
+	                imgHeight = realHeight;  
+	            }  
+	              $(bigimg).css("width",imgWidth);//以最终的宽度对图片缩放  
+	              //计算图片与窗口左边距 
+	            var w = (windowW-imgWidth)/2; 
+	            //计算图片与窗口上边距  
+	            var h = (windowH-imgHeight)/2;
+	            $(innerdiv).css({"top":h, "left":w});//设置#innerdiv的top和left属性  
+	            $(outerdiv).fadeIn("fast");//淡入显示#outerdiv及.pimg  
+	        });  
+	          
+	        $(outerdiv).click(function(){//再次点击淡出消失弹出层  
+	            $(this).fadeOut("fast");  
+	        });  
+	    }
+  
 	  
-	  
-	  
+	   function change(obj){
+			
+			if($(obj).attr('data-type')==0){
+//				$('#pay_type').attr('value',0);
+//				paytype=0;
+				pay('alipay');
+			}else if($(obj).attr('data-type')==1){
+//				$('#pay_type').attr('value',1);
+//				paytype=1;
+				pay('wxpay')
+			}
+			
+		}
+		
+
+		
+		 /*关注*/
+		var attent_type;
+		var carstatus=localStorage.getItem('car_status');
+		if(carstatus==1){
+		    attent_type=1
+		}else{
+		    attent_type=2
+		}
+		   
+       $('.guanzhu').click(function(){
+        	
+        	if($(this).hasClass('haveguanzhu')){
+				$(this).removeClass('haveguanzhu');
+				$(this).html('关注');
+				$.ajax({
+					type:"post",
+					url:globalUrl+"index.php/Mobile/JkShare/attention",
+					data:{attent_id:attent_id},
+					dataType:'json',
+					success:function(res){
+	//					alert(JSON.stringify(res))
+						var data=res.code;
+						if(data==0){
+							plus.webview.getWebviewById('discover/pullrefresh.html').evalJS("shuaxin()");
+							mui.toast('取消关注');
+							shuaxin()
+							
+						}
+					}
+				});
+				
+			}else{
+				
+				$(this).addClass('haveguanzhu');
+				$(this).html('已关注');
+				$.ajax({
+					type:"post",
+					url:globalUrl+"index.php/Mobile/JkShare/attention",
+					data:{user_id:userid,eye_id:eyes_id,attent_type:attent_type},
+					dataType:'json',
+					success:function(res){
+	//					alert(JSON.stringify(res))
+						var data=res.code;
+						if(data==0){
+							plus.webview.getWebviewById('discover/pullrefresh.html').evalJS("shuaxin()");
+							mui.toast('已经关注');
+							shuaxin()
+							
+						}
+					}
+				});
+				
+				
+			}
+        })
+		
+		function address(){
+           
+		   var btnArray = ['否', '是'];
+            mui.confirm('请确认手机是否安装导航类APP', '', btnArray, function(e) {
+//			window.location.href = 'http://api.map.baidu.com/geocoder?address=广东省广州市天河区驻村东环路&output=html&src=yourCompanyName|yourAppName'
+				 if (e.index == 1) {
+              		 navigateWithMap()
+				 }
+
+              })
+		}
+		
+		
+		function navigateWithMap(){
+			// 设置目标位置坐标点和其实位置坐标点
+		//	alert(currentLon)
+			var dst = new plus.maps.Point(currentLon,currentLat); //终点
+			var src = new plus.maps.Point(currentLonone,currentLattwo); //起点
+			// 调用系统地图显示 
+			var addName=$('.end_address').html()
+			plus.maps.openSysMap( dst, addName, src );
+		}
+		
+		
+		function startaddress(){
+           
+		   var btnArray = ['否', '是'];
+            mui.confirm('请确认手机是否安装导航类APP', '', btnArray, function(e) {
+//			window.location.href = 'http://api.map.baidu.com/geocoder?address=广东省广州市天河区驻村东环路&output=html&src=yourCompanyName|yourAppName'
+				 if (e.index == 1) {
+              		 navigateWithMaps()
+				 }
+
+              })
+		}
+		
+		
+		function navigateWithMaps(){
+			// 设置目标位置坐标点和其实位置坐标点
+		//	alert(currentLon)
+			var dst = new plus.maps.Point(currentLon,currentLat); //终点
+			var src = new plus.maps.Point(currentLonone,currentLattwo); //起点
+			// 调用系统地图显示 
+			var addName=$('.start_address').html()
+			plus.maps.openSysMap( dst, addName, src );
+		}
+		
+		
+
 	</script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=q3awjC6RH3nvY59sUlkSSKBGd9GOSP6I"></script>
+    <script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
 </html>

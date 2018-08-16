@@ -19,7 +19,27 @@
 		<script src="../../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
 		<!--<script src="../../js/order.js" type="text/javascript" charset="utf-8"></script>-->
 		<script src="../../js/idangerous.swiper.min.js" type="text/javascript" charset="utf-8"></script>
-		
+		<style type="text/css">
+			/*.nulldata{
+				width: 100%;
+				height: 300px;
+				font-size: 1.2rem;
+				line-height: 300px;
+				text-align: center;
+				color: #CCCCCC;
+			}*/
+			.nulldata{
+				width: 100%;
+				/*height: 300px;
+				font-size: 1.2rem;
+				line-height: 300px;
+				text-align: center;
+				color: #CCCCCC;*/
+			}
+		</style>
+		<script type="text/javascript">
+		mui.init()
+	</script>
 	</head>
 	<body>
 		<header class="mui-bar mui-bar-nav mui-action-back">
@@ -41,13 +61,13 @@
 				<div class="shuxian2"></div>
 				<div id="slider">
 					<div class="swiper-container clearfix">
-						<ul class="swiper-wrapper">
-							<li class="swiper-slide" data-type='0'>
-								<div class="order_ul havepubilsh">
+						<ul class="swiper-wrapper clearfix">
+							<li class="swiper-slide" style="overflow-y: auto;" data-type='0'>
+								<div class="order_ul clearfix havepubilsh">
 									
 								
-									<div class="order_li" onclick="url(this)" data-url="order_detail.html" >
-										<div class="order_top clear">
+									<div class="order_li clearfix" onclick="url(this)" data-url="order_detail.html" >
+										<!--<div class="order_top clear">
 											<div class="order_sn">订单号：20180226171900016297</div>
 											<div class="over_fabu">已发布</div>
 										</div>
@@ -73,14 +93,44 @@
 													
 												</div>
 											</div>
-										</div>
+										</div>-->
 									</div>
+									<div class="order_li" onclick="url(this)" data-url="order_detail.html" >
+										<!--<div class="order_top clear">
+											<div class="order_sn">订单号：20180226171900016297</div>
+											<div class="over_fabu">已发布</div>
+										</div>
+										<div class="order_bottom ">
+											<div class="order_bottom_s clear" >
+												<div class="f-left order_pic">
+													<img src="../../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/>
+												</div>
+												<div class="f-left order_detail">
+													<div class="order_address">广州天河-深圳罗湖</div>
+													<div class="clear order_type">
+														<div class="f-left type">化工药品</div>
+														<div class="f-left chicun">2吨/16方</div>
+													</div>
+													<div class="order_date">2018-05-01</div>
+												</div>
+												<div class="f-right car_type">长途车</div>
+											</div>
+											<div class="order_bottom_x clear" >
+												<div class="f-right"> 
+													<div class="order_money f-right">¥ 1200.00</div>
+													<div class="xiaoji f-right">小计：</div>
+													
+												</div>
+											</div>
+										</div>-->
+									</div>
+									
 								</div>
 							</li>
-							<li class="swiper-slide" data-type='1'>
-								<div class="order_ul havesure">
+							<li class="swiper-slide" style="overflow-y: auto;" data-type='1'>
+								<div class="order_ul clearfix havesure">
 									<div class="order_li" onclick="url(this)" data-url="order_detail.html" >
-										<div class="order_top clear">
+										<!--<div class="order_top clear">
 											<div class="order_sn">订单号：20180226171900016297</div>
 											<div class="over_fabu">已确认</div>
 										</div>
@@ -106,10 +156,10 @@
 													
 												</div>
 											</div>
-										</div>
+										</div>-->
 									</div>
 									<div class="order_li" onclick="url(this)" data-url="order_detail.html" >
-										<div class="order_top clear">
+										<!--<div class="order_top clear">
 											<div class="order_sn">订单号：20180226171900016297</div>
 											<div class="over_fabu">已确认</div>
 										</div>
@@ -135,14 +185,14 @@
 													
 												</div>
 											</div>
-										</div>
+										</div>-->
 									</div>
 								</div>
 							</li>
-							<li class="swiper-slide" data-type='2'>
-								<div class="order_ul havesend">
+							<li class="swiper-slide" style="overflow-y: auto;" data-type='2'>
+								<div class="order_ul clearfix havesend">
 									<div class="order_li" onclick="url(this)" data-url="order_detail.html" >
-										<div class="order_top clear">
+										<!--<div class="order_top clear">
 											<div class="order_sn">订单号：20180226171900016297</div>
 											<div class="over_fabu">送货中</div>
 										</div>
@@ -168,10 +218,10 @@
 													
 												</div>
 											</div>
-										</div>
+										</div>-->
 									</div>
 									<div class="order_li" onclick="url(this)" data-url="order_detail.html" >
-										<div class="order_top clear">
+										<!--<div class="order_top clear">
 											<div class="order_sn">订单号：20180226171900016297</div>
 											<div class="over_fabu">送货中</div>
 										</div>
@@ -197,14 +247,17 @@
 													
 												</div>
 											</div>
-										</div>
+										</div>-->
+										<!--<div class="order_com receiptgoods clear">
+											<div class="f-right out_com ">确认收货</div>
+										</div>-->
 									</div>
 								</div>
 							</li>
-							<li class="swiper-slide" data-type='3'>
-								<div class="order_ul havevalute">
+							<li class="swiper-slide" style="overflow-y: auto;" data-type='3'>
+								<div class="order_ul clearfix havevalute">
 									<div class="order_li" onclick="url(this)" data-url="order_detail.html" >
-										<div class="order_top clear">
+										<!--<div class="order_top clear">
 											<div class="order_sn">订单号：20180226171900016297</div>
 											<div class="over_fabu">待评价</div>
 										</div>
@@ -234,10 +287,10 @@
 										</div>
 										<div class="order_com clear">
 											<div class="f-right out_com ">去评价</div>
-										</div>
+										</div>-->
 									</div>
 									<div class="order_li" onclick="url(this)" data-url="order_detail.html" >
-										<div class="order_top clear">
+										<!--<div class="order_top clear">
 											<div class="order_sn">订单号：20180226171900016297</div>
 											<div class="over_fabu">待评价</div>
 										</div>
@@ -266,7 +319,7 @@
 										</div>
 										<div class="order_com clear">
 											<div class="f-right out_com ">去评价</div>
-										</div>
+										</div>-->
 									</div>
 								</div>
 							</li>
@@ -276,9 +329,18 @@
             	</div>
 			</div>	
 		</div>
+		<!--<div class="" onclick="url(this)" data-url='evalute.html'>
+			ew
+		</div>-->
 	</body>
 	<script type="text/javascript">
+//		var windowheight=$(window).height();
+//		var headheight=$('.mui-bar').height();
+//		var muiheight=$('.main_nav').height(); 
+//		$('.swiper-slide').height(windowheight - headheight + 'px');
+//		alert(windowheight)
 		var userid=localStorage.getItem('user_id');
+//		alert(userid)
 		var carstatus=localStorage.getItem('car_status');
 		var type=0;
 		var ajaxData={};
@@ -289,13 +351,15 @@
 		ajaxData.user_id=userid;
 		ajaxData.p=1
 		if(carstatus==0){
+			$('.mui-title').html('我的发货单')
 			urL=globalUrl+"index.php/Mobile/JkOrderlist/userList";
 			$('.navli').html('已发布');
 		}else if(carstatus==1){
+			$('.mui-title').html('我的订单')
 			urL=globalUrl+"index.php/Mobile/JkOrderlist/sijiList";
 			$('.navli').html('已接单');
 		}
-		var totalpage;
+		var totalPage;
 		getgoods();
 		
 	    var mySwiper = new Swiper('.swiper-container', {
@@ -307,6 +371,7 @@
 					type=$(".main_nav .nav_li").eq(mySwiper.activeIndex).attr('data-type');
 					  
 				}
+				p=2;
 				ajaxData.type=type;
 				ajaxData.user_id=userid;
 				ajaxData.p=1
@@ -317,6 +382,7 @@
 //		$(".tabs .active_nav").removeClass('active_nav');
 		$(this).addClass('active_nav');
 		type=$(this).attr('data-type');
+		p=2;
 	    ajaxData.type=type;
 		ajaxData.user_id=userid;
 		ajaxData.p=1;
@@ -331,6 +397,7 @@
 
 
 function getgoods(){
+//	alert(JSON.stringify(ajaxData))
 	$.ajax({
 		type:'post',
 		data:ajaxData,
@@ -339,22 +406,31 @@ function getgoods(){
 		success:function(res){
 			var str="";
 			var data=res.info;
-			totalpage=res.totalpage;
+//			alert(JSON.stringify(res))
+			totalPage=res.totalpage;
 //			alert()
 			if(res.count==0){
 				if(type==0){
-					$('.havepubilsh').html('暂无数据');
+					str+='<div class="nulldata"><img class="pic" src="../../img/null.png"/></div>';
+					$('.havepubilsh').html(str);
+//					$('.havepubilsh').html('暂无数据');
 				}else if(type==1){
-					$('.havesure').html('暂无数据');
+					str+='<div class="nulldata"><img class="pic" src="../../img/null.png"/></div>'
+					$('.havesure').html(str);
+//					$('.havesure').html('暂无数据');
 				}else if(type==2){
-					$('.havesend').html('暂无数据');
+					str+='<div class="nulldata"><img class="pic" src="../../img/null.png"/></div>'
+					$('.havesend').html(str);
+//					$('.havesend').html('暂无数据');
 				}else if(type==3){
-					$('.havevalute').html('暂无数据');
+					str+='<div class="nulldata"><img class="pic" src="../../img/null.png"/></div>'
+					$('.havevalute').html(str);
+//					$('.havevalute').html('暂无数据');
 				}
 			}else{
 				for(var i=0;i<data.length;i++){
-					str+='<div class="order_ul">';
-					str+='<div class="order_li" onclick="url(this)" data-url="order_detail.html?order_id='+data[i].order_id+'&type='+type+'" >';
+					
+					str+='<div class="order_li clearfix" onclick="url(this)" data-type='+data[i].order_id+' data-id='+data[i].goods_id+' data-url="order_detail.html?order_id='+data[i].order_id+'&type='+type+'" >';
 					str+='<div class="order_top clear">';
 					str+='<div class="order_sn">订单号：<span>'+data[i].order_sn+'</span></div>';
 					if(carstatus==0){
@@ -375,16 +451,30 @@ function getgoods(){
 					}
 					
 					str+='</div>';
-					str+='<div class="order_bottom ">';
+					if(data[i].goodsList!=null&&data[i].goodsList!=undefined&&data[i].goodsList!=''){
+						str+='<div class="order_bottom" data-id='+data[i].goodsList.rec_id+'>';
+					}else{
+						
+					}
+					
 					str+='<div class="order_bottom_s clear" >';
-					str+='<div class="f-left order_pic"><img src="'+data[i].goodsList.image+'"/></div>';
+					str+='<div class="f-left order_pic"><img src="'+picUrl+data[i].goodsList.image+'"/></div>';
 					str+='<div class="f-left order_detail">';
 					str+='<div class="order_address">'+data[i].goodsList.start_address+'</div>';
 					str+='<div class="clear order_type">';
 					str+='<div class="f-left type">'+data[i].goodsList.cat_id1+'</div>';
 					str+='<div class="f-left chicun"><span>'+data[i].goodsList.ton+'</span>吨/<span>'+data[i].goodsList.cube+'</span>方</div>';
 					str+='</div>';
-					str+='<div class="order_date">'+data[i].goodsList.load_time+'</div>';
+					if(type==0){
+						str+='<div class="order_date dateone">'+data[i].goodsList.load_time+'</div>';
+					}else if(type==1){
+						str+='<div class="order_date datetwo">'+data[i].goodsList.load_time+'</div>';
+					}else if(type==2){
+						str+='<div class="order_date datethree">'+data[i].goodsList.load_time+'</div>';
+					}else if(type==3){
+						str+='<div class="order_date datefour">'+data[i].goodsList.load_time+'</div>';
+					}
+				
 					str+='</div>';
 					if(data[i].goodsList.type_id==2){
 						str+='<div class="f-right car_type">长途车</div>';
@@ -399,32 +489,122 @@ function getgoods(){
 					str+='</div>';
 					str+='</div>';
 					str+='</div>';
-					if(type==3){
-						str+='<div class="order_com clear">';
-						str+='<div class="f-right out_com " onclick="url(this)" data-type='+data[i].order_id+' data-url="evalute.html?order_id='+data[i].order_id+'">去评价</div>';
+				
+					str+='</div>';
+					str+='</div>';
+					if(type==0){
+						str+='<div class="order_com clear cancelgoods">';
+						str+='<div class="f-right out_com cancelgood">取消订单</div>';
 						str+='</div>';
 											
 					}
-					str+='</div>';
-					str+='</div>';
+					if(type==2){
+						if(carstatus==0){
+							str+='<div class="order_com clear receiptgoods">';
+							str+='<div class="f-right out_com receiptgood">确认收货</div>';
+							str+='</div>';
+						}else{
+							str+='<div class="order_com clear receiptgoods">';
+							str+='<div class="f-right out_com receiptgood">确认到货</div>';
+							str+='</div>';
+						}
+						
+											
+					}
 					
+					if(type==3){
+						if(carstatus==0){
+							str+='<div class="order_com clear evalute" data-userid='+data[i].goods_driver+'>';
+							str+='<div class="f-right out_com">去评价</div>';
+							str+='</div>';
+						}else{
+							str+='<div class="order_com clear evalute" data-userid='+data[i].user_id+'>';
+							str+='<div class="f-right out_com">去评价</div>';
+							str+='</div>';
+						}
+						
+											
+					}
 				}
 				if(type==0){
-					$('.havepubilsh').html(str);
+					if(ajaxData.p==1){
+						$('.havepubilsh').html(str);
+						 for(var i=0;i<10;i++){
+							var order_date=$('.dateone').eq(i).html();
+							
+							var c=timeToDate(order_date);
+							$('.dateone').eq(i).html(c);
+						}
+					}else{
+						$('.havepubilsh').append(str);
+						 for(var i=10;i<2000;i++){
+							var order_date=$('.dateone').eq(i).html();
+							
+							var c=timeToDate(order_date);
+							$('.dateone').eq(i).html(c);
+						}
+					}
+					
 				}else if(type==1){
-					$('.havesure').html(str);
+					if(ajaxData.p==1){
+						$('.havesure').html(str);
+						
+						for(var i=0;i<10;i++){
+							var order_date=$('.datetwo').eq(i).html();
+							
+							var c=timeToDate(order_date);
+							$('.datetwo').eq(i).html(c);
+						}
+					}else{
+						$('.havesure').append(str);
+						 for(var i=10;i<2000;i++){
+							var order_date=$('.datetwo').eq(i).html();
+							
+							var c=timeToDate(order_date);
+							$('.datetwo').eq(i).html(c);
+						}
+					}
+//					$('.havesure').html(str);
 				}else if(type==2){
-					$('.havesend').html(str);
+					if(ajaxData.p==1){
+						$('.havesend').html(str);
+						for(var i=0;i<10;i++){
+							var order_date=$('.datethree').eq(i).html();
+							
+							var c=timeToDate(order_date);
+							$('.datethree').eq(i).html(c);
+						}
+					}else{
+						$('.havesend').append(str);
+						 for(var i=10;i<2000;i++){
+							var order_date=$('.datethree').eq(i).html();
+							
+							var c=timeToDate(order_date);
+							$('.datethree').eq(i).html(c);
+						}
+					}
+//					$('.havesend').html(str);
 				}else if(type==3){
-					$('.havevalute').html(str);
+					if(ajaxData.p==1){
+						$('.havevalute').html(str);
+						for(var i=0;i<10;i++){
+							var order_date=$('.datefour').eq(i).html();
+							
+							var c=timeToDate(order_date);
+							$('.datefour').eq(i).html(c);
+						}
+					}else{
+						$('.havevalute').append(str);
+						for(var i=10;i<2000;i++){
+							var order_date=$('.datefour').eq(i).html();
+							
+							var c=timeToDate(order_date);
+							$('.datefour').eq(i).html(c);
+						}
+					}
+//					$('.havevalute').html(str);
 				}
 
-                for(var i=0;i<$('.order_date').length;i++){
-					var order_date=$('.order_date').eq(i).html();
-					
-					var c=timeToDate(order_date);
-					$('.order_date').eq(i).html(c);
-				}
 					
 			}
 			
@@ -435,21 +615,16 @@ function getgoods(){
 
 
 
-//function gocomment(obj,event){
-//	event.stopPropagation()
-//	var orderid=$(obj).attr('data-type');
-//	mui.openWindow({
-//		url:'./evalute.html?orderid='+orderid+'',
-//		id:'./evalute.html',
-//	})
-//}
 
-$(window).scroll(function() {
+
+		$(window).scroll(function() {
+//			alert(totalPage)
 			if ($(document).scrollTop() >= $(document).height() - $(window).height()){
 				if(p>totalPage){
 					mui.toast('没有更多结果');
 				}else{
 					ajaxData.p = p;
+					
 		//			alert(JSON.stringify(ajaxdata));
 					getgoods();
 					p++
@@ -458,59 +633,82 @@ $(window).scroll(function() {
 			
 		});	
 		
-//function getgoodsone(){
-//	$.ajax({
-//		type:'post',
-//		data:{user_id:userid,p:1,type:1},
-//		dataType:'json',
-//		url:url,
-//		success:function(res){
-//			var str="";
-//			var data=res.info;
-////			alert()
-//			if(data.length==0){
-//				
-//			}else{
-//				for(var i=0;i<data.length;i++){
-//					str+='<div class="order_li" onclick="url(this)" data-url="order_detail.html" >';
-//					str+='<div class="order_top clear">';
-//					str+='<div class="order_sn">订单号：<span>'+data[i].order_sn+'</span></div>';
-//					str+='<div class="over_fabu">已确认</div>';
-//					str+='</div>';
-//					str+='<div class="order_bottom ">';
-//					str+='<div class="order_bottom_s clear" >';
-//					str+='<div class="f-left order_pic">'+data[i].img+'</div>';
-//					str+='<div class="f-left order_detail">';
-//					str+='<div class="order_address">'+data[i].goodsList.start_address+'</div>';
-//					str+='<div class="clear order_type">';
-//					str+='<div class="f-left type">'+data[i].goodsList.cat_id1+'</div>';
-//					str+='<div class="f-left chicun"><span>'+data[i].goodsList.ton+'</span>吨/<span>'+data[i].goodsList.cube+'</span>方</div>';
-//					str+='</div>';
-//					str+='<div class="order_date">'+data[i].load_time+'</div>';
-//					str+='</div>';
-//					if(data[i].goodsList.type_id==2){
-//						str+='<div class="f-right car_type">长途车</div>';
-//					}else{
-//						str+='<div class="f-right car_type">短途车</div>';
-//					}
-//					str+='</div>';
-//					str+='<div class="order_bottom_x clear" >';
-//					str+='<div class="f-right">';
-//					str+='<div class="order_money f-right">¥ <span>'+data[i].goodsList.goods_price+'<span></div>';
-//					str+='<div class="xiaoji f-right">小计：</div>';
-//					str+='</div>';
-//					str+='</div>';
-//					str+='</div>';
-//					str+='</div>';
-//				}
-//				
-//
+		$('.havesend').on('tap','.receiptgoods',function(event){
+			var order_id=$(this).prev('.order_li').attr('data-type');
+			
+			var rec_id=$(this).prev('.order_li').find('.order_bottom').attr('data-id');
+			$.ajax({
+				type:"post",
+				url:globalUrl+"index.php/Mobile/JkOrder/comfirHuo",
+				data:{order_id:order_id,rec_id:rec_id},
+				dataType:'json',
+				success:function(res){
+					var data=res;
+					if(data.code==0){
+						mui.toast(data.msg);
+						$('.receiptgood').html('已收货')
+					}
+				}
+			});
+		})
+		
+		
+		$('.havevalute').on('tap','.evalute',function(event){
+			var order_id=$(this).prev('.order_li').attr('data-type');
+			var rec_id=$(this).prev('.order_li').find('.order_bottom').attr('data-id');
+			
+			var $usersid=$(this).attr('data-userid');
+//			if(carstatus==0){
+//				$usersid=$(this).attr('data-userid');
 //			}
-//			$('.havesure').html(str);
-//		}
-//	})
-//}
+		
+			mui.openWindow({
+				url:'./evalute.html?order_id='+order_id+'&rec_id='+rec_id+'&usersid='+$usersid+'',
+				id:'./evalite.html'
+				
+			})
+		})
+        
+        $('.havepubilsh').on('tap','.cancelgoods',function(event){
+    				var order_id=$(this).prev('.order_li').attr('data-type');
+					var goodsid=$(this).prev('.order_li').attr('data-id');
+					var urls;
+					var ajaxData={};
+					ajaxData.user_id=userid;
+					ajaxData.order_id=order_id;
+					if(carstatus==1){
+						urls=globalUrl+'index.php/Mobile/JkLine/canelSiji';
+					}else{
+						urls=globalUrl+'index.php/Mobile/JkLine/canelOrder';
+						ajaxData.goods_id=goodsid;
+					}
+					
+					var rec_id=$(this).prev('.order_li').find('.order_bottom').attr('data-id');
+	        		mui.confirm('你要删除该订单么？', function(e) {
+	        		
+		                if (e.index == 1) {
+		               
+		                } else {
+		                	
+							$.ajax({
+								type:"post",
+								url:urls,
+								data:ajaxData,
+								dataType:'json',
+					              success:function(res){
+					              	var data=res;
+					              	
+					              	if(data.code==0){              		
+										mui.toast('取消订单成功');
+										shuaxin()
+					              	}
+					              }
+							});
+		                }
+	            })
+        	
 
+		})
 
 	</script>
 </html>

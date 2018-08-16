@@ -16,10 +16,11 @@ header{
 }
 .mui-content{
     background: url(../img/denglu_bg.png) no-repeat;
-        width: 100%;
-        height: 100%;
+    width: 100%;
+    height: 100%;
     background-size:100% 100%; 
     background-attachment: fixed; 
+    overflow: hidden;
 }
 
 .piclogo{
@@ -199,20 +200,173 @@ background-color: #b3b3b3;
     float: left;
 }
 .logintype{
-    width: 100;
+    width: 100%;
     height: 46/@rem;
     padding: 0 75/@rem;
 }
 .logintype .webchat{
-     width: 56/@rem;
+   width: 56/@rem;
     height: 46/@rem;
     display: inline-block;
-    margin-left: 210/@rem;
+//  margin-left: 210/@rem;
+    margin-left: 50%;
+    margin-top: 20/@rem;
 }
-.logintype .qqlogin{
-    margin-top: 50/@rem;
-    width: 56/@rem;
-    height: 46/@rem;
-    display: inline-block;
-    margin-left: 70/@rem;
+//.logintype .qqlogin{
+//  margin-top: 50/@rem;
+//  width: 56/@rem;
+//  height: 46/@rem;
+//  display: inline-block;
+//  margin-left: 70/@rem;
+//}
+
+
+.mainone{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-top: 20/@rem;
+//  background: #fff;
+}
+.mainone .main_li{
+    background: #fff;
+    width: 100%;
+    height: 106/@rem;
+    border-bottom: 2/@rem solid #f0eff4;
+    padding: 0 24/@rem;
+    position: relative;
+}
+.mainone .main_li .li_phone{
+    float: left;
+}
+.mainone .li_phone{
+    font-family: PingFang-SC-Medium;
+    font-size: 28/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 106/@rem;
+    letter-spacing: 0/@rem;
+    color: #333333;
+}
+.mainone .main_li .li_number{
+    float: left;
+    width: 300/@rem;
+}
+.mainone .li_number input{
+    margin-bottom: 0/@rem;
+    padding: 0/@rem 15/@rem;
+    margin-top: 12/@rem;
+    border: 0;
+    font-family: PingFang-SC-Medium;
+    font-size: 28/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #666666;
+}
+.mainone .main_li .li_code{
+    position: absolute;
+    top: 26/@rem;
+    right: 26/@rem;
+    padding: 0/@rem 20/@rem;
+    width: auto;
+    height: 54/@rem;
+    border-radius: 6/@rem;
+    border: solid 1/@rem #fdbf42;
+    font-family: PingFang-SC-Medium;
+    font-size: 24/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 54/@rem;
+    letter-spacing: 0/@rem;
+    color: #fdbf42;
+}
+.mainone .main_sure{
+    width: auto;
+    margin: 82/@rem 24/@rem;
+}
+.mainone .main_sure .sure{
+    width: 100%;
+    height: 88/@rem;
+    line-height: 88/@rem;
+    background: #279cfe;
+    border-radius: 6/@rem;
+    text-align: center;
+    font-family: PingFang-SC-Medium;
+    font-size: 32/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 1/@rem;
+    color: #ffffff;
+}
+.reminders{
+    width: 560/@rem;
+    left: 95/@rem;
+
+    top: 50%;
+    height: 280/@rem;
+    background-color: #ffffff;
+    border-radius: 6/@rem;
+    z-index: 100;
+    position: fixed;
+    display: none;
+    margin-top: -140/@rem;
+}
+.reminders .reminder_title{
+    width: 100%;
+    height: 80/@rem;
+    background-color: #f8f8f8;
+    text-align: center;
+    line-height: 80/@rem;
+    font-size: 28/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #279cfe;
+}
+.reminders .reminder_sc{
+    width: 100%;
+    height: 80/@rem;
+}
+.reminders .reminder_world{
+    width: 100%;
+    height: 120/@rem;
+    line-height: 120/@rem;
+    
+    text-align: center;
+    font-family: PingFang-SC-Medium;
+    font-size: 32/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #1f1f1f;
+    position: relative;
+}
+.reminders .reminder_sc div{
+    width: 100%;
+    height: 80/@rem;
+    line-height: 80/@rem;
+    text-align: center;
+    font-family: PingFang-SC-Medium;
+    font-size: 32/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #cccccc;
+    
+}
+.reminders .reminder_sc .sure{
+    color:  #279cfe;
+}
+.san{
+width: 0;
+    height: 0;
+    border-left: 15/@rem solid transparent;
+    border-right: 15/@rem solid transparent;
+    border-top: 25/@rem solid #C7C7CC;
+    float: right;
+//  margin-top: 50/@rem;
+//  margin-right: 50/@rem;
+position: absolute;
+right: 100/@rem;
+top: 48/@rem;
 }

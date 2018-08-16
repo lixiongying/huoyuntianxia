@@ -78,7 +78,7 @@ header span{
 .dynamic_content{
     width: 100%;
     height: auto;
-    margin-top: 30/@rem;
+    margin-top: 5/@rem;
     background: white;
     padding-right: 24/@rem;
     padding-bottom: 20/@rem;
@@ -107,12 +107,12 @@ header span{
     
 }
 .dynamic_content .content .content_owner{
-    width: 200/@rem;
+    width: auto;
     height: 50/@rem;
-    margin-left: 10/@rem;
+//  margin-left: 10/@rem;
 }
 .content_owner .name{
-    width: 100/@rem;
+//  width: 100/@rem;
     height: 50/@rem;
     font-family: PingFang-SC-Medium;
     font-size: 26/@rem;
@@ -122,11 +122,11 @@ header span{
     letter-spacing: 0px;
     color: #279cfe;
     text-align: center;
-    
+    padding: 0 10/@rem;
     float: left;
 }
 .content_owner .ownertype{
-    width: 70/@rem;
+//  width: 70/@rem;
     height: 50/@rem;
     font-family: PingFang-SC-Medium;
     font-size: 22/@rem;
@@ -137,7 +137,7 @@ header span{
     color: #fdbf42;
 //   display: inline-block;
     float: left;
-    margin-left: 10/@rem;
+//  margin-left: 10/@rem;
 }
 .content_world{
     width: 100%;
@@ -148,10 +148,10 @@ header span{
     font-stretch: normal;
     word-break: normal;
     word-wrap: break-word;
-    padding: 0 24/@rem;
+    padding: 0 10/@rem;
     letter-spacing: 0px;
     color: #1f1f1f;
-    margin-bottom: 20/@rem;
+//  margin-bottom: 20/@rem;
 }
 .content_pic{
     width: 100%;
@@ -163,6 +163,16 @@ header span{
     height: 130/@rem;
    float: left;
     margin-left: 12/@rem;
+}
+.videoitem{
+  width: 160/@rem;
+    height: 130/@rem;
+   float: left;
+    margin-left: 12/@rem;  
+}
+.pictwo{
+    width: 160/@rem;
+    height: 130/@rem;
 }
 #male{
     text-align: center;
@@ -176,6 +186,7 @@ header span{
     height: 80/@rem;
     margin-top: 10/@rem;
     position: relative;
+    padding-left: 10/@rem;
 }
 .content_time .time{
      width: 130/@rem;
@@ -183,6 +194,15 @@ header span{
       margin-top: 20/@rem;
       display: inline-block;
       float: left;
+     
+}
+.content_time .delete{
+      width: 130/@rem;
+      height: 40/@rem;
+      margin-top: 20/@rem;
+      display: inline-block;
+      float: left;
+     
 }
 .content_time .dianzan{
     width: 300/@rem;
@@ -204,6 +224,32 @@ header span{
 .dianzan .zanone{
     border-right: 1px solid white;
 }
+.dianzan .zanone .zanimg{
+    width: 35/@rem;
+    height: 35/@rem;
+    margin-top: 10/@rem;
+    margin-left: 20/@rem;
+}
+.dianzan .zantwo .zanimg{
+    width: 35/@rem;
+    height: 35/@rem;
+    margin-top: 12/@rem;
+    margin-left: 20/@rem;
+}
+.zanperson{
+    width: 35/@rem;
+    height: 35/@rem;
+    display: inline-block;
+    float: left;
+    margin-top: 10/@rem;
+    margin-left: 10/@rem;
+}
+//.dianzan .zanone .zanworld{
+//  width: 35/@rem;
+//  height: 35/@rem;
+//  margin-top: 12/@rem;
+//  margin-left: 10/@rem;
+//}
 .comment_pic{
      
     width: 40/@rem;
@@ -218,10 +264,13 @@ header span{
     
     width: 600/@rem;
 //  height: 68/@rem;
-height: auto;
+    height: auto;
     padding: 15/@rem 0/@rem;
     background-color: #f0eff4;
     padding-left: 12/@rem;
+}
+.content_commnet .commnet:active{
+    background: white;
 }
 .content_commnet .dianzanperson{
      width: 600/@rem;
@@ -350,4 +399,17 @@ padding-right: 20/@rem;
     color: white;
     background:#279cfe;
     margin-right: 10/@rem;
+}
+.deletecoments{
+    width: 120/@rem;
+    height: 80/@rem;
+    background: white;
+    text-align: center;
+    line-height: 80/@rem;
+    color: black;
+    position: absolute;
+    bottom: 10/@rem;
+    right: 200/@rem;
+    font-size: 32/@rem;
+     box-shadow:1/@rem 1/@rem 5/@rem #CCCCCC;
 }

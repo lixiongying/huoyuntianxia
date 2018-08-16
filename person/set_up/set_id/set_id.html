@@ -18,15 +18,18 @@
 		<script src="../../../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
 	    <!--<script src="../../../js/new_file.js" type="text/javascript" charset="utf-8"></script>-->
 	    	
-	  <script src="../../../js/confirm.js" type="text/javascript" charset="utf-8"></script>
+	 
 	    <script src="../../../js/mui.previewimage.js" type="text/javascript" charset="utf-8"></script>
 	    <script src="../../../js/mui.zoom.js" type="text/javascript" charset="utf-8"></script>
 	  
 	</head>
+	<script type="text/javascript">
+		mui.init()
+	</script>
 	<body>
 		<header class="mui-bar mui-bar-nav mui-action-back">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
-		    <h1 class="mui-title">身份证验证(企业货主)</h1>
+		    <h1 class="mui-title">身份证验证(<span class="huozhuitems">企业货主</span>)</h1>
 		    
 		    <!--<span><img src="../img/faxian_jia.png"/></span>-->
 		</header>
@@ -34,11 +37,11 @@
 			<div class="main">
 				
 				<div class="main_li">
-					<div class="li_idname">请上传法人身份证正面照 </div>
+					<div class="li_idname">请上传身份证正面照 </div>
 					<div class="li_id">
 						<div class="id_left">
 							<div class="left_img image-item" onclick="showActionSheet(this)" data-type="1" id="imgone">
-								<img  src="../../../img/woyaofahuo_tianjiatupian.png" class="picBig" />
+								<img  src="../../../img/woyaofahuo_tianjiatupian.png" class="picBig"/>
 							</div>
 							
 						</div>
@@ -53,7 +56,7 @@
 				</div>
 				<input type="hidden" id="ckjl.id" name="ckjl.id" value="430">
 				<div class="main_li">
-					<div class="li_idname">请上传法人身份证背面照 </div>
+					<div class="li_idname">请上传身份证背面照 </div>
 					<div class="li_id">
 						<div class="id_left">
 							<div class="left_img image-item" onclick="showActionSheet(this)" data-type="2" id="imgtwo">
@@ -90,7 +93,7 @@
 				</div>
 				
 				<div class="main_sure"> <!--main_newssure禁用时样式-->
-					<div class="sure" onclick="uploadImg()">确定修改</div>
+					<div class="sure" onclick="uploadImg()">立即验证</div>
 				</div>
 			</div>
 		</div>
@@ -99,5 +102,6 @@
 			
 					mui.previewImage()
 		</script>
+		 <script src="../../../js/confirm.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>

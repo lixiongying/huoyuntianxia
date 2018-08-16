@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>系统消息</title>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+
+		<link rel="stylesheet" type="text/css" href="../css/sysmessage.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/swiper-4.3.2.min.css"/>
+		<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+	
+	
+	</head>
+	<style>
+		.friend stranger{
+			display: none;
+		}
+		.stranger{
+			/*posistion:relative;*/
+			
+		}
+		.addfriend{
+			/*posistion:absolute;*/
+			width:1.1rem;
+			top:0.2rem;
+			right:0.2rem;
+			height:1.1rem;
+			float:right;
+		}
+		.po_add{
+			width:1.1rem;
+			/*margin-right: 5px;*/
+			/*top:0.2rem;*/
+			right:0.2rem;
+			bottom: 2rem;
+			/*height:1.1rem;*/
+		}
+		.po_friends{
+			position: absolute;
+			right: 0.2rem;
+			top: 1rem;
+			font-size: 1.1rem;
+			
+		}
+		.mui-table-view-cell{
+			padding: 0;
+		}
+		.nulldata{
+			width: 100%;
+			height: 100px;
+			font-size: 1.1rem;
+			line-height: 100px;
+			text-align: center;
+			background: white;
+		}
+		.mask{
+			width:100%;
+			height: 100%;
+			position: fixed;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			background: black;
+			opacity: 0.4;
+			display: none;
+		}
+		.Argeement{
+				display: none;
+				position:fixed;
+				width: 70%;
+				height: 40%;
+				background: #fff;
+			    z-index: 100;
+			    top: 35%;
+			    left:17.5%;
+			    border-radius: 0.2rem;
+			    -moz-box-shadow:0px 1px 10px #1482E6; -webkit-box-shadow:0px 1px 10px #1482E6``; box-shadow:0px 1px 10px #1482E6;
+			}
+			.ArgeementContent{
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			}
+			.Argeement-text::-webkit-scrollbar{
+				width: 0;
+			}
+			.Argeement-title{
+				text-align: center;
+				padding: 0.6rem 0px;
+		    	border-bottom: 1px solid #a1c5fc;
+		    	font-size: 20px;
+			}
+			.Argeement-text{
+				width: 100%;
+				height: 100%;
+				overflow: auto;
+				padding: 0.1rem 0.3rem;
+				text-indent: 2em;
+				text-align: justify;
+				font-size: 14px;
+			}
+			
+	</style>
+	<body>
+		
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">系统消息</h1>
+
+		</header>
+		<div class="mui-content">
+			<div class="main">
+			
+				<div class="mask">
+					
+				</div>
+				<div class="">
+	                <div class="myfriend" data-type="0">
+	                		消息列表
+	                </div>
+	                <div id="myfriend">
+	               
+		                <div class="friend">
+		                	
+							<div class="friend_head" >
+								<img src="../img/xiaoxi_xitongxiaoxi.png"/>
+							</div>
+							
+							<div class="friend_name">
+								<div class="name">
+									系统公告
+								</div>
+								<div class="annoumce">
+									<div class="descrie">
+										插画绘制最重要的是能沉下心来去享受涂画的…
+									</div>
+								</div>
+								
+							</div>
+							<div class="times">
+								2018-06-25
+							</div>
+						
+						</div>
+					</div>
+				</div>
+		    
+		    
+		    <div class="Argeement">
+					<div class="ArgeementContent">
+						<div class="Argeement-title">
+							系统公告详情
+						</div>
+						<div class="Argeement-text">
+							
+
+						</div>
+					</div>
+				</div>
+				
+           
+            </div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var userid=localStorage.getItem('user_id')
+	     $.ajax({
+	     	type:"post",
+	     	url:globalUrl+"index.php/Mobile/JkShare/sys_list",
+	     	dataType:'json',
+	     	success:function(res){
+	     		var data=res.list;
+	     		var str='';
+	     		for(var i=0;i<data.length;i++){
+	     			str+='<div class="friend" onclick="frame(this)">';
+	     			str+='<div class="friend_head" >';
+	     			str+='<img src="../img/xiaoxi_xitongxiaoxi.png"/>';
+	     			str+='</div>';
+	     			str+='<div class="friend_name">';
+	     			str+='<div class="name">系统公告</div>';
+	     			str+='<div class="annoumce">';
+	     			str+='<div class="descrie">'+data[i].content+'</div>';
+	     			
+	     			str+='</div>';
+	     			str+='</div>';
+	     			str+='<div class="times">'+data[i].time+'</div>';
+	     			str+='</div>';
+	     		}
+	     		
+	     		$('#myfriend').html(str);
+	     		for(var i=0;i<10;i++){
+					var order_date=$('.times').eq(i).html();
+					
+					var c=timeToDate(order_date);
+					$('.times').eq(i).html(c);
+				}
+	     		
+	     	}
+	     });
+	     
+	     function frame(obj){
+	     	$('.mask').show();
+	     	$('.Argeement').show();
+	     	$('.Argeement-text').html($(obj).find('.descrie').html());
+	     }
+	     $('.mask').click(function(){
+	     	$('.mask').hide();
+	     	$('.Argeement').hide();
+	     })
+	</script>
+
+</html>

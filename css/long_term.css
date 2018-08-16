@@ -1,150 +1,418 @@
-.clear::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-.f-left {
-  float: left;
-}
-.f-right {
-  float: right;
-}
-.mui-bar {
-  background: #279cfe;
-  box-shadow: none;
-  -webkit-box-shadow: none;
-  border: 0;
-  height: 2.34666667rem;
-}
-.mui-bar .mui-title {
-  color: #fff;
-}
-.mui-bar-nav ~ .mui-content {
-  padding-top: 2.34666667rem;
+header a {
+  color: white;
 }
 .main {
   width: 100%;
   height: auto;
   overflow: hidden;
+}
+.mui-bar {
+  width: 20rem;
+  height: 2.34666667rem;
+  background-color: #279cfe;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.mui-title {
+  color: #ffffff;
+  font-size: 0.96rem;
+}
+#slider {
+  width: 100%;
+  height: 11.2rem;
+  position: relative;
+  overflow: hidden;
+}
+#slider img {
+  width: 100%;
+  height: 11.2rem;
+  overflow: hidden;
+}
+#slider .swiper-container {
+  width: 100%;
+  overflow: hidden;
+}
+#slider .swiper-container ul.swiper-wrapper {
+  width: 500%;
+  -webkit-transform: translate(-20%);
+  transform: translate(-20%);
+}
+#slider .swiper-container ul.swiper-wrapper li {
+  width: 20%;
+  float: left;
+}
+#slider .swiper-pagination {
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  top: 9.33333333rem;
+  background: none;
+  text-align: center;
+}
+#slider .swiper-pagination span {
+  display: inline-block;
+  width: 0.53333333rem;
+  height: 0.53333333rem;
+  background: grey;
+  border-radius: 50%;
+  margin: 0 0.26666667rem;
+}
+#slider .swiper-pagination span.swiper-pagination-bullet-active {
+  background: #fd5e5e;
+}
+.cardetails {
+  width: 100%;
+  height: 9.33333333rem;
+  background-color: #ffffff;
+}
+.z_place,
+.x_place {
+  width: 100%;
+  height: 3.09333333rem;
+  margin-left: 0.8rem;
+  border-bottom: 1px solid #F5F5F5;
   position: relative;
 }
-.main .main_ul {
-  width: 100%;
-  height: auto;
-  margin-bottom: 0.53333333rem;
+.startaddress,
+.endaddress {
+  width: 1.12rem;
+  height: 1.14666667rem;
+  margin-top: 0.98666667rem;
 }
-.main_ul .main_li {
-  width: 100%;
-  height: 2.82666667rem;
-  background: #fff;
+.z_place div {
+  display: inline-block;
+  float: left;
 }
-.main_li .li_icon {
-  width: 12%;
-  height: 2.82666667rem;
-  padding-left: 0.64rem;
+.x_place div {
+  display: inline-block;
+  float: left;
 }
-.li_icon img {
-  margin-top: 0.88rem;
-  width: 1.06666667rem;
-  height: 1.06666667rem;
+.z_place div:first-child {
+  width: 0.74666667rem;
+  height: 0.74666667rem;
+  margin-top: 1.17333333rem;
 }
-.main_li .li_input {
-  width: 88%;
-  height: 2.82666667rem;
-}
-.li_input input {
-  width: 100%;
-  height: 2.77333333rem;
-  border-bottom: 2px solid #f0eff4;
-}
-.main_li:last-child .li_input input {
-  border-bottom: 0;
-}
-.main .main_car {
-  width: 100%;
-  height: 2.82666667rem;
-  line-height: 2.82666667rem;
-  background: #fff;
-  margin-bottom: 0.53333333rem;
-}
-.main_car .car_icon {
-  height: 2.82666667rem;
-  padding-left: 0.64rem;
-}
-.car_icon img {
-  margin-top: 0.88rem;
-  width: 1.06666667rem;
-  height: 1.06666667rem;
-}
-.main_car .car_name {
-  margin-left: 0.85333333rem;
+.z_place div:nth-child(2) {
+  width: 80%;
+  height: 3.09333333rem;
   font-family: PingFang-SC-Medium;
   font-size: 0.74666667rem;
   font-weight: normal;
   font-stretch: normal;
+  line-height: 3.09333333rem;
   letter-spacing: 0px;
   color: #1f1f1f;
+  margin-left: 0.53333333rem;
 }
-.main_car .car {
-  padding-right: 0.64rem;
+.x_place div:first-child {
+  width: 0.74666667rem;
+  height: 0.74666667rem;
+  margin-top: 1.17333333rem;
+}
+.x_place div:nth-child(2) {
+  display: inline-block;
+  float: left;
+  width: 16rem;
+  height: 3.09333333rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 3.09333333rem;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  margin-left: 0.53333333rem;
+}
+.time {
+  width: 100%;
+  height: 3.09333333rem;
+  margin-left: 0.8rem;
+}
+.time .time_pic {
+  width: 0.74666667rem;
+  height: 0.74666667rem;
+  margin-top: 1.17333333rem;
+  display: inline-block;
+  float: left;
+}
+.time .time_start {
+  width: 8rem;
+  height: 3.09333333rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 3.09333333rem;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  margin-left: 0.53333333rem;
+  display: inline-block;
+  float: left;
+}
+.carsitem {
+  width: 100%;
+}
+.carsitem .carsdetails {
+  width: 100%;
+  height: 2.82666667rem;
+  text-align: left;
+  line-height: 2.82666667rem;
+  font-family: PingFang-SC-Bold;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  padding-left: 0.66666667rem;
+  letter-spacing: 1px;
+  color: #1f1f1f;
+}
+.carsitem .carstype {
+  width: 100%;
+  height: 2.82666667rem;
+  background-color: #ffffff;
+  border-bottom: 0.02666667rem solid #f5f5f5;
+}
+.carsitem .carstype .type_one {
+  display: inline-block;
+  float: left;
+  width: 2.88rem;
   height: 2.82666667rem;
   font-family: PingFang-SC-Medium;
   font-size: 0.74666667rem;
   font-weight: normal;
   font-stretch: normal;
-  letter-spacing: 0px;
-  color: #b3b3b3;
+  line-height: 2.82666667rem;
+  letter-spacing: 0.02666667rem;
+  color: #1f1f1f;
+  margin-left: 0.64rem;
+  white-space: nowrap;
 }
-.main .main_message {
+.carsitem .carstype .type_two {
+  display: inline-block;
+  float: left;
+  width: 13.54666667rem;
+  height: 2.82666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.82666667rem;
+  letter-spacing: 0.02666667rem;
+  color: #1f1f1f;
+}
+.remarks {
   width: 100%;
   height: auto;
-  background: #FFF;
-  padding: 0 0.64rem;
+  background: white;
+  border-bottom: 1px solid #F5F5F5;
 }
-.main_message .message_name {
-  width: 100%;
-  height: 2.82666667rem;
-  line-height: 2.82666667rem;
-  border-bottom: 1px solid #F0EFF4;
+.remarks .remarks_one,
+.remarks_two {
+  padding: 0.53333333rem 0.64rem;
+  float: left;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0.02666667rem;
+  color: #1f1f1f;
 }
-.main_message .message {
+.remarks .remarks_two {
+  max-width: 16rem;
+}
+.drivermessage {
   width: 100%;
+  height: 1.33333333rem;
+  font-family: PingFang-SC-Bold;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.33333333rem;
+  letter-spacing: 0.02666667rem;
+  text-align: left;
+  padding-left: 0.64rem;
+  color: #1f1f1f;
+  margin-top: 0.8rem;
+  margin-bottom: 0.53333333rem;
+}
+.driver {
+  width: 100%;
+  height: auto;
+  background-color: white;
+  margin-bottom: 0.8rem;
+}
+.driver .driver_one {
+  width: 100%;
+  height: 5.70666667rem;
+  border-bottom: 1px solid #F5F5F5;
+}
+.driver_one .head_pic {
+  width: 3.73333333rem;
   height: 3.73333333rem;
+  margin-top: 0.98666667rem;
+  margin-left: 0.64rem;
+  display: inline-block;
+  float: left;
 }
-.message textarea {
-  width: 100%;
+.driver_one .head_pic img {
+  border-radius: 100%;
+}
+.driver_one .name {
+  width: 10.66666667rem;
   height: 100%;
-  border: 0;
-  padding: 0.4rem 0rem;
-  margin: 0;
+  display: inline-block;
+  float: left;
+}
+.driver_one .name {
+  width: 10.66666667rem;
+  height: 100%;
+  display: inline-block;
+  float: left;
+}
+.driver_one .name .name_two {
+  width: 100%;
+  height: 1.06666667rem;
   font-family: PingFang-SC-Medium;
   font-size: 0.64rem;
   font-weight: normal;
   font-stretch: normal;
-  line-height: 1.17333333rem;
-  letter-spacing: 1px;
-  color: #1f1f1f;
+  letter-spacing: 0.02666667rem;
+  color: #b3b3b3;
+  margin-left: 0.8rem;
+  margin-top: 1.06666667rem;
 }
-.hide {
-  display: none;
-}
-.main .main_sure {
+.driver_one .name .name_one {
   width: 100%;
-  height: auto;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  background: #279cfe;
+  height: 1.33333333rem;
+  margin-top: 0.93333333rem;
+  margin-left: 0.8rem;
 }
-.main_sure .sure {
-  width: 100%;
-  height: 2.34666667rem;
-  line-height: 2.34666667rem;
+.driver_one .name .name_one .names {
+  width: 3.2rem;
+  height: 1.33333333rem;
   font-family: PingFang-SC-Medium;
   font-size: 0.85333333rem;
   font-weight: normal;
   font-stretch: normal;
-  letter-spacing: 0px;
-  color: #ffffff;
+  letter-spacing: 0.02666667rem;
+  color: #1f1f1f;
+  display: inline-block;
+  line-height: 1.33333333rem;
+}
+.driver_one .name .name_one .star {
+  width: 5.86666667rem;
+  height: 1.33333333rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 1.33333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0.02666667rem;
+  color: #1f1f1f;
+  display: inline-block;
+}
+.star .rating {
+  width: 100%;
+  height: 0.8rem;
+}
+.star .rating .rating-item {
+  width: 0.8rem;
+  height: 0.8rem;
+  float: left;
+  margin-top: 0.53333333rem;
+  margin-left: 0.26666667rem;
+}
+.driver_one .guanzhu {
+  width: 3.2rem;
+  height: 1.33333333rem;
+  border-radius: 0.16rem;
+  border: solid 0.02666667rem #279cfe;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
   text-align: center;
+  letter-spacing: 0.02666667rem;
+  color: #279cfe;
+  display: inline-block;
+  float: right;
+  line-height: 1.33333333rem;
+  margin-top: 2.18666667rem;
+  margin-right: 0.53333333rem;
+}
+.driver_one .haveguanzhu {
+  width: 3.2rem;
+  height: 1.33333333rem;
+  border-radius: 0.16rem;
+  border: solid 0.02666667rem #cccccc;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  text-align: center;
+  letter-spacing: 0.02666667rem;
+  color: #CCCCCC;
+  display: inline-block;
+  float: right;
+  line-height: 1.33333333rem;
+  margin-top: 2.18666667rem;
+  margin-right: 0.53333333rem;
+}
+.driver_two {
+  width: 100%;
+  height: 2.82666667rem;
+}
+.driver_two .chat {
+  display: inline-block;
+  float: left;
+  width: 50%;
+  height: 2.82666667rem;
+  text-align: center;
+}
+.driver_two .chat_one {
+  width: 1.17333333rem;
+  height: 1.17333333rem;
+  margin-top: 0.82666667rem;
+  margin-left: 3.46666667rem;
+  display: inline-block;
+  float: left;
+}
+.driver_two .chat_two {
+  width: 2.66666667rem;
+  height: 2.82666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.82666667rem;
+  letter-spacing: 0.02666667rem;
+  color: #1f1f1f;
+  display: inline-block;
+  float: left;
+}
+.driver_two .contactdriver {
+  width: 50%;
+  height: 2.82666667rem;
+  display: inline-block;
+  float: left;
+}
+.driver_two .contactdriver .driver_one {
+  width: 1.17333333rem;
+  height: 1.17333333rem;
+  margin-top: 0.82666667rem;
+  margin-left: 2.66666667rem;
+  display: inline-block;
+  float: left;
+}
+.driver_two .contactdriver .driver_two {
+  width: 3.46666667rem;
+  height: 2.82666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.82666667rem;
+  letter-spacing: 0.02666667rem;
+  color: #1f1f1f;
+  display: inline-block;
+  float: left;
+  margin-left: 0.8rem;
 }

@@ -20,6 +20,9 @@
 		<script src="../js/mui.picker.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../js/city.data.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			mui.init();
+		</script>
 	</head>
 	<body>
 		
@@ -44,13 +47,13 @@
             
              <div class="speicalline">
              	 <div class="line_one" id="showCityPicker">
-             	 	广州
+             	 	<!--请选择城市-->
              	 </div>
              	  <div class="line_img">
              	 	<img src="../img/zhuanxianchaxun_xianlu.png"/>
              	 </div>
              	  <div class="line_two" id="showCityPickerone">
-             	 	深圳
+             	 	请选择城市
              	 </div>
              </div>
 			 
@@ -61,6 +64,29 @@
 		</div>
 	</body>
 	<script type="text/javascript">
+		mui.plusReady(function() {
+		    plus.geolocation.getCurrentPosition(translatePoint,function(e){
+		//      	alert(JSON.stringify(e));
+		//          mui.toast("异常:" + e.message);
+			});
+	    });
+	   var province;
+	   var city;
+	   var district;
+	   var address;
+		function translatePoint(position){	
+//			alert(JSON.stringify(position))
+		   province=position.address.province;
+			
+		   city=position.address.city;
+		   district=position.address.district;
+		   currentLon = position.coords.longitude;
+		   currentLat = position.coords.latitude;
+		   address=province+','+city+','+district;
+		   $('#showCityPicker').html(address)
+		}
+		
+		
 	    /*广告*/
 	   var str=''
 	   $.ajax({
@@ -94,15 +120,15 @@
 	    });
        
 		  var cityPicker = new mui.PopPicker({
-				layer: 2
+				layer: 3
 			});
-			cityPicker.setData(cityData);
+			cityPicker.setData(cityData3);
 			var showCityPickerButton = document.getElementById('showCityPicker');
 			var showCityPickerone = document.getElementById('showCityPickerone');
 			showCityPickerButton.addEventListener('tap', function(event) {
 				cityPicker.show(function(items) {
 //					cityPicker.html((items[0] || {}).text));
-					$('#showCityPicker').html((items[1] || {}).text);
+					$('#showCityPicker').html((items[0] || {}).text + "," + (items[1] || {}).text + "," + (items[2] || {}).text);
 					//返回 false 可以阻止选择框的关闭
 					//return false;
 				});
@@ -111,7 +137,7 @@
 			showCityPickerone.addEventListener('tap', function(event) {
 				cityPicker.show(function(items) {
 //					cityPicker.html((items[0] || {}).text));
-					$('#showCityPickerone').html((items[1] || {}).text);
+					$('#showCityPickerone').html((items[0] || {}).text + "," + (items[1] || {}).text + "," + (items[2] || {}).text);
 					//返回 false 可以阻止选择框的关闭
 					//return false;
 				});
@@ -119,8 +145,9 @@
 			
 			function urlfind(){
 				var address=$('#showCityPicker').html();
-				var yuyueaddress=$('#yuyueaddress').html();
-				
+				var yuyueaddress=$('#showCityPickerone').html();
+			
+			
 				mui.openWindow({
 					url:'hz_railwaydetail.html',
 					id:'hz_railwaydetail.html',

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>设置</title>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/mui.css"/>
+<!--		<link rel="stylesheet" type="text/css" href="../../css/nav_table.css"/>-->
+		<link rel="stylesheet" type="text/css" href="../css/deposit.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+	    <style type="text/css">
+	    	
+	    </style>
+	    <script type="text/javascript">
+			mui.init()
+		</script>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-action-back">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
+		    <h1 class="mui-title">提交押金</h1>
+		    
+		    <!--<span><img src="../img/faxian_jia.png"/></span>-->
+		</header>
+		<div class="mui-content">
+			<div class="main">
+				<div class="deposit">
+					<div class="deposit_money">
+						¥<span class="money">100.00</span>
+					</div>
+					<div class="deposit_pic">
+						<img src="../img/yajintwo.png"/>
+					</div>
+					<div class="deposit_one">
+						支付押金后才能接单
+					</div>
+					<div class="deposittwo">
+						押金可随时退还~
+					</div>
+					<div class="exitmoney" onclick="payfor()">
+						支付押金
+					</div>
+				</div>
+				
+				<div class="Returndeposit"   style="display: none;">
+					<div class="deposit_pic">
+						<img src="../img/yajin.png"/>&nbsp;&nbsp;我的押金:
+					</div>
+					<div class="deposit_money">
+						¥<span class="money">100.00</span>
+					</div>
+					
+				
+					<div class="deposit_one">
+						<div class="">
+							退还押金后，下次接单将再次
+							提交押金后才能接单
+						</div>
+						
+					</div>	
+					
+					<div class="btn">
+						<div class="tuiyajinbtn" onclick="returndeposit()">
+							 退押金
+						</div>
+					</div>
+				</div>
+				
+			  
+			</div>
+			
+			
+		</div>
+		<script type="text/javascript">
+			
+			var userid=localStorage.getItem('user_id');
+			var carstatus=localStorage.getItem('car_status');
+			var result;
+		    var cash_depoit;
+		    
+		    mui.init({
+				beforeback: function() {
+				　　 //获得父页面的webview
+				var list = plus.webview.currentWebview().opener();
+				　　 //触发父页面的自定义事件(refresh),从而进行刷新
+				mui.fire(list, 'refresh');
+				//返回true,继续页面关闭逻辑
+				return true;
+				}
+			});
+			
+			$.ajax({
+				type:"post",
+				url:globalUrl+"index.php/Mobile/JkUser/set_user",
+				data:{user_id:userid},
+				dataType:'json',
+				success:function(res){
+					var data=res.user;
+					var baozhengjin=data.baozhengjin;
+//					alert(baozhengjin)
+					if(baozhengjin==''||baozhengjin==0||baozhengjin==3||baozhengjin==null){
+						$('.deposit').show()
+					}else{
+						$('.deposit').hide();
+						$('.Returndeposit').show()
+					}
+				}
+			});
+			
+			$.ajax({
+				type:"post",
+			  	url:globalUrl+"index.php/Mobile/JkOrder/cashmoneys",
+			  	
+			  	dataType:'json',
+			  	success:function(res){
+//			  		alert(JSON.stringify(res))
+			  		cash_depoit=res.cash_depoit;
+			  		
+			  		$('.money').html(cash_depoit)
+			  	}
+			})
+			
+	    function payfor(){
+		
+			$.ajax({
+				type:"post",
+				url:globalUrl+"index.php/Mobile/JkOrder/addcashy",
+				data:{user_id:userid},
+				dataType:'json',
+				success:function(res){
+					var data=res.info;
+					
+					result=data.result;
+					cash_depoit=data.cash_depoit;
+					pay('wxpay');
+				}
+			});
+			
+		}
+		
+		
+			
+		var pays={};
+		function plusReady(){
+			// 获取支付通道
+			plus.payment.getChannels(function(channels){
+		
+				for(var i in channels){
+					var channel=channels[i];
+					pays[channel.id]=channel;
+	
+					checkServices(channel);
+				}
+		//		info.innerText=txt;
+			},function(e){
+		//		outLine("获取支付通道失败："+e.message);
+			});
+		}
+		document.addEventListener('plusready',plusReady,false);
+		// 检测是否安装支付服务
+		function checkServices(pc){
+			if(!pc.serviceReady){
+				var txt=null;
+				switch(pc.id){
+					case "alipay":
+					txt="检测到系统未安装“支付宝快捷支付服务”，无法完成支付操作，是否立即安装？";
+					break;
+					default:
+					txt="系统未安装“"+pc.description+"”服务，无法完成支付，是否立即安装？";
+					break;
+				}
+				plus.nativeUI.confirm(txt,function(e){
+					if(e.index==0){
+						pc.installService();
+					}
+				},pc.description);
+			}
+		}
+		
+		var w=null;
+		// 支付
+		
+		function pay(id){
+			
+		
+			if(w){return;}//检查是否请求订单中
+	
+			var appid=plus.runtime.appid;
+			if(navigator.userAgent.indexOf('StreamApp')>=0){
+				appid='Stream';
+			}
+			
+			w=plus.nativeUI.showWaiting();
+		//	alert(JSON.stringify(w))
+			// 请求支付订单
+			
+//			var amount = Money;//金额
+			var xhr=new XMLHttpRequest();
+			xhr.onreadystatechange=function(){
+				
+				switch(xhr.readyState){
+					case 4:
+					w.close();
+					w=null;
+					if(xhr.status==200){
+		//				alert(11)
+						var order=xhr.responseText;
+		//				alert(pays[id])
+						plus.payment.request(pays[id],order,function(result){
+		//					plus.nativeUI.alert("支付成功：感谢你的支持，我们会继续努力完善产品。",function(){
+		//						alert(22)
+//								mui.openWindow({
+//									url:"payforsuccess.html?amount="+Money+'&paytype='+paytype,
+////									url:"payforsuccess.html?id='+data[i].id+'&name='+data[i].mobile_name+'",
+////									url:'payforsuccess.html',
+//									id:"payforsuccess.html"
+//								})
+                             plus.webview.getWebviewById('../../homepage/sj_orderdetail.html/person.html').evalJS("shuaxin()");
+                              mui.back();
+		//					},"捐赠");
+							var param={};
+							param.total_amount=Money;
+							param.user_id=localStorage.getItem('user_id')
+							param.orderSn = orderSn;
+							//param.type = 1;
+							if(id=='alipay'){
+								var successUrl=globalUrl+"index.php/Mobile/JkPay/alipaying";
+								
+								mui.post(successUrl,param,function(data){
+								//	alert(JSON.stringify(data))
+								
+	//							   
+								})
+							}
+						},function(e){
+			//					outLine("----- 支付失败 -----");
+			//					plus.nativeUI.alert("更多错误信息请参考支付(Payment)规范文档：http://www.html5plus.org/#specification#/specification/Payment.html",null,"支付失败："+e.code);
+							mui.toast('支付已取消')
+								
+							});
+					}else{
+		//				outLine("----- 请求订单失败 -----");
+		//				outLine( xhr.status );
+		//				plus.nativeUI.alert("获取订单信息失败！",null,"捐赠");
+					mui.toast('请填写充值金额')
+					}
+					break;
+					default:
+					break;
+				}
+			}
+			var user_id=localStorage.getItem('user_id');
+//			var orderSn=$('.orderSn').html();
+			if(id=='alipay'){
+			
+			  var newUrl=globalUrl+'index.php/Mobile/JkPay/alipaying?total_amount=0.01&orderSn='+orderSn+'&user_id='+user_id
+			  
+			}else if(id=='wxpay'){
+				var newUrl=globalUrl+'index.php/Mobile/JkPay/wechatPay?totalFee=0.01&orderSn='+result+'&userId='+user_id
+				
+			}
+		
+			xhr.open('GET',newUrl);
+		//	outLine("请求支付订单："+url+amount);
+		//	outLine("请求支付订单："+newUrl+amount);
+			xhr.send();
+		}
+		
+		function returndeposit(){
+			$.ajax({
+				type:"post",
+				url:"index.php/Mobile/JkUser/tuikuan",
+				data:{user_id:userid},
+				dataType:'json',
+				success:function(res){
+					var data=res;
+					if(data.usr==1){
+						mui.toast('退款成功');
+						
+						 plus.webview.getWebviewById('homepage/hz_homepage.html').evalJS("shuaxin()");
+						 mui.back()
+					}
+				}
+			});
+		}
+			
+		</script>
+	</body>
+</html>

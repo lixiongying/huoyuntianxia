@@ -6,221 +6,278 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
-		<title>长途车</title>
+		<title>长途车详情</title>
 		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css"/>
 		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
-		<!--<link rel="stylesheet" type="text/css" href="../../css/nav_table.css"/>-->
+
 		<link rel="stylesheet" type="text/css" href="../../css/long_term.css"/>
-		<link rel="stylesheet" type="text/css" href="../../css/style.css" />
 		<link rel="stylesheet" type="text/css" href="../../css/reset.css"/>
-		<link rel="stylesheet" type="text/css" href="../../css/mobiscroll.custom.min.css"/>
-		<link href="https://cdn.bootcss.com/framework7/1.6.5/css/framework7.ios.min.css" rel="stylesheet">
-    	<link href="https://cdn.bootcss.com/framework7/1.6.5/css/framework7.ios.colors.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../../css/swiper-4.3.2.min.css"/>
 		<script src="../../js/public.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../../js/mobiscroll.custom.min.js" type="text/javascript" charset="utf-8"></script>
-		<style type="text/css">
-			.dw-i{
-				text-align: center;
-			}
-			.dwb-c .dwb{
-				color: #333;
-			}
-			.mbsc-ios .dw0{
-				color: #279cfe;
-			}
-			.mbsc-ios .dw-sel{
-				color: #279cfe;
-				font-family: PingFang-SC-Medium;
-				font-size: 26px;
-				font-weight: normal;
-				font-stretch: normal;
-			}
-			/*.dw-liq .dw{
-				background: #fff;
-			}
-			.mbsc-ios .dwwr{
-				background: #fff;
-			}*/
-			.mbsc-ios .dwbc {
-			    border-bottom: 1px solid #f0eff4;
-			}
-			
-			.picker-modal .toolbar {
-			    background: #fff;
-			}
-			.picker-modal.modal-in {
-			    background: #fff;
-			}
-			.picker-item.picker-selected {
-			    color: #279cfe;
-			}
-		</style>
+		<script>
+			mui.init();
+		</script>
 	</head>
-	<body style="background: #efeff4;">
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;width: 80px;"></a>
-		    <h1 class="mui-title">长途车</h1>
+	<body>
+		
+		<header class="mui-bar mui-bar-nav mui-action-back" style="z-index: 1000;">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">长短途车详情</h1>
 		    
-		    <!--<span><img src="../../img/faxian_jia.png"/></span>-->
+		    <!--<span><img src="../img/faxian_jia.png"/></span>-->
 		</header>
 		<div class="mui-content">
 			<div class="main">
-				<div class="main_ul">
-					<div class="main_li">
-						<div class="li_icon f-left">
-							<img src="../../img/changtuchexiangqing_qidian.png"/>
-						</div>
-						<div class="li_input f-right">
-							<input type="" name="" value="" placeholder="请选择出发地" id="location"/>
-						</div>
+				<div id="slider">
+					<div class="swiper-container clearfix">
+						<ul class="swiper-wrapper">
+							<li class="swiper-slide"><a href=""><img src="../../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/></a></li>
+							<li class="swiper-slide"><a href=""><img src="../../img/c8e9eef9f1c58ac516b51eaa584e7233_t01a6852a946b324a87.jpg"/></a></li>
+							<li class="swiper-slide"><a href=""><img src="../../img/ea11d46b89dcd0c8e1b2a9b3fd06deeb_t01bdfaecfc44eba5e0.jpg"/></a></li>
+						</ul>
 					</div>
-					<div class="main_li">
-						<div class="li_icon f-left">
-							<img src="../../img/changtuchexiangqing_zhongdian.png"/>
-						</div>
-						<div class="li_input f-right">
-							<input type="" name="" value="" placeholder="请选择目的地" id="location1"/>
-						</div>
+				<div class="swiper-pagination"></div>
+            </div>
+            
+           <div class="cardetails">
+				
+				<div class="">
+					<div class="z_place">
+						<div><img src="../../img/changtuche_zhuangchedizhi.png"/></div>
+						<div class="address"></div>
+						<div class="number_three startaddress" onclick="addresss()" data-type='1'>
+				    		<img src="../../img/dingdanxiangqing_dizhi.png"/>
+				    	</div>
 					</div>
-					<div class="main_li">
-						<div class="li_icon f-left">
-							<img src="../../img/changtuchexiangqing_shijian.png"/>
-						</div>
-						<div class="li_input f-right">
-							<input type="" name="" value="" placeholder="请选择装货时间" class="demo_datetime" style="border:0;padding: 0;;"/>
-						</div>
+					<div class="x_place">
+						<div><img src="../../img/changtuche_xiehuodizhi.png"/></div>
+						<div class="yuyueaddress"></div>
+						<div class="number_three endaddress" onclick="addresssone()" data-type='2'>
+				    		<img src="../../img/dingdanxiangqing_dizhi.png"/>
+				    	</div>
+					</div>
+					<div class="time">
+						<div class="time_pic"><img src="../../img/changtuche_shijian.png"/></div>
+						<div class="time_start load_time"> </div>
 					</div>
 					
 				</div>
-				<div class="main_car">
-					<div class="car_icon f-left">
-						<img src="../../img/fabuluxian_xuanzecheliang.png"/>
+				
+			</div>
+		
+			<div class="carsitem">
+				<div class="carsdetails">
+					详细信息
+				</div>
+				<div class="carstype">
+					<div class="type_one">
+						车牌号：
 					</div>
-					<div class="car_name f-left">车辆</div>
-					<div class="car f-right" id="carnumber">粤A66666</div>
-				</div>
-				<div class="main_message">
-					<div class="message_name">备注</div>
-					<div class="message">
-						<textarea name="" class="input_message" placeholder="我要备注" ></textarea>
+					<div class="type_two">
+						<span class="carnumber">粤A2W1TS</span>
 					</div>
 				</div>
-				<div class="main_sure">
-					<div class="sure">发布</div>
+				<div class="carstype">
+					<div class="type_one">
+					  载重：
+					</div>
+					<div class="type_two">
+						<span class="ton">4.2</span>吨/<span class="bulk"></span>方
+					</div>
 				</div>
-			</div>	
+				<div class="carstype">
+					<div class="type_one">
+						车规格：
+					</div>
+					<div class="type_two">
+						<span class="long"></span>/<span class="width">2.2</span>
+					</div>
+				</div>
+				<div class="remarks clearfix">
+					<div class="remarks_one">
+						备注：
+					</div>
+					<div class="remarks_two">
+						
+					</div>
+				</div>
+			</div>
+			
 		</div>
 	</body>
-	<script src="../../js/framework7.min.js"></script>
-    <script src="../../js/regionsObject2.js"></script>
-    <script src="../../js/cityPicker.js"></script>
 	<script type="text/javascript">
-		var url = location.href;
-		var types = getUrl(url).types;
-		var userid=localStorage.getItem('user_id');
-		var carid;
-		var carnumber;
-		getuserinfo();
-		function getuserinfo(){
-			$.ajax({
-				type:"post",
-				url:globalUrl+"index.php/Mobile/JkUser/myLists",
-				data:{user_id:userid},
-				dataType:'json',
-				success:function(res){
-					var data=res.user.car_info;
-					carid=data.id;
-					carnumber=data.car_number;
-					$('#carnumber').html(carnumber);
-				}
-			});
-		}
 		
-		if(types==2){
-			$('.mui-title').html('长途车')
-		}else if(types==3){
-			$('.mui-title').html('短途车')
-		}
-		var theme = "ios";
-        var mode = "scroller";
-        var display = "bottom";
-        var lang="zh";
-        var myDate = new Date();
-		//获取当前年
-		var year=myDate.getFullYear()-10;
-		//获取当前月
-		var month=myDate.getMonth();
-		//获取当前日
-		var date=myDate.getDate(); 
-		var h=myDate.getHours();       //获取当前小时数(0-23)
-		var m=myDate.getMinutes();     //获取当前分钟数(0-59)
-		// Date & Time demo initialization
-        // Select demo initialization
-        $('.demo_datetime').mobiscroll().datetime({
-            theme: theme,
-            mode: mode,
-            display: display,
-            lang: lang,
-            dateFormat:"yyyy-mm-dd",
-            minDate: new Date(year,month,date,h,m),
-            maxDate: new Date(2030,7,30,15,44),
-            stepMinute: 1
-        });
-		
-		$(".input_message").focus(function(){ 
-			$('.main_sure').addClass("hide")
-		}); 
-		$(".input_message").blur(function(){
-		  $('.main_sure').removeClass("hide")
-		});
-		
-		$('.sure').click(function(){
-	       var $time=$('.demo_datetime').val();
-	       var date = new Date($time);
-	       var time = date.getTime()/1000;
+      var mySwiper = new Swiper('.swiper-container', {
+				autoplay: 4000,//可选选项，自动滑动，手指触屏滑动会停止自动轮播
+				autoplayDisableOnInteraction : false,//手指触屏滑动之后，重新开启自动轮播
+				initialSlide :0,//初始显示的li的索引
+				speed : 1000,//滑动的速度
+				observeParents:true,//当容器container宽度改变的时候(window.onresize或者自适应)自动更新Swiper
+				grabCursor : true,//鼠标抓手形状，触屏看不到
+				pagination : '.swiper-pagination',//下面的图标跟随切换
+				loop : true,//无缝轮播 自动在li列表的前面添加最后一个，在li列表后面添加第一个
+			
+		  });
+		  
+		  var userid=localStorage.getItem('user_id');
+		  var urL=location.href;
+		  var goods_id=getUrl(urL).goodsid;
 
-			var $carnumber=$('.f-right').html();
-			var $location=$('#location').val();
-			var $location1=$('#location1').val();
-			var $remakes=$('.input_message').val();
-            var parms={};
-             
-            var $place=$location.split(' ');
-            var $place1=$location1.split(' ');
-            var $place2=$place.join(',');
-            var $place3=$place1.join(',')
-//          alert($place)
-             
-            parms.user_id=userid;
-            parms.type=types;
-            parms.address=$place2;
-            parms.yuyueaddress=$place3;
-            parms.remark=$remakes;
-            parms.load_time=time;
-            parms.car_id=carid;
-//          alert(JSON.stringify(parms));
-//          return
-            if(time==''||$location==''||$location1==''){
-            	mui.toast('信息不完整');
-            	return;
-            }else{
-            	$.ajax({
-            		type:"post",
-            		url:globalUrl+"index.php/Mobile/JkLine/addLine",
-            		data:parms,
-            		success:function(res){
-            			var data=res;
-            			if(data.code==0){
-            				mui.toast('发布成功');
-            				mui.back();
-            			}
-            		}
-            	});
-            }
-            
-            
-		})
+
+		 var nick_name;
+		 var lon;/*起始经纬度*/
+		 var lat;
+		 var lonone;/*终点经纬度*/
+		 var lattwo;
+		
+		 var currentLon;/*当前位置经纬度*/
+		 var currentLat;
+		mui.plusReady(function() {
+		    plus.geolocation.getCurrentPosition(translatePoint,function(e){
+		//      	alert(JSON.stringify(e));
+		//          mui.toast("异常:" + e.message);
+			});
+	    });
+	    
+	   
+		function translatePoint(position){				
+		   currentLon = position.coords.longitude;
+		   currentLat = position.coords.latitude;
+		}
+		 function getcardetail(){
+		  	
+		  	$.ajax({
+		  		type:"post",
+		  		url:globalUrl+"index.php/Mobile/JkLine/cdinfo",
+		  		data:{user_id:userid,goods_id:goods_id},
+		  		dataType:'json',
+		  		success:function(res){
+		  			var data=res.info;
+		  
+//		  			var addres=data.address;
+		  		
+		  		
+		  			lon=data.address_lat.lng;
+		  			lat=data.address_lat.lat;
+		  			lonone=data.yuyue_lat.lng;
+		  			latone=data.yuyue_lat.lat;
+		  			
+		  			str = "";
+		            
+			  		var c=data.load_time;
+			  	    var b=timeToDate(c);
+			
+                    var dataaddress=data.address;
+                    var dataaddressone=dataaddress.replace(/,/g, ""); 
+                  
+		  			$('.address').html(dataaddressone);
+		  			var dataaddress1=data.yuyueaddress;
+                    var dataaddressone1=dataaddress1.replace(/,/g, ""); 
+		  			$('.yuyueaddress').html(dataaddressone1);
+		  			$('.load_time').html(b);
+		  			$('.carcat').html(data.car.cat);
+		  			$('.long').html(data.spec_name.cat_name);
+		  			$('.width').html(data.spec_name.car_spec);
+		  			$('.carnumber').html(data.car.car_number);
+		  			$('.meter').html(data.car.meter);
+		  			$('.ton').html(data.car.ton);
+		  			$('.bulk').html(data.car.bulk);
+		  			$('.remarks_two').html(data.car.remark);
+
+					
+		  		}
+		  	});
+		  }
+			 getcardetail();
+			 
+		
+        
+        function addresss(){
+           
+		   var btnArray = ['否', '是'];
+            mui.confirm('请确认手机是否安装导航类APP', '', btnArray, function(e) {
+//			window.location.href = 'http://api.map.baidu.com/geocoder?address=广东省广州市天河区驻村东环路&output=html&src=yourCompanyName|yourAppName'
+				 if (e.index == 1) {
+              		 navigateWithMap()
+				 }
+
+              })
+		}
+		
+		
+		function navigateWithMap(){
+			// 设置目标位置坐标点和其实位置坐标点
+		//	alert(currentLon)
+			var dst = new plus.maps.Point(currentLon,currentLat); //终点
+			var src = new plus.maps.Point(lon,lat); //起点
+			// 调用系统地图显示 
+			var addName=$('.address').html()
+			plus.maps.openSysMap( dst, addName, src );
+		}
+        
+        
+         function addresssone(){
+           
+		   var btnArray = ['否', '是'];
+            mui.confirm('请确认手机是否安装导航类APP', '', btnArray, function(e) {
+//			window.location.href = 'http://api.map.baidu.com/geocoder?address=广东省广州市天河区驻村东环路&output=html&src=yourCompanyName|yourAppName'
+				 if (e.index == 1) {
+              		 navigateWithMaone()
+				 }
+
+              })
+		}
+		
+		
+		function navigateWithMaone(){
+			// 设置目标位置坐标点和其实位置坐标点
+		//	alert(currentLon)
+			var dst = new plus.maps.Point(currentLon,currentLat); //终点
+			var src = new plus.maps.Point(lonone,latone); //起点
+			// 调用系统地图显示 
+			var addName=$('.yuyueaddress').html()
+			plus.maps.openSysMap( dst, addName, src );
+		}
+        
+//      function startaddress(obj){
+////      	alert(currentLon);return
+//         var type=$(obj).attr('data-type');
+//		   var btnArray = ['否', '是'];
+//          mui.confirm('请确认手机是否安装导航类APP', '', btnArray, function(e) {
+////			window.location.href = 'http://api.map.baidu.com/geocoder?address=广东省广州市天河区驻村东环路&output=html&src=yourCompanyName|yourAppName'
+//				 
+//				 if (e.index == 1) {
+//				 	if(type==1){
+//				 		var address=$('.address').html();
+//				 		navigateWithMap(lon,lat,address);
+//				 	}else{
+//				 		var yuyueaddress=$('.yuyueaddress').html();
+//				 		navigateWithMap(lonone,latone,yuyueaddress);
+//				 	}
+//            		 
+//				 }
+//
+//            })
+//		}
+//		
+//		
+//		function navigateWithMap(lon,lat,address){
+//			// 设置目标位置坐标点和其实位置坐标点
+//		//	alert(currentLon)
+//			var dst = new plus.maps.Point(lon,lon); //终点
+//			var src = new plus.maps.Point(currentLon,currentLat); //起点
+//			// 调用系统地图显示 
+////			var addName=$('.end_address').html()
+//          var addName=address;
+//			plus.maps.openSysMap( dst, addName, src );
+//		}
+//      
+  
+//
 	</script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=q3awjC6RH3nvY59sUlkSSKBGd9GOSP6I"></script>
+    <script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
 </html>

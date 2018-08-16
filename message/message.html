@@ -50,7 +50,28 @@
 			font-size: 1.1rem;
 			
 		}
-		
+		.mui-table-view-cell{
+			padding: 0;
+		}
+		.nulldata{
+			width: 100%;
+			height: 100px;
+			font-size: 1.1rem;
+			line-height: 100px;
+			text-align: center;
+			background: white;
+		}
+		.mask{
+			width:100%;
+			height: 100%;
+			position: fixed;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			background: black;
+			opacity: 0.4;
+			display: none;
+		}
 	</style>
 	<body>
 		
@@ -60,49 +81,80 @@
 		    
 		    <!--<span><img src="../img/faxian_jia.png"/></span>-->
 		</header>
-		<div class="mui-content">
+		<div class="mui-content" id="pullrefresh">
 			<div class="main">
 				<div class="system">
 					<div class="sys_pic">
 						<img src="../img/xiaoxi_xitongxiaoxi.png"/>
 					</div>
-					<div class="sys_message">
+					<div class="sys_message" onclick="url(this)" data-url='sysmessage.html'>
 						<div>系统消息</div>
-						<!--<div>插画绘制最重要的是能沉下心来去享受涂画的…</div>-->
+						<div class="newmessage"></div>
 					</div>
 					<div class="sysnext">
 						<img src="../img/zhuanxianxiangqing_xiehuowangdian_up.png"/>
 					</div>
 				</div>
-				
+				<div class="mask">
+					
+				</div>
 				<div class="">
 	                <div class="myfriend" data-type="0" onclick="showfriendid('myfriend','friend')">
 	                		我的好友
 	                </div>
-	                <div id="myfriend"></div>
+	                <div id="myfriend">
 	                <!--<div class="friend nofirends"><span>暂无好友</span></div>-->
-	               <!--<div class="friend" onclick="url(this)" data-url="chat.html" style="position: relative;">
-	                	
-						<div class="friend_head" >
-							<img src="../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/>
-						</div>
-						<div class="po_friends">1</div>
-						<div class="friend_name">
-							<div class="name">
-								黄鲜生
+		                <div class="friend" onclick="url(this)" data-url="chat.html" style="position: relative;">
+		                	
+							<!--<div class="friend_head" >
+								<img src="../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/>
 							</div>
-							<div class="descrie">
-								插画绘制最重要的是能沉下心来去享受涂画的…
-							</div>
+							<div class="po_friends">1</div>
+							<div class="friend_name">
+								<div class="name">
+									黄鲜生
+								</div>
+								<div class="descrie">
+									插画绘制最重要的是能沉下心来去享受涂画的…
+								</div>
+							</div>-->
+						
 						</div>
-					
-					</div>-->
+					</div>
 				</div>
 				
+				
+				
+				
+					<!--<ul id="OA_task_2" class="mui-table-view">
+						<li class="mui-table-view-cell">
+							<div class="mui-slider-right mui-disabled">
+							
+								<a class="mui-btn mui-btn-yellow mui-icon">删除</a>
+							</div>
+							<div class="mui-slider-handle friend">
+								<div class="friend_head" >
+									<img src="../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/>
+								</div>
+								<div class="friend_name">
+									<div class="name">
+										黄鲜生
+									</div>
+									<div class="descrie">
+										插画绘制最重要的是能沉下心来去享受涂画的…
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+			-->
+				
+				
+				
 				<div class="">	
-					<div class="mystranger" data-type="0" onclick="showfriendid('mystranger','stranger')">
+					<!--<div class="mystranger" data-type="0" onclick="showfriendid('mystranger','stranger')">
 	                		陌生人
-	                </div>
+	                </div>-->
 	                <div id="mystranger"></div>
 	                
 	               <!--<div class="stranger" style="position: relative;">
@@ -149,7 +201,15 @@
 		</div>
 	</body>
 <script type="text/javascript">
-	
+    $.ajax({
+    	type:"post",
+    	url:globalUrl+"index.php/Mobile/JkShare/sys_list",
+    	dataType:'json',
+    	success:function(res){
+    		var data=res.list;
+    		$('.newmessage').html(data[0].content)
+    	}
+    });
 </script>
 <script src="../js/message.js" type="text/javascript" charset="utf-8"></script>
 </html>

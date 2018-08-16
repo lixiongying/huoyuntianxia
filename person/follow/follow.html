@@ -27,6 +27,9 @@
 			color: #cccc;
 		}
 	</style>
+	<script>
+		mui.init();
+	</script>
 	</head>
 	<body>
 		<header class="mui-bar mui-bar-nav mui-action-back">
@@ -162,13 +165,17 @@
 		   			str+='</div>';
 		   			str+='<div class="fabu">发布：长途车<span>'+data[i].user_info.long_sum+'</span>次 短途车<span>'+data[i].user_info.short_sum+'</span>次</div>';
 		   			str+='</div>';
-		   			str+='<div class="li_liaotian">聊天</div>';
+		   			str+='<div class="li_liaotian joinLtone" data-id='+data[i].eye_id+' data-nick='+data[i].user_info.nick_name+' data-url="../../message/im-chat.html">聊天</div>';
 		   			str+='</div>';
 		   			str+='</div>';
 				}
 				$('.huozhu').html(str);
 			}
 		});
+		
+		
+		
+		
 		
 		
 //		getfocus();
@@ -188,6 +195,7 @@
 			   	data:ajaxData,
 			   	success:function(res){
 			   		var data=res.list;
+//			   		alert(JSON.stringify(data))
 			   		var str='';
 			   		totalPage=res.totalPage;
 //			   		alert(JSON.stringify(data))
@@ -211,7 +219,7 @@
 					   			str+='</div>';
 					   			str+='<div class="fabu">发布：长途车<span>'+data[i].user_info.long_sum+'</span>次 短途车<span>'+data[i].user_info.short_sum+'</span>次</div>';
 					   			str+='</div>';
-					   			str+='<div class="li_liaotian">聊天</div>';
+					   			str+='<div class="li_liaotian sijichat joinLtone" data-id='+data[i].eye_id+' data-nick='+data[i].user_info.nick_name+' data-url="../../message/im-chat.html">聊天</div>';
 					   			str+='</div>';
 					   			str+='</div>';
 //					   			str+='</li>';
@@ -231,21 +239,16 @@
 					   			str+='<div class="fabu">信用分：<span>'+data[i].car_avge+'</span></div>';
 					   			
 					   			str+='</div>';
-					   			str+='<div class="li_liaotian">聊天</div>';
+					   			str+='<div class="li_liaotian joinLt" data-id='+data[i].eye_id+' data-nick='+data[i].user_info.nick_name+' data-url="../../message/im-chat.html">聊天</div>';
 					   			str+='</div>';
 //					   			str+='</li>';
 					   			
 					   			$('.siji').html(str);
 			   				}
 			   				
-//				   			str+='</ul>';
-//				   			str+='</div>';
+
 				   		}
-//			   			$('.swiper-slide').html(str)
-//			   			$('.swiper-wrapper').html(str);
-//			   			$('.swiper-container').html(str);
-//			   			$('#slider').html(str);
-			   			
+
 			   		}
 
 			   	}
@@ -281,5 +284,50 @@
         	$('.swiper-slide').scrollTop(0);
 		});
 		
+		
+        $('.siji').on('tap','.joinLt',function(){
+		
+			var ids = $(this).attr('data-id');
+			var url = $(this).attr('data-url');
+			var nick_name = $(this).attr('data-nick');
+			if(url){
+				mui.openWindow({
+					url: url,
+					id: url,
+					styles: {  
+	        			top: '0px',
+	        			bottom: 0,
+					},
+					extras: {
+						ids: ids,
+						nick_name:nick_name
+	//					name: 'shabi'
+					}
+				})
+			}
+		})
+        
+        
+        $('.huozhu').on('tap','.joinLtone',function(){
+			
+			var ids = $(this).attr('data-id');
+			var url = $(this).attr('data-url');
+			var nick_name = $(this).attr('data-nick');
+			if(url){
+				mui.openWindow({
+					url: url,
+					id: url,
+					styles: {  
+	        			top: '0px',
+	        			bottom: 0,
+					},
+					extras: {
+						ids: ids,
+						nick_name:nick_name
+	//					name: 'shabi'
+					}
+				})
+			}
+		})
 	</script>
 </html>

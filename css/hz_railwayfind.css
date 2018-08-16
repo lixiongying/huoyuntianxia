@@ -82,9 +82,10 @@ header a {
   height: 2.34666667rem;
   background-color: #ffffff;
   margin-top: 2.82666667rem;
+  position: relative;
 }
 .speicalline .line_one {
-  width: 5.33333333rem;
+  width: 9.44rem;
   height: 2.34666667rem;
   font-family: PingFang-SC-Medium;
   font-size: 0.85333333rem;
@@ -96,7 +97,6 @@ header a {
   text-align: center;
   display: inline-block;
   float: left;
-  margin-left: 4rem;
 }
 .speicalline .line_img {
   width: 1.12rem;
@@ -104,9 +104,11 @@ header a {
   display: inline-block;
   float: left;
   margin-top: 0.72rem;
+  position: absolute;
+  left: 9.44rem;
 }
 .speicalline .line_two {
-  width: 5.33333333rem;
+  width: 9.44rem;
   height: 2.34666667rem;
   font-family: PingFang-SC-Medium;
   font-size: 0.85333333rem;
@@ -117,6 +119,5 @@ header a {
   color: #fdbf42;
   display: inline-block;
   float: right;
-  margin-right: 4rem;
   text-align: center;
 }

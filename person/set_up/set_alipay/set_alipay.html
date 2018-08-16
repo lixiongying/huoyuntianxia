@@ -6,7 +6,7 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
-		<title>修改登录密码</title>
+		<title></title>
 		<link rel="stylesheet" type="text/css" href="../../../css/mui.min.css"/>
 		<link rel="stylesheet" type="text/css" href="../../../css/mui.css"/>
 <!--		<link rel="stylesheet" type="text/css" href="../../../css/nav_table.css"/>-->
@@ -16,6 +16,9 @@
 		<script src="../../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
 	</head>
+	<script type="text/javascript">
+		mui.init()
+	</script>
 	<body>
 		<header class="mui-bar mui-bar-nav mui-action-back">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
@@ -63,10 +66,12 @@
 			            data:{alipay_name:username,user_id:userid,alipay_number:usernumber},
 			            success:function(res){
 			            	var data=res;
+//			            	alert(JSON.stringify(data))
 			            	if(data.code==1){
 			            		mui.toast(data.msg);
 			            	}else{
-			            		mui.toast(data.msg);
+			            		mui.toast('提交成功');
+			            		mui.back();
 			            	}
 			            }
 			          })

@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<meta name="format-detection" content="telephone=no">
+		<meta name="format-detection" content="telephone=yes">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
@@ -25,8 +25,15 @@
 			text-align: center;
 			line-height: 10rem;
 			color: #CCCCCC;
+			font-size: 1.2rem;
+		}
+		.surepublishs{
+			background-color:#CCCCCC;
 		}
 	</style>
+	<script>
+		mui.init();
+	</script>
 	</head>
 	<body>
 		
@@ -45,7 +52,7 @@
 				    		<div><img src="../img/help.png"/></div>
 				    	</div>
 				    	<div class="price_two">
-				    		<span>¥</span>&nbsp&nbsp<input type="text" class="shop_price"/>&nbsp&nbsp元
+				    		<span>¥</span>&nbsp&nbsp<input type="text" class="shop_price" id="shop_price"/>&nbsp&nbsp元
 				    	</div>
 				    	<div class="price_three">
 				    		提示：如果低于系统评估价可能没司机接单
@@ -59,7 +66,7 @@
 					    		
 					    	</div>
 					    	<div class="number_two start_address">
-					    		广东省-广州市-天河区-车陂路100号-天河区-车陂路100号
+					    		<!--广东省-广州市-天河区-车陂路100号-天河区-车陂路100号-->
 					    	</div>
 					    	
 					    </div>
@@ -70,7 +77,7 @@
 					    		
 					    	</div>
 					    	<div class="number_two end_address">
-					    		广东省-深圳市-罗湖区-金鹏物流园北区8-13号
+					    		<!--广东省-深圳市-罗湖区-金鹏物流园北区8-13号-->
 					    	</div>
 					    </div>
 				    </div>
@@ -99,7 +106,7 @@
 					    		出发时间：
 					    	</div>
 					    	<div class="number_two load_time">
-					    		2018-05-01
+					    		<!--2018-05-01-->
 					    	</div>
 					    	
 					    </div>
@@ -115,10 +122,82 @@
 				     
 				     
 				     <div class="driver">
+				     	<!--<div class="nodriver">
+				     		暂无接单司机
+				     	</div>-->
+				     	<!--<div class="carimg">
+				     		<img src="../img/c8e9eef9f1c58ac516b51eaa584e7233_t01a6852a946b324a87.jpg"/>
+				     	</div>-->
+				     	<div class="drivermessage">
+				     		<div class="dv_contact">
+				     		     <!--<div class="">
+				     		               联系人：
+				     	         </div>
+				     	         <div class="">
+				     		               黄鲜生
+				     	         </div>
+				     	         <div class="">
+				     		       <img src="../img/dingdanxiangqing_weixuanzhong.png" class="surebtn" data-type="0"/>
+				     	         </div>	-->
+				     	    </div>
+				     	    <div class="dv_tele">
+				     		    <!--<div class="">
+				     		                手机号：
+				     	        </div>
+				     	        <div class="">
+				     		         17875032581  
+				     	        </div>
+				     	        <div class="">
+				     	        	<!--<img src="../img/dingdanxiangqing_weixuanzhong.png"/>-->
+				     		             
+				     	        <!--</div>-->
+				     	    </div>
+				     	    <div class="cartype">
+				     		 <!--6.8米 平板车 22.1方 6.0吨-->
+				     	    </div>
+				     	</div>
+				     </div>
+				     <div class="driver">
+				     	<!--<div class="nodriver">
+				     		暂无接单司机
+				     	</div>-->
+				     	<!--<div class="carimg">
+				     		<img src="../img/c8e9eef9f1c58ac516b51eaa584e7233_t01a6852a946b324a87.jpg"/>
+				     	</div>-->
+				     	<div class="drivermessage">
+				     		<div class="dv_contact">
+				     		     <!--<div class="">
+				     		               联系人：
+				     	         </div>
+				     	         <div class="">
+				     		               黄鲜生
+				     	         </div>
+				     	         <div class="">
+				     		       <img src="../img/dingdanxiangqing_weixuanzhong.png" class="surebtn" data-type="0"/>
+				     	         </div>	-->
+				     	    </div>
+				     	    <div class="dv_tele">
+				     		    <!--<div class="">
+				     		                手机号：
+				     	        </div>
+				     	        <div class="">
+				     		         17875032581  
+				     	        </div>
+				     	        <div class="">
+				     	        	<!--<img src="../img/dingdanxiangqing_weixuanzhong.png"/>-->
+				     		             
+				     	        <!--</div>-->
+				     	    </div>
+				     	    <!--<div class="cartype">
+				     		 6.8米 平板车 22.1方 6.0吨
+				     	    </div>-->
+				     	</div>
+				     </div>
+				     <div class="driver">
 				     	<div class="nodriver">
 				     		暂无接单司机
 				     	</div>
-				     	<div class="carimg">
+				     	<!--<div class="carimg">
 				     		<img src="../img/c8e9eef9f1c58ac516b51eaa584e7233_t01a6852a946b324a87.jpg"/>
 				     	</div>
 				     	<div class="drivermessage">
@@ -141,14 +220,14 @@
 				     		         17875032581  
 				     	        </div>
 				     	        <div class="">
-				     	        	<!--<img src="../img/dingdanxiangqing_weixuanzhong.png"/>-->
-				     		           <img src="../img/zhuanxianxiangqing_phone.png"/>  
-				     	        </div>
-				     	    </div>
-				     	    <div class="cartype">
+				     	        	<img src="../img/dingdanxiangqing_weixuanzhong.png"/>-->
+				     		             
+				     	        <!--</div>
+				     	    </div>-->
+				     	    <!--<div class="cartype">
 				     		 6.8米 平板车 22.1方 6.0吨
-				     	    </div>
-				     	</div>
+				     	    </div>-->
+				     	<!--</div>-->
 				     </div>
 			    </div>
 			</div>
@@ -157,13 +236,13 @@
 			    <div class="payforitem">
 			    	<div class="payfor">
 			    		<div class="payfor_one">
-			    			选择支付方式
+			    		选择支付方式
 			    		</div>
-			    		<div class="payfor_two  cancelpay">
+			    		<div class="payfor_two cancelpay">
 			    			<img src="../img/guanbi.png"/>
 			    		</div>
 			    	</div>
-			    	<div class="zhifubao">
+			    	<div class="zhifubao" data-type='0' onclick="change(this)">
 			    		<div class="zhifubao_pic">
 			    			<img src="../img/alipay.png"/>
 			    		</div>
@@ -174,7 +253,7 @@
 			    			<img src="../img/zhuanxianxiangqing_xiehuowangdian_up.png"/>
 			    		</div>
 			    	</div>
-			    	<div class="webchat">
+			    	<div class="webchat" data-type='1' onclick="change(this)">
 			    		<div class="webchat_pic">
 			    			<img src="../img/wechatpay.png"/>
 			    		</div>
@@ -192,45 +271,21 @@
 			    </div>
 			
 			
-			<div class="surepublish">
+			<div class="surepublish" onclick="payfor()">
 				确认支付
 			</div>
 		</div>
 	</body>
 	<script type="text/javascript">
-	
-         $('.surebtn').click(function(){
-         	
-         	var type=$(this).attr('data-type')
-         	if(type==0){
-         		$(this).attr('data-type',1);
-         		$(this).attr('src','../img/dingdanxiangqing_xuanzhong.png');
-         		$(this).parents('.driver').siblings().find('.surebtn').attr('src','../img/dingdanxiangqing_weixuanzhong.png')
-         		
-         	}else if(type==1){
-         		$(this).attr('src','../img/dingdanxiangqing_weixuanzhong.png');
-         		$(this).attr('data-type',0);
-         	}
-         })
-         $('.surepublish').click(function(){
-			$('.payforitem').show();
-			$('.mask').show()
-		})
-		$('.cancelpay').click(function(){
-			$('.mask').hide()
-			$('.payforitem').hide();
-		})
-		$('.mask').click(function(){
-			$('.mask').hide()
-			$('.payforitem').hide();
-		})
-		
+		var typeid;
+		var userid=localStorage.getItem('user_id');
 		var urL=location.href;
+//		var goodsid=getUrl(urL).goodsid;
 		var shop_price=getUrl(urL).shop_price;
 		var goodsid=getUrl(urL).goodsid;
-		
+		var order_id=getUrl(urL).order_id;
 		$('.shop_price').val(shop_price);
-		var userid=localStorage.getItem('user_id');
+		
 		getgoods()
 		function getgoods(){
 			$.ajax({
@@ -240,12 +295,23 @@
 				dataType:'json',
 				success:function(res){
 						var data=res.root;
+//						alert(JSON.stringify(data));
 		         		var str='';
-		         	
-		         	
-		         		$('.start_address').html(data.start_address);
-		         		$('.end_address').html(data.end_address);
-		         		$('.cat_name').html(data.cat_name);
+		         		var firstaddress=data.start_address;
+		         	    var endaddress=data.end_address;
+		         	    var replaceStr = ',';//要替换的字符串
+		                firstaddress=firstaddress.replace(new RegExp(replaceStr,'gm'),'')
+		         		endaddress=endaddress.replace(new RegExp(replaceStr,'gm'),'')
+		         		
+		         		$('.start_address').html(firstaddress);
+		         		$('.end_address').html(endaddress);
+		         		if(data.cargo!=''&&data.cargo!=undefined&&data.cargo!=null){
+		         			$('.cat_name').html(data.cargo);
+		         		}else{
+		         			$('.cat_name').html(data.cat_name);
+		         		}
+		         		
+		         		
 		         		$('.ton').html(data.ton);
 		         		$('.cube').html(data.cube);
 		         		var time=timeToDate(data.load_time);
@@ -253,43 +319,290 @@
 		         		$('.goods_remark').html(data.goods_remark);
 		         		
 		         		  /*接单司机列表*/
-		         		 if(data.car.userinfo==null||data.car.userinfo==undefined){
-		         		 	$('.nodriver').show();
-		         		 }else{
-		         		 	$('.nodriver').hide();
+		         		
 		         		 
 			         		 for(var i=0;i<data.car.length;i++){
-			         		 	str+='<div class="driver">';
-			         		 	str+='<div class="carimg"><img src="'+picUrl+data.car[i].image2+'"/></div>';
-			         		 	str+='<div class="drivermessage">';
-			         		 	str+='<div class="dv_contact">';
-			         		 	str+='<div class=""> 联系人： </div>';
-			         		 	str+='<div class="">'+data.car[i].user_info.nick_name+'</div>';
-			         		 	str+='<div class=""><img src="../img/dingdanxiangqing_weixuanzhong.png" class="surebtn" data-type="0"/></div>';
-			         		 	str+='</div>';
-			         		 	str+='<div class="dv_tele">';
-			         		 	str+='<div class="">手机号：</div>';
-			         		 	str+='<div class="">'+data.car[i].user_info.mobile+'</div>';
-			         		 	str+='<div class=""><img src="../img/zhuanxianxiangqing_phone.png"/></div>';
-			         		 	str+='</div>';
-			         		 	str+='<div class="cartype"><span>'+data.car[i].meter+'</span>米 平板车<span>'+data.car[i].cat+'</span>方<span>'+data.car[i].ton+'</span>吨</div>';
-			         		 	str+='</div>';	
-			         		 	str+='</div>';
-			         		 }
-		         		 }
-		         		 
-		         		 $('.drivercontent').html(str);
+			         		 	if(data.car[i].user_info==null){
+			         		 		str+='<div class="nodriver">暂无接单司机</div>'
+//			         		 		$('.nodriver').show();
+			         		 	}else{
+//			         		 		$('.nodriver').hide();
+			         		 		str+='<div class="driver">';
+				         		 	str+='<div class="carimg"><img src="'+picUrl+data.car[i].image2+'"/></div>';
+				         		 	str+='<div class="drivermessage">';
+				         		 	str+='<div class="dv_contact">';
+				         		 	str+='<div class=""> 联系人： </div>';
+				         		 	str+='<div class="">'+data.car[i].user_info.nick_name+'</div>';
+				         		 	str+='<div class=""><img src="../img/dingdanxiangqing_weixuanzhong.png" class="surebtn" data-type="0" data-id='+data.car[i].user_info.user_id+' onclick="selectdriver(this)"/></div>';
+				         		 	str+='</div>';
+				         		 	str+='<div class="dv_tele">';
+				         		 	str+='<div class="">手机号：</div>';
+				         		 	str+='<div class="">'+data.car[i].user_info.mobile+'</div>';
+				         		 	str+='<div class=""><a href="tel:'+data.car[i].user_info.mobile+'">	<img src="../img/zhuanxianxiangqing_phone.png"/></a></div>';
+				         		 	str+='</div>';
+				         		 	str+='<div class="cartype"><span>'+data.car[i].spec_name.cat_name+'</span>/<span>'+data.car[i].spec_name.car_spec+'</span>/<span>'+data.car[i].cat+'</span>方/<span>'+data.car[i].ton+'</span>吨</div>';
+				         		 	str+='</div>';	
+				         		 	str+='</div>';
+				         		 }
+			         		 
+				         		 $('.surepublish').addClass('surepublishs');
+				         		 $('.drivercontent').html(str);
+			         		 	}
+			         		 	
 	         	        
 					}
 			});
 		}
 		
 		
+			
+		function selectdriver(obj){
+			var type=$(obj).attr('data-type');
+			if(type==0){
+         		$(obj).attr('data-type',1);
+         		$(obj).attr('src','../img/dingdanxiangqing_xuanzhong.png');
+         		$(obj).parents('.driver').siblings().find('.surebtn').attr('src','../img/dingdanxiangqing_weixuanzhong.png')
+         		$('.surepublish').removeClass('surepublishs');
+         		typeid=$(obj).attr('data-id');
+         		
+         	}else if(type==1){
+         		$(obj).attr('src','../img/dingdanxiangqing_weixuanzhong.png');
+         		$(obj).attr('data-type',0);
+         		$('.surepublish').addClass('surepublishs');
+         	}	
+		}
+	 var goods_driver;
+	 var shop_price;
+	 var result;
+	   function payfor(){
+		   	if($('.surepublish').hasClass('surepublishs')){
+		   		return;
+		   	}else{
+		   		$('.payforitem').show();
+			    $('.mask').show();
+			    
+				goods_driver=typeid;
+				shop_price=$('#shop_price').val();
+				
+	            $.ajax({
+	            	type:"post",
+	            	url:globalUrl+"index.php/Mobile/JkOrder/addUserLine",
+	            	data:{shop_price:shop_price,goods_driver:goods_driver,user_id:userid,goods_id:goodsid},
+	            	dataType:'json',
+	            	success:function(res){
+	            		var data=res.root;
+	            		if(shop_price!=''){
+	            			if(data.status==1){
+	            				result=data.result;
+		            			mui.toast(data.msg);
+		            		}
+	            		}else{
+	            			mui.toast('请输入价格');
+	            			return;
+	            		}
+	            		
+	            	}
+	            });  
+			    
+			    
+		   	}
+	   	  
+		   
+	   }
+	   
+		$('.cancelpay').click(function(){
+			$('.mask').hide()
+			$('.payforitem').hide();
+		})
+		
+		$('.mask').click(function(){
+			$('.mask').hide()
+			$('.payforitem').hide();
+		})
+		
+	   function change(obj){
+			
+			if($(obj).attr('data-type')==0){
+//				$('#pay_type').attr('value',0);
+//				paytype=0;
+				pay('alipay');
+			}else if($(obj).attr('data-type')==1){
+//				$('#pay_type').attr('value',1);
+//				paytype=1;
+				pay('wxpay')
+			}
+			
+		}
+
+		var pays={};
+		function plusReady(){
+			// 获取支付通道
+			plus.payment.getChannels(function(channels){
+		//		var content=document.getElementById('dcontent');
+		//		var info=document.getElementById("info");
+		//		var txt="支付通道信息：";
+				for(var i in channels){
+					var channel=channels[i];
+					pays[channel.id]=channel;
+		//			txt += "id:"+channel.id+", ";
+		//			txt += "description:"+channel.description+", ";
+		//			txt += "serviceReady:"+channel.serviceReady+"； ";
+		//			var de=$('#pay');
+		//			de.setAttribute('class','button');
+		//			de.setAttribute('onclick','pay(this.id)');
+		//			de.id=channel.id;
+		//			alert(de.id)
+		//			de.innerText=channel.description+"支付";
+		//			content.appendChild(de);
+					checkServices(channel);
+				}
+		//		info.innerText=txt;
+			},function(e){
+		//		outLine("获取支付通道失败："+e.message);
+			});
+		}
+		document.addEventListener('plusready',plusReady,false);
+		// 检测是否安装支付服务
+		function checkServices(pc){
+			if(!pc.serviceReady){
+				var txt=null;
+				switch(pc.id){
+					case "alipay":
+					txt="检测到系统未安装“支付宝快捷支付服务”，无法完成支付操作，是否立即安装？";
+					break;
+					default:
+					txt="系统未安装“"+pc.description+"”服务，无法完成支付，是否立即安装？";
+					break;
+				}
+				plus.nativeUI.confirm(txt,function(e){
+					if(e.index==0){
+						pc.installService();
+					}
+				},pc.description);
+			}
+		}
+		
+		var w=null;
+		// 支付
+		function pay(id){
+			
+		//	alert('11')
+			if(w){return;}//检查是否请求订单中
+		//	if(id=='alipay'||id=='wxpay'){
+		//		url+=id;
+		//	}else{
+		//		plus.nativeUI.alert("不支持此支付通道！",null,"捐赠");
+		//		return;
+		//	}
+			var appid=plus.runtime.appid;
+			if(navigator.userAgent.indexOf('StreamApp')>=0){
+				appid='Stream';
+			}
+			
+			w=plus.nativeUI.showWaiting();
+		//	alert(JSON.stringify(w))
+			// 请求支付订单
+			
+			
+			var xhr=new XMLHttpRequest();
+			xhr.onreadystatechange=function(){
+				switch(xhr.readyState){
+					case 4:
+					w.close();
+					w=null;
+					if(xhr.status==200){
+		//				alert(11)
+						var order=xhr.responseText;
+		//				alert(pays[id])
+						plus.payment.request(pays[id],order,function(results){
+		//					plus.nativeUI.alert("支付成功：感谢你的支持，我们会继续努力完善产品。",function(){
+		//						alert(22)
+//								mui.openWindow({
+//									url:"payforsuccess.html?amount="+Money+'&paytype='+paytype,
+////									url:"payforsuccess.html?id='+data[i].id+'&name='+data[i].mobile_name+'",
+////									url:'payforsuccess.html',
+//									id:"payforsuccess.html"
+//								})
+								$('.payforitem').hide();
+							    $('.mask').hide();
+                                 shuaxin();
+		//					},"捐赠");
+							var param={};
+							
+							if(id=='alipay'){
+								param.amount=0.01;
+								param.types=1;
+								param.order_sn = result;
+								
+								var successUrl=globalUrl+"index.php/Mobile/JkPay/addpayis";
+								
+								mui.post(successUrl,param,function(data){
+									
+								  $('.payforitem').hide();
+							   	  $('.mask').hide();
+	//							   
+								})
+							}
+						},function(e){
+			//					outLine("----- 支付失败 -----");
+			//					plus.nativeUI.alert("更多错误信息请参考支付(Payment)规范文档：http://www.html5plus.org/#specification#/specification/Payment.html",null,"支付失败："+e.code);
+							mui.toast('支付已取消')
+								
+							});
+					}else{
+		//				outLine("----- 请求订单失败 -----");
+		//				outLine( xhr.status );
+		//				plus.nativeUI.alert("获取订单信息失败！",null,"捐赠");
+					mui.toast('请填写充值金额')
+					}
+					break;
+					default:
+					break;
+				}
+			}
+			var user_id=localStorage.getItem('user_id');
+			
+			if(id=='alipay'){
+			 var newUrl=globalUrl+'index.php/Mobile/JkPay/alipaying?total_amount=0.01&orderSn='+result+'&user_id='+user_id
+			  
+			}else if(id=='wxpay'){
+				var newUrl=globalUrl+'index.php/Mobile/JkPay/wechatPay?totalFee=100&orderSn='+result+'&userId='+user_id
+				
+			}
+		
+			xhr.open('GET',newUrl);
+		//	outLine("请求支付订单："+url+amount);
+		//	outLine("请求支付订单："+newUrl+amount);
+			xhr.send();
+		}
 		
 		
+		/*修改价格*/
+		$('.shop_price').keyup(function(){
+			var shop_price=$('.shop_price').val();
+			$.ajax({
+				type:"post",
+				url:globalUrl+"index.php/Mobile/JkOrder/addUserLine",
+				data:{user_id:userid,goods_id:goodsid,shop_price:shop_price,order_id:order_id},
+				dataType:'json',
+				success:function(res){
+//					alert(JSON.stringify(res))
+                plus.webview.getWebviewById('person/order/orderdetail.html').evalJS("shuaxin()");
+
+				}
+			});
+		})
 		
-		
-	
-	 
+		//			pushHistory(); 
+//			window.addEventListener("popstate", function(e) { 
+//			    alert("我监听到了浏览器的返回按钮事件啦");//根据自己的需求实现自己的功能 
+//			}, false); 
+//			function pushHistory() { 
+//			    var state = { 
+//			        title: "title", 
+//			        url: "#"
+//			    }; 
+//			    window.history.pushState(state, "title", "#"); 
+//			}
 	</script>
 </html>

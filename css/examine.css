@@ -1,0 +1,86 @@
+.clear {
+  clear: both;
+}
+body,
+html {
+  background: white;
+}
+.mui-bar {
+  background: #279cfe;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border: 0;
+  height: 2.34666667rem;
+}
+.mui-bar .mui-title {
+  color: #fff;
+}
+.mui-bar-nav ~ .mui-content {
+  padding-top: 2.34666667rem;
+}
+.main {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-bottom: 2.34666667rem;
+  background: white;
+}
+.pic {
+  width: 3.73333333rem;
+  height: 3.73333333rem;
+  margin: 0 auto;
+  margin-top: 5.33333333rem;
+}
+.shenhezhong {
+  width: 3.30666667rem;
+  height: 1.06666667rem;
+  font-family: MicrosoftYaHei;
+  font-size: 0.96rem;
+  font-weight: normal;
+  font-stretch: normal;
+  margin: 0 auto;
+  margin-top: 1.33333333rem;
+  letter-spacing: 0px;
+  color: #f25c5c;
+  text-align: center;
+  line-height: 1.06666667rem;
+}
+.shenhezhong1,
+.shenhezhong2 {
+  width: auto;
+  text-align: center;
+  margin: 0 auto;
+  height: 0.74666667rem;
+  font-family: MicrosoftYaHei;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 0.8rem;
+  letter-spacing: 0px;
+  color: #000000;
+  margin-top: 1.33333333rem;
+}
+.shenhezhong2 {
+  margin-top: 0.53333333rem;
+}
+.shenhezhong3,
+.shenhezhong4 {
+  width: auto;
+  text-align: center;
+  margin: 0 auto;
+  height: 0.74666667rem;
+  font-family: MicrosoftYaHei;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 0.8rem;
+  letter-spacing: 0px;
+  color: #787878;
+}
+.shenhezhong3 {
+  margin-top: 9.33333333rem;
+}
+.shenhezhong4 {
+  margin-top: 0.53333333rem;
+  color: #000000;
+}

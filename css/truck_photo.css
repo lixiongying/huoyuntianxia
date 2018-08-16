@@ -30,8 +30,39 @@
   background: #fff;
   padding: 0.53333333rem 0.53333333rem;
 }
-.main_li .main_li_photo .photo {
+.main_li .main_li_photo .photofather {
   position: relative;
+  width: 17.38666667rem;
+  height: 7.46666667rem;
+}
+.main_li .main_li_photo .photofather1 {
+  position: relative;
+  width: 17.38666667rem;
+  height: 7.46666667rem;
+}
+.main_li .main_li_photo .photofather2 {
+  position: relative;
+  width: 17.38666667rem;
+  height: 7.46666667rem;
+}
+.main_li .main_li_photo .photofather3 {
+  position: relative;
+  width: 17.38666667rem;
+  height: 7.46666667rem;
+}
+.main_li .main_li_photo .photofather .photo {
+  width: 17.38666667rem;
+  height: 7.46666667rem;
+}
+.main_li .main_li_photo .photofather1 .photo {
+  width: 17.38666667rem;
+  height: 7.46666667rem;
+}
+.main_li .main_li_photo .photofather2 .photo {
+  width: 17.38666667rem;
+  height: 7.46666667rem;
+}
+.main_li .main_li_photo .photofather3 .photo {
   width: 17.38666667rem;
   height: 7.46666667rem;
 }
@@ -44,6 +75,7 @@
 }
 .main_li .main_li_photo .del_icon {
   position: absolute;
+  z-index: 100;
   width: 0.8rem;
   height: 0.8rem;
   right: -0.4rem;

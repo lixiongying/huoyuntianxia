@@ -6,9 +6,11 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
 		<link href="../css/mui.min.css" rel="stylesheet" />
+		<!--<link rel="stylesheet" type="text/css" href="res"/>-->
 		<link rel="stylesheet" type="text/css" href="../css/app.css" />
 		<link href="../css/mui.imageviewer.css" rel="stylesheet" />
-		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		
 		<style>
 			html,
 			body {
@@ -108,8 +110,8 @@
 			}
 			
 			.msg-item .msg-user {
-				width: 38px;
-				height: 38px;
+				width: 40px;
+				height: 40px;
 				border: solid 1px #d3d3d3;
 				display: inline-block;
 				background: #fff;
@@ -120,7 +122,10 @@
 				padding: 3px;
 				color: #ddd;
 			}
-			
+			.msg-item .msg-user img{
+				width: 100%;
+				height: 100%;
+			}
 			.msg-item .msg-user-img {
 				width: 38px;
 				height: 38px;
@@ -150,6 +155,7 @@
 			
 			.msg-item .msg-content .msg-content-inner {
 				overflow-x: hidden;
+			
 			}
 			
 			.msg-item .msg-content .msg-content-arrow {
@@ -180,15 +186,17 @@
 			
 			.msg-item-self .msg-content,
 			.msg-item-self .msg-content .msg-content-arrow {
-				background-color: #4CD964;
+				background-color: #279cfe;
 				color: #fff;
-				border-color: #2AC845;
+				border-color: #279cfe;
 			}
 			
 			footer .mui-icon {
 				color: #000;
 			}
-			
+			.msg-content .mui-icon{
+				color: #C0C0C0;
+			}
 			footer .mui-icon:active {
 				color: #007AFF !important;
 			}
@@ -335,7 +343,15 @@
 				
 			}
 			audio{
-				width: 3rem;
+				width: 5rem;
+				height: 2rem;
+			}
+			.play-state{
+				
+			}
+			.chatrecord{
+				width: 5rem;
+				height: 2rem;
 			}
 			/*.head img{
 				float:left;
@@ -344,30 +360,78 @@
 			/*.head .headerworld{
 				padding-left:10rem;
 			}*/
+			.mui-bar{
+				background: #279cfe;
+			}
+			#friends_name,.mui-icon{
+				color: white;
+			}
+			#bg_fx{
+				display: block;
+				width: 1.5rem;
+				height: 1.2rem;
+				position: absolute;
+				left: 0.6rem;
+				top: 0.5rem;
+			}
+			.chongzhi {
+			  width: 3.66666667rem;
+			  height: 100%;
+			  position: absolute;
+			  right: 0.93333333rem;
+			  top: 0.2rem;
+			  text-align: center;
+			  line-height: 2.13333333rem;
+			  color: white;
+			   font-size: 0.8rem;
+			}
+			.mask{
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				
+				z-index: 100;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				background-color: black;
+				opacity: 0.4;
+				
+			}
+			.videoitem{
+				width: 60px;
+			}
 		</style>
 	</head>
 
 	<body contextmenu="return false;">
-		<div class="mui-bar mui-bar-nav mui-action-back">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title " id="friends_name">黎雄鹰</h1>
-			<!--<img src="../img/next.png"/>
-			<div class="headerworld">
-				聊天窗口
-			</div>-->
+		<!--<div class="mui-bar mui-bar-nav">
+			<a class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title " id="friends_name">聊天窗口</h1>
+			
+		</div>-->
+		
+		<div class="mui-bar mui-bar-nav">
+			<a href="javascript:void(0);"><img src="../img/back.png"/ id="bg_fx"></a>
+		    <h1 class="mui-title" id="friends_name">聊天窗口</h1>
+		    <div class="chongzhi" id="reset" onclick="qingkong()">
+		     	 清空记录
+		    </div>
 		</div>
-		<!--<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">chat (聊天窗口)</h1>
-		</header>-->
+	 <div class="mask">
+			
+		</div>
 		<pre id='h'></pre>
 		<script id='msg-template' type="text/template">
 			<% for(var i in record){ var item=record[i]; %>
 			<div class="msg-item <%= (item.sender=='self'?' msg-item-self':'') %>" msg-type='<%=(item.type)%>' msg-content='<%=(item.content)%>'>
 				<% if(item.sender=='self' ) { %>
-				<i class="msg-user mui-icon mui-icon-person"></i>
+				<!--<i class="msg-user mui-icon mui-icon-person"></i>-->
+				<div class="msg-user">
+					<img class="user-img" src="<%=(item.userpic)%>" onclick="userinfo()"/>
+				</div>
 				<% } else { %>
-				<img class="msg-user-img" src="http://img4.duitang.com/uploads/item/201406/20/20140620193408_hcjVU.jpeg" alt="" />
+				<img class="msg-user-img" id="user-img" src="<%=(item.friendpic)%>" alt=""  onclick="friendinfo()"/>
 				<% } %>
 				<div class="msg-content">
 					<div class="msg-content-inner">
@@ -375,10 +439,12 @@
 						<%=( item.content|| '&nbsp;&nbsp;') %>
 						<% } else if(item.type=='image' ) { %>
 						<img class="msg-content-image" src="<%=(item.content)%>" style="max-width: 100px;" />
+						<% } else if(item.type=='video' ) { %>
+						<video class="videoitem" src="<%=(item.content)%>" muted="true" loop="loop" autoplay="autoplay" onclick="video(this)"/></video>
 						<% } else if(item.type=='sound' ) { %>
-							<audio src="<%=(item.content)%>" controls="controls"></audio>
-						<span style="display: none;" class="mui-icon mui-icon-mic" style="font-size: 18px;font-weight: bold;"></span>
-						<span style="display: none;" class="play-state">点击播放</span>
+							<!--<audio src="<%=(item.content)%>" controls="controls"></audio>-->
+						<span class="mui-icon mui-icon-mic" style="font-size: 18px;font-weight: bold;"></span>
+						<span class="play-state">点击播放</span>
 						<% } %>
 					</div>
 					<div class="msg-content-arrow"></div>
@@ -386,6 +452,13 @@
 				<div class="mui-item-clear"></div>
 			</div>
 			<% } %>
+
+		</script>
+		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+//		var videoitem=document.getElementsByClassName('videoitem');
+//			alert(videoitem.length)
 		</script>
 		<!--<div class="mui-content">
 			<header class="mui-bar mui-bar-nav">
@@ -407,6 +480,7 @@
 				<i id='msg-type' class="mui-icon mui-icon-mic"></i>
 			</label>
 		</footer>
+		
 		<div id='sound-alert' class="rprogress">
 			<div class="rschedule"></div>
 			<div class="r-sigh">!</div>
@@ -415,7 +489,11 @@
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/mui.imageViewer.js"></script>
 		<script src="../js/arttmpl.js"></script>
+		<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
+		
 		<script type="text/javascript" charset="utf-8">
+		var form_user_id;
+		var to_user_id;
 			(function($, doc) {
 				var MIN_SOUND_TIME = 800;
 				$.init({
@@ -448,8 +526,18 @@
 				$.plusReady(function() {
 					//动态获取参数id
 					var self = plus.webview.currentWebview();
-					var form_user_id = localStorage.getItem('user_id');
-					var to_user_id = self.ids;
+					form_user_id = localStorage.getItem('user_id');
+					to_user_id = self.ids;
+					var nick_name=self.nick_name;
+//					var friendpic=self.friendpic;
+//					
+//					var userpic=self.user_pic;
+//				
+//					document.getElementsByClassName('user-img').src=userpic;
+					document.getElementById('friends_name').innerHTML=nick_name;
+//                  document.getElementsByClassName('msg-user-img').src=friendpic;
+//					alert($('#friends_name').html())
+//					$('#friends_name').html(nick_name);
 					plus.webview.currentWebview().setStyle({
 						softinputMode: "adjustResize"
 					});
@@ -485,7 +573,9 @@
 //		res=setInterval(function(){
 //			lodding()
 //		},1000)
-//		})
+//		})          
+                   var friendpic;
+                   var userpic;
 					mui.ajax({
 						type:"post",
 						url:'http://hytx.sxnet.cc/index.php/Mobile/JkShare/save_see',
@@ -502,9 +592,11 @@
 						data:{to_user_id:to_user_id,form_user_id:form_user_id},
 						dataType:'json',
 						success:function(res){
-							
+						
 //							alert(JSON.stringify(res))
 							var data_list=res.list;
+							friendpic=picUrl+res.to_user_id.head_pic;
+							userpic=picUrl+res.form_user_id.head_pic;
 							if(res.code==0){
 //								alert(to_user_id)
 //								$('.mui-title').html('1');
@@ -514,14 +606,16 @@
 										var data = {
 										sender: 'zf',
 										type: data_list[i].content_type,
-										content: data_list[i].content
+										content: data_list[i].content,
+										friendpic:picUrl+res.to_user_id.head_pic
 										}
 										record.push(data);
 									}else{
 										var data = {
 										sender: 'self',
 										type: data_list[i].content_type,
-										content: data_list[i].content
+										content: data_list[i].content,
+										userpic:picUrl+res.form_user_id.head_pic
 										}
 										record.push(data);
 									}																										
@@ -529,7 +623,7 @@
 								bindMsgList();
 							}
 							var seler = '';
-						seler = setInterval(newMessage, 1000);
+						    seler = setInterval(newMessage, 1000);
 						}})
 					
 		
@@ -549,23 +643,26 @@
 						content: doc.querySelector('.mui-content')
 					};
 					
-							function newMessage() {
+					function newMessage() {
 
 						mui.getJSON("http://hytx.sxnet.cc/index.php/Mobile/JkShare/newMessage", {
 							to_user_id: to_user_id,
 							form_user_id: form_user_id
 						}, function(res) {
 							var data_list = res.messList;
-							//						alert(JSON.stringify(res))
+//													alert(JSON.stringify(data_list))
 							if(res.status == 1) {
 
-								for(var i = 0; i < res.messList.length; i++) {
+								for(var i = 0; i < data_list.length; i++) {
 
 									var parms = {
 										sender: 'zf',
 										type: data_list[i].content_type,
-										content: data_list[i].content
+										content: data_list[i].content,
+										userpic:picUrl+res.to_user_id.head_pic,
+										friendpic:picUrl+res.form_user_id.head_pic,
 									}
+//									alert(JSON.stringify(parms))
 									record.push(parms);
 									bindMsgList();
 								}
@@ -591,10 +688,37 @@
 								playState.innerText = '点击播放';
 							});
 						}
+						
+						/*联网下载图片,并设置给<img>*/
+							function setImgFromNet(loadUrl, relativePath) {
+								//先设置下载中的默认图片
+								//          $id(imgId).setAttribute("src", "../images/loading.png");
+								//创建下载任务
+								var dtask = plus.downloader.createDownload(loadUrl, {}, function(d, status) {
+									if(status == 200) {
+										//下载成功
+										//                  console.log("下载成功=" + relativePath);
+										setImgFromLocal( d.filename);
+									} else {
+										//下载失败,需删除本地临时文件,否则下次进来时会检查到图片已存在
+										console.log("下载失败=" + status + "==" + relativePath);
+										//dtask.abort();//文档描述:取消下载,删除临时文件;(但经测试临时文件没有删除,故使用delFile()方法删除);
+										if(relativePath != null)
+											delFile(relativePath);
+									}
+								});
+								//启动下载任务
+								dtask.start();
+							}
+
+							//							
+//						}
+						
 					};
 					var imageViewer = new $.ImageViewer('.msg-content-image', {
 						dbl: false
 					});
+					
 					var bindMsgList = function() {
 						//绑定数据:
 						/*tp.bind({
@@ -673,6 +797,7 @@
 					//							event.preventDefault();
 					//						}
 					//					});
+					/*发送消息*/
 					ui.footerRight.addEventListener('release', function(event) {
 						if(ui.btnMsgType.classList.contains('mui-icon-paperplane')) {
 							//showKeyboard();
@@ -684,7 +809,9 @@
 							send({
 								sender: 'self',
 								type: 'text',
-								content: ui.boxMsgText.value.replace(new RegExp('\n', 'gm'), '<br/>')
+								content: ui.boxMsgText.value.replace(new RegExp('\n', 'gm'), '<br/>'),
+								userpic:userpic,
+								friendpic:friendpic
 							});
 							ui.boxMsgText.value = '';
 							$.trigger(ui.boxMsgText, 'input', null);
@@ -713,6 +840,8 @@
 							title: "拍照"
 						}, {
 							title: "从相册选择"
+						},{
+							title: "拍摄"
 						}];
 						plus.nativeUI.actionSheet({
 							title: "选择照片",
@@ -726,8 +855,9 @@
 								case 1:
 									var cmr = plus.camera.getCamera();
 									cmr.captureImage(function(p) {
+										var type=1;
 										plus.io.resolveLocalFileSystemURL(p, function(entry) {
-											compressImage(entry.toLocalURL(), entry.name);
+											compressImage(entry.toLocalURL(), entry.name,type);
 										}, function(e) {
 											plus.nativeUI.toast("读取拍照文件错误：" + e.message);
 										});
@@ -740,8 +870,9 @@
 									break;
 								case 2:
 									plus.gallery.pick(function(e) {
+										var type=1
 										plus.io.resolveLocalFileSystemURL(e, function(entry) {
-											compressImage(entry.toLocalURL(), entry.name);
+											compressImage(entry.toLocalURL(), entry.name,type);
 										});
 										/*	send({
 											sender: 'self',
@@ -750,11 +881,83 @@
 										});*/
 									}, function(err) {}, null);
 									break;
+								case 3:
+								var VIDEOZOOM = 200;
+								var type=2;
+						        var MediaStore = plus.android.importClass("android.provider.MediaStore");
+						        var Intent = plus.android.importClass("android.content.Intent");
+						        // 导入后可以使用new方法创建类的示例对象
+						        var intent = new Intent("android.media.action.VIDEO_CAPTURE");
+						        intent.putExtra("android.intent.extra.videoQuality", 0);//0 means low quality, 1 means high quality
+						//        intent.putExtra("android.provider.MediaStore.EXTRA_OUTPUT", url);
+						        intent.putExtra("android.intent.extra.durationLimit", 10);//设置录像时间
+						//       intent.putExtra(MediaStore.EXTRA_DURATION_LIMIT, 10); 
+						        var main = plus.android.runtimeMainActivity();
+						        main.startActivityForResult(intent,VIDEOZOOM);
+						        //获取返回参数
+						        main.onActivityResult = function(requestCode, resultCode, data) {
+						            var context = main;
+						            plus.android.importClass(data);
+						            var uri = data.getData();
+						            var resolver = context.getContentResolver();
+						            plus.android.importClass(resolver);
+						            var cursor = resolver.query(uri, null, null, null, null);
+						            plus.android.importClass(cursor);
+						            cursor.moveToFirst();
+						            var column = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATA);
+						            // 获取录制的视频路径
+						            var filePath = cursor.getString(column);
+						
+						            // 解析视频文件的属性
+						            plus.io.resolveLocalFileSystemURL(filePath,function(entry) {
+						                entry.file(function(file){
+						                	
+						                	saveimage(filePath, file.name,filePath,type)
+				//		                    console.log("size=="+file.size); 
+				//		                    console.log("name=="+file.name);
+						                });
+						            }, function (e) {
+						                console.log("Resolve file URL failed: " + e.message);
+						            });
+						        };
+			
+								
+//								var cmr = plus.camera.getCamera();
+//									cmr.startVideoCapture(function(p) {
+//										var type=2;
+//					                //录像
+//					                plus.io.resolveLocalFileSystemURL(p, function(entry) {
+//					                	var path = entry.toLocalURL();
+//					                	plus.zip.compress(path,"_doc/camera/" , function(){
+//					                		
+//					                		saveimage(entry.toLocalURL(), entry.name,path,type)
+//					                		
+//					                	}, function(){
+//					//              		alert("Compress error!");
+//					                	});
+//					                	
+//					                	
+//					                	
+//					
+//					                    }, function(e) {
+//					                        console.log("读取录像文件错误：" + e.message);
+//					                    });
+//					
+//					                }, function(e) {
+//					                    console.log("失败");
+//					                    plus.nativeUI.toast("录像失败！",{duration:"long"});
+//					                }, {
+//					                    filename: "_doc/camera/",//文件保存目录
+//					                    index: 2,
+//					                    format: 'mp4'
+//					                });
+									break;
 							}
 						});
 					}, false);
 					//压缩图片
-					function compressImage(url, filename) {
+					function compressImage(url, filename,type) {
+						var type=type;
 						var name = "_doc/upload/" + "-" + filename; //_doc/upload/F_ZDDZZ-1467602809090.jpg  
 						plus.zip.compressImage({
 								src: url, //src: (String 类型 )压缩转换原始图片的路径  
@@ -766,14 +969,16 @@
 							function(event) {
 								//uploadf(event.target,divid);  
 								var path = name; //压缩转换目标图片的路径  
-								saveimage(event.target, filename, path);
+								saveimage(event.target, filename, path,type);
 							},
 							function(error) {
 								plus.nativeUI.toast("压缩图片失败，请稍候再试");
 							});
 					}
 					//上传图片并发送信息
-					function saveimage(url, name, path) {
+					function saveimage(url, name, path,type) {
+						var type=type;
+						
 						var urls = 'http://hytx.sxnet.cc/index.php/Mobile/JkShare/testUploadPic1';
 						var wt = plus.nativeUI.showWaiting();
 						var task = plus.uploader.createUpload(urls, {
@@ -783,11 +988,24 @@
 								wt.close();
 								var data = JSON.parse(t.responseText); //json解析方法JSON.parse 或者 eval('('+xhr.responseText+')')
 //								mui.alert(data.paths[0])
-								send({
-									sender: 'self',
-									type: 'image',
-									content: 'http://hytx.sxnet.cc/'+data.paths[0]
-								});
+								if(type==1){
+									send({
+										sender: 'self',
+										type: 'image',
+										content: 'http://hytx.sxnet.cc/'+data.paths[0],
+										userpic:userpic,
+										friendpic:friendpic
+									});
+								}else{
+									send({
+										sender: 'self',
+										type: 'video',
+										content: 'http://hytx.sxnet.cc/'+data.paths[0],
+										userpic:userpic,
+										friendpic:friendpic
+									});
+								}
+								
 									
 							} else {
 								mui.alert('图片上传失败');
@@ -845,7 +1063,9 @@
 									send({
 										sender: 'self',
 										type: 'sound',
-										content: 'http://hytx.sxnet.cc/'+data.img
+										content: 'http://hytx.sxnet.cc/'+data.img,
+										userpic:userpic,
+										
 									});
 								} else {
 									mui.alert('图片上传失败');
@@ -910,7 +1130,7 @@
 						ui.btnMsgType.setAttribute("for", ui.boxMsgText.value == '' ? '' : 'msg-text');
 						ui.h.innerText = ui.boxMsgText.value.replace(new RegExp('\n', 'gm'), '\n-') || '-';
 						ui.footer.style.height = (ui.h.offsetHeight + footerPadding) + 'px';
-						ui.content.style.paddingBottom = ui.footer.style.height;
+//						ui.content.style.paddingBottom = ui.footer.style.height;
 					});
 					var focus = false;
 					ui.boxMsgText.addEventListener('tap', function(event) {
@@ -932,8 +1152,92 @@
 					})
 
 				});
+		
+				
 			}(mui, document));
 			//压缩图片
+			function qingkong(){
+		    
+				$('.mask').show();
+				reminder('你确定要清空该记录么');
+				
+			}
+			function makesure(){
+				$.ajax({
+					type:"post",
+					url:globalUrl+"index.php/Mobile/JkShare/delliaotian",
+					data:{form_user_id:form_user_id,to_user_id:to_user_id},
+					dataType:'json',
+					success:function(res){
+						var data=res;
+						if(data.code==0){
+							mui.toast('删除记录成功');
+						
+							$('.mask').hide();
+							$('.reminder').hide();
+							shuaxin()
+						}else{
+							mui.toast(res,msg);
+							$('.mask').hide();
+							$('.reminder').hide();
+						}
+					
+					}
+				});
+				
+                 
+			}
+			
+		
+			function video(obj){
+                var _this=$(obj)[0]
+		      
+	       		if(_this.requestFullscreen){
+		       			
+					_this.requestFullscreen();
+					_this.muted=false
+				}else if(_this.msRequestFullscreen) {
+						
+					_this.msRequestFullscreen();
+					_this.muted=false
+				}else if(_this.mozRequestFullScreen) {
+						
+					_this.mozRequestFullScreen();
+					_this.muted=false
+				}else if(_this.webkitRequestFullScreen) {
+						
+					_this.webkitRequestFullScreen();
+					_this.muted=false
+				}
+				
+				_this.addEventListener("webkitfullscreenchange", function(e) {
+				    if (!document.webkitIsFullScreen) {
+				       //退出全屏关闭视频
+				       _this.muted=true
+				    };
+				})
+		       	
+           }
+			
+			function userinfo(){
+				mui.openWindow({
+					url:'../discover/mymesage.html?$userid='+form_user_id+'',
+					id:'../discover/mymesage.html'
+				})
+			}
+			
+			function friendinfo(){
+				mui.openWindow({
+					url:'../discover/mymesage.html?$userid='+to_user_id+'',
+					id:'../discover/mymesage.html'
+				})
+			}
+			
+			
+			
+			$('#bg_fx').click(function(){
+				mui.back()
+			})
 		</script>
 	</body>
 

@@ -1,79 +1,81 @@
 <!DOCTYPE html>
 <html>
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title></title>
+    <style>
+        body,#mapContainer{
+            margin:0;
+            height:100%;
+            width:420%;
+            font-size:12px;
+        }
+        .marker{
+            width:22px;
+            height:36px;
+            background-image:url(https://webapi.amap.com/theme/v1.3/markers/b/mark_b.png);
+            background-size: 22px 36px;
+            text-align: center;
+            line-height: 24px;
+            color: #fff
+        }
+    </style>
+    <link rel="stylesheet" href="https://cache.amap.com/lbs/static/main.css?v=1.0" />
+   	<script src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+		<script src="http://webapi.amap.com/maps?v=1.3&key=60b855d756dab0862afdfadac1142a99"></script>
+    <script>
 
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>底部导航</title>
-		<script src="js/mui.min.js"></script>
-		<script type="text/javascript" src="./js/jquery.min.js"></script>
-		<script src="js/w_pub.js"></script>
-		
-		<link href="css/mui.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="css/style.css" />
-		<link rel="stylesheet" href="css/pub/pubBottom.css" />
-		<script type="text/javascript" charset="utf-8">
-			mui.init();
-		</script>
-	</head>
-
-	<body>
-		<nav class="mui-bar mui-bar-tab bottom">
-		    <a class="mui-tab-item mui-active" href="homepage/hz_homepage.html">
-		        <span class="mui-icon pubIcon1 pubIcon"></span>
-		        <span class="mui-tab-label">首页</span>
-		    </a>
-		    <a class="mui-tab-item" href="message/message.html">
-		        <span class="mui-icon pubIcon2 pubIcon"></span>
-		        <span class="mui-tab-label">消息</span>
-		    </a>
-		    <a class="mui-tab-item" href="discover/discover.html">
-		        <span class="mui-icon pubIcon3 pubIcon"></span>
-		        <span class="mui-tab-label">发现</span>
-		    </a>
-		    <a class="mui-tab-item" href="person/person.html">
-		        <span class="mui-icon pubIcon4 pubIcon"></span>
-		        <span class="mui-tab-label">我的</span>
-		    </a>
-		</nav>
-	</body>
-	<script>
-		
-		mui.plusReady(function(){
-			var subPages = ['home.html','college.html','shoppingmall.html','car.html'];//定义跳转页面
-			var bottomH = $('.bottom').height();//获取底部高度
-			//2.定义子页面打开的样式 
-			var subPageStyle = {
-				top:'0px',
-				bottom: bottomH + 'px'
-			};
-			var self = plus.webview.currentWebview();//获取当前显示窗体
-			subPages.forEach(function(obj,index){//遍历跳转页面
-				var sub = plus.webview.create(subPages[index],subPages[index],subPageStyle);//获取子窗体对象
-				sub.hide();//隐藏所有页面
-				self.append(sub);//将页面追加到子窗体中
-			});
-			plus.webview.show(subPages[0]);//显示第一个窗体
-			//选中 .mui-bar-tab下的所有的a标签
-			mui(".bottom").on("tap","a",function(e) {
-				if($(this).attr('class') == 'mui-tab-item mui-active'){
-					
-				}else {
-					//获取当前被点击的a标签的href属性值 
-					var targetPage = this.getAttribute('href');
-					
-					//显示指定的子页面 
-					plus.webview.show(targetPage,"fade-in",100);
-				}
-			});
-		});
-		function hide(){
-			$('bottom').hide();
-		}
-		function show(){
-			$('bottom').hide();
-		}	
-		
-	</script>
-
+        function init() {
+            map = new AMap.Map("mapContainer", {
+                zoom: 18,
+                center:[116.473188,39.993253]
+            });
+            AMap.plugin('AMap.PlaceSearch',function(){
+                var placeSearch = new AMap.PlaceSearch({
+                    city:'010',
+                    pageSize:5
+                })
+                placeSearch.search('博物馆',function(status,data){
+                    if(status!=='complete')return;
+                    var pois = data.poiList.pois;
+                    for(var i=0;i<pois.length;i+=1){
+                        var marker = new AMap.Marker({
+                            content:'<div class="marker" >'+i+'</div>',
+                            position:pois[i].location,
+                            map:map,
+                            label: {
+                                offset: new AMap.Pixel(20, 20),//修改label相对于maker的位置
+                                content: pois[i].name
+                            }
+                        });
+                        marker.id= pois[i].id;
+                        marker.name = pois[i].name;
+                        marker.on('click',function(){
+                            // map.detailOnAMAP({
+                            //     id:this.id
+                            // },marker)
+                            map.poiOnAMAP({
+                                name:this.name,
+                                location:this.getPosition(),
+                                id:this.id
+                            })
+                        })
+                    }
+                    map.setFitView();
+                })
+            })
+            map.addControl(new AMap.ToolBar());
+            if(AMap.UA.mobile){
+                document.getElementById('button_group').style.display='none';
+            }
+        }
+        //PlaceSearh插件同样支持poiOnMap与detailOnAMAP方法
+    </script>
+</head>
+<body onload="init()">
+    <div id="mapContainer" ></div>
+    
+</body>
 </html>

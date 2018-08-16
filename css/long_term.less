@@ -1,154 +1,456 @@
 @rem:37.5rem;
-.clear::after{
-    content:"";
-    display: block;
-    clear:both;
-}
-.f-left{
-    float: left;
-}
-.f-right{
-    float: right;
-}
 
-.mui-bar{
-    background: #279cfe;
-    box-shadow: none;
-    -webkit-box-shadow:none;
-    border: 0;
-    height: 88/@rem;
-}
-.mui-bar .mui-title{
-    
-    color: #fff;
-}
-.mui-bar-nav ~ .mui-content {
-    padding-top: 88/@rem;
+header a{
+   color: white;
 }
 .main{
     width: 100%;
     height: auto;
     overflow: hidden;
+}
+.mui-bar{
+    width: 750/@rem;
+    height: 88/@rem;
+    background-color: #279cfe; 
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+.mui-title{
+    color: #ffffff;
+    font-size: 36/@rem;
+}
+.mui-content{
+    
+}
+
+#slider{
+    width: 100%;
+    height: 420/@rem;
+    position: relative;
+    overflow: hidden;
+}
+#slider img{
+    width: 100%;
+    height:420/@rem;
+//  position: relative;
+    overflow: hidden;
+}
+#slider .swiper-container{
+    width:100%;
+    overflow:hidden;
+}
+#slider .swiper-container ul.swiper-wrapper{
+    width: 500%;
+    -webkit-transform: translate(-20%);
+    transform: translate(-20%);
+}
+#slider .swiper-container ul.swiper-wrapper li{
+    width: 20%;
+    float: left;
+}
+#slider .swiper-pagination{
+    width: 100%;
+    position: absolute;
+//  height: 20/@rem;
+    left: 0px;
+    top: 350/@rem;
+    background: none;
+    text-align: center;
+    
+}
+#slider .swiper-pagination span{
+    display: inline-block;
+    width: 20/@rem;
+    height: 20/@rem;
+    background: grey;
+    border-radius: 50%;
+    margin: 0 10/@rem;
+}
+#slider .swiper-pagination span.swiper-pagination-bullet-active{
+    background: #fd5e5e;
+}
+
+
+.cardetails{
+    width: 100%;
+    height: 350/@rem;
+    background-color: #ffffff;
+
+}
+
+.z_place,.x_place{
+    width:100%;
+    height:116/@rem;
+    margin-left: 30/@rem;
+    border-bottom: 1px solid #F5F5F5;
     position: relative;
 }
-.main .main_ul{
-    width: 100%;
-    height: auto;
-    margin-bottom: 20/@rem;
+.startaddress,.endaddress{
+//  position: absolute;
+    width: 42/@rem;
+    height: 43/@rem;
+//  right: 15/@rem;
+    margin-top: 37/@rem;
+    
 }
-.main_ul .main_li{
-    width: 100%;
-    height: 106/@rem;
-    background: #fff;
+.z_place div{
+    display: inline-block;
+    float: left;
 }
-.main_li .li_icon{
-    width: 12%;
-    height: 106/@rem;
-    padding-left: 24/@rem;
+.x_place div{
+    display: inline-block;
+    float: left;
 }
-.li_icon img{
-    margin-top: 33/@rem;
-    width: 40/@rem;
-    height: 40/@rem;
+.z_place div:first-child{
+    width: 28/@rem;
+    height: 28/@rem;
+    margin-top: 44/@rem;
 }
-.main_li .li_input{
-    width: 88%;
-
-    height: 106/@rem;
-}
-.li_input input{
-    width: 100%;
-    height: 104/@rem;
-    border-bottom: 2px solid #f0eff4;
-}
-.main_li:last-child .li_input input{
-    border-bottom:0;
-}
-.main .main_car{
-    width: 100%;
-    height: 106/@rem;
-    line-height: 106/@rem;
-    background: #fff;
-    margin-bottom: 20/@rem;
-}
-.main_car .car_icon{
-    height: 106/@rem;
-    padding-left: 24/@rem;
-}
-.car_icon img{
-    margin-top: 33/@rem;
-    width: 40/@rem;
-    height: 40/@rem;
-}
-.main_car .car_name{
-    margin-left: 32/@rem;
+.z_place div:nth-child(2){
+    width: 80%;
+    height: 116/@rem;
     font-family: PingFang-SC-Medium;
     font-size: 28/@rem;
     font-weight: normal;
     font-stretch: normal;
+    line-height: 116/@rem;
     letter-spacing: 0px;
     color: #1f1f1f;
+    margin-left: 20/@rem;
+    
 }
-.main_car .car{
-    padding-right: 24/@rem;
+.x_place div:first-child{
+    width: 28/@rem;
+    height: 28/@rem;
+    margin-top: 44/@rem;
+}
+.x_place div:nth-child(2){
+    display: inline-block;
+    float: left;
+    width: 600/@rem;
+    height: 116/@rem;
+    font-family: PingFang-SC-Medium;
+    font-size: 28/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 116/@rem;
+    letter-spacing: 0px;
+    color: #1f1f1f;
+    margin-left: 20/@rem;
+}
+.time{
+    width:100%;
+    height: 116/@rem;
+    margin-left: 30/@rem;
+}
+.time .time_pic{
+    width: 28/@rem;
+    height: 28/@rem;
+    margin-top: 44/@rem;
+    display: inline-block;
+    float: left;
+}
+.time .time_start{
+    display: inline-block;
+    float: left;
+    width: 300/@rem;
+    height: 116/@rem;
+    font-family: PingFang-SC-Medium;
+    font-size: 28/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 116/@rem;
+    letter-spacing: 0px;
+    color: #1f1f1f;
+    margin-left: 20/@rem;
+    display: inline-block;
+    float: left;
+}
+
+.carsitem{
+    width: 100%;
+  
+   
+}
+.carsitem .carsdetails{
+    width: 100%;
+    height: 106/@rem;
+    text-align: left;
+    line-height: 106/@rem;
+    font-family: PingFang-SC-Bold;
+    font-size: 28/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    padding-left: 25/@rem;
+    letter-spacing: 1px;
+    color: #1f1f1f;
+}
+.carsitem .carstype{
+    width: 100%;
+    height: 106/@rem;
+    background-color: #ffffff;
+    border-bottom: 1/@rem solid #F5F5F5;
+}
+.carsitem .carstype .type_one{
+    display: inline-block;
+    float: left;
+    width:108/@rem;
     height: 106/@rem;
     font-family: PingFang-SC-Medium;
     font-size: 28/@rem;
     font-weight: normal;
     font-stretch: normal;
-    letter-spacing: 0px;
-    color: #b3b3b3;
+    line-height:106/@rem;
+    letter-spacing: 1/@rem;
+    color: #1f1f1f;
+    margin-left: 24/@rem;
+    white-space: nowrap;
 }
-.main .main_message{
+.carsitem .carstype .type_two{
+    display: inline-block;
+    float: left;
+    width:508/@rem;
+    height: 106/@rem;
+    font-family: PingFang-SC-Medium;
+    font-size: 28/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height:106/@rem;
+    letter-spacing: 1/@rem;
+    color: #1f1f1f;
+}
+.remarks{
     width: 100%;
     height: auto;
-    background: #FFF;
-    padding: 0 24/@rem;
+    background: white;
+    border-bottom: 1px solid #F5F5F5;
+    
 }
-.main_message .message_name{
-    width: 100%;
-    height: 106/@rem;
-    line-height: 106/@rem;
-    border-bottom: 1px solid #F0EFF4;
+.remarks .remarks_one, .remarks_two{
+   padding: 20/@rem 24/@rem;
+   float: left;
+    font-family: PingFang-SC-Medium;
+    font-size: 28/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+//  line-height:106/@rem;
+    letter-spacing: 1/@rem;
+    color: #1f1f1f;
 }
-.main_message .message{
+.remarks_one{
+//  line-height:106/@rem;
+}
+.remarks .remarks_two{
+  
+    max-width: 600/@rem;
+    
+}
+.drivermessage{
     width: 100%;
+    height: 50/@rem;
+    font-family: PingFang-SC-Bold;
+    font-size: 28/@rem;;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 50/@rem;;
+    letter-spacing: 1/@rem;
+    text-align: left;
+    padding-left: 24/@rem;
+    color: #1f1f1f;
+    margin-top: 30/@rem;
+    margin-bottom: 20/@rem;
+}
+.driver{
+    width: 100%;
+    height: auto;
+    background-color: white;
+    margin-bottom: 30/@rem;
+}
+.driver .driver_one{
+    width: 100%;
+    height: 214/@rem;
+    border-bottom: 1px solid #F5F5F5;
+}
+.driver_one .head_pic{
+    width: 140/@rem;
     height: 140/@rem;
+    margin-top: 37/@rem;
+    margin-left: 24/@rem;
+    display: inline-block;
+    float: left;
 }
-.message textarea{
-    width: 100%;
+.driver_one .head_pic img{
+     border-radius: 100%;
+}
+.driver_one .name{
+    width: 400/@rem;
     height: 100%;
-    border: 0;
-    padding: 15/@rem 0/@rem;
-    margin: 0;
+    display: inline-block;
+    float: left;
+}
+.driver_one .name{
+    width: 400/@rem;
+    height: 100%;
+    display: inline-block;
+    float: left;
+}
+
+.driver_one .name .name_two{
+    width: 100%;
+    height: 40/@rem;
     font-family: PingFang-SC-Medium;
     font-size: 24/@rem;
     font-weight: normal;
     font-stretch: normal;
-    line-height: 44/@rem;
-    letter-spacing: 1px;
-    color: #1f1f1f;
+    letter-spacing: 1/@rem;
+    color: #b3b3b3;
+    margin-left: 30/@rem;
+    margin-top: 40/@rem;
 }
-.hide{
-    display: none;
-}
-.main .main_sure{
+.driver_one .name .name_one{
     width: 100%;
-    height: auto;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    background: #279cfe;
+    height: 50/@rem;
+    margin-top: 35/@rem;
+    margin-left: 30/@rem;
 }
-.main_sure .sure{
-    width: 100%;
-    height: 88/@rem;
-    line-height: 88/@rem;
+.driver_one .name .name_one .names{
+    width: 120/@rem;
+    height: 50/@rem;
     font-family: PingFang-SC-Medium;
     font-size: 32/@rem;
     font-weight: normal;
     font-stretch: normal;
-    letter-spacing: 0px;
-    color: #ffffff;    
+    letter-spacing: 1/@rem;
+    color: #1f1f1f;
+    display: inline-block;
+    line-height: 50/@rem;
+}
+.driver_one .name .name_one .star{
+    width: 220/@rem;
+    height: 50/@rem;
+    font-family: PingFang-SC-Medium;
+    font-size: 50/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 1/@rem;
+    color: #1f1f1f;
+    display: inline-block;
+   
+} 
+.star .rating{
+    width: 100%;
+    height: 30/@rem;
+    
+}
+.star .rating .rating-item{
+   width: 30/@rem;
+    height: 30/@rem;
+    float: left;
+    margin-top: 20/@rem;
+    margin-left: 10/@rem;
+}
+.driver_one .guanzhu{
+    width: 120/@rem;
+    height: 50/@rem;
+    border-radius: 6/@rem;
+    border: solid 1/@rem #279cfe;
+    font-family: PingFang-SC-Medium;
+    font-size: 28/@rem;
+    font-weight: normal;
+    font-stretch: normal;
     text-align: center;
+    letter-spacing: 1/@rem;
+    color: #279cfe;
+    display: inline-block;
+    float: right;
+    line-height: 50/@rem;
+    margin-top:82/@rem ;
+    margin-right: 20/@rem;
+    
+}
+.driver_one .haveguanzhu{
+    width: 120/@rem;
+    height: 50/@rem;
+    border-radius: 6/@rem;
+    border: solid 1/@rem #CCCCCC;
+    font-family: PingFang-SC-Medium;
+    font-size: 28/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    text-align: center;
+    letter-spacing: 1/@rem;
+    color: #CCCCCC;
+    display: inline-block;
+    float: right;
+    line-height: 50/@rem;
+    margin-top:82/@rem ;
+    margin-right: 20/@rem;
+    
+}
+.driver_two{
+    width: 100%;
+    height: 106/@rem;
+}
+//.driver_two img{
+//  width: 44/@rem;
+//  height: 44/@rem;
+//  margin-top: 31/@rem;
+//  margin-left: 50/@rem;
+//}
+.driver_two .chat{
+    display: inline-block;
+    float: left;
+    width: 50%;
+    height: 106/@rem;
+    text-align: center;
+ 
+}
+.driver_two .chat_one{
+     width: 44/@rem;
+    height: 44/@rem;
+    margin-top: 31/@rem;
+    margin-left: 130/@rem;
+    display: inline-block;
+    float: left;
+}
+ .driver_two .chat_two{
+    width: 100/@rem;
+    height: 106/@rem;
+    font-family: PingFang-SC-Medium;
+    font-size: 28/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height:106/@rem;
+    letter-spacing: 1/@rem;
+    color: #1f1f1f;
+    display: inline-block;
+    float: left;
+}  
+.driver_two .contactdriver{
+   width: 50%;
+   height: 106/@rem; 
+    display: inline-block;
+    float: left;
+}
+.driver_two .contactdriver .driver_one{
+    width: 44/@rem;
+    height: 44/@rem;
+    margin-top: 31/@rem;
+   margin-left: 100/@rem;
+     display: inline-block;
+    float: left;
+}
+.driver_two .contactdriver .driver_two{
+    width: 130/@rem;
+    height: 106/@rem;
+    font-family: PingFang-SC-Medium;
+    font-size: 28/@rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height:106/@rem;
+    letter-spacing: 1/@rem;
+    color: #1f1f1f;
+    display: inline-block;
+    float: left;
+    margin-left: 30/@rem;
 }

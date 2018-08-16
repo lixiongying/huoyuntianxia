@@ -342,3 +342,39 @@
   letter-spacing: 0.02666667rem;
   color: #ffffff;
 }
+.goodsvolume .volume_three {
+  width: 5.33333333rem;
+  height: 1.44rem;
+  background-color: #ffffff;
+  display: inline-block;
+  float: right;
+  margin-top: 0.69333333rem;
+  margin-right: 0.8rem;
+}
+.goodsvolume .volume_three input {
+  width: 3.73333333rem;
+  height: 1.44rem;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  border-radius: 0.16rem;
+  border: solid 0.02666667rem #b3b3b3;
+}
+.goodsvolume .volume_two {
+  width: 5.33333333rem;
+  height: 1.44rem;
+  background-color: #ffffff;
+  display: inline-block;
+  float: right;
+  margin-top: 0.69333333rem;
+  margin-right: 0.8rem;
+}
+.goodsvolume .volume_two input {
+  width: 3.73333333rem;
+  height: 1.44rem;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  border-radius: 0.16rem;
+  border: solid 0.02666667rem #b3b3b3;
+}

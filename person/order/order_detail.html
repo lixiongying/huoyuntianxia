@@ -13,11 +13,21 @@
 		<link rel="stylesheet" type="text/css" href="../../css/order_detail.css"/>
 		<link rel="stylesheet" type="text/css" href="../../css/reset.css"/>
 		<link rel="stylesheet" type="text/css" href="../../css/swiper-4.3.2.min.css"/>
+		
 		<script src="../../js/public.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../../js/idangerous.swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://api.map.baidu.com/api?v=2.0&ak=A1LU7iHS0avqQwPLAxbhKn0UYSQCuRVH"></script>
+		<!--<script src="../../js/idangerous.swiper.min.js" type="text/javascript" charset="utf-8"></script>-->
+	    <!--<script src="../../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>-->
+	<style type="text/csuser_ids">
+		#allmap{width:100%;height:300px;}
+		p{margin-left:5px; font-size:14px;}
+	</style>
+	<script type="text/javascript">
+		mui.init()
+	</script>
 	</head>
 	<body>
 		<header class="mui-bar mui-bar-nav">
@@ -32,8 +42,20 @@
 					<div class="touming"></div>
 					<div class="tishi">已发布</div>
 				</div>
-				<div class="main_banner">
-					<img src="../../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/>
+				<div class="main_banner" id="container">
+					 <div id="slider">
+						<div class="swiper-container clearfix">
+							<ul class="swiper-wrapper">
+								<!--<li class="swiper-slide"><a href=""><img src="../../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/></a></li>
+								<li class="swiper-slide"><a href=""><img src="../../img/c8e9eef9f1c58ac516b51eaa584e7233_t01a6852a946b324a87.jpg"/></a></li>
+								<li class="swiper-slide"><a href=""><img src="../../img/ea11d46b89dcd0c8e1b2a9b3fd06deeb_t01bdfaecfc44eba5e0.jpg"/></a></li>-->
+							</ul>
+						</div>
+					    <div class="swiper-pagination"></div>
+					</div>
+				</div>
+				<div class="main_banner" id="allmap" style="display: none;">
+					<!--<img src="../../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/>-->
 				</div>
 				<div class="main_ul">
 					<div class="order_detail clear">
@@ -41,7 +63,7 @@
 							<img src="../../img/dingdanxiangqing_jine.png"/>
 						</div>
 						<div class="f-left order_mname">金额：</div>
-						<div class="f-left order_money goods_price">¥ 1200.00</div>
+						<div class="f-left order_money goods_price">¥ <span class="goods_prices"></span></div>
 						<div class="f-right order_typecar">长途车</div>
 					</div>
 					<div class="order_li order_detail clear huozhuitem">
@@ -49,23 +71,28 @@
 							<img src="../../img/zhuanxianxiangqing_lianxiren.png"/>
 						</div>
 						<div  class="f-left order_mname catid" data-type=''>货主方：</div>
-						<div class="f-left order_nick huozhuname">张三</div>
-						<div class="f-left order_mobile huozhumobile">17875032851</div>
+						<div class="f-left order_nick huozhuname"></div>
+						<div class="f-left order_mobile huozhumobile"></div>
+						
+						
 					</div>
 					<div class="order_li order_detail clear sijiitem">
 						<div class="f-left icon">
 							<img src="../../img/zhuanxianxiangqing_lianxiren.png"/>
 						</div>
 						<div  class="f-left order_mname">司机方：</div>
-						<div class="f-left order_nick sijiname">李四</div>
-						<div class="f-left order_mobile sijimobile">17875032851</div>
+						<div class="f-left order_nick sijiname"></div>
+						<div class="f-left order_mobile sijimobile"></div>
 					</div>
 					<div class="order_li order_detail clear">
 						<div class="f-left icon">
 							<img src="../../img/zhuanxianxiangqing_dizhi.png"/>
 						</div>
 						<div  class="f-left order_mname">出发地：</div>
-						<div class="f-left order_address start_address">广州市白云区太和镇物流园K栋111流园K栋111广州市白云区太和镇物流园K栋111流园K栋111广州市白云区太和镇物流园K栋111流园K栋111</div>
+						<div class="f-left order_address start_address"></div>
+						<div class="number_three startaddress" onclick="addresss()" data-type='1'>
+				    		<img src="../../img/dingdanxiangqing_dizhi.png"/>
+				    	</div>
 					</div>
 					
 					<div class="order_li order_detail order_bottom clear">
@@ -73,7 +100,10 @@
 							<img src="../../img/zhuanxianxiangqing_dizhi.png"/>
 						</div>
 						<div  class="f-left order_mname">目的地：</div>
-						<div class="f-left order_address">深圳市罗湖区金鹏物流园8-11号</div>
+						<div class="f-left order_address end_address"></div>
+						<div class="number_three endaddress" onclick="addresss()" data-type='1'>
+				    		<img src="../../img/dingdanxiangqing_dizhi.png"/>
+				    	</div>
 					</div>
 					
 					<div class="order_li order_detail clear">
@@ -88,7 +118,7 @@
 							<img src="../../img/zhuanxianxiangqing_dizhi.png"/>
 						</div>
 						<div  class="f-left order_mname">重量/体积：</div>
-						<div class="f-left  order_value"><span class="ton"></span>吨<span class="cube"></span>方</div>
+						<div class="f-left  order_value tiji"><span class="ton"></span>吨<span class="cube"></span>方</div>
 					</div>
 					<div class="order_li order_detail clear">
 						<div class="f-left icon">
@@ -102,7 +132,7 @@
 							<img src="../../img/zhuanxianxiangqing_dizhi.png"/>
 						</div>
 						<div  class="f-left order_mname order_name">备注 ：</div>
-						<div class="f-left order_address ">深圳市罗湖区金鹏物流园8-11号金鹏物流园8-11号</div>
+						<div class="f-left order_address goods_remark"></div>
 					</div>
 				</div>
 				<div class="main_comment">
@@ -113,23 +143,67 @@
 		</div>
 	</body>
 	<script type="text/javascript">
+		var currentLon;
+		var currentLat;
+		var lon;
+		var lat;
+		var lonone;
+		var latone;
+		var huozhuid;
+		var sijiid;
+		 mui.plusReady(function() {
+		    plus.geolocation.getCurrentPosition(translatePoint,function(e){
+		//      	alert(JSON.stringify(e));
+		//          mui.toast("异常:" + e.message);
+			});
+	    });
+		 function translatePoint(position){
+		     currentLon = position.coords.longitude;//经度
+		     currentLat = position.coords.latitude;//维度
+		     
+		}
 		  
-		$ (function (){
+		$(function (){
 
-            $ ('.main_tishi').show ().delay (3000).fadeOut ();
+            $('.main_tishi').show ().delay (3000).fadeOut ();
 	       
 	    });
 	    var urL=location.href;
 	    var order_id=getUrl(urL).order_id;
+	
 	    var carstatus=localStorage.getItem('car_status');
+	    var userid=localStorage.getItem('user_id');
 	    var type=getUrl(urL).type;
 	    var shop_price;
-	    
+	    var goods_id;
+		var rec_id;
+		
+		function getuserinfo(){
+			$.ajax({
+				type:"post",
+				url:globalUrl+"index.php/Mobile/JkUser/myLists",
+				data:{user_id:userid},
+				dataType:'json',
+				success:function(res){
+					var data=res.user;
+					if(carstatus==1){
+					$('.sijiname').html(data.nick_name);
+					$('.sijimobile').html(data.mobile)
+					}
+				}
+			});
+		}
+		getuserinfo() 
+		 
 	    if(type==0){
 	    	if(carstatus==0){
     			$('.sijiitem').hide();
     			$('.tishi').html('已发布')
-    			$('.comment').html('修改')
+    			$('.comment').html('修改');
+    			$('.guanzhu').hide();
+//  			$('#allmap').show();
+//	    	$('#container').hide()
+    			
     		}else{
     			$('.sijiitem').show();
     			$('.tishi').html('接单');
@@ -137,88 +211,193 @@
     		}
 	    }else if(type==1){
 	    	$('.tishi').html('已确认');
+	    	$('.sijiitem').show();
 	    	$('.comment').hide()
 	    }else if(type==2){
 	    	$('.tishi').html('送货中');
-	    	$('.comment').hide()
+	    	$('.sijiitem').show();
+	    	$('.comment').hide();
+	    	$('#allmap').show();
+	    	$('#container').hide()
 	    }else if(type==3){
 	    	$('.tishi').html('待评价');
+	    	$('.sijiitem').show();
 	    	$('.comment').html('去评价')
 	    }
-	     var rec_id;
+	   
 	    $.ajax({
-	    	type:"post",
-	    	url:globalUrl+"index.php/Mobile/JkOrderlist/orderDetails",
-	    	data:{order_id:order_id},
-	    	dataType:'json',
-	    	success:function(res){
-	    		var data=res.info;
-	    		
-	    	   rec_id=data.goodsInfo.rec_id;
-	    	   $('.catid').attr('data-type',rec_id);
-	    	  
-	    		$('.start_address').html(data.goodsInfo.start_address);
-	    		$('.end_address').html(data.goodsInfo.end_address);
-	    		$('.cat_id1').html(data.goodsInfo.cat_id1);
-	    		var time=data.goodsInfo.load_time;
-	    		var timeone=timeToDate2(time)
-	    		$('.load_time').html(timeone);
-	    		$('.goods_price').html(data.goodsInfo.goods_price);
-	    		$('.ton').html(data.goodsInfo.ton);
-	    		$('.cube').html(data.goodsInfo.cube);
-	    		shop_price=data.goodsInfo.goods_price;
-	    		
-	    		var type_id=data.goodsInfo.type_id;
-	    		if(type_id==2){
-	    			$('.order_typecar').html('长途车')
-	    		}else{
-	    			$('.order_typecar').html('短途车')
-	    		}
-	    		$('.huozhuname').html(data.goodsInfo.user_info.nick_name);
-	    		$('.huozhumobile').html(data.goodsInfo.user_info.mobile);
-	    		
-	    		if(carstatus==0){
-	    			$('.sijiitem').hide();
-	    			
-	    		}else{
-	    			$('.sijiitem').show();
-	    			$('.sijiname').html(data.goodsInfo.siji_info.nick_name);
-	    		    $('.sijimobile').html(data.goodsInfo.siji_info.mobile);
-	    		}
-	    		
-	    	}
-	    });
+		    	type:"post",
+		    	url:globalUrl+"index.php/Mobile/JkOrderlist/orderDetails",
+		    	data:{order_id:order_id},
+		    	dataType:'json',
+		    	success:function(res){
+		    		var data=res.info;
+		    		var str='';
+		    		var strimg=data.goodsInfo.original_img.split(',');
+		    		
+		    		for(var i=0;i<strimg.length;i++){
+		    			str+='<li class="swiper-slide"><img src="'+picUrl+strimg[i]+'"/></li>'
+		    		}
+		    		$('.swiper-wrapper').html(str);
+		    		var mySwiper = new Swiper('.swiper-container', {
+						autoplay: 4000,//可选选项，自动滑动，手指触屏滑动会停止自动轮播
+						autoplayDisableOnInteraction : false,//手指触屏滑动之后，重新开启自动轮播
+						initialSlide :0,//初始显示的li的索引
+						speed : 1000,//滑动的速度
+						observeParents:true,//当容器container宽度改变的时候(window.onresize或者自适应)自动更新Swiper
+						grabCursor : true,//鼠标抓手形状，触屏看不到
+						pagination : '.swiper-pagination',//下面的图标跟随切换
+						loop : true,//无缝轮播 自动在li列表的前面添加最后一个，在li列表后面添加第一个
+					
+				    });
+                    huozhuid=data.goodsInfo.userinfo.user_id;
+                    if(data.goodsInfo.only_info!=null&&data.goodsInfo.only_info!=undefined&&data.goodsInfo.only_info!=''){
+                    	sijiid=data.goodsInfo.only_info.user_id;
+                    }
+                    
+		    		goods_id=data.goods_id;
+		    	    rec_id=data.goodsInfo.rec_id;
+		    	    var s_address=data.goodsInfo.start_address;
+		    		s_address=s_address.replace(/,/g,'');
+		    		var e_address=data.goodsInfo.end_address;
+		    		e_address=e_address.replace(/,/g,'');
+		    	    $('.catid').attr('data-type',rec_id);
+		    	    $('.goods_remark').html(data.goodsInfo.goods_remark);
+		    		$('.start_address').html(s_address);
+		    		$('.end_address').html(e_address);
+		    		if(data.goodsInfo.cargo!=''&&data.goodsInfo.cargo!=undefined&&data.goodsInfo.cargo!=null){
+	         			$('.cat_name').html(data.goodsInfo.cargo);
+	         		}else{
+	         			$('.cat_name').html(data.goodsInfo.cat_id1);
+	         		}
+//		    		$('.cat_id1').html(data.goodsInfo.cat_id1);
+//		    		$('.cat_id1').html(data.goodsInfo.cargo);
+		    		var time=data.goodsInfo.load_time;
+		    		var timeone=timeToDate2(time)
+		    		$('.load_time').html(timeone);
+		    		$('.goods_prices').html(data.goodsInfo.goods_price);
+		    		$('.ton').html(data.goodsInfo.ton);
+		    		$('.cube').html(data.goodsInfo.cube);
+		    		lon=data.goodsInfo.s_address.lng;
+		    		lat=data.goodsInfo.s_address.lat;
+		    		lonone=data.goodsInfo.e_address.lng;
+		    		latone=data.goodsInfo.e_address.lat;
+		    		
+		    		var map = new BMap.Map("allmap"); 
+					map.centerAndZoom(new BMap.Point(currentLon, currentLat), 14); 
+					var driving = new BMap.DrivingRoute(map, { 
+					    renderOptions: { 
+					        map: map, 
+					        autoViewport: true 
+					    }
+					});
+					var start = new BMap.Point(lon, lat);
+					var end = new BMap.Point(lonone, latone);
+					driving.search(start, end);
+	               
+		    		shop_price=data.goodsInfo.goods_price;
+//		    		showmap(lon,lat,lonone,latone,s_address,e_address);
+	
+		    		var type_id=data.goodsInfo.type_id;
+		    		
+		    		if(type_id==2){
+		    			$('.order_typecar').html('长途车');
+		    		}else{
+		    			$('.order_typecar').html('短途车')
+		    		}
+//		    		alert(data.goodsInfo.only_info.nick_name)
+//		    		alert(data.goodsInfo.userinfo.nick_name)
+                    if(type!=0){
+                    	if(data.goodsInfo.only_info!=null&&data.goodsInfo.only_info!=undefined&&data.goodsInfo.only_info!=''&&data.goodsInfo.only_info.length!=0){
+			    			$('.sijiname').html(data.goodsInfo.only_info.nick_name);
+				    	    $('.sijimobile').html(data.goodsInfo.only_info.mobile);
+			    		}
+                    }
+		    		
+		    			
+	                if(data.goodsInfo.userinfo!=null||data.goodsInfo.userinfo!=undefined||data.goodsInfo.userinfo!=''){
+	                	$('.huozhuname').html(data.goodsInfo.userinfo.nick_name);
+		    		    $('.huozhumobile').html(data.goodsInfo.userinfo.mobile);
+	                }
+		    		
+//	    		    alert(data.goodsInfo.only_info.nick_name)
+
+		    	}
+		});
 	   
 	    if(type==0){
 	    	function change(){
+//	    		alert(goods_id)
 		   	   mui.openWindow({
-		   	   		url:'../../homepage/hz_ordersure.html?shop_price='+shop_price+'&goodsid='+order_id+'',
+		   	   		url:'../../homepage/hz_ordersure.html?shop_price='+shop_price+'&goodsid='+goods_id+'&order_id='+order_id+'',
 		   	   		id:'../../homepage/hz_ordersure.html'
 		   	   	})
 	        }
 	   }else if(type==3){
-//	   var rec_id=$('.catid').attr('data-type');
-	     var rec_id=$('.catid').attr('data-type')
-	   	   function change(){
-	   	   	
-		   	   mui.openWindow({
-		   	   		url:'./evalute.html?order_id='+order_id+'&rec_id='+rec_id+'',
+
+	    var rec_id=$('.catid').attr('data-type')
+		   	function change(){
+		   		if(carstatus==0){
+		   			var usersid=sijiid;
+		   		}else{
+		   			var usersid=huozhuid;
+		   		}
+		   	   
+		   	    mui.openWindow({
+		   	   		url:'./evalute.html?order_id='+order_id+'&rec_id='+rec_id+'&usersid='+usersid+'',
 	   	   		   id:'./evalute.html'
 		   	   	})
-	        }
+		    }
 	   }
-//	   function change(){
-//	   	   mui.openWindow({
-//	   	   	
-//	   	   		url:'../../homepage/hz_ordersure.html?shop_price='+shop_price+'&goodsid='+order_id+'',
-//	   	   		id:'../../homepage/hz_ordersure.html'
-//	   	   	else if(type==3){
-//	   	   		url:'./evalute.html',
-//	   	   		id:'./evalute.html'
-//	   	   	}
-//	   	   	    
-//	   	   	    
-//	   	   })
-//	   }
+        
+        function addresss(){
+           
+		   var btnArray = ['否', '是'];
+            mui.confirm('请确认手机是否安装导航类APP', '', btnArray, function(e) {
+//			window.location.href = 'http://api.map.baidu.com/geocoder?address=广东省广州市天河区驻村东环路&output=html&src=yourCompanyName|yourAppName'
+				 if (e.index == 1) {
+              		 navigateWithMap()
+				 }
+
+              })
+		}
+		
+		
+		function navigateWithMap(){
+			// 设置目标位置坐标点和其实位置坐标点
+		//	alert(currentLon)
+			var dst = new plus.maps.Point(lon,lat); //终点
+			var src = new plus.maps.Point(currentLon,currentLat); //起点
+			// 调用系统地图显示 
+			var addName=$('.start_address').html()
+			plus.maps.openSysMap( dst, addName, src );
+		}
+        
+        
+          function addresssone(){
+           
+		   var btnArray = ['否', '是'];
+            mui.confirm('请确认手机是否安装导航类APP', '', btnArray, function(e) {
+//			window.location.href = 'http://api.map.baidu.com/geocoder?address=广东省广州市天河区驻村东环路&output=html&src=yourCompanyName|yourAppName'
+				 if (e.index == 1) {
+              		 navigateWithMaone()
+				 }
+
+              })
+		}
+		
+		
+		function navigateWithMaone(){
+			// 设置目标位置坐标点和其实位置坐标点
+		//	alert(currentLon)
+			var dst = new plus.maps.Point(currentLon,currentLat); //终点
+			var src = new plus.maps.Point(lonone,latone); //起点
+			// 调用系统地图显示 
+			var addName=$('.endaddress').html()
+			plus.maps.openSysMap( dst, addName, src );
+		}
+    
 	</script>
+	<!--<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>-->
+	   
 </html>

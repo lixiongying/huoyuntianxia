@@ -32,6 +32,15 @@
 .mui-bar-nav ~ .mui-content {
   padding-top: 2.34666667rem;
 }
+.xunibi {
+  width: 100%;
+  height: 2.66666667rem;
+  background-color: #299ffb;
+}
+.xunibi .xunibione {
+  width: 100%;
+  height: 2.66666667rem;
+}
 .main {
   width: 100%;
   height: auto;
@@ -290,7 +299,7 @@
 .Virtual_currency {
   position: absolute;
   right: 0.64rem;
-  top: 0rem;
+  top: 0.4rem;
   color: white;
   font-size: 0.69333333rem;
   width: auto;

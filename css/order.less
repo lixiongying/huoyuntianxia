@@ -17,6 +17,7 @@
     -webkit-box-shadow:none;
     border: 0;
     height: 88/@rem;
+    
 }
 .mui-bar .mui-title{
     
@@ -33,10 +34,14 @@
 }
 .main .main_nav{
     width: 100%;
-    height: auto;
+    height: 80/@rem;
     background: #fff;
     margin-bottom: 20/@rem;
     border-bottom: 1px solid #279CFE;
+    position: fixed;
+    top: 88/@rem;
+    left: 0;
+    z-index:100;
 }
 .main_nav .nav_li{
     text-align: center;
@@ -49,41 +54,45 @@
     font-weight: normal;
     font-stretch: normal;
     letter-spacing: 0px;
+    border-left: 1px solid #E2E2E2;
     color: #1f1f1f;
 }
 .main_nav .active_nav{
     color:#279cfe;
 }
-.main .shuxian0{
-    width: 1px;
-    height: 80/@rem;
-    position: absolute;
-    top: 0;
-    left: 25%;
-    background: #E2E2E2;
-    z-index: 1000;
-}
-.main .shuxian1{
-    width: 1px;
-    height: 80/@rem;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    background: #E2E2E2;
-    z-index: 1000;
-}
-.main .shuxian2{
-    width: 1px;
-    height: 80/@rem;
-    position: absolute;
-    top: 0;
-    left: 75%;
-    background: #E2E2E2;
-    z-index: 1000;
-}
+//.main .shuxian0{
+//  width: 1px;
+//  height: 80/@rem;
+//  position: absolute;
+//  top: 0;
+//  left: 25%;
+//  background: #E2E2E2;
+//  z-index: 1000;
+//}
+//.main .shuxian1{
+//  width: 1px;
+//  height: 80/@rem;
+//  position: absolute;
+//  top: 0;
+//  left: 50%;
+//  background: #E2E2E2;
+//  z-index: 1000;
+//}
+//.main .shuxian2{
+//  width: 1px;
+//  height: 80/@rem;
+//  position: absolute;
+//  top: 0;
+//  left: 75%;
+//  background: #E2E2E2;
+//  z-index: 1000;
+//}
 .main .order_ul{
     width: 100%;
-    height: auto;
+    height: 4000/@rem;
+    margin-top: 88/@rem;
+//  height: auto;
+    overflow: auto;
 }
 .order_ul .order_li{
     width: 100%;
@@ -211,4 +220,32 @@
     letter-spacing: 0px;
     color: #279cfe;
     margin-right: 24/@rem;
+}
+
+.receiptgoods{
+    width: 100%;
+    height: auto;
+    padding: 10/@rem 0;
+    border-top: 2px solid #eaeaea;
+    background: white;
+    margin-top: -54/@rem;
+    margin-bottom: 54/@rem;
+}
+.evalute{
+     width: 100%;
+    height: auto;
+    padding: 10/@rem 0;
+    border-top: 2px solid #eaeaea;
+    background: white;
+    margin-top: -54/@rem;
+    margin-bottom: 54/@rem;
+}
+.cancelgoods{
+     width: 100%;
+    height: auto;
+    padding: 10/@rem 0;
+    border-top: 2px solid #eaeaea;
+    background: white;
+    margin-top: -54/@rem;
+    margin-bottom: 54/@rem;
 }

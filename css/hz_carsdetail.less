@@ -83,6 +83,15 @@ header a{
     height:116/@rem;
     margin-left: 30/@rem;
     border-bottom: 1px solid #F5F5F5;
+    position: relative;
+}
+.startaddress,.endaddress{
+//  position: absolute;
+    width: 42/@rem;
+    height: 43/@rem;
+//  right: 15/@rem;
+    margin-top: 37/@rem;
+    
 }
 .z_place div{
     display: inline-block;
@@ -97,7 +106,7 @@ header a{
     height: 28/@rem;
     margin-top: 44/@rem;
 }
-.z_place div:last-child{
+.z_place div:nth-child(2){
     width: 80%;
     height: 116/@rem;
     font-family: PingFang-SC-Medium;
@@ -115,7 +124,7 @@ header a{
     height: 28/@rem;
     margin-top: 44/@rem;
 }
-.x_place div:last-child{
+.x_place div:nth-child(2){
     display: inline-block;
     float: left;
     width: 600/@rem;
@@ -195,6 +204,7 @@ header a{
     letter-spacing: 1/@rem;
     color: #1f1f1f;
     margin-left: 24/@rem;
+    white-space: nowrap;
 }
 .carsitem .carstype .type_two{
     display: inline-block;

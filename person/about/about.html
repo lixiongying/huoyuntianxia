@@ -16,6 +16,9 @@
 		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
 	</head>
+	<script>
+		mui.init();
+	</script>
 	<body>
 		<header class="mui-bar mui-bar-nav mui-action-back">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
@@ -27,7 +30,7 @@
 			<div class="main">
 				<div class="main_synopsis">公司介绍</div>
 				<div class="synopsis">
-					<div class="synopsis_content">公司简介:公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介</div>
+					<div class="synopsis_content"></div>
 				</div>
 				<div class="main_brand">公司品牌</div>
 				<div class="brand">
@@ -46,13 +49,17 @@
 					<div class="clear"></div>
 				</div>
 				<div class="main_email">公司邮箱</div>
-				<div class="email">123@123.com</div>
+				<div class="email"></div>
 				<div class="main_website">公司官网</div>
-				<div class="website">www.baidu.com</div>
+				<div class="website"></div>
 			</div>
-			
+				<!--<button id="btn" type="button" class="mui-btn mui-btn-blue mui-btn-block">按钮</button>-->
 		</div>
 		<script type="text/javascript">
+			
+		
+
+
 			$.ajax({
 				url:globalUrl + 'index.php/Mobile/JkUser/about',
 				type: 'post',

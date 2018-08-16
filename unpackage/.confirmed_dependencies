@@ -23,7 +23,9 @@
 			"homepage/hz_homepage.html",
 			"discover/discover.html",
 			"person/person.html",
-			"message/message.html"
+			"message/message.html",
+			"login.html",
+			"discover/pullrefresh.html"
 		]
 	},
 	"homepage/hz_homepage.html": {
@@ -54,7 +56,11 @@
 			"homepage/hz_railwayfind.html",
 			"homepage/hz_shipment.html",
 			"discover/discover.html",
-			"homepage/sj_ordereceive.html"
+			"homepage/sj_ordereceive.html",
+			"person/set_up/set_id/set_id.html",
+			"login.html",
+			"person/set_up/set_up.html",
+			"person/mymoney/mymoney.html"
 		]
 	},
 	"discover/discover.html": {
@@ -77,7 +83,8 @@
 			"css/reset.css"
 		],
 		"refer": [
-			"discover/publish.html"
+			"discover/publish.html",
+			"login.html"
 		]
 	},
 	"person/person.html": {
@@ -93,7 +100,10 @@
 			"person/order/order.html",
 			"person/releaseroute/releaseroute.html",
 			"login.html",
-			"person/mymoney/hz_mywallet.html"
+			"person/mymoney/hz_mywallet.html",
+			"person/order/evalute.html",
+			"person/set_up/set_driver/set_driver.html",
+			"person/order/historyorder.html"
 		],
 		"resources": [
 			"img/fenxiang_weixin.png",
@@ -131,7 +141,8 @@
 			"person/set_up/set_id/set_id.html",
 			"person/set_up/set_driver/set_driver.html",
 			"person/set_up/set_truck/set_truck.html",
-			"person/code/code.html"
+			"person/code/code.html",
+			"person/deposit.html"
 		],
 		"resources": [
 			"fonts/mui.ttf",
@@ -154,7 +165,8 @@
 	},
 	"person/set_up/set_truck/set_truck.html": {
 		"refer": [
-			"person/set_up/set_truck/truck_photo.html"
+			"person/set_up/set_truck/truck_photo.html",
+			"person/set_up/examine.html"
 		],
 		"resources": [
 			"img/guanbi.png",
@@ -279,6 +291,9 @@
 			"fonts/mui.ttf",
 			"js/public.js",
 			"js/jquery-1.10.2.min.js"
+		],
+		"refer": [
+			"person/set_up/examine.html"
 		]
 	},
 	"person/set_up/set_truck/truck_photo.html": {
@@ -397,6 +412,9 @@
 			"js/jquery-1.10.2.min.js",
 			"img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg",
 			"css/reset.css"
+		],
+		"refer": [
+			"message/im-chat.html"
 		]
 	},
 	"person/userinfo/userinfo.html": {
@@ -449,7 +467,8 @@
 			"img/changtuchexiangqing_qidian.png"
 		],
 		"refer": [
-			"homepage/hz_carsdetail.html"
+			"homepage/hz_carsdetail.html",
+			"person/set_up/set_id/set_id.html"
 		]
 	},
 	"message/message.html": {
@@ -469,7 +488,8 @@
 		],
 		"refer": [
 			"message/chat.html",
-			"message/im-chat.html"
+			"message/im-chat.html",
+			"message/sysmessage.html"
 		]
 	},
 	"person/mymoney/detailed.html": {
@@ -581,7 +601,8 @@
 		],
 		"refer": [
 			"homepage/hz_searchrailway.html",
-			"homepage/hz_railwaydetail.html"
+			"homepage/hz_railwaydetail.html",
+			"homepage/hz_longcar.html"
 		]
 	},
 	"homepage/hz_searchrailway.html": {
@@ -630,7 +651,8 @@
 			"homepage/hz_longcar.html"
 		],
 		"refer": [
-			"homepage/hz_longcar.html"
+			"homepage/hz_longcar.html",
+			"message/im-chat.html"
 		]
 	},
 	"homepage/hz_shipment.html": {
@@ -659,7 +681,8 @@
 			"js/hz_shipment.js"
 		],
 		"refer": [
-			"homepage/hz_orderpublish.html"
+			"homepage/hz_orderpublish.html",
+			"homepage/goodstype.html"
 		]
 	},
 	"homepage/hz_orderpublish.html": {
@@ -823,7 +846,48 @@
 	},
 	"homepage/sj_ordereceive.html": {
 		"refer": [
-			"homepage/sj_orderlist.html"
+			"homepage/sj_orderlist.html",
+			"homepage/sj_orderdetail.html"
+		]
+	},
+	"homepage/sj_orderlist.html": {
+		"refer": [
+			"homepage/hz_orderpublish.html",
+			"homepage/sj_orderdetail.html"
+		]
+	},
+	"discover/pullrefresh.html": {
+		"refer": [
+			"discover/publish.html",
+			"login.html",
+			"discover/mylist.html",
+			"discover/mymesage.html"
+		]
+	},
+	"person/order/historyorder.html": {
+		"refer": [
+			"person/order/order_detail.html"
+		]
+	},
+	"homepage/sj_orderdetail.html": {
+		"refer": [
+			"person/deposit.html",
+			"person/set_up/set_truck/set_truck.html"
+		]
+	},
+	"discover/mylist.html": {
+		"refer": [
+			"discover/mymesage.html"
+		]
+	},
+	"discover/mymesage.html": {
+		"refer": [
+			"discover/mylist.html"
+		]
+	},
+	"message/im-chat.html": {
+		"refer": [
+			"discover/mymesage.html"
 		]
 	}
 }

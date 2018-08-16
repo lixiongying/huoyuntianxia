@@ -17,6 +17,16 @@ header a {
   color: #ffffff;
   font-size: 0.96rem;
 }
+.chongzhi {
+  width: 2.66666667rem;
+  height: 100%;
+  position: absolute;
+  right: 0.53333333rem;
+  text-align: center;
+  color: white;
+  margin-top: 0.72rem;
+  font-size: 0.90666667rem;
+}
 .f-left {
   float: left;
 }
@@ -59,6 +69,10 @@ header a {
   width: 100%;
   height: 2.13333333rem;
   background: white;
+  position: fixed;
+  top: 2.34666667rem;
+  left: 0;
+  right: 0;
 }
 .cartype .carsitem {
   width: 25%;
@@ -66,6 +80,9 @@ header a {
   border-right: 1px solid #F5F5F5;
   display: inline-block;
   float: left;
+}
+.cars {
+  margin-top: 2.13333333rem;
 }
 .cartype .carsitem .carplace {
   width: 3.46666667rem;
@@ -83,10 +100,10 @@ header a {
   padding-right: 0.26666667rem;
 }
 .cartype .carsitem .carplace_img {
-  width: 0.56rem;
-  height: 0.29333333rem;
+  width: 0.69333333rem;
+  height: 0.66666667rem;
   display: inline-block;
-  margin-top: 0.93333333rem;
+  margin-top: 0.66666667rem;
   float: left;
 }
 .tc_typeofcars {
@@ -114,7 +131,8 @@ header a {
 }
 .tc_typeofcars .carsitem .carslength {
   width: 100%;
-  height: 8.26666667rem;
+  max-height: 8.26666667rem;
+  overflow-y: auto;
 }
 .carslength .length_one {
   width: 100%;
@@ -131,7 +149,8 @@ header a {
 }
 .carslength .length_two {
   width: 100%;
-  height: 6.4rem;
+  max-height: 6.4rem;
+  overflow-y: auto;
 }
 .carslength .length_two .box {
   width: 5.33333333rem;
@@ -157,7 +176,9 @@ header a {
 }
 .carstype {
   width: 100%;
-  height: 4rem;
+  min-height: 4rem;
+  max-height: 9.33333333rem;
+  overflow-y: auto;
 }
 .carstype .type_one {
   width: 100%;
@@ -175,7 +196,6 @@ header a {
 .carstype .type_two {
   width: 100%;
   height: 2.93333333rem;
-  overflow: auto;
 }
 .carstype .type_two div {
   width: 5.33333333rem;
@@ -466,4 +486,144 @@ header a {
   margin-left: 2rem;
   text-align: center;
   margin-top: 0.8rem;
+}
+.clear::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.f-left {
+  float: left;
+}
+.f-right {
+  float: right;
+}
+.mainone {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+}
+.mainone .main_ul {
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.53333333rem;
+}
+.mainone .main_ul .main_li {
+  width: 100%;
+  height: 2.82666667rem;
+  background: #fff;
+}
+.mainone .main_li .li_icon {
+  width: 12%;
+  height: 2.82666667rem;
+  padding-left: 0.64rem;
+}
+.mainone .li_icon img {
+  margin-top: 0.88rem;
+  width: 1.06666667rem;
+  height: 1.06666667rem;
+}
+.mainone .main_li .li_input {
+  width: 88%;
+  height: 2.82666667rem;
+}
+.mainone .li_input input {
+  width: 100%;
+  height: 2.77333333rem;
+}
+.mainone .main_li:last-child .li_input input {
+  border-bottom: 0;
+}
+.mainone .main_car {
+  width: 100%;
+  height: 2.82666667rem;
+  line-height: 2.82666667rem;
+  background: #fff;
+}
+.mainone .car_icon {
+  height: 2.82666667rem;
+  padding-left: 0.64rem;
+}
+.mainone .car_icon img {
+  margin-top: 0.88rem;
+  width: 1.06666667rem;
+  height: 1.06666667rem;
+}
+.mainone .main_car .car_name {
+  margin-left: 0.85333333rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+}
+.mainone .main_car .car {
+  padding-right: 0.64rem;
+  height: 2.82666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #b3b3b3;
+}
+.mainone .main_message {
+  width: 100%;
+  height: auto;
+  background: #FFF;
+  padding: 0 0.64rem;
+}
+.mainone .main_message .message_name {
+  width: 100%;
+  height: 2.82666667rem;
+  line-height: 2.82666667rem;
+  border-bottom: 1px solid #F0EFF4;
+}
+.mainone .main_message .message {
+  width: 100%;
+  height: 3.73333333rem;
+}
+.mainone .message textarea {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  padding: 0.4rem 0rem;
+  margin: 0;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.64rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.17333333rem;
+  letter-spacing: 1px;
+  color: #1f1f1f;
+}
+.mainone .hide {
+  display: none;
+}
+.mainone .main_sure {
+  width: 100%;
+  height: auto;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #279cfe;
+}
+.mainone .main_sure .surepublish {
+  width: 100%;
+  height: 2.34666667rem;
+  line-height: 2.34666667rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #ffffff;
+  text-align: center;
+}
+.none {
+  width: 100%;
+  height: 0.53333333rem;
+  background: #f0eff4;
 }

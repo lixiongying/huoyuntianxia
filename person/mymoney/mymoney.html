@@ -26,6 +26,17 @@
 				left: 0.6rem;
 				top: 0.5rem;
 			}
+			.mask{
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				background: black;
+				opacity: 0.4;
+				display: none;
+			}
 		</style>
 	</head>
 	<body>
@@ -40,7 +51,7 @@
 			<div class="main huozhu">
 				<div class="fictitious">
 					<div class="virtual_coin">虚拟币：</div>
-					<div class="fictitious_number fictitious_numberb">120</div>
+					<div class="fictitious_number fictitious_numberb"></div>
 					<div class="Virtual_currency" onclick="url(this)" data-url="detailed.html?type=1">
               	   	  虚拟币明细
               	   </div>
@@ -84,12 +95,24 @@
 							</div>
 						</div>
 						 <input type="hidden" id="pay_type" value="0" />
+						 <div class="orderSn" style="opacity: 0;">
+						 	
+						 </div>
 					</div>
 				</div>
 			</div>	
-			
+			<div class="mask">
+				
+			</div>
 			<!-- 司机 -->
-			<div class="main siji">
+			<div class="main siji" style="display: block;">
+				<div class="fictitious">
+					<div class="virtual_coin">虚拟币：</div>
+					<!--<div class="fictitious_number fictitious_numberb">120</div>-->
+					<div class="Virtual_currency" onclick="url(this)" data-url="detailed.html?type=2">
+              	   	  虚拟币明细
+              	   </div>
+				</div>
 				<div class="fictitious income">
 					<div class="virtual_coin">收入(元)：</div>
 					<div class="fictitious_number fictitious_numbero user_money">100.00</div>
@@ -101,24 +124,24 @@
 					<div class="main_li">
 						<div class="incometime">今日/昨日收入</div>
 						<div class="income_value clear">
-							<div class="left_value today f-left">0.00</div>
-							<div class="right_value f-left yestoaday">100.00</div>
+							<div class="left_value today f-left"></div>
+							<div class="right_value f-left yestoaday"></div>
 							<div class="shuxian"></div>
 						</div>
 					</div>
 					<div class="main_li">
 						<div class="incometime">本周/上周收入</div>
 						<div class="income_value clear">
-							<div class="left_value f-left now_week">100.00</div>
-							<div class="right_value f-left up_week">100.00</div>
+							<div class="left_value f-left now_week"></div>
+							<div class="right_value f-left up_week"></div>
 							<div class="shuxian"></div>
 						</div>
 					</div>
 					<div class="main_li">
 						<div class="incometime">本月/上月收入</div>
 						<div class="income_value clear">
-							<div class="left_value f-left now_mouth">100.00</div>
-							<div class="right_value f-left up_mouth">100.00</div>
+							<div class="left_value f-left now_mouth"></div>
+							<div class="right_value f-left up_mouth"></div>
 							<div class="shuxian"></div>
 						</div>
 					</div>
@@ -173,42 +196,95 @@
 		$('.input_money').bind('input propertychange', function(e) { 
 		 	var money = parseFloat($(this).val());
 		 	var input_recharge = money*10;
-		 	$('.input_recharge').val(input_recharge)
+		 	$('.input_recharge').val(input_recharge);
 		});
+		var Money=$('.input_money').val();
+		var orderSn;
+		var account;
+		$('.input_money').keyup(function(){
+			var Money=parseInt($('.input_money').val());
+		
+			
+//			alert('s')
+			if(Money==''||Money==undefined||Money==null||Money<1){
+//				mui.toast('请输入充值金额');
+				
+				return;
+			}else{
+				$.ajax({
+	            	type:"post",
+					url:globalUrl+'index.php/Mobile/JkMoney/recharge',
+					data:{account:Money,user_id:userid},
+					success:function(res){
+						var data=res;
+						if(data.code==0){
+							
+							orderSn=data.order_sn;
+							account=data.account;
+//							$('.orderSn').html(data.order_sn)
+						}else{
+							mui.toast(data.msg);
+							return;
+						}
+					}
+	            })
+			}
+		})
 		$('#bg_fx').click(function(){
 		   	mui.back()
 		})
 		
 		function withdrawal(){
+			reminder("你确定要提现么");
+			$('.mask').show()
+		}
+		function makesure(){
 			var price=$('.user_money').html();
-			$.ajax({
-				type:"post",
-				url:globalUrl+"index.php/Mobile/JkUser/tixina",
-				data:{user_id:userid,price:price,type:1},
-				dataType:'json',
-				success:function(res){
-					var data=res;
-					if(res.code==0){
-						mui.toast('提现成功');
-						mui.back()
-					}else{
-						mui.toast(data.msg);
+			if(price==0){
+				mui.toast('你还没有收入，要努力哦');
+				$('.mask').hide();
+				$('.reminder').hide();
+				return;
+			}else{
+				$.ajax({
+					type:"post",
+					url:globalUrl+"index.php/Mobile/JkUser/tixina",
+					data:{user_id:userid,price:price,type:1},
+					dataType:'json',
+					success:function(res){
+						var data=res;
+						if(res.code==0){
+							mui.toast('提现成功');
+							$('.mask').hide();
+							$('.reminder').hide();
+							mui.back()
+						}else{
+							mui.toast(data.msg);
+						}
 					}
-				}
-			});
+				});
+			}
 		}
 		
-		
 		function change(obj){
-			
+			var Money=parseInt($('.input_money').val());
+			if(Money==''||Money==undefined||Money==null||Money<1){
+				mui.toast('请输入正确的充值金额');
+				
+				return;
+			}
 			if($(obj).attr('data-type')==0){
 				$('#pay_type').attr('value',0);
 				paytype=0;
+				
 				pay('wxpay');
+				
 			}else if($(obj).attr('data-type')==1){
 				$('#pay_type').attr('value',1);
 				paytype=1;
-				pay('alipay')
+				
+				pay('alipay');
+				
 			}
 			
 		}
@@ -253,33 +329,18 @@
 		
 		var w=null;
 		// 支付
+		
 		function pay(id){
-			var Money=$('.input_money').val();
-			var orderSn;
+			
+			var Money=parseInt($('.input_money').val());
+		
+			
 //			alert('s')
-			if(Money==''||Money==undefined||Money==null||Money==0){
+			if(Money==''||Money==undefined||Money==null||Money<1){
 				mui.toast('请输入充值金额');
 				
 				return;
-			}else{
-				$.ajax({
-	            	type:"post",
-					url:globalUrl+'index.php/Mobile/JkMoney/recharge',
-					data:{account:Money,user_id:userid},
-					success:function(res){
-						var data=res;
-						if(data.code==0){
-							orderSn=data.order_sn;
-							
-						}else{
-							mui.toast(data.msg);
-							return;
-						}
-					}
-	            })
 			}
-
-            
 		
 			if(w){return;}//检查是否请求订单中
 	
@@ -292,9 +353,10 @@
 		//	alert(JSON.stringify(w))
 			// 请求支付订单
 			
-			var amount = Money;//金额
+//			var amount = Money;//金额
 			var xhr=new XMLHttpRequest();
 			xhr.onreadystatechange=function(){
+				
 				switch(xhr.readyState){
 					case 4:
 					w.close();
@@ -347,12 +409,13 @@
 				}
 			}
 			var user_id=localStorage.getItem('user_id');
-			
+//			var orderSn=$('.orderSn').html();
 			if(id=='alipay'){
+			
 			  var newUrl=globalUrl+'index.php/Mobile/JkPay/alipaying?total_amount=0.01&orderSn='+orderSn+'&user_id='+user_id
 			  
 			}else if(id=='wxpay'){
-				var newUrl=globalUrl+'index.php/Mobile/JkPay/wechatPay?totalFee=0.01&orderSn='+orderSn+'&user_id='+user_id
+				var newUrl=globalUrl+'index.php/Mobile/JkPay/wechatPay?totalFee=0.01&orderSn='+orderSn+'&userId='+user_id
 				
 			}
 		

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+/<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -19,6 +19,9 @@
 		<script src="../../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
 		
 	</head>
+	<script type="text/javascript">
+		mui.init()
+	</script>
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
@@ -30,20 +33,20 @@
 			<div class="main">
 				<div class="head">
 					<div class="head_pic">
-						<img src="../../img/75c5ca005a7112cea4abb9c55a544f78_t013afb6f9efc2b4880.jpg" id="userpic"/>
+						<img src="" id="userpic"/>
 					</div>
 					<div class="head_information">
 						<div class="username nick_name">
-							黄鲜生
+							<!--黄鲜生-->
 						</div>
 						<div class="usernumber">
-							粤A66666
+							<!--粤A66666-->
 						</div>
 					</div>
 				</div>
 				<div class="evalute">
 					<div class="evaluteone">
-						你好，请评价我的配送服务
+						你好，请评价我的服务
 					</div>
 					<div class="evalutetwo">
 						<ul id="rating" class="rating">  
@@ -56,7 +59,7 @@
 					</div>
 				</div>
 				<div class="evaluteitem">
-					<div class="evalutenum" data-type='1'>
+					<!--<div class="evalutenum" data-type='1'>
 						准时 
 					</div>
 					<div class="evalutenum" data-type='1'>
@@ -65,6 +68,12 @@
 					<div class="evalutenum" data-type='1'>
 						合作愉快 
 					</div>
+					<div class="evalutenum" data-type='1'>
+						合作愉快 
+					</div>-->
+				</div>
+				<div class="itemselect" style="opacity: 0;">
+					
 				</div>
 				<div class="publish" onclick="publish()">
 					发布
@@ -74,7 +83,8 @@
 		</div>
 	</body>
 	<script type="text/javascript">
-		var goods_rank;
+
+		   var goods_rank=5;
 		   var rating = (function() {
 	        // 初始点亮的星星数量的函数
 			var lightOn = function($item, num) {
@@ -118,90 +128,91 @@
 	   rating.initfn('#rating', 5);
 	  
 	  
-	  $('.evalutenum').each(function(i){
-	  	$(this).click(function(){
-	  		
-//	  		 $(this).attr('data-type',0)
-	  		if($(this).hasClass('addcolor')){
-	  			
-	  			$(this).removeClass('addcolor')
-	  		}else{
-	  			 $(this).addClass('addcolor');
-	  		}
-	  	})
-	  })
+	 
 	   
-//	   var goods = $('#rating').children('.rating-item');
-//	   var goods_rank=0;
-//	   for(var i=0;i<goods.length;i++){
-//			if(goods.eq(i).children('img').attr('src')=='../../img/fabiaopingjia_pingfen.png'){
-//				goods_rank +=parseInt(1);
-//			}
-//		}
-//	   
-//	   var urL=location.href;
-//	  
-//	   var order_id=getUrl(urL).order_id;
-//	   var rec_id=getUrl(urL).rec_id;
-//	   var userid=localStorage.getItem('user_id');
-//	   var catstatus=localStorage.getItem('car_status');
-//	   $.ajax({
-//	   	  	type:"post",
-//	   	  	url:globalUrl+"index.php/Mobile/JkUser/myLists",
-//	   	  	async:true,
-//	   	  	data:{user_id:userid},
-//	   	  	dataType:'json',
-//	   	  	success:function(res){
-//	   	  		var data=res.user;
-//	   	  		$('#userpic').attr('src',picUrl+data.head_pic);
-//	   	  		if(catstatus==0){
-//			      $('.usernumber').hide();
-//			   	  
-//			   }else{
-//			   	  $('.usernumber').show();
-//			   	  $('.usernumber').html(data.car_info.car_number);
-//			   }
-//			   $('.nick_name').html(data.nick_name)
-//	   	  	}
-//	   	  });
-//	   
-//	  $.ajax({
-//	  	type:"post",
-//	  	url:globalUrl+"index.php/Mobile/JkOrder/user_comment",
-//	  	async:true,
-//	  	dataType:'json',
-//	  	success:function(res){
-//	  		var data=res.root.font;
-////	  		alert(JSON.stringify(data))
-//	  		var str=data.split('|');
-//	  		var str1=''
-//	  		for(var i=0;i<str.length;i++){
-//	  			str1+='<div class="evalutenum">'+str[i]+'</div>';
-//	  		}
-//	  		$('.evaluteitem').html(str1);
-//	  		$('.evalutenum').each(function(i){
-//			  	$(this).click(function(){
-//			  		 $(this).addClass('addcolor');
-//			  		if($(this).hasClass('addcolor')){
-//			  			$(this).removeClass('addcolor').addClass('evalutenum');
-//			  		}else if($(this).hasClass('evalutenum')){
-//			  			$(this).addClass('addcolor').removeClass('evalutenum');
-//			  		}
-//			  	})
-//			  })
-//	  	
-//	  	}
-//	  });
+
+	   
+	   var urL=location.href;
 	  
-//	  function content(obj){
-//	  	   $(obj).addClass('addcolor');
-//	  	   
-//	  }
-	
+	   var order_id=getUrl(urL).order_id;
+	   var rec_id=getUrl(urL).rec_id;
+	   var userid=localStorage.getItem('user_id');
+	   var catstatus=localStorage.getItem('car_status');
+	   var usersid=getUrl(urL).usersid;
 
+	   var Url;
+	   $.ajax({
+	   	  	type:"post",
+	   	  	url:globalUrl+"index.php/Mobile/JkUser/myLists",
+	   	  	async:true,
+	   	  	data:{user_id:usersid},
+	   	  	dataType:'json',
+	   	  	success:function(res){
+	   	  		var data=res.user;
+	   	  		$('#userpic').attr('src',picUrl+data.head_pic);
+	   	  		if(catstatus==0){
+			      $('.usernumber').show();
+			      $('.usernumber').html(data.car_info.car_number);
+			   	  
+			   }else{
+			   	  $('.usernumber').hide();
+			   	  
+			   }
+			   $('.nick_name').html(data.nick_name)
+	   	  	}
+	   	  });
 
-	
+      if(catstatus==0){
+      	 Url=globalUrl+"index.php/Mobile/JkOrder/user_comment"
+	   	  
+	   }else if(catstatus==1){
+	   	 Url=globalUrl+"index.php/Mobile/JkOrder/siji_comment"
+	    
+	   }
+	  $.ajax({
+	  	type:"post",
+	  	url:Url,
+	  	async:true,
+	  	dataType:'json',
+	  	success:function(res){
+	  		var data=res.root.font;
+//	  		alert(JSON.stringify(data))
+	  		var str=data.split('|');
+	  		len=str.length;
+	  		var str1=''
+	  		for(var i=0;i<str.length;i++){
+	  			str1+='<div class="evalutenum" onclick="addcontent(this)">'+str[i]+'</div>';
+	  		}
+	  		$('.evaluteitem').html(str1);
+ 	
+	  	}
+	  });
+
+	  function addcontent(obj){
+	  	 $(obj).each(function(){
+//	  	 	var index=$(obj).index()
+	  	 	if($(obj).hasClass('addcolor')){
+	  			
+	  		  $(obj).removeClass('addcolor');
+	  		   $(obj).attr('data-type','2')
+
+//	  		  content.splice(lentwo-1,1);
+	  		}else{
+	  			 $(obj).addClass('addcolor');
+	  		 	$(obj).attr('data-type','1')
+//	  			 content.push($(obj).html());
+
+	  		}
+	  	 })
+		       
+	  		
+		  	
+	  }
+	  
 	  function publish(){
+	  	
+          var content=[];
+
 	      if(goods_rank==1){
 	      	goods_rank=1
 	      }else if(goods_rank==2){
@@ -213,29 +224,43 @@
 	      }else if(goods_rank==5){
 	      		goods_rank=5
 	      }
-	  	
+	      $('.evalutenum').each(function(){
+	      	if($(this).attr('data-type')==1){
+	      		content.push($(this).html())
+	      		
+	      	}
+	      })
+	    
 	  	  var parms={};
+	  	 
 	  	  parms.order_id=order_id;
 	  	  parms.user_id=userid;
-	  	  parms.content=content;
+	  	  var evalutecontent=content.join(',')
+
+	  	  parms.content=evalutecontent;
 	  	  parms.add_comment=1;
 	  	  parms.rec_id=rec_id;
 	  	  parms.goods_rank=goods_rank;
-	  	  
+     
+
 	  	  $.ajax({
 	  	  	type:"post",
-	  	  	url:globalUrl+"index.php/Mobile/JkOrder/user_comment",
+	  	  	url:Url,
 	  	  
 	  	  	data:parms,
 	  	  	dataType:'json',
 	  	  	success:function(res){
 	  	  		var data=res;
+	 
 	  	  		if(res.code==0){
-	  	  			mui.toast(res.msg);
-	  	  			mui.back()
+	  	  			mui.toast('评价成功');
+	  	  			mui.back();
 	  	  		}else{
 	  	  			mui.toast(res.msg)
 	  	  		}
+	  	  	},
+	  	  	error:function(){
+	  	  		alert('s')
 	  	  	}
 	  	  });
 	  }

@@ -4,90 +4,160 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <title></title>
-    <script src="js/mui.min.js"></script>
+   
     <link href="css/mui.min.css" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="css/nav_table.css"/>
     <link rel="stylesheet" type="text/css" href="css/reset.css"/>
     <script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
-   <script src="js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
-   <script type="text/javascript" charset="utf-8">
-      	mui.init();
-    </script>
-    <style type="text/css">
-   
-    </style>
+    <script src="js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+
 </head>
 <body>
+
+	 <nav class="mui-bar mui-bar-tab a1 bottom">
+	    <a class="mui-tab-item mui-active" href="homepage/hz_homepage.html">
+	        <span class="nav_img1 img1"></span>
+	        <span class="mui-tab-label bot">首页</span>
+	    </a>
+	    <a class="mui-tab-item message" href="message/message.html">
+	         <span class="nav_img1 img2"></span>
+	        <span class="mui-tab-label bot">消息</span>
+	    </a>
+	    <a class="mui-tab-item discover" href="discover/pullrefresh.html">
+	        <span class="nav_img1 img3"></span>
+	        <span class="mui-tab-label bot">发现</span>
+	    </a>
+	     <a class="mui-tab-item" href="person/person.html">
+	        <span class="nav_img1 img4"></span>	       
+	        <span class="mui-tab-label bot">我的</span>
+	    </a>
+	    
+	</nav>
+	<input type="hidden" name="" id="index" value="0" />
 	
-	
-	
-		 <nav class="mui-bar mui-bar-tab a1 bottom">
-		    <a class="mui-tab-item mui-active" href="homepage/hz_homepage.html">
-		        <span class="nav_img1 img1"></span>
-		        <span class="mui-tab-label bot">首页</span>
-		    </a>
-		    <a class="mui-tab-item" href="message/message.html">
-		         <span class="nav_img1 img2"></span>
-		        <span class="mui-tab-label bot">消息</span>
-		    </a>
-		    <a class="mui-tab-item" href="discover/discover.html">
-		        <span class="nav_img1 img3"></span>
-		        <span class="mui-tab-label bot">发现</span>
-		    </a>
-		     <a class="mui-tab-item" href="person/person.html">
-		        <span class="nav_img1 img4"></span>	       
-		        <span class="mui-tab-label bot">我的</span>
-		    </a>
-		    
-		</nav>
-		<input type="hidden" name="" id="index" value="0" />
-		
-		<script type="text/javascript">
-			mui.plusReady(function(){
-				var subPages = ['homepage/hz_homepage.html','message/message.html','discover/discover.html','person/person.html'];//定义跳转页面
-				var bottomH = $('.bottom').height();//获取底部高度
-				//2.定义子页面打开的样式 
-				var subPageStyle = {
-					top:'0px',
-					bottom: bottomH + 'px'
-				};
-				var self = plus.webview.currentWebview();//获取当前显示窗体
-				subPages.forEach(function(obj,index){//遍历跳转页面
-					var sub = plus.webview.create(subPages[index],subPages[index],subPageStyle);//获取子窗体对象
-					sub.hide();//隐藏所有页面
-					self.append(sub);//将页面追加到子窗体中
-				});
-				plus.webview.show(subPages[0]);//显示第一个窗体
-				//选中 .mui-bar-tab下的所有的a标签
-				mui(".bottom").on("tap","a",function(e) {
-					if($(this).attr('class') == 'mui-tab-item mui-active'){
-						
-					}else {
-						//获取当前被点击的a标签的href属性值 
-						var targetPage = this.getAttribute('href');
-						
-						//显示指定的子页面 
-						plus.webview.show(targetPage,"fade-in",100);
-					}
-				});
+	<script type="text/javascript">
+		mui.init()
+		var userid=localStorage.getItem('user_id');
+		mui.plusReady(function(){
+			var subPages = ['homepage/hz_homepage.html','message/message.html','discover/pullrefresh.html','person/person.html'];//定义跳转页面
+			var bottomH = $('.bottom').height();//获取底部高度
+			//2.定义子页面打开的样式 
+			var subPageStyle = {
+				top:'0px',
+				bottom: bottomH + 'px'
+			};
+			var self = plus.webview.currentWebview();//获取当前显示窗体
+			subPages.forEach(function(obj,index){//遍历跳转页面
+				var sub = plus.webview.create(subPages[index],subPages[index],subPageStyle);//获取子窗体对象
+				sub.hide();//隐藏所有页面
+				self.append(sub);//将页面追加到子窗体中
 			});
-			function hide(){
-				$('bottom').hide();
-			}
-			function show(){
-				$('bottom').hide();
-			}	
-			function discover(){
-				$('.mui-tab-item').each(function(index){
-					if(index==2){
-						$(this).addClass('mui-active');
-					}else{
-						$(this).removeClass('mui-active');
-					}
-				})
-				plus.webview.show('discover/discover.html',"fade-in",100);
-			}
+			plus.webview.show(subPages[0]);//显示第一个窗体
+			//选中 .mui-bar-tab下的所有的a标签
+			mui(".bottom").on("tap","a",function(e) {
+				if($(this).attr('class') == 'mui-tab-item mui-active'){
+					
+				}else {
+					//获取当前被点击的a标签的href属性值 
+					var targetPage = this.getAttribute('href');
+					
+					//显示指定的子页面 
+                     plus.webview.show(targetPage,"fade-in",100);
+
+					
+				}
+			});
+		});
 		
-		</script>
+//			mui.plusReady(function(){
+//				
+//				var subPages = ['homepage/hz_homepage.html','message/message.html','discover/pullrefresh.html','person/person.html'];
+//				//获取当前显示窗口
+//				var self = plus.webview.currentWebview();
+//				
+//				//定义子窗口打开的样式
+//				
+//				var subPageStyle = {
+//					top:0,
+//					bottom:'50px',
+//				};
+//				
+//				//循环创建子窗口
+//				for(var i =0;i<subPages.length;i++){
+//					var sub = plus.webview.create(subPages[i],subPages[i],subPageStyle);
+//					//将所有的盒子隐藏起来
+//					sub.hide();
+//					
+//					//将创建好的窗口追加到主窗口中
+//					self.append(sub);
+//						
+//				}
+//				//默认显示第一个窗口
+//				plus.device.setWakelock(true);
+//				plus.webview.show(subPages[0]);
+//				session1();
+//			});
+//			
+//			//给a绑定事件
+//			
+//			mui('.mui-bar').on("tap","a",function(e){
+//				
+//				//通过每个被点击的a标签去获取定义的href属性值 
+//				var targetPage = this.getAttribute("href");
+//			
+//				
+//				//将对应的子页面显示出来  
+//				
+//				//show(子页面id,采用的动画名称,动画执行时间【单位毫秒】)
+//				plus.webview.show(targetPage,"fade-in",100); 
+//				
+//				
+//			});
+		
+		
+		
+		
+		function hide(){
+			$('bottom').hide();
+		}
+		function show(){
+			$('bottom').hide();
+		}	
+		
+		function discover(){
+			$('.mui-tab-item').each(function(index){
+				if(index==2){
+					$(this).addClass('mui-active');
+				}else{
+					$(this).removeClass('mui-active');
+				}
+			})
+			plus.webview.show('discover/pullrefresh.html',"fade-in",100);
+		}
+		
+//			var carstatus=localStorage.getItem('car_status');
+//			if(car_status==1){
+//				
+//			}
+		if(userid!=undefined||userid!=null||userid!=''){
+			getuserinfo();
+		}
+        
+		function getuserinfo(){
+			$.ajax({
+				type:"post",
+				url:globalUrl+"index.php/Mobile/JkUser/myLists",
+				data:{user_id:userid},
+				dataType:'json',
+				success:function(res){
+//						alert(JSON.stringify(res))
+					var data=res.user;
+					var car_status=data.car_status;
+					localStorage.setItem('car_status',car_status)
+				}
+			});
+		}
+	</script>
 </body>
 </html>

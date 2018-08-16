@@ -24,7 +24,17 @@
 	  		color: #CCCCCC;
 	  		font-size: 2rem;
 	  	}
+	  	.nulldata{
+				width: 100%;
+				height: 200px;
+				font-size: 1.2rem;
+				line-height: 200px;
+				text-align: center;
+		}		
 	  </style>
+	  <script>
+		mui.init();
+	</script>
 	</head>
 	<body>
 		<header class="mui-bar mui-bar-nav mui-action-back">
@@ -63,9 +73,11 @@
 					</div>	
 				</div>
 				<div class="main_user_ul">
-					<div class="Data" style="display: none;">
+					<div class="nulldata" style="display: none;">暂无数据</div>
+					<!--<div class="Data" style="display: none;">
 							暂无数据
 					</div>
+					
 					<div class="user_li">
 						<!--<div class="order_sn">订单号：1511626</div>
 						<div class="order_time">2018-05-01</div>
@@ -80,7 +92,7 @@
 							<div class="clear"></div>
 						</div>
 						<div class="clear"></div>-->
-					</div>
+					<!--</div>
 					<div class="user_li">
 						
 						<div class="order_sn">订单号：1511626</div>
@@ -111,7 +123,7 @@
 								
 							</div>
 						</div>
-					</div>
+					</div>-->
 				</div>
 			</div>
 		</div>
@@ -131,7 +143,7 @@
 			if(carstatus==0){
 					Url=globalUrl+"index.php/Mobile/JkOrder/userpingjieList";
 			}else{
-				Url=globalUrl+"index.php/Mobile/JkOrder/sijipingjieList";
+				Url=globalUrl+"index.php/Mobile/JkOrder/usijipingjieList";
 			}
 			loaddata();
 			function loaddata(){
@@ -157,16 +169,20 @@
 						
 						/*印象评分*/
 						
-						
-						for(var i=0;i<data.font.length;i++){
-							str2+='<div class="label_li">'+data.font[i]+'</div>'
-							
+						if(data.font==null||data.font==undefined||data.font==''){
+//							str2+='<div class="nulldata">暂无数据</div>';
+						}else{
+							for(var i=0;i<data.font.length;i++){
+								str2+='<div class="label_li">'+data.font[i]+'</div>'
+								
+							}
 						}
+						
 						$('.main_label').html(str2)
 						
 						
 						/*星星评分*/						
-						var avge=data.avge;
+						var avge=Math.round(data.avge);
 						if(avge==1){
 							str1+='<div class="gong huixing activexing"></div>';
 							str1+='<div class="gong huixing"></div>';
@@ -210,13 +226,13 @@
 						if(data.avge==false||data.avge==undefined||data.avge==null){
 							$('.score').html(0);
 						}else{
-							$('.score').html(data.avge);
+							$('.score').html(Math.round(data.avge));
 						}
 						/*订单列表*/
 						if(data1.length==''||data1.length==undefined){
-							$('.Data').show();
+							$('.nulldata').show();
 						}else{
-							$('.Data').hide();
+							$('.nulldata').hide();
 							for(var i=0;i<data1.length;i++){
 								str+='<div class="user_li">';
 								str+='<div class="user_li_t clearfix">';

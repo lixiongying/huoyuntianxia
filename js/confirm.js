@@ -1,9 +1,25 @@
+
+    mui.plusReady(function(){
+    	 var self = plus.webview.currentWebview();
+    	 var company_status=self.company_status;
+
+    })	
+    
+    var urL=location.href;
+    var typeid=getUrl(urL).type;
+ 
+    if(typeid==1){
+    	$('.companystatus').show();
+    	$('.huozhuitems').html('企业货主')
+    }else if(typeid==2){
+    	$('.companystatus').hide();
+    	$('.huozhuitems').html('普通货主')
+    }
+ 
 	var img_num = 6;//
-var big_img_num = 3;//最大上传图片数
+        var big_img_num = 1;//最大上传图片数
 
-
-		
-		var procinstid = 0;
+    var procinstid = 0;
 		//初始化页面执行操作  
 
 		//加载页面初始化需要加载的图片信息  
@@ -25,7 +41,7 @@ var big_img_num = 3;//最大上传图片数
 				}else if(type==2){
 					html += '<div class="imgs imgitem" id="Img' + imgId + imgkey + '">';
 					html += '<img class="picBig" data-preview-src="" data-preview-group="1" ' + src + '/>';
-					html += '<span class="del_icon" onclick="delImg(\'' + imgId + '\',\'' + imgkey + '\',' + id + ')"><img src="../../img/shangpinxiangqing_quxiao.png" alt="" /></span>';
+					html += '<span class="del_icon" onclick="delImg(\'' + imgId + '\',\'' + imgkey + '\',' + id + ')"><img src="../../../img/shangpinxiangqing_quxiao.png" alt="" /></span>';
 					html += '</div>';
 					$(".righttwo").append(html)
 				}else if(type==3){
@@ -249,34 +265,72 @@ var userid=localStorage.getItem('user_id');
                     
                 }else{
                 	var files=data.paths;
-                	if(files.length<3){
-                		mui.toast('请完整上传信息');
-                		shuaxin();
-                		return;
-                	}else if(files.length==3){
-                		var company1=files[0];
-                		var company2=files[1];
-                		var company3=files[2];
-	 				$.ajax({
-			        	type:"post",
-			        	url:globalUrl+"index.php/Mobile/JkUser/shenfen",
-			        	data:{user_id:userid,company1:company1,company2:company2,company3:company3},
-			        	dataType:'json',
-			        	success:function(res){
-	                      if(res.status==-1){
-	                      	mui.toast('修改成功');
-		        			setTimeout(function(){
-		        				mui.back();
-		        			},1000);
-	                      }else{
-	                      	mui.toast(res.msg)
-	                      }
-		        			
-			        	}
-		        	})
-                	}
-                    	 mui.toast('上传成功');
-                      
+                	if(typeid==2){
+                		
+                		if(files.length<2){
+	                		mui.toast('请完整上传信息');
+	                		shuaxin();
+	                		return;
+	                	}else if(files.length==2){
+	                		var company1=files[0];
+	                		var company2=files[1];
+	                	
+			 				$.ajax({
+					        	type:"post",
+					        	url:globalUrl+"index.php/Mobile/JkUser/shenfen",
+					        	data:{user_id:userid,company1:company1,company2:company2},
+					        	dataType:'json',
+					        	success:function(res){
+					        	
+			                      if(res.status==0){
+			                      	mui.toast('提交成功');
+				        			
+				        				mui.back();
+				        			
+			                      }else{
+			                      	mui.toast(res.msg);
+			                      	shuaxin()
+			                      }
+				        			
+					        	}
+				        	})
+	                	}
+                		
+                		
+                		
+                		
+                	}else if(typeid==1){
+                	
+	                	if(files.length<3){
+	                		mui.toast('请完整上传信息');
+	                		shuaxin();
+	                		return;
+	                	}else if(files.length==3){
+	                		var company1=files[0];
+	                		var company2=files[1];
+	                		var company3=files[2];
+			 				$.ajax({
+					        	type:"post",
+					        	url:globalUrl+"index.php/Mobile/JkUser/shenfen",
+					        	data:{user_id:userid,company1:company1,company2:company2,company3:company3},
+					        	dataType:'json',
+					        	success:function(res){
+//					        	alert(JSON.stringify(res))
+			                      if(res.status==0){
+			                      	mui.toast('提交成功');
+				        			
+				        				mui.back();
+				        			
+			                      }else{
+			                      	mui.toast(res.msg);
+			                      	shuaxin()
+			                      }
+				        			
+					        	}
+				        	})
+	                	}
+//                  	
+                    }  
                         
                     
                 }
@@ -309,7 +363,7 @@ var userid=localStorage.getItem('user_id');
 			task.start();
 	}
     
-		
+	
 //	  function surechange(){
 //	  	if(company1[0]==!''&&company2[0]==!''&&company3[0]==!''){
 //	  		var parms={};

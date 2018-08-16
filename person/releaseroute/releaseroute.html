@@ -15,30 +15,222 @@
 		<script src="../../js/public.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+	    <style type="text/css">
+	    	.mui-content{
+	    		overflow: hidden;
+	    	}
+	    	.masks{
+	    		 width: 100%;
+			    height: 100%;
+			    position: fixed;
+			    left: 0;
+			    top: 0;
+			    bottom: 0;
+			    background: black;
+			    opacity: 0.5;
+			    display: none;
+			    z-index: 100;
+	    	}
+	    	.nulldata{
+	    		width: 100%;
+		   		height: 10rem;
+		   		text-align: center;
+		   		line-height: 10rem;;
+		   		font-size: 1.2rem;
+		   		color: #CCCCCC;
+	    	}
+	    </style>
 	</head>
+	<script type="text/javascript">
+		mui.init()
+	</script>
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;width: 80px;"></a>
-		    <h1 class="mui-title">发布路线</h1>
+		    <h1 class="mui-title">我的线路</h1>
 		    
 		    <!--<span><img src="../../img/faxian_jia.png"/></span>-->
 		</header>
 		<div class="mui-content">
-			<div class="main">
-				<div class="main_banner">
-					<img  src="../../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/>
+			
+			<div class="cars">
+				<div class="cardetails" onclick="url(this)" data-url='hz_carsdetail.html'>
+					<div class="car_pic">
+						<!--<img src="../../img/c8e9eef9f1c58ac516b51eaa584e7233_t01a6852a946b324a87.jpg"/>-->
+					</div>
+					<div class="carsitem">
+						<!--<div class="z_place">
+							<div><img src="../../img/changtuche_zhuangchedizhi.png"/></div>
+							<div class="">广州市天河区</div>
+						</div>
+						<div class="x_place">
+							<div><img src="../../img/changtuche_xiehuodizhi.png"/></div>
+							<div class="">广州市白云区</div>
+						</div>
+						<div class="time">
+							<div class="time_pic"><img src="../../img/changtuche_shijian.png"/></div>
+							<div class="time_start">2018-05-01 </div>
+						</div>
+						<div class="parameter">
+							<div class="time_pic"><img src="../../img/changtuche_chexingchechang.png"/></div>
+							<div class="time_start">6.8米 平板车, 22.1方 6.0吨</div>
+						</div>-->
+					</div>
+					<div class="delete">
+						<!--<img src="../../img/delete.png"/>-->
+					</div>
 				</div>
-				<div class="long-term" onclick="url(this)" data-url="long_term.html?types=2" >
-					<div class="long">长途车</div>
+				<div class="masks">
+					
 				</div>
-				<div class="short-term" onclick="url(this)" data-url="long_term.html?types=3" >
-					<div class="short">短途车</div>
-				</div>
-			</div>	
+			</div>
 		</div>
 	</body>
 	<script type="text/javascript">
+		var userid=localStorage.getItem('user_id');
+		var ajaxData={};
+		ajaxData.p=1;
+		ajaxData.user_id=userid;
+		var p=2;
+		var totalPage;
+		function getcars(){
+			$.ajax({
+				url: globalUrl+'index.php/Mobile/JkLine/smList',
+				type: 'post',
+				data: ajaxData,
+				dataType: 'json',
+				
+				success: function(res){
+					var data=res.root;
+					
+					totalPage=res.totalPage;
+					var str='';
+					if(data.length>0){		
+						for(var i=0;i<data.length;i++){
+							str+='<div class="cardetails" data-type='+data[i].goods_id+'>';
+							str+='<div class="car_pic"><img src="'+picUrl+data[i].car.image2+'"/></div>';
+							str+='<div class="carsitem">';
+						
+							str+='<div class="z_place">';
+							str+='<div><img src="../../img/changtuche_zhuangchedizhi.png"/></div>'
+							str+='<div class="">'+data[i].add1+'</div>';
+							str+='</div>';
+							str+='<div class="x_place">';
+							str+='<div><img src="../../img/changtuche_xiehuodizhi.png"/></div>';
+							str+='<div class="">'+data[i].add2+'</div>';
+							str+='</div>';
+							str+='<div class="time">';
+							str+='<div class="time_pic"><img src="../../img/changtuche_shijian.png"/></div>';
+							str+='<div class="time_start timestatr">'+data[i].load_time+'</div>';
+							str+='</div>';
+							str+='<div class="parameter">';
+							str+='<div class="time_pic"><img src="../../img/changtuche_chexingchechang.png"/></div>';
+							str+='<div class="time_start"><span>'+data[i].car.spec_name.cat_name+'<span>/<span>'+data[i].car.spec_name.car_spec+'<span><span>'+data[i].car.bulk+'<span>方<span>'+data[i].car.ton+'<span>吨</div>';
+							str+='</div>';
+							str+='</div>';
+							str+='<div class="delete"><img src="../../img/delete.png"/></div>';
+							str+='</div>';
+			
+							
+						}
+						if(ajaxData.p==1){
+							$('.cars').html(str);
+								for(var i=0;i<10;i++){
+									var time=$('.timestatr').eq(i).html();
+									var timeout=timeToDate(time);
+									$('.timestatr').eq(i).html(timeout);
+								}
+						}else{
+							$('.cars').append(str);
+							for(var i=10;i<100;i++){
+								var time=$('.timestatr').eq(i).html();
+								var timeout=timeToDate(time);
+								$('.timestatr').eq(i).html(timeout);
+							}
+						}
+	//					$('.cars').append(str);
+						
+					}else if(data.length==''||data==null||data==undefined){
+						str+='<div class="nulldata">暂无发布线路</div>';
+							
+						$('.cars').html(str);
+						
+					}
+					
+				}
+			})
+		}
+		getcars()
 		
+		$(window).scroll(function() {
+			if ($(document).scrollTop() >= $(document).height() - $(window).height()){
+				if(p>totalPage){
+	//				alert(totalPage)
+					mui.toast('没有更多结果');
+				}else{
+					
+					ajaxData.p = p;
+		//			alert(JSON.stringify(ajaxdata));
+					getcars();
+					p++
+				}
+			}
+		
+		});	
+		
+//		function carsdetail(obj){
+//			var goodsid=$(obj).attr('data-type')
+//			mui.openWindow({
+//				url:'./long_term.html?goodsid='+goodsid+'',
+//				id:'./long_term.html'
+//			})
+//		}
+		
+		$('.cars').on('tap','.delete',function(event){
+		 
+			  event.stopPropagation();
+			  var idfs = $(this).parents('.cardetails').attr('data-type');
+			  var _this=$(this).parents('.cardetails');
+			  mui.confirm('确定要删除该线路么？', function(e) {
+	        		
+	                if (e.index == 1) {
+	               
+	                } else {
+	                	
+						$.ajax({
+							type:"post",
+							url:globalUrl+"index.php/Mobile/JkLine/delsijiLine",
+							data:{goods_id:idfs},
+							dataType:'json',
+				              success:function(res){
+				              	var data=res;
+				              	
+				              	if(data.code==0){              		
+									mui.toast('删除路线成功');
+									_this.remove()
+				              	}
+				              }
+						});
+	                }
+            })
+			  
+//			  reminder('确定要删除该线路么');
+			 
+		})
+		
+		
+
+	$('.cars').on('tap','.cardetails',function(){
+		var goodsid=$(this).attr('data-type')
+		mui.openWindow({
+			url:'./long_term.html?goodsid='+goodsid+'',
+			id:'./long_term.html'
+		})
+	  
+		
+	})
+
+
 		
 	</script>
 </html>

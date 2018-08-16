@@ -1,0 +1,136 @@
+input {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.main {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.mui-bar {
+  width: 20rem;
+  height: 2.34666667rem;
+  background-color: #279cfe;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.mui-title {
+  color: #ffffff;
+  font-size: 0.96rem;
+}
+.goodstype {
+  width: 100%;
+  height: 5.33333333rem;
+  background: white;
+}
+.goodstype .goodsworld {
+  width: 100%;
+  height: 2.13333333rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.8rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.13333333rem;
+  letter-spacing: 0px;
+  color: black;
+  padding-left: 1.33333333rem;
+}
+.goodstype .goodsinput {
+  width: 100%;
+  height: 3.2rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.8rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 3.2rem;
+  letter-spacing: 0px;
+  color: black;
+}
+.goodsinput input {
+  padding: 0;
+  margin: 0;
+  border: none;
+  padding-left: 1.33333333rem;
+  font-size: 0.96rem;
+  font-weight: normal;
+  font-stretch: normal;
+  height: 100%;
+  letter-spacing: 0px;
+  color: #333333;
+}
+.goodsitem {
+  width: 100%;
+  height: auto;
+  background: white;
+  padding: 0.26666667rem 0;
+  margin-top: 0.4rem;
+}
+.selectgood {
+  width: 100%;
+  height: 2.13333333rem;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.96rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.13333333rem;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  margin-bottom: 0.26666667rem;
+  margin-left: 1.33333333rem;
+}
+.goodsitem .itemgoods {
+  margin-bottom: 0.53333333rem;
+}
+.goodsitem .itemgoods div {
+  padding: 0.21333333rem 0.4rem;
+  margin-left: 1.2rem;
+  font-size: 0.69333333rem;
+  text-align: center;
+  line-height: 1.33333333rem;
+  float: left;
+  background: white;
+  margin-top: 0.4rem;
+  background-color: #ffffff;
+  border-radius: 0.61333333rem;
+  border: solid 0.02666667rem #b3b3b3;
+}
+.sure {
+  width: 12rem;
+  height: 2.34666667rem;
+  background-color: #279cfe;
+  text-align: center;
+  line-height: 2.34666667rem;
+  margin: 0 auto;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  border-radius: 0.8rem;
+  letter-spacing: 0px;
+  color: #ffffff;
+  margin-top: 2.66666667rem;
+}
+.histprygoods {
+  width: 100%;
+  height: auto;
+  background: white;
+  padding: 0.26666667rem 0;
+  margin-top: 0.4rem;
+}
+.histprygoods div {
+  padding: 0.21333333rem 0.4rem;
+  margin-left: 1.2rem;
+  font-size: 0.8rem;
+  text-align: center;
+  line-height: 1.33333333rem;
+  float: left;
+  border: 0.02666667rem solid #cccccc;
+  background: white;
+  border-radius: 0.42666667rem;
+  background: #CCCCCC;
+}
+.addcolor {
+  color: #279cfe;
+  border: 0.02666667rem solid #279cfe !important;
+}

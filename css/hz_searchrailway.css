@@ -19,11 +19,11 @@ header a {
 }
 .map {
   width: 100%;
-  height: 13.86666667rem;
+  height: auto;
 }
 .map .baidumap {
   width: 100%;
-  height: 11.2rem;
+  height: 13.86666667rem;
 }
 .map .mapplace {
   width: 100%;
@@ -98,7 +98,7 @@ header a {
   margin-top: 1.06666667rem;
 }
 .linkman .linkman_item {
-  width: 4rem;
+  width: 3.2rem;
   height: 2.82666667rem;
   background-color: #ffffff;
   line-height: 2.82666667rem;
@@ -143,7 +143,7 @@ header a {
   margin-top: 1.06666667rem;
 }
 .tel .linkman_item {
-  width: 4rem;
+  width: 3.2rem;
   height: 2.82666667rem;
   background-color: #ffffff;
   line-height: 2.82666667rem;
@@ -183,39 +183,35 @@ header a {
 }
 .address {
   width: 20rem;
-  height: 2.82666667rem;
+  height: auto;
   background-color: #ffffff;
   margin-top: 0.05333333rem;
+  position: relative;
 }
 .address .link_img {
   width: 0.66666667rem;
   height: 0.66666667rem;
-  display: inline-block;
   float: left;
   margin-left: 0.66666667rem;
   margin-top: 1.06666667rem;
 }
 .address .linkman_item {
-  width: 4rem;
-  height: 2.82666667rem;
   background-color: #ffffff;
-  line-height: 2.82666667rem;
+  padding: 0.8rem 0.26666667rem;
   font-family: PingFang-SC-Medium;
   font-size: 0.74666667rem;
   font-weight: normal;
   font-stretch: normal;
   letter-spacing: 0.02666667rem;
   color: #1f1f1f;
-  display: inline-block;
   float: left;
   margin-left: 0.4rem;
   white-space: nowrap;
 }
 .address .linkman_message {
-  width: 13.33333333rem;
-  height: 2.82666667rem;
+  max-width: 13.33333333rem;
+  padding: 0.8rem 0;
   background-color: #ffffff;
-  line-height: 2.82666667rem;
   font-family: PingFang-SC-Medium;
   font-size: 0.74666667rem;
   font-weight: normal;
@@ -224,7 +220,13 @@ header a {
   color: #1f1f1f;
   display: inline-block;
   float: left;
-  white-space: nowrap;
+}
+.address .addressposistion {
+  width: 1.12rem;
+  height: 1.14666667rem;
+  position: absolute;
+  right: 0.53333333rem;
+  top: 0.8rem;
 }
 .through {
   width: 20rem;
@@ -241,7 +243,7 @@ header a {
   margin-top: 1.06666667rem;
 }
 .through .linkman_item {
-  width: 4rem;
+  width: 3.2rem;
   height: 2.82666667rem;
   background-color: #ffffff;
   line-height: 2.82666667rem;
@@ -286,7 +288,7 @@ header a {
   margin-top: 1.06666667rem;
 }
 .cover .linkman_item {
-  width: 4rem;
+  width: 3.2rem;
   height: 2.82666667rem;
   background-color: #ffffff;
   line-height: 2.82666667rem;

@@ -21,6 +21,19 @@
         <script src="../js/city.data.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
 	</head>
+	<style type="text/css">
+			.nullData{
+	   		width: 100%;
+	   		height: 10rem;
+	   		text-align: center;
+	   		line-height: 10rem;
+	   		font-size: 1.2rem;
+	   		color: #CCCCCC;
+	   	}
+	</style>
+	<script>
+		mui.init();
+	</script>
 	<body>
 		
 		<header class="mui-bar mui-bar-nav mui-action-back">
@@ -37,7 +50,7 @@
 							<img src="../img/changtuchexiangqing_qidian.png"/>
 						</div>
 						<div class="place_two nameone" >
-							<input type="" name="" id="staadd" value="" placeholder="请选择出发地"/>
+							<input type="" name="" id="staadd" disabled="disabled" value="" placeholder="请选择出发地"/>
 						</div>
 				    </div>
 				    <div class="endplace" id="endplace">
@@ -45,34 +58,47 @@
 							<img src="../img/changtuchexiangqing_zhongdian.png"/>
 						</div>
 						<div class="place_two nametwo" >
-							<input type="" name="" id="endadd" value="" placeholder="请选择目的地"/>
+							<input type="" name="" id="endadd" disabled="disabled" value="" placeholder="请选择目的地"/>
 						</div>
 				    </div>
 				</div>
-				<div class="elemtone" style="opacity: 0;">
-					
-				</div>
-				<div class="elemttwo" style="opacity: 0;"> 
-					
-				</div>
-				<!--<div class="product">
-					<div class="productitem clearfix">
-						<div class="itemimg">
-							<img src="../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/>
+				
+				
+				
+				<div class="xianlu">
+					<div class="nullData" style="display: none;">
+							暂无发布线路
 						</div>
-						<div class="itemmessage clearfix">
-							<div class="message clearfix">
-								<div class="message_one"><img src="../img/changtuche_zhuangchedizhi.png"/></div>
-								<div class="message_two">广州市白云区太和镇物ssssssssssssssssss</div>
-							</div>
-							
-							<div class="message clearfix">
-								<div class="message_one"><img src="../img/changtuche_xiehuodizhi.png"/></div>
-								<div class="message_two">广州市白云区太和镇物流园K栋sadasdas111</div>
+					<div class="product">
+						
+						<div class="productitem clearfix">
+							<!--<div class="itemimg">
+								<img src="../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/>
+							</div>-->
+							<div class="itemmessage clearfix">
+								<!--<div class="message clearfix">
+									<div class="message_one"><img src="../img/changtuche_zhuangchedizhi.png"/></div>
+									<div class="message_two">广州市白云区太和镇物ssssssssssssssssss</div>
+								</div>
+								
+								<div class="message clearfix">
+									<div class="message_one"><img src="../img/changtuche_xiehuodizhi.png"/></div>
+									<div class="message_two">广州市白云区太和镇物流园K栋sadasdas111</div>
+								</div>-->
 							</div>
 						</div>
 					</div>
-				</div>-->
+					<div class="elemtone" style="opacity: 0;">
+					
+					</div>
+					<div class="elemttwo" style="opacity: 0;"> 
+						
+					</div>
+				
+				</div>  
+				
+				
+				
 				<div class="next" id="next">
 					下一步
 				</div>
@@ -83,6 +109,7 @@
 		</div>
 	</body>
 	<script type="text/javascript">
+	
       var cityPicker = new mui.PopPicker({
 		layer: 3
 	  });
@@ -90,32 +117,205 @@
 
 		var $sel_city=document.getElementById('startplace');
 		var $sel_citytwo=document.getElementById('endplace');
-        var $elemt=$('.nameone');
-        var $elemttwo=$('.nametwo');
+        var $elemt=$('#staadd');
+        var $elemttwo=$('#endadd');
         var $elemtone
 		$sel_city.addEventListener('click', function(event) {
 		cityPicker.show(function(items) {
-			$elemt.html((items[0] || {}).text + " " + (items[1] || {}).text + " " + (items[2] || {}).text);
+			$('#staadd').val((items[0] || {}).text + " " + (items[1] || {}).text + " " + (items[2] || {}).text);
             $('.elemtone').html((items[1] || {}).text);
 		});
 	    }, false);
 	    
 	    $sel_citytwo.addEventListener('click', function(event) {
 		cityPicker.show(function(items) {
-			$elemttwo.html((items[0] || {}).text + " " + (items[1] || {}).text + " " + (items[2] || {}).text);
+			$('#endadd').val((items[0] || {}).text + " " + (items[1] || {}).text + " " + (items[2] || {}).text);
             $('.elemttwo').html((items[1] || {}).text);
 		});
 	    }, false);
-	 
+	    
+//	    mui.plusReady(function() {
+//		    plus.geolocation.getCurrentPosition(translatePoint,function(e){
+//		//      	alert(JSON.stringify(e));
+//		//          mui.toast("异常:" + e.message);
+//			});
+//	    });
+
+	    var city;
+	    var province;
+		var district;
+		var p=2;
+		var totalPage;
+		var ajaxData={};
+		ajaxData.p=1;
+		
+	    
+	
+//	    function translatePoint(position){				
+//		   var currentLon = position.coords.longitude;
+//		   var currentLat = position.coords.latitude;
+//		   province=position.address.province;
+//		   city=position.address.city;
+//		   district=position.address.district;
+//		   var address=province+city+district;
+//		   
+//	
+//	     
+//		    $.ajax({
+//		    	type:"post",
+//		    	url:globalUrl+"index.php/Mobile/JkOrder/userLineList",
+//		    	data:{address:address,p:1},
+//		    	success:function(res){
+//		    		var data=res.root;
+//		    		
+//		    		totalPage=res.totalPage;
+//		    	
+//		    		var str='';
+//		    		for(var i=0;i<data.length;i++){
+//						if(data.length==0){
+//							$('.nullData').show();
+//						}else{
+//							$('.nullData').hide();
+//						
+//							str+='<div class="productitem clearfix" onclick="detail(this)" data-type='+data[i].goods_id+'>';
+//							str+='<div class="itemimg"><img src="'+picUrl+data[i].original_img+'"/></div>';
+//							str+='<div class="itemmessage clearfix">';
+//							str+='<div class="message clearfix">';
+//							str+='<div class="message_one"><img src="../img/changtuche_zhuangchedizhi.png"/></div>';
+//							str+='<div class="message_two">'+data[i].start_address+'</div>';
+//							str+='</div>';
+//							str+='<div class="message clearfix">';
+//							str+='<div class="message_one"><img src="../img/changtuche_xiehuodizhi.png"/></div>';
+//							str+='<div class="message_two">'+data[i].end_address+'</div>';
+//							str+='</div>';
+//							str+='</div>';
+//							str+='</div>';
+//						}
+//					}
+//					
+//						$('.product').html(str);
+//				
+//		    		
+//		    	}
+//		    })
+//		    
+//		}
+	  getline()
+	    function getline(){
+	    	
+//	    	ajaxData.address=province+city+district;
+	    	
+	    	 $.ajax({
+		    	type:"post",
+		    	url:globalUrl+"index.php/Mobile/JkOrder/userLineList",
+		    	data:ajaxData,
+		    	dataType:'json',
+		    	success:function(res){
+		    		var data=res.root;
+		            totalPage=res.totalPage;
+		    	    
+		    		var str='';
+		    		for(var i=0;i<data.length;i++){
+						if(data.length==0){
+							$('.nullData').show();
+						}else{
+							$('.nullData').hide();
+						
+							str+='<div class="productitem clearfix" onclick="detail(this)" data-type='+data[i].goods_id+'>';
+							str+='<div class="itemimg"><img src="'+picUrl+data[i].original_img+'"/></div>';
+							str+='<div class="itemmessage clearfix">';
+							str+='<div class="message clearfix">';
+							str+='<div class="message_one"><img src="../img/changtuche_zhuangchedizhi.png"/></div>';
+							str+='<div class="message_two">'+data[i].start_address+'</div>';
+							str+='</div>';
+							str+='<div class="message clearfix">';
+							str+='<div class="message_one"><img src="../img/changtuche_xiehuodizhi.png"/></div>';
+							str+='<div class="message_two">'+data[i].end_address+'</div>';
+							str+='</div>';
+							str+='</div>';
+							str+='</div>';
+						}
+					}
+		    		if(ajaxData.p==1){
+		    			$('.product').html(str);
+		    		}else if(ajaxData.p>1){
+		    			$('.product').append(str);
+
+		    		}
+		    		
+		    	}
+		    })
+			
+	    }
+	    
+	    
+	$(window).scroll(function() {
+		if ($(document).scrollTop() >= $(document).height() - $(window).height()){
+			if(p>totalPage){
+				mui.toast('没有更多结果');
+			}else{
+				ajaxData.p = p;
+	//			alert(JSON.stringify(ajaxdata));
+				getline();
+				p++
+			}
+		}
+	
+	});
+//	    function getline(){
+//	    	alert(city)
+//	    	 $.ajax({
+//		    	type:"post",
+//		    	url:globalUrl+"index.php/Mobile/JkLine/zhuanxianList",
+//		    	data:ajaxData,
+//		    	success:function(res){
+//		    		var data=res.root;
+//		    		totalPage=res.totalPage;
+//		    		var str='';
+//		    		for(var i=0;i<data.length;i++){
+//						if(data.length==0){
+//							$('.nullData').show();
+//						}else{
+//							$('.nullData').hide();
+//						
+//							str+='<div class="productitem clearfix" onclick="detail(this)" data-type='+data[i].goods_id+'>';
+//							str+='<div class="itemimg"><img src="'+data[i].original_img+'"/></div>';
+//							str+='<div class="itemmessage clearfix">';
+//							str+='<div class="message clearfix">';
+//							str+='<div class="message_one"><img src="../img/changtuche_zhuangchedizhi.png"/></div>';
+//							str+='<div class="message_two">'+data[i].start_address+'</div>';
+//							str+='</div>';
+//							str+='<div class="message clearfix">';
+//							str+='<div class="message_one"><img src="../img/changtuche_xiehuodizhi.png"/></div>';
+//							str+='<div class="message_two">'+data[i].end_address+'</div>';
+//							str+='</div>';
+//							str+='</div>';
+//							str+='</div>';
+//						}
+//					}
+//					if(ajaxData.p = 1){
+//						$('.product').html(str);
+//					}else{
+//						$('.product').append(str);
+//					}
+//	    		
+//		    		
+//		    		
+//		    	}
+//		    })
+//	    }
+	   
+
+		    
 	
 	$('#next').click(function(){
 		var $elemtone=encodeURI($('.elemtone').html());
 		var $elemttwo=encodeURI($('.elemttwo').html());
-		var start_address=encodeURI($('.nameone').html());
-//		alert(start_address);
+		var start_address=encodeURI($('#staadd').val());
+		
 //		return
-		var end_address=encodeURI($('.nametwo').html());
-		if($('#staadd').val()==''||$('#endadd').val()==''){
+		var end_address=encodeURI($('#endadd').val());
+		if($('#staadd').val()==''&&$('#endadd').val()==''){
 			mui.toast('地址不能为空');
 			return false;
 		}else{
@@ -125,7 +325,19 @@
 			})
 		}
 	})
+	
+	function detail(obj){
+		var goods_id=$(obj).attr('data-type');
 		
+		mui.openWindow({
+			url:'sj_orderdetail.html?goods_id='+goods_id+'',
+			id:'sj_orderdetail.html'
+		})
+	}
+	window.addEventListener('refresh', function(e){//执行刷新
+		
+		shuaxin()
+	});		
 
 	</script>
 </html>

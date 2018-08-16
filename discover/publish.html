@@ -9,15 +9,27 @@
 		<title>发布</title>
 		<link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
 		<!--<link rel="stylesheet" type="text/css" href="css/mui.css"/>-->
-		<link rel="stylesheet" type="text/css" href="../css/nav_table.css"/>
+		
 		<link rel="stylesheet" type="text/css" href="../css/publish.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
-		<link rel="stylesheet" type="text/css" href="../css/swiper-4.3.2.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/imageviewer.css"/>
+		
 		<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
-		
+		 <script src="../js/mui.previewimage.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="../js/mui.zoom.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+	    <style type="text/css">
+	    	video{
+	    		margin: 0;
+	    		padding: 0;
+	    		
+	    	}
+	    </style>
+	    <script>
+		mui.init();
+	</script>
 	</head>
 	<body>
 		
@@ -45,11 +57,15 @@
 							<img src="../img/fabu_tianjiatupian.png"/>
 							
 						</div>
+						
 					</div>
-					
+					<!--<button id="btn" type="button" class="mui-btn mui-btn-blue mui-btn-block">开始按钮</button>
+					<button id="btnend" type="button" class="mui-btn mui-btn-blue mui-btn-block" onclick="stopCapture()">停止按钮</button>-->
 				</div>
 				
 			</div>
+			
+			<!--<video class="picBig"  src="../img/8f4c270daabb3d3a630a7fcb46dbffad.mp4"/></video>-->
 			<input type="hidden" id="ckjl.id" name="ckjl.id" value="430">
 		<!--<input type="text" />-->
 			<div class="publish_btn" onclick="uploadImg()">
@@ -59,63 +75,120 @@
 	</body>
 	<!--<script src="../js/publish.js" type="text/javascript" charset="utf-8"></script>-->	
 <script>
-	function add_share(){
-	var user_id=localStorage.getItem('user_id');
-	var content=$('.add_meaasge').val();
-	var image=0;
-	parms={};
- 	parms.content=content;
- 	parms.image=image;
- 	parms.user_id=user_id;
- 	if($('.add_meaasge').val()==''){
- 		mui.toast('内容不能为空');
- 		return false;
- 	}
- 	$.ajax({
- 		type:"post",
-	url:globalUrl+'index.php/Mobile/JkShare/Share',
-	data:parms,
-	dataType:"json",
- 	success:function(res){
-   			if(res.code==0){
-   				mui.toast('发布成功');
-   				mui.back()
-   			}else{
-   				mui.toast('发布失败');
-   				mui.back()
-   				
-   			}
- 		}
- 	});
- 	
+	mui.plusReady(function(){
+			plus.storage.clear(); 
+		
+	})
+	mui.previewImage();
+	
+	/*判断是否为安卓或者ios*/
+	function isAndroid_ios(){
+		var u = navigator.userAgent, app = navigator.appVersion;
+		var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
+		var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+		return isAndroid==true?true:false;
+	}
+	if(isAndroid_ios()){
+  
+	//安卓
+	 
+	}else{
+	 
+	//ios
+	 
 	}
 	
+	
+	var bodyHeight = window.screen.height;
+	var bodyWidth = window.screen.width;
+	var imgheight=$('.publishi_img').height();
+	var imgwidth=$('.publishi_img').width();
+    var userid=localStorage.getItem('user_id')
 		var img_num = 6;//
         var big_img_num = 9;//最大上传图片数
-
+        var videonum=1;
 	
 		var procinstid = 0;
-		
-		function showImgDetail(imgId, imgkey, id, src) {
-			var html = "";
-
+		var typeid;
+		function showImgDetail(imgId, imgkey, id, src,type) {
 			
+			var type=type;
+			var src=src;
+			
+			typeid=type;
+			
+			var html = "";
+			if(type==2){
+				html += '<div class="imgs publish_img" id="Img' + imgId + imgkey + '">';
+				html += '<img class="picBig" data-preview-src="" data-preview-group="1" ' + src + '/>';
+				html += '<span class="del_icon" onclick="delImg(\'' + imgId + '\',\'' + imgkey + '\',' + id + ')"><img src="../img/shangpinxiangqing_quxiao.png" alt="" /></span>';
+				html += '</div>';
+				$("#imgone").before(html);
 				
-					html += '<div class="imgs publish_img" id="Img' + imgId + imgkey + '">';
-					html += '<img class="picBig" data-preview-src="" data-preview-group="1" ' + src + '/>';
-					html += '<span class="del_icon" onclick="delImg(\'' + imgId + '\',\'' + imgkey + '\',' + id + ')"><img src="../img/shangpinxiangqing_quxiao.png" alt="" /></span>';
-					html += '</div>';
-					$("#imgone").before(html);
+			}else if(type==3||type==4){
+				html += '<div class="imgs publish_img getvideom"  id="Img' + imgId + imgkey + '">';
+				html += '<video class="picBig videoitem" data-type="1"  muted="true" loop="loop" autoplay="autoplay" ' + src + '/></video>';
+				html += '<span class="del_icon" onclick="delImg(\'' + imgId + '\',\'' + imgkey + '\',' + id + ')"><img src="../img/shangpinxiangqing_quxiao.png" alt="" /></span>';
+				html += '</div>';
+
+				$("#imgone").before(html);
+//				$('.getvideom').click(function(){
+//					$('video').webkitRequestFullScreen()
+//				})
+               
+				$('.videoitem').on('click',function(){
+					var type=$(this).attr('data-type');
+//					alert(type)
+					if(type==1){
+						$('.publish_btn').hide()
+					    $('.videoitem').width(bodyWidth+'px');
+					    $('.videoitem').height(bodyHeight+'px');
+					    $('.videoitem').css('z-index',100);
+					    $('.videoitem').css('position','fixed');
+					    $('.videoitem').css('top',0);
+					    $('.videoitem').css('left',0);
+					    $('.videoitem').css('bottom',0);
+					    $('.videoitem').css('right',0);
+					    $(this).attr('data-type',2)
+					}else if(type==2){
+						$('.publish_btn').show()
+					    $('.videoitem').width(imgwidth+'px');
+					    $('.videoitem').height(imgheight+'px');
+					    $('.videoitem').css('z-index',100);
+					    $('.videoitem').css('position','static');
+//					  
+					    $(this).attr('data-type',1)
+					}
+					
+					
+				    
+				   // exitFullscreen();
+				});
+			}
+			
 				
 			
 		}
+
+		function play() {
+//			alert('s')
+		    var ele = document.documentElement;
+		    if (ele .requestFullscreen) {
+		        ele .requestFullscreen();
+		    } else if (ele .mozRequestFullScreen) {
+		        ele .mozRequestFullScreen();
+		    } else if (ele .webkitRequestFullScreen) {
+		        ele .webkitRequestFullScreen();
+		    }
+		}
+	
 		//删除图片  
 		//imgId:图片名称：IMG_20160704_112614  
 		//imgkey:字段，例如F_ZDDZZ  
 		//ID：站点编号ID，例如429  
 		function delImg(imgId, imgkey, id) {
 			var bts = ["是", "否"];
-			plus.nativeUI.confirm("是否删除图片？", function(e) {
+			plus.nativeUI.confirm("是否删除该项？", function(e) {
 				
 				var i = e.index;
 				if(i == 0) {
@@ -158,7 +231,15 @@
 		//选取图片的来源，拍照和相册  
 		function showActionSheet(conf) {
 			var divid = conf.id;
-			var imgNum = $('.addpicitem .imgs').length;
+			var imgNum = $('.addpic .imgs').length;
+			var most_video_Num = $('.addpic .getvideom').length;
+			if(most_video_Num>=videonum){
+				plus.nativeUI.alert('最多只能上传'+videonum+'个！');
+				videonum = 1;
+				return;
+			}else {
+				most_video_Num = videonum - most_video_Num;
+			}
 			if(imgNum>=big_img_num){
 				plus.nativeUI.alert('最多只能选择'+big_img_num+'张！');
 				img_num = 0;
@@ -169,7 +250,11 @@
 			var actionbuttons = [{
 				title: "拍照"
 			}, {
-				title: "相册选取"
+				title: "选择图片"
+			}, {
+				title: "视频选择"
+			},{
+				title: "录像"
 			}];
 			var actionstyle = {
 				title: "选择照片",
@@ -178,14 +263,156 @@
 			};
 			plus.nativeUI.actionSheet(actionstyle, function(e) {
 				if(e.index == 1) {
-					getImage(divid);
+					var type=2;
+					getImage(divid,type);
 				} else if(e.index == 2) {
-					galleryImg(divid);
+					var type=2;
+					galleryImg(divid,type);
+				}else if(e.index == 3) {
+					var type=3;
+					gallerycamer(divid,type);
+				}else if(e.index == 4){
+					var type=4;
+					galleryluxiang(divid,type);
 				}
 			});
 		}
+		var filesaudio;
+		
+		function galleryluxiang(divid,type){
+			 	var VIDEOZOOM = 400;
+		        var MediaStore = plus.android.importClass("android.provider.MediaStore");
+		        var Intent = plus.android.importClass("android.content.Intent");
+		        // 导入后可以使用new方法创建类的示例对象
+		        var intent = new Intent("android.media.action.VIDEO_CAPTURE");
+//		        var intent = new Intent(Intent.ACTION_GET_CONTENT);
+//		        intent.setType("video/mp4");
+		        intent.putExtra("android.intent.extra.videoQuality", 0);//0 means low quality, 1 means high quality
+		//        intent.putExtra("android.provider.MediaStore.EXTRA_OUTPUT", url);
+		        intent.putExtra("android.intent.extra.durationLimit", 10);//设置录像时间
+		//       intent.putExtra(MediaStore.EXTRA_DURATION_LIMIT, 10); 
+//		     
+		       var main = plus.android.runtimeMainActivity();
+		        main.startActivityForResult(intent,VIDEOZOOM);
+		        //获取返回参数
+		        main.onActivityResult = function(requestCode, resultCode, data) {
+		            var context = main;
+		            plus.android.importClass(data);
+		            var uri = data.getData();
+		            var resolver = context.getContentResolver();
+		            plus.android.importClass(resolver);
+		            var cursor = resolver.query(uri, null, null, null, null);
+		            plus.android.importClass(cursor);
+		            cursor.moveToFirst();
+		            var column = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATA);
+		            // 获取录制的视频路径
+		            var filePath = cursor.getString(column);
+		
+		            // 解析视频文件的属性
+		            plus.io.resolveLocalFileSystemURL(filePath,function(entry) {
+		                entry.file(function(file){
+		                	
+		                	saveimage(filePath, divid, file.name, filePath,type)
+//		                    console.log("size=="+file.size); 
+//		                    console.log("name=="+file.name);
+		                });
+		            }, function (e) {
+		                console.log("Resolve file URL failed: " + e.message);
+		            });
+		        };
+
+//			 var cmr = plus.camera.getCamera();
+//              //获取相机
+//              cmr.startVideoCapture(function(p) {
+//              //录像
+//              plus.io.resolveLocalFileSystemURL(p, function(entry) {
+//              	var path = entry.toLocalURL();
+//              	plus.zip.compress(path,"_doc/camera/" , function(){
+//              		
+//              		saveimage(entry.toLocalURL(), divid, entry.name, path,type)
+//              		
+//              	}, function(){
+////              		alert("Compress error!");
+//              	});
+//              	
+//              	
+//              	
+//
+//                  }, function(e) {
+//                      console.log("读取录像文件错误：" + e.message);
+//                  });
+//
+//              }, function(e) {
+//                  console.log("失败");
+//                  plus.nativeUI.toast("录像失败！",{duration:"long"});
+//              }, {
+//                  filename: "_doc/camera/",//文件保存目录
+//                  index: 2,
+//                  format: 'mp4'
+//              });
+////              setTimeout( stopCapture, 4000 );
+//              setTimeout(function(){
+//              	 cmr.stopVideoCapture();
+//              },4000)
+		}
+		
+//		function getCameraiOS() {
+//			var cameraVideo = plus.ios.newObject("UIImagePickerController");
+//
+//			plus.ios.implements('UIImagePickerControllerDelegate'{'imagePickerController:didFinishPickingMediaWithInfo:':getUrl});//实现监听
+//			
+//			cameraVideo.plusSetAttribute('delegate',cameraVideo);
+//			
+//			cameraVideo.plusSetAttribute('sourceType',1);//设置为摄像头0为相册
+//			
+//			var iosArray = plus.ios.newObject('NSMutableArray');
+//			
+//			plus.ios.invoke(iosArray,'addObject:','public.movie');
+//			
+//			cameraVideo.plusSetAttribute('mediaTypes',iosArray);//设置为录制视频
+//			
+//			cameraVideo.plusSetAttribute('videoMaximumDuration',10.0);//设置最大时长为10秒
+//			
+//			var UIApplicationClass = plus.ios.importClass("UIApplication");
+//			
+//			var UIAppObj = UIApplicationClass.sharedApplication();
+//			
+//			var del = plus.ios.invoke(UIAppObj,"delegate");
+//			
+//			var appWindowObj = plus.ios.invoke(del,"window");
+//			
+//			var appRootController = plus.ios.invoke(appWindowObj,"rootViewController"); plus.ios.invoke(appRootController,"presentViewController:animated:completion:",cameraVideo,"YES",null);
+//		}
+
+			
+		function gallerycamer(divid,type){
+			plus.gallery.pick(function(e) {
+				
+					plus.io.resolveLocalFileSystemURL(e, function(entry) {
+						var path = entry.toLocalURL();
+						
+						saveimage(entry.toLocalURL(), divid, entry.name, path,type)
+//						compressImage(entry.toLocalURL(), entry.name, divid);
+					}, function(e) {
+						plus.nativeUI.toast("读取拍照文件错误：" + e.message);
+					});
+//				filesaudio = e.files;
+//           alert(filesaudio)
+			}, function(e) {
+				console.log("取消选择图片");
+			}, {
+				filename: "_doc/camera/",
+				filter: "video",
+				multiple: false,
+				
+				system:false,
+				
+			});
+		}
+
+		
 		var lfs = null;//保留图片
-		function galleryImg(divid) {
+		function galleryImg(divid,type) {
 			plus.gallery.pick(function(e) {
 				//alert(e.files.length);
 				var zm = 0;
@@ -193,7 +420,7 @@
 				
 				function file() {
 					plus.io.resolveLocalFileSystemURL(e.files[zm], function(entry) {
-						compressImage(entry.toLocalURL(), entry.name, divid);
+						compressImage(entry.toLocalURL(), entry.name, divid,type);
 					}, function(e) {
 						plus.nativeUI.toast("读取拍照文件错误：" + e.message);
 					});
@@ -203,7 +430,7 @@
 					}
 				}
 				lfs = e.files;
-
+               
 			}, function(e) {
 				console.log("取消选择图片");
 			}, {
@@ -218,7 +445,7 @@
 			});
 		}
 		// 拍照  
-		function getImage(divid) {
+		function getImage(divid,type) {
 			if(img_num <= 0) {
 				return;
 			}
@@ -228,7 +455,7 @@
 				plus.io.resolveLocalFileSystemURL(p, function(entry) {
 					//alert(entry.toLocalURL());//file:///storage/emulated/0/Android/data/io.dcloud...../doc/camera/1467602809090.jpg  
 					//alert(entry.name);//1467602809090.jpg  
-					compressImage(entry.toLocalURL(), entry.name, divid);
+					compressImage(entry.toLocalURL(), entry.name, divid,type);
 				}, function(e) {
 					plus.nativeUI.toast("读取拍照文件错误：" + e.message);
 				});
@@ -237,9 +464,14 @@
 				index: 1
 			});
 		}
+		
+
+	
 		//压缩图片  
-		function compressImage(url, filename, divid) {
+		function compressImage(url, filename, divid,type) {
+			var type=type;
 			var name = "_doc/upload/" + divid + "-" + filename; //_doc/upload/F_ZDDZZ-1467602809090.jpg  
+//			alert(name)
 			plus.zip.compressImage({
 					src: url, //src: (String 类型 )压缩转换原始图片的路径  
 					dst: name, //压缩转换目标图片的路径  
@@ -249,9 +481,10 @@
 				function(event) {
 					//uploadf(event.target,divid);  
 					var path = name; //压缩转换目标图片的路径  
+//					alert(path)
 					//event.target获取压缩转换后的图片url路  
 					//filename图片名称  
-					saveimage(event.target, divid, filename, path);
+					saveimage(event.target, divid, filename, path,type);
 				},
 				function(error) {
 					plus.nativeUI.toast("压缩图片失败，请稍候再试");
@@ -264,9 +497,11 @@
 		 * @param {Object} divid  字段的名称  
 		 * @param {Object} name   图片的名称  
 		 */
-		function saveimage(url, divid, name, path) {
+		function saveimage(url, divid, name, path,type) {
+		
 			//alert(url);//file:///storage/emulated/0/Android/data/io.dcloud...../doc/upload/F_ZDDZZ-1467602809090.jpg  
 			//alert(path);//_doc/upload/F_ZDDZZ-1467602809090.jpg  
+//			alert(name);return
 			var state = 0;
 			var wt = plus.nativeUI.showWaiting();
 			//  plus.storage.clear();   
@@ -284,20 +519,20 @@
 
 			
 			var src = 'src="' + url + '"';
+//			alert(src);return
 			//alert("itemvalue="+itemvalue);  
-			showImgDetail(name, divid, id, src);
+			showImgDetail(name, divid, id, src,type);
+//			showImgDetail(imgId, imgkey, id, src)
 //			uploadImg(type)
 			wt.close();
 		}
 
-//		var image1;
-//		var image2;
-//		var image3;
-//		var image4;
-		var userid=localStorage.getItem('user_id')
+
+		
 	//上传图片\
 	
 	function uploadImg(){
+		
 		var content=$('#add_meaasge').val();
                   
                    
@@ -316,64 +551,97 @@
 //				wa.close();
 //				return;
 //		}
-		var task = plus.uploader.createUpload(globalUrl+'index.php/Mobile/JkShare/testUploadPic1',{
+		var task = plus.uploader.createUpload(globalUrl+'index.php/Mobile/JkUser/testUploadPic',{
 			method: "POST"
 		},function(t, status){
-			wa.close();
-			plus.storage.clear(); 
-			var data = JSON.parse(t.responseText);
-//			  alert(JSON.stringify(data));
-//			  return;
+			wa.close()
+//			alert(t.responseText);
+//			plus.storage.clear(); 
+//			var data = JSON.parse(t.responseText);
+			  
 			if(status==200){
-				
+
+			  var data = JSON.parse(t.responseText);
+//		
 				if(data==' '||data==undefined||data==null){
                      mui.toast('上传失败');
                      return;
                     
                 }else{
                 	var files=data.paths;
-//              	var parms={};
-//              	parms.image=files.join(',');
-                	
-//                  alert(JSON.stringify(parms));return
-//                 mui.toast('上传成功');
-                   if(files.length==0&&content==''){
-                   	     mui.toast('内容不能为空')
-                   }else{
-                   	var parms = {};
-                   	parms.image = files.join(',');
-                   	parms.user_id = userid;
-                   	parms.content = content;
-                   	alert(JSON.stringify(parms));
-//                 	return;
-	                   	$.ajax({
-		                	type:"post",
-		                	url:globalUrl+"index.php/Mobile/JkShare/Share",
-		                	data:parms,
-		                	dataType:'json',
-		                	success:function(res){
-		                		
-		              		var data=res.code;
-//		              		alert(JSON.stringify(data))
-			              		if(data==0){
-			              			mui.toast('发表成功');
-	//		              			sessionStorage.setItem('havepublish','0')
-	                                 plus.webview.getWebviewById('discover/discover.html').evalJS("shuaxin()");
-			              			mui.back()
-			              		}else{
-			              			mui.toast(res.msg);
-			              			
-			              		}
-		                	}
-		                }); 
-                   }
-               		
+                  
+	                
+	                if(files.length==0&&content==''){
+	                  	mui.toast('内容不能为空');
+	                  	return;
+	                }
+                   	
+                   	
+	                if(files.length==0){
+	                   	var parms = {};
+	                   	    parms.user_id = userid;
+	                   	    parms.content = content;
+	                   	   
+	                   	    $.ajax({
+			                	type:"post",
+			                	url:globalUrl+"index.php/Mobile/JkShare/Share",
+			                	data:parms,
+			                	dataType:'json',
+			                	success:function(res){
+			                		
+			              		var data=res.code;
+				              		
+				              		if(data==0){
+				              			mui.toast('发表成功');
+		//		              			sessionStorage.setItem('havepublish','0')
+		                                 plus.webview.getWebviewById('discover/pullrefresh.html').evalJS("shuaxin()");
+				              			mui.back()
+				              		}else{
+				              			mui.toast(res.msg);
+				              			
+				              		}
+			                	}
+			                }); 
+	                   }else{
+	                   	var parms = {};
+	                   	if(typeid==2){
+	                   		parms.image = files.join(',');
+	                        parms.user_id = userid;
+	                   	    parms.content = content;
+	                   	}else if(typeid==3||typeid==4){
+	                   		parms.video = files.join(',');
+	                        parms.user_id = userid;
+	                   	    parms.content = content;
+	                   	   
+	                   	}
+	                     
+	//                 	    parms.video = files.join(',';
+	//                 	     alert(JSON.stringify(parms.image));
+	//                 	     return
+		                   	$.ajax({
+			                	type:"post",
+			                	url:globalUrl+"index.php/Mobile/JkShare/Share",
+			                	data:parms,
+			                	dataType:'json',
+			                	success:function(res){
+			                		
+			              		var data=res.code;
+				              		
+				              		if(data==0){
+				              			mui.toast('发表成功');
+		//		              			sessionStorage.setItem('havepublish','0')
+		                                 plus.webview.getWebviewById('discover/pullrefresh.html').evalJS("shuaxin()");
+				              			mui.back()
+				              		}else{
+				              			mui.toast(res.msg);
+				              			shuaxin()
+				              		}
+			                	}
+			                }); 
+	                   }
 
+                   
                 }
-
-              
-//             return false;
-                 
 
 			}else{
 				wa.close();
@@ -383,7 +651,7 @@
 			}
 		})
 //         task.addData("id", user_id);
-	       task.addData("dir_name", 'z_pouyouquan');
+	       task.addData("dir_name", 'z_header_pic');
 			var imgArray = [];//上传图片的id（多少添加图片按钮 ）
 			$('.image-item').each(function(){
 				imgArray.push($(this).attr('id'));
@@ -395,6 +663,7 @@
 					for(var img = 1; img < itemvalue.length; img++) {
 						var imgname = itemvalue[img].substr(0, itemvalue[img].indexOf(","));
 						var imgurl = itemvalue[img].substring(itemvalue[img].indexOf(",") + 1, itemvalue[img].lastIndexOf(","));
+//						mui.alert(imgurl)
 						task.addFile(imgurl, {
 							key: imgurl
 						});
@@ -403,6 +672,7 @@
 			}
 			task.start();
 	}
-</script>
-</html>
+	
 
+</script>
+</html>           

@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<meta name="format-detection" content="telephone=no">
+		<meta name="format-detection" content="telephone=yes">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
@@ -17,13 +17,49 @@
 		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+		
+		<!--<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>-->
+		
 		<style type="text/css">
-			/*.collecthave{
-				
-				border: 1px solid #CCCCCC;
-				color: #CCCCCC;
+			
+			
+			 p, span {
+		      font-family: 'Microsoft Yahei'!important;
+		    }
+
+			
+			.info {
+				margin-top: 20px;
+				padding-left: 20px;
+				color: #cc5522;
+				font-size: 20px;
+				margin-bottom: 40px;
+				text-align: center;
+			}
+			
+			/*pre {
+				font-family: "微软雅黑";
+				font-size: 14px;
 			}*/
+			
+			.title {
+				font-size: 14px;
+				font-weight: bold;
+				color: #cc5522;
+			}
+			
+			.content {
+				font-size: 13px;
+				color: #333;
+				margin-top: 6px;
+			}
+			.placeadddress{
+				margin-top: 10px;
+			}
 		</style>
+		<script>
+			mui.init();
+		</script>
 	</head>
 	<body>
 		
@@ -36,12 +72,15 @@
 		<div class="mui-content">
 			<div class="main">
 				<div class="map">
-					<div class="baidumap">
-						
+					<div class="baidumap container" id="container1">
+						<!--<iframe src="https://uri.amap.com/marker?position=113.39391,23.1281819717616&name=park&src=mypage&coordinate=wgs84&callnative=0" id="test" frameborder="0">
+			
+			
+		                </iframe>-->
 					</div>
 					<div class="mapplace">
 						<div class="place">
-							广州市德之顺物流有限公司
+							<!--广州市德之顺物流有限公司-->
 						</div>
 						<div class="collect" onclick="collect()">
 							收藏
@@ -57,7 +96,7 @@
                  		联系人：
                  	</div>
                  	<div class="linkman_message username">
-                 		张仨
+                 		<!--张仨-->
                  	</div>
                  </div>
                  
@@ -69,10 +108,10 @@
                  		手机：
                  	</div>
                  	<div class="linkman_message telphone">
-                 		17875032851
+                 		<!--17875032851-->
                  	</div>
-                 	<div class="linkman_phone">
-                 		<img src="../img/zhuanxianxiangqing_phone.png"/>
+                 	<div class="linkman_phone mobile">
+                 		<!--<a href="tel:17875032851"><img src="../img/zhuanxianxiangqing_phone.png"/></a>-->
                  	</div>
                  </div>
                  
@@ -84,14 +123,14 @@
                  		电话：
                  	</div>
                  	<div class="linkman_message telnumber">
-                 		020-12345678
+                 		<!--020-12345678-->
                  	</div>
-                 	<div class="linkman_phone">
-                 		<img src="../img/zhuanxianxiangqing_phone.png"/>
+                 	<div class="linkman_phone telnum">
+                 		<!--<a href="tel:020-12345678"><img src="../img/zhuanxianxiangqing_phone.png"/></a>-->
                  	</div>
                  </div>
                  
-                  <div class="address">
+                  <div class="address clearfix">
                  	<div class="link_img">
                  		<img src="../img/zhuanxianxiangqing_dizhi.png"/>
                  	</div>
@@ -99,8 +138,11 @@
                  		地址：
                  	</div>
                  	<div class="linkman_message addressplace">
-                 		广州市白云区太和镇物流园K栋111
+                 		<!--广州市白云区太和镇物流园K栋111广州市白云区太和镇物流园K栋111广州市白云区太和镇物流园K栋111广州市白云区太和镇物流园K栋111-->
                  	</div>
+                 	<div class="number_three addressposistion" onclick="addresss()">
+			    		<img src="../img/dingdanxiangqing_dizhi.png"/>
+			    	</div>
                  </div>
                  
                 <div class="through">
@@ -111,7 +153,7 @@
                  		直达：
                  	</div>
                  	<div class="linkman_message placeremaks">
-                 		深圳
+                 		<!--深圳-->
                  	</div>
                  </div>
                  
@@ -123,7 +165,7 @@
                  		覆盖：
                  	</div>
                  	<div class="linkman_message fullplace">
-                 		深圳全境
+                 		<!--深圳全境-->
                  	</div>
                  </div>
                  
@@ -140,10 +182,10 @@
                  	<div class="net_content">
                  		<div class="content clearfix">
                  			<div class="content_one">
-                 				<img src="../img/75c5ca005a7112cea4abb9c55a544f78_t013afb6f9efc2b4880.jpg"/>
+                 				<!--<img src="../img/75c5ca005a7112cea4abb9c55a544f78_t013afb6f9efc2b4880.jpg"/>-->
                  			</div>
                  			<div class="content_two clearfix">
-                 				<div class="telphonet clearfix">
+                 				<!--<div class="telphonet clearfix">
                  					<div class="shouji">
                  						手机：
                  					</div>
@@ -166,7 +208,7 @@
                  					<div class="number addressitem" style="color: #1f1f1f;">
                  						深圳市罗湖区太和镇物流园…
                  					</div>
-                 				</div>
+                 				</div>-->
                  			</div>
                  		</div>
                  	</div>
@@ -216,73 +258,158 @@
 			</div>
 		</div>
 	</body>
+	<script src="http://api.map.baidu.com/api?v=2.0&ak=A1LU7iHS0avqQwPLAxbhKn0UYSQCuRVH"></script>
+		
+    <script src="../js/jquery.baiduMap.min.js"></script>
 	<script type="text/javascript">
-          var userid=localStorage.getItem('user_id');
-          var urL=location.href;
+
+        var userid=localStorage.getItem('user_id');
+        var carstatus=localStorage.getItem('car_status');
+        var urL=location.href;
          
-          var goods_id=getUrl(urL).id;
-          var del_coin=getUrl(urL).del_coin;
-          var collect_id=getUrl(urL).collect_id;
-          var collect_count;
-          $.ajax({
-          	type:"post",
-          	url:globalUrl+"index.php/Mobile/JkLine/zhuanxianinfo",
-          	data:{user_id:userid,goods_id:goods_id,del_coin:del_coin},
-          	dataType:'json',
-          	success:function(res){
-          		
-                var str='';
-                var data=res.info;
-                collect_count=data.collect_count;
-              
-                if(collect_count>1||collect_count==1){
-                	$('.collect').addClass('collecthave');
-                	$('.collect').html('已收藏')
-                }else{
-                	$('.collect').removeClass('collecthave');
-                }
-          		if(res.code==0){
-	                $('.username').html(data.contact);
-	      			$('.telphone').html(data.mobile);
-	      			$('.telnumber').html(data.tel);
-	      			$('.addressplace').html(data.address);
-	      			$('.placeremaks').html(data.goods_remark);
-	      			$('.fullplace').html(data.full);
-	      			$('.place').html(data.company);
-          			for(var i=0;i<data.length;i++){
-	          			str+='<div class="content clearfix">';
-	          			str+='<div class="content_one"><img src="../img/75c5ca005a7112cea4abb9c55a544f78_t013afb6f9efc2b4880.jpg"/></div>';
-	          			str+='<div class="content_two clearfix">';
-	          			str+='<div class="telphonet clearfix">';
-	          			str+='<div class="shouji">手机：</div>';
-	          			str+='<div class="number telnum">'+data[i].mobile+'</div>';
-	          			str+='</div>';
-	          			str+='<div class="telphonet clearfix">';
-	          			str+='<div class="shouji">电话:</div>';
-	          			str+='<div class="number telnumber">'+data[i].tel+'</div>';
-	          			str+='</div>';
-	          			str+='<div class="telphonet clearfix">';
-	          			str+='<div class="shouji">地址:</div>';
-	          			for(var l=0;l<data.yuyueaddress.length;l++){
-	          				str+='<div class="number addressitemr" style="color: #1f1f1f;">'+data.yuyueaddress[l]+'</div>';
-	          			}
-	          			
-	          			str+='</div>';
-	          			str+='</div>';
-	          			str+='</div>';			
+        var goods_id=getUrl(urL).id;
+      
+        var del_coin=getUrl(urL).del_coin;
+//       alert(del_coin)
+        var collect_id=getUrl(urL).collect_id;
+        var collect_count;
+        var mobile;
+        var lon;
+        var lat;
+        var address;
+        var tel;
+		var ajaxData={};
+		var currentLon;
+		var currentLat;
+		mui.plusReady(function() {
+		    plus.geolocation.getCurrentPosition(translatePoint,function(e){
+		//      	alert(JSON.stringify(e));
+		//          mui.toast("异常:" + e.message);
+			});
+	    });
+		function translatePoint(position){				
+		  	currentLon = position.coords.longitude;
+		    currentLat = position.coords.latitude;
+	    }
+		
+		
+		
+		 if(carstatus==0){
+		 	ajaxData.user_id=userid;
+		 	ajaxData.goods_id=goods_id;
+		 
+		 }else{
+		 	ajaxData.user_id=userid;
+		 	ajaxData.goods_id=goods_id;
+		 }
+         
+//        alert(goods_id)
+	    function getmessage(){
+	    	 var company;
+			$.ajax({
+	          	type:"post",
+	          	url:globalUrl+"index.php/Mobile/JkLine/zhuanxianinfo",
+	          	data:ajaxData,
+	          	dataType:'json',
+	          	success:function(res){
+	          		
+	                var str='';
+	                var data=res.info;
+	            
+	                var dataone=data.yueyuw;
+	                lon=data.lat.lng;
+	                lat=data.lat.lat;
+	                collect_count=data.collect_count;
+	              
+	                if(collect_count>1||collect_count==1){
+	                	$('.collect').addClass('collecthave');
+	                	$('.collect').html('已收藏')
+	                }else{
+	                	$('.collect').removeClass('collecthave');
+	                }
+	          		if(res.code==0){
+			                $('.username').html(data.contact);
+			      			$('.telphone').html(data.mobile);
+			      			$('.telnumber').html(data.tel);
+							var addresss=data.address;
+							addresss=addresss.replace(/,/g,'');
+			      			$('.addressplace').html(addresss);
+			      			var nameaddress=data.address;
+			      			strfour=nameaddress.replace(/,/g, "");
+			      			$('.placeremaks').html(data.goods_remark);
+			      			$('.fullplace').html(data.full);
+			      			$('.place').html(data.company);
+			      			company=data.company;
+			      			ShowMap( data.lat.lng, data.lat.lat,addresss,data.mobile,data.tel);
+			      			address=data.address;
+			      			mobile=data.mobile;
+			      			tel=data.tel;
+
+			      			var str1='';
+			      			str1+='<a href="tel:'+data.mobile+'"><img src="../img/zhuanxianxiangqing_phone.png"/></a>';
+			      			$('.mobile').html(str1);
+			      			var str2='';
+			      			str2+='<a href="tel:'+data.tel+'"><img src="../img/zhuanxianxiangqing_phone.png"/></a>';
+			      			$('.telnum').html(str2);
+		          			for(var i=0;i<dataone.length;i++){
+			          			str+='<div class="content clearfix">';
+			          			str+='<div class="content_one"><img src="'+picUrl+dataone[i].images+'"/></div>';
+			          			str+='<div class="content_two clearfix">';
+			          			str+='<div class="telphonet clearfix">';
+			          			str+='<div class="shouji">手机：</div>';
+			          			str+='<div class="number telnum">'+dataone[i].phone+'</div>';
+			          			str+='</div>';
+			          			str+='<div class="telphonet clearfix">';
+			          			str+='<div class="shouji">电话:</div>';
+			          			str+='<div class="number telnumber">'+dataone[i].tel+'</div>';
+			          			str+='</div>';
+			          			str+='<div class="telphonet clearfix">';
+			          			str+='<div class="shouji">地址:</div>';
+			          		
+			          				str+='<div class="number addressitemr" style="color: #1f1f1f;">'+dataone[i].yuyue2+'</div>';
+			          			
+			          			str+='</div>';
+			          			str+='</div>';
+			          			str+='</div>';			
+			          			
+			          		}
+			          		
+			          		$('.net_content').html(str);
+			          		
+			          	}
 	          			
 	          		}
-	          		
-	          		$('.net_content').html(str);
-	          		
-	          	}
-          			
-          		}
-          		
-          });
+		          		
+		        });
+		        
+		        
+			}
+        getmessage()  
           
-          function collect(){
-          	
+         /*专线定位*/
+
+	    function ShowMap(lng, lat,addrsee, mobile, tel) {
+//	        
+			var lon=lng;
+			var lat=lat;
+
+			var mobile=mobile;
+			var addrsee=addrsee;
+			var tel=tel;
+	        var map = new BMap.Map("container1");
+	        map.centerAndZoom(new BMap.Point(lon, lat), 20);
+	        map.addControl(new BMap.NavigationControl());
+	        var marker = new BMap.Marker(new BMap.Point(lon, lat));
+	        map.addOverlay(marker);
+	        var infoWindow = new BMap.InfoWindow('<p class="placeadddress">地址：' + addrsee + '</p><p>电话：' + mobile + '</p><p>传真：' + tel + '</p>');
+	        marker.addEventListener("click", function () {
+	            this.openInfoWindow(infoWindow);
+	        });
+	        marker.openInfoWindow(infoWindow);
+	    }
+	    /*收藏*/
+        function collect(){
+                  	
 	          	if($('.collect').hasClass('collecthave')){
 	          		$.ajax({
 		          	   	type:"post",
@@ -320,6 +447,33 @@
 	          	}
           	   
           }
+        
+        
+        
+        function addresss(){
+           
+		   var btnArray = ['否', '是'];
+            mui.confirm('请确认手机是否安装导航类APP', '', btnArray, function(e) {
+//			window.location.href = 'http://api.map.baidu.com/geocoder?address=广东省广州市天河区驻村东环路&output=html&src=yourCompanyName|yourAppName'
+				 if (e.index == 1) {
+              		 navigateWithMap()
+				 }
+
+              })
+		}
+		
+		
+		function navigateWithMap(){
+			// 设置目标位置坐标点和其实位置坐标点
+		//	alert(currentLon)
+			var dst = new plus.maps.Point(lon,lat); //终点
+			var src = new plus.maps.Point(currentLon,currentLat); //起点
+			// 调用系统地图显示 
+			var addName=$('.addressplace').html()
+			plus.maps.openSysMap( dst, addName, src );
+		}
           
 	</script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=q3awjC6RH3nvY59sUlkSSKBGd9GOSP6I"></script>
+    <script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
 </html>

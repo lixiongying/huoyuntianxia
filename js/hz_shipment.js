@@ -1,5 +1,12 @@
+mui.plusReady(function(){
+	plus.storage.clear(); 
+		
+})
+var user_id=localStorage.getItem('user_id');
+var type=2;
 
-var type;
+
+
 $('.cars').click(function(){
     $(this).addClass('Cars').siblings().removeClass('Cars');
     if($(this).hasClass('Cars')){
@@ -34,50 +41,62 @@ $('.cars').click(function(){
 			$('.mask').hide()
 			$('.tc_typeofcars').hide();
 		})
+		var cargoodsid
+		 window.addEventListener('doit', function(e){
+		 	cargoodsid=e.detail.cargoodsid;
+		 	if(cargoodsid){
+		 		var htmlgoods=e.detail.htmlgoods;
+		 	    $('#goodsResult').html(htmlgoods)
+		 	}else{
+		 		var othersgoods=e.detail.othersgoods;
+		 		$('#goodsResult').html(othersgoods)
+		 	}
+		 	
+		 })
 
 /*货物类型*/
-		var userPicker = new mui.PopPicker();
-		var cargoodsid;
-		var user_id=localStorage.getItem('user_id');
-		$.ajax({
-			type:"post",
-			url:globalUrl+"index.php/Mobile/JkOrder/getcat",
-			dataType:'json',
-			success:function(res){
-				var data =res.info;
-				var str='';
-				var datas = [];
-				if(Array.isArray(data)){
-					data.forEach(function(obj,index){
-						datas.push(obj.name);
-//						datas.push(obj.id);
-					});
-					userPicker.setData(datas);
-					var showUserPickerButton = document.getElementById('showUserPicker');
-			        var goodsResult=document.getElementById('goodsResult')
-			        showUserPickerButton.addEventListener('tap', function(event) {
-						userPicker.show(function(items) {
-							var str1=JSON.stringify(items[0]);
-//							var Id=JSON.stringify(items[1])
-							var reg = /^[\'\"]+|[\'\"]+$/g;
-							var  str = str1;
-							str2=str.replace(reg,"");
-//						   goodsResult.attr('data-type',Id);
-						   
-							goodsResult.innerText = str2;
-							data.forEach(function(obj,index){
-								if(obj.name==str2){
-									cargoodsid=obj.id;
-								}
-							});
-							//返回 false 可以阻止选择框的关闭
-							//return false;
-						});
-					}, false);
-				}
-					
-			}
-		});
+//		var userPicker = new mui.PopPicker();
+//		var cargoodsid;
+//		
+//		$.ajax({
+//			type:"post",
+//			url:globalUrl+"index.php/Mobile/JkOrder/getcat",
+//			dataType:'json',
+//			success:function(res){
+//				var data =res.info;
+//				var str='';
+//				var datas = [];
+//				if(Array.isArray(data)){
+//					data.forEach(function(obj,index){
+//						datas.push(obj.name);
+////						datas.push(obj.id);
+//					});
+//					userPicker.setData(datas);
+//					var showUserPickerButton = document.getElementById('showUserPicker');
+//			        var goodsResult=document.getElementById('goodsResult')
+//			        showUserPickerButton.addEventListener('tap', function(event) {
+//						userPicker.show(function(items) {
+//							var str1=JSON.stringify(items[0]);
+////							var Id=JSON.stringify(items[1])
+//							var reg = /^[\'\"]+|[\'\"]+$/g;
+//							var  str = str1;
+//							str2=str.replace(reg,"");
+////						   goodsResult.attr('data-type',Id);
+//						   
+//							goodsResult.innerText = str2;
+//							data.forEach(function(obj,index){
+//								if(obj.name==str2){
+//									cargoodsid=obj.id;
+//								}
+//							});
+//							//返回 false 可以阻止选择框的关闭
+//							//return false;
+//						});
+//					}, false);
+//				}
+//					
+//			}
+//		});
 
 
 //车长及类型
@@ -154,19 +173,12 @@ $('.cars').click(function(){
 	function carsure(obj){
         var carname; 
 		var caritem=$(obj).parents('.tc_typeofcars').find('.type_two div');
-		
-//		caritem.each(function(){
-//			
-//			if($(this).hasClass('addcolor')){
-//				
-//				
-//			}
-//		})
+
         $('.tc_typeofcars').hide();
         $('.mask').hide()
 	}
 
-var indexs = 0;
+       var indexs = 0;
 
 		//		alert(show)
 		mui.plusReady(function() {
@@ -175,9 +187,10 @@ var indexs = 0;
 			indexs = self.indexs;
 		})
 		
-
-var img_num = 6;//
-var big_img_num = 3;//最大上传图片数
+		var bodyHeight = window.screen.height;
+		var bodyWidth = window.screen.width;
+		var img_num = 6;//
+		var big_img_num = 3;//最大上传图片数
 
 
 		
@@ -198,6 +211,7 @@ var big_img_num = 3;//最大上传图片数
 			html += '</div>';
 			
 			$("#F_CKJLB").append(html);
+			
 			
 		}
 		//删除图片  
@@ -381,18 +395,64 @@ var big_img_num = 3;//最大上传图片数
 		}
 
 	//上传图片
+	
+	
+	function next(){
+		
+		$('.mask').show();
+		$('.reminders').show()
+	}
+	var del_coin;
+	var vitval_coin;
+	function userindo(){
+  		$.ajax({
+  			type:"post",
+  			url:globalUrl+"index.php/Mobile/JkUser/myLists",
+  			data:{user_id:user_id},
+  			dataType:'json',
+  			success:function(res){
+  				var data=res.user;
+  				
+  				 del_coin=data.del_coin;
+  				 vitval_coin=data.vitval_coin;
+  				 company_status=data.company_status;
+  				$('.xunibi').html(del_coin);
+  				
+  			}
+  		});
+  	}
+//	var ipt = $('#fang');
+//			    
+////  var ipt = $('#number');
+//  ipt.on('keyup',function(){
+//  	
+//      if(! /^\d+$/.test(this.value)){
+//          this.value='';
+//      }
+//  })
+
+	userindo();
+	function cancell(){
+		
+		$('.mask').hide();
+		$('.reminders').hide();
+	}
+	
 	function uploadImg(){
-//	mui.openWindow({
-//								url:'./hz_orderpublish.html',
-//								id:'./hz_orderpublish.html'
-//							})
+//		alert($('.chufadi').html());return
+        if(del_coin>vitval_coin){
+			mui.toast('虚拟币不足,请充值后再发货');
+			$('.reminders').hide();
+			$('.mask').hide();
+			return
+		}
 		var wa = plus.nativeUI.showWaiting();
 			var DkeyNames = [];
 		var id = document.getElementById("ckjl.id").value;
 		var length = id.toString().length;
 		var idnmae = id.toString();
 		var numKeys = plus.storage.getLength();
-		var parms = {};
+		
 		
 		if(numKeys == 0){
 				wa.close();
@@ -411,39 +471,28 @@ var big_img_num = 3;//最大上传图片数
 			
 				if(data.error==0){
 					var parmsImg = data.paths; 
-				
+				    var original_img=parmsImg.join(',');
+				     
 				}else{
 //					mui.toast('上传图片失败');
 					var parmsImg = '';
 				}
-						
-//			alert(parmsImg);
-//            var type;
-//              $('.car').each(function(){
-//              	if($(this).hasClass('Cars')){
-//              		
-//					    	if($(this).attr('data-type')==2){
-//					    		type=2;
-//					    	}else if($(this).attr('data-type')==3){
-//					    		type=3;
-//					    	}
-//				    	
-//              	}
-//              	
-//              })
-//              alert(type)
+                var parms = {};
 				var stdeaddress=$('#stdeaddress').val();
 				var endeaddress=$('#endeaddress').val();
 				
 				var addressone=$('.chufadi').html();
 				var addresstwo=$('.mudidi').html();
+				var replaceStr = ' ';//要替换的字符串
+           		addressone=addressone.replace(new RegExp(replaceStr,'gm'),',');
+				addresstwo=addresstwo.replace(new RegExp(replaceStr,'gm'),',');
 				
-				var start_address=addressone+stdeaddress;
-			    var end_address=addresstwo+endeaddress;
+				var start_address=addressone+","+stdeaddress;
+			    var end_address=addresstwo+","+endeaddress;
 //			    var type=2;
 
 			    var cat_id1=cargoodsid/*货物分类ID*/
-			    var ton=$('#fang').val();
+			    var ton=$('#ton').val();
 			    var cube=$('#fang').val();
 			    var car_cat=$('.car_cat').attr('data-type');
 			   
@@ -453,49 +502,78 @@ var big_img_num = 3;//最大上传图片数
 			    
 			    var goods_remark=$('#textarea').val();
 				var spec_id=$('.carspec').attr('data-type');
-			
+			    var cargo=$('#goodsResult').html();
 				parms.user_id = user_id;
 				parms.start_address = start_address;
 				parms.end_address = end_address;
 				parms.ton = ton;
 				parms.cube = cube;
-				parms.cat_id1 =cat_id1 ;
+//				parms.cat_id1 =cat_id1 ;
 				parms.car_cat=car_cat;
 				parms.spec_id=spec_id;
 				parms.goods_remark = goods_remark;
 				parms.load_time=time;
 				parms.type_id=type;
-				parms.original_img=parmsImg;
-				if(stdeaddress==''||endeaddress==''||addressone==''||addresstwo==''){
+				parms.del_coin=del_coin;
+				parms.original_img=original_img;
+				
+				
+//				alert(JSON.stringify(parms));
+//				return
+                if(cat_id1==''||cat_id1==undefined||cat_id1==null){
+                	parms.cargo=cargo;
+                }else{
+                	parms.cat_id1 =cat_id1 ;
+                }
+
+				if(addressone==''||addresstwo==''){
 					mui.toast('请完整填写地址');
-					
-					return false;
-				}else if(cat_id1==''||ton==''||cube==''||car_cat==''||spec_id==''||time==''){
+					$('.reminders').hide();
+					$('.mask').hide();
+					return;
+				}else if(ton==''||cube==''||car_cat==''||time==''){
 					mui.toast('请再认真检查一遍信息是否完整');
-					
-					return false;
+					$('.reminders').hide();
+					$('.mask').hide();
+					$('.imgs').remove()
+					return;
 				}else{
+					
+//					alert(JSON.stringify(parms))
+//					return;
 					$.ajax({
 						url:globalUrl+'index.php/Mobile/JkOrder/addUserLine',
 						data:parms,
 						type:'post',
 						success:function(res){
+//							alert(JSON.stringify(res));
 							var data=res.root;
+							
 							if(data.status==1){
 								mui.toast('提交订单成功');
 								var goods_id=data.goods_id;
-								alert(goods_id)
-								var shop_price=data.shop_price
+								
+								var shop_price=data.shop_price;
+								
+								mui.openWindow({
+									url:'./hz_orderpublish.html?goods_id='+goods_id+'&shop_price='+shop_price+'',
+									id:'./hz_orderpublish.html'
+								})
+//								plus.webview.getWebviewById('../person/person.html').evalJS('shuaxin()')
+								setTimeout(function(){
+			                    	 plus.webview.currentWebview().close('none')
+			                    },1000)
+//								plus.webview.close(plus.webview.currentWebview())
 							}else{
 								mui.toast('res.msg');
 							}
-							mui.openWindow({
-								url:'./hz_orderpublish.html?goods_id='+goods_id+'&shop_price='+shop_price+'',
-								id:'./hz_orderpublish.html'
-							})
+							
+							
 						},
 						error:function(res){
-							alert('操作失败')
+							alert('操作失败');
+							$('.reminders').hide();
+							$('.mask').hide();
 						}
 					})
 				}

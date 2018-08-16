@@ -16,6 +16,9 @@
 		<script src="../../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
 	</head>
+	<script type="text/javascript">
+		mui.init()
+	</script>
 	<body>
 		<header class="mui-bar mui-bar-nav mui-action-back">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
@@ -27,33 +30,42 @@
 			<div class="main">
 				<div class="main_li">
 					<div class="main_li_photo" >
-						<div class="photo image-item" onclick="showActionSheet(this)" data-type="1" id="imgone">
-							<img src="../../../img/cheliangzhaopian.png"/>
+						<div class='photofather'>
+							<div class="photo image-item" onclick="showActionSheet(this)" data-type="1" id="imgone">
+								<img src="../../../img/cheliangzhaopian.png" id="picone"/>
+							</div>
 						</div>
+						
 					</div>
 					<div class="main_li_name">添加行驶证</div>
 				</div>
 				<input type="hidden" id="ckjl.id" name="ckjl.id" value="430">
 				<div class="main_li">
 					<div class="main_li_photo" >
-						<div class="photo image-item" onclick="showActionSheet(this)" data-type="2" id="imgtwo">
-							<img src="../../../img/cheliangzhaopian.png"/>
+						<div class='photofather1'>
+							<div class="photo image-item" onclick="showActionSheet(this)" data-type="2" id="imgtwo">
+								<img src="../../../img/cheliangzhaopian.png" id="pictwo"/>
+							</div>
 						</div>
 					</div>
 					<div class="main_li_name">添加车头照</div>
 				</div>
 				<div class="main_li">
 					<div class="main_li_photo">
-						<div class="photo image-item" onclick="showActionSheet(this)" data-type="3" id="imgthree">
-							<img src="../../../img/cheliangzhaopian.png"/>
+						<div class='photofather2'>
+							<div class="photo image-item" onclick="showActionSheet(this)" data-type="3" id="imgthree">
+								<img src="../../../img/cheliangzhaopian.png" id="picthree"/>
+							</div>
 						</div>
 					</div>
 					<div class="main_li_name">45度车身照</div>
 				</div>
 				<div class="main_li">
 					<div class="main_li_photo" >
-						<div class="photo image-item" onclick="showActionSheet(this)" data-type="4" id="imgfour">
-							<img src="../../../img/cheliangzhaopian.png"/>
+						<div class='photofather3'>
+							<div class="photo image-item" onclick="showActionSheet(this)" data-type="4" id="imgfour">
+								<img src="../../../img/cheliangzhaopian.png" id="picfour"/>
+							</div>
 						</div>
 					</div>
 					<div class="main_li_name">车尾照</div>
@@ -66,10 +78,12 @@
 			
 		</div>
 		<script type="text/javascript">
-				var img_num = 6;//
+		var img_num = 6;//
         var big_img_num = 1;//最大上传图片数
-
-
+        var urL=location.href;
+		var userid=localStorage.getItem('user_id')
+        var bg_car=getUrl(urL).bg_car;
+        var sijiid=getUrl(urL).sijiid;
 		
 		var procinstid = 0;
 		//初始化页面执行操作  
@@ -89,25 +103,29 @@
 					html += '<img class="picBig" data-preview-src="" data-preview-group="1" ' + src + '/>';
 					html += '<span class="del_icon" onclick="delImg(\'' + imgId + '\',\'' + imgkey + '\',' + id + ')"><img src="../../../img/shangpinxiangqing_quxiao.png" alt="" /></span>';
 					html += '</div>';
-					$("#imgone").append(html);
+					$(".photofather").append(html);
+					$('#imgone').hide();
 				}else if(type==2){
 					html += '<div class="imgs imgitem" id="Img' + imgId + imgkey + '">';
 					html += '<img class="picBig" data-preview-src="" data-preview-group="1" ' + src + '/>';
-					html += '<span class="del_icon" onclick="delImg(\'' + imgId + '\',\'' + imgkey + '\',' + id + ')"><img src="../../img/shangpinxiangqing_quxiao.png" alt="" /></span>';
+					html += '<span class="del_icon" onclick="delImg(\'' + imgId + '\',\'' + imgkey + '\',' + id + ')"><img src="../../../img/shangpinxiangqing_quxiao.png" alt="" /></span>';
 					html += '</div>';
-					$("#imgtwo").append(html)
+					$(".photofather1").append(html);
+					$("#imgtwo").hide()
 				}else if(type==3){
 					html += '<div class="imgs imgitem" id="Img' + imgId + imgkey + '">';
 					html += '<img class="picBig" data-preview-src="" data-preview-group="1" ' + src + '/>';
 					html += '<span class="del_icon" onclick="delImg(\'' + imgId + '\',\'' + imgkey + '\',' + id + ')"><img src="../../../img/shangpinxiangqing_quxiao.png" alt="" /></span>';
 					html += '</div>';
-					$("#imgthree").append(html)
+					$(".photofather2").append(html);
+					$("#imgthree").hide()
 				}else if(type==4){
 					html += '<div class="imgs imgitem" id="Img' + imgId + imgkey + '">';
 					html += '<img class="picBig" data-preview-src="" data-preview-group="1" ' + src + '/>';
 					html += '<span class="del_icon" onclick="delImg(\'' + imgId + '\',\'' + imgkey + '\',' + id + ')"><img src="../../../img/shangpinxiangqing_quxiao.png" alt="" /></span>';
 					html += '</div>';
-					$("#imgfour").append(html)
+					$(".photofather3").append(html);
+					$("#imgfour").hide()
 				}
 			
 		}
@@ -153,12 +171,17 @@
 			right = right.substring(end + 1, right.length);
 			var newitem = left + right;
 			plus.storage.setItem(itemname, newitem);
-			//myAlert("删除成功");  
+			
 			$("#Img" + imgId + imgkey).remove();
+			$('#imgone').show();
+			$('#imgtwo').show()
+			$('#imgthree').show()
+			$('#imgfour').show()
 			wa.close();
 		}
 		//选取图片的来源，拍照和相册  
 		function showActionSheet(conf) {
+			
 			var divid = conf.id;
 			var imgNum = $('.addpicitem .imgs').length;
 			if(imgNum>=big_img_num){
@@ -296,11 +319,11 @@
 //		var image2;
 //		var image3;
 //		var image4;
-		var userid=localStorage.getItem('user_id')
+	
 	//上传图片
 	function uploadImg(){
 //		var havepublish=sessionStorage.getItem('havepublish');
-//		alert(havepublish)
+	
 		
 		var wa = plus.nativeUI.showWaiting();
 			var DkeyNames = [];
@@ -310,10 +333,10 @@
 		var numKeys = plus.storage.getLength();
 		var parms = {};
 		var type=type;
-		if(numKeys == 0){
-				wa.close();
-				return;
-		}
+//		if(numKeys == 0){
+//				wa.close();
+//				return;
+//		}
 		var task = plus.uploader.createUpload(globalUrl+'index.php/Mobile/JkUser/testUploadPic',{
 			method: "POST"
 		},function(t, status){
@@ -333,47 +356,172 @@
                     
                 }else{
                 	var files=data.paths;
-                	if(files.length<4){
-	               		mui.toast('请完整上传图片信息');
-	               		shuaxin()
-	               		return;
-               		}
                 	
-                	if(files.length==4){
-               			for(var i=0;i<4;i++){
+                	if(bg_car=='null'||bg_car==''||bg_car==undefined||bg_car==2){
+                		if(files.length<4){
+                			mui.toast('请完整上传图片信息');
+		               		shuaxin()
+		               		return;
+                		}else if(files.length==4){
+                			for(var i=0;i<4;i++){
+                				image1=files[0];
+		                		
+		                	
+		                		image2=files[1];
+		                	
+		                		image3=files[2];
+		                	
+		                		image4=files[3];
+		                	}	
+		                		$.ajax({
+				                	type:"post",
+				                	url:globalUrl+"index.php/Mobile/JkUser/bangche",
+				                	data:{user_id:userid,image1:image1,image2:image2,image3:image3,image4:image4,id:5},
+				                	dataType:'json',
+				                	success:function(res){
+				              		var data=res.status;
+			//	              		alert(JSON.stringify(data))
+					              		if(data==1){
+					              			mui.toast('提交成功');
+					              			sessionStorage.setItem('havepublish','0')
+					              			mui.back()
+					              		}else{
+					              			mui.toast(res.msg);
+					              			
+					              		}
+				                	}
+				                });
+                			
+                			
+                		}
+                	}else if(bg_car==0){
+                		if(files.length==0){
+                			mui.toast('请上传再修改');
+                			return;
+                		}else{
+                			for(var i=0;i<4;i++){
+                				image1=files[0];
+		                		
+		                	
+		                		image2=files[1];
+		                	
+		                		image3=files[2];
+		                	
+		                		image4=files[3];
+		                	}	
+		                		$.ajax({
+				                	type:"post",
+				                	url:globalUrl+"index.php/Mobile/JkUser/bangche",
+				                	data:{id:sijiid ,user_id:userid,image1:image1,image2:image2,image3:image3,image4:image4},
+				                	dataType:'json',
+				                	success:function(res){
+				              		var data=res.status;
+//				              	alert(JSON.stringify(res))
+					              		if(data==0){
+					              			mui.toast('提交成功');
+//					              			sessionStorage.setItem('havepublish','0')
+					              			mui.back()
+					              		}else{
+					              			mui.toast(res.msg);
+					              			
+					              		}
+				                	}
+				                }); 
+                			
+                		}
                 		
-	                		image1=files[0];
-	                		
-	                	
-	                		image2=files[1];
-	                	
-	                		image3=files[2];
-	                	
-	                		image4=files[3];
-			                
-	                	}
-               		}
+                	}else{
+                		mui.toast('你已绑定车辆，如需更改请联系客服');
+                		return;
+                	}
+                	
+                	
+//              	alert(files);return 
+//              	if(files.length<4){
+//              		if(bg_car==null||bg_car==''||bg_car==undefined){
+//              			mui.toast('请完整上传图片信息');
+//		               		shuaxin()
+//		               		return;
+//              		}else if(bg_car==0){
+//              			for(var i=0;i<4;i++){
+//              		
+//		                		image1=files[0];
+//		                		
+//		                	
+//		                		image2=files[1];
+//		                	
+//		                		image3=files[2];
+//		                	
+//		                		image4=files[3];
+//		                		
+//		                		$.ajax({
+//				                	type:"post",
+//				                	url:globalUrl+"index.php/Mobile/JkUser/bangche",
+//				                	data:{id:sijiid ,user_id:userid,image1:image1,image2:image2,image3:image3,image4:image4,id:5},
+//				                	dataType:'json',
+//				                	success:function(res){
+//				              		var data=res.status;
+//			//	              		alert(JSON.stringify(data))
+//					              		if(data==1){
+//					              			mui.toast('提交成功');
+//					              			sessionStorage.setItem('havepublish','0')
+//					              			mui.back()
+//					              		}else{
+//					              			mui.toast(res.msg);
+//					              			
+//					              		}
+//				                	}
+//				                }); 
+//		                		
+//		                		
+//				                
+//		                	}
+//              		}else{
+//              			mui.toast('你已绑定车辆，如需更改请联系客服');
+//              			return;
+//              		}
+//	               		
+//             		}
+                	
+//              	if(files.length==4){
+//              		if(bg_car==null||bg_car==''||bg_car==undefined){
+//              			for(var i=0;i<4;i++){
+//              		
+//		                		image1=files[0];
+//		                		
+//		                	
+//		                		image2=files[1];
+//		                	
+//		                		image3=files[2];
+//		                	
+//		                		image4=files[3];
+//		                		
+//		                		$.ajax({
+//				                	type:"post",
+//				                	url:globalUrl+"index.php/Mobile/JkUser/bangche",
+//				                	data:{user_id:userid,image1:image1,image2:image2,image3:image3,image4:image4,id:5},
+//				                	dataType:'json',
+//				                	success:function(res){
+//				              		var data=res.status;
+//			//	              		alert(JSON.stringify(data))
+//					              		if(data==1){
+//					              			mui.toast('提交成功');
+//					              			sessionStorage.setItem('havepublish','0')
+//					              			mui.back()
+//					              		}else{
+//					              			mui.toast(res.msg);
+//					              			
+//					              		}
+//				                	}
+//				                });
+//		                		
+//				                
+//		                	}
+//              		}
+//             			
+//             		}
  
-                   mui.toast('上传成功');
-                   
-               		$.ajax({
-	                	type:"post",
-	                	url:globalUrl+"index.php/Mobile/JkUser/bangche",
-	                	data:{user_id:userid,image1:image1,image2:image2,image3:image3,image4:image4},
-	                	dataType:'json',
-	                	success:function(res){
-	              		var data=res.status;
-	              		alert(JSON.stringify(data))
-		              		if(data==0){
-		              			mui.toast('提交成功');
-		              			sessionStorage.setItem('havepublish','0')
-		              			mui.back()
-		              		}else{
-		              			mui.toast(res.msg);
-		              			
-		              		}
-	                	}
-	                }); 
+//                 mui.toast('上传成功');
 
                 }
 
@@ -409,39 +557,39 @@
 			task.start();
 	}
 
-//	var userid=localStorage.getItem('user_id');	
-//	  function surechange(){
-//	  	if(company1[0]==!''&&company2[0]==!''&&company3[0]==!''){
-//	  		var parms={};
-//		  	parms.user_id=userid;
-//		  	parms.company1=company1[0];
-//		  	parms.company2=company2[0];
-//		  	parms.company3=company3[0];
-////		  	alert(JSON.stringify(parms));
-//	        $.ajax({
-//		        	type:"post",
-//		        	url:globalUrl+"index.php/Mobile/JkUser/shenfen",
-//		        	data:parms,
-//		        	dataType:'json',
-//		        	success:function(res){
-//
-//		        			mui.toast('修改成功');
-//		        			setTimeout(function(){
-//		        				mui.back();
-//		        			},1000);
-//		        			
-//		        			
-//		        			
-//		        	
-//		        	}
-//		  	})
-//		 }else{
-//		 	mui.toast('请完整上传图片');
-//		 	return false;
-//		 }
-//	
-//	  	
-//	  }
+     $.ajax({
+    	type:"post",
+    	url:globalUrl+"index.php/Mobile/JkLine/getSijiCar",
+    	data:{user_id:userid},
+    	dataType:'json',
+    	success:function(res){
+    		var data=res.info;
+    		
+    		if(data.image1!=''&&data.image2!=''&&data.image3!=''&&data.image4!=''&&data.image1!=undefined&&data.image2!=undefined&&data.image3!=undefined&&data.image4!=undefined){
+    			var str1 = data.image1;
+    			var str2 = data.image2;
+    			var str3 = data.image3;
+    			var str4 = data.image4;
+//  			if(str1.indexOf("imgone") != -1){
+//  				$('#picone').attr('src',picUrl+data.image1);
+//  			}else if(str2.indexOf("imgtwo") != -1){
+//  				$('#pictwo').attr('src',picUrl+data.image2);
+//  			}else if(str3.indexOf("imgthree") != -1){
+//  				$('#picthree').attr('src',picUrl+data.image3);
+//  			}else if(str4.indexOf("imgfour") != -1){
+//  				$('#picfour').attr('src',picUrl+data.image4);
+//  			}
+//              alert(str.indexOf("imgone") != -1 );
+//  			
+	    		$('#picone').attr('src',picUrl+data.image1);
+                $('#pictwo').attr('src',picUrl+data.image2);
+	    		$('#picthree').attr('src',picUrl+data.image3);
+	    		$('#picfour').attr('src',picUrl+data.image4);
+    		}
+    		
+    		
+    	}
+    });
 		</script>
 	</body>
 </html>

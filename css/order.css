@@ -30,10 +30,14 @@
 }
 .main .main_nav {
   width: 100%;
-  height: auto;
+  height: 2.13333333rem;
   background: #fff;
   margin-bottom: 0.53333333rem;
   border-bottom: 1px solid #279CFE;
+  position: fixed;
+  top: 2.34666667rem;
+  left: 0;
+  z-index: 100;
 }
 .main_nav .nav_li {
   text-align: center;
@@ -46,41 +50,17 @@
   font-weight: normal;
   font-stretch: normal;
   letter-spacing: 0px;
+  border-left: 1px solid #E2E2E2;
   color: #1f1f1f;
 }
 .main_nav .active_nav {
   color: #279cfe;
 }
-.main .shuxian0 {
-  width: 1px;
-  height: 2.13333333rem;
-  position: absolute;
-  top: 0;
-  left: 25%;
-  background: #E2E2E2;
-  z-index: 1000;
-}
-.main .shuxian1 {
-  width: 1px;
-  height: 2.13333333rem;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  background: #E2E2E2;
-  z-index: 1000;
-}
-.main .shuxian2 {
-  width: 1px;
-  height: 2.13333333rem;
-  position: absolute;
-  top: 0;
-  left: 75%;
-  background: #E2E2E2;
-  z-index: 1000;
-}
 .main .order_ul {
   width: 100%;
-  height: auto;
+  height: 106.66666667rem;
+  margin-top: 2.34666667rem;
+  overflow: auto;
 }
 .order_ul .order_li {
   width: 100%;
@@ -204,4 +184,31 @@
   letter-spacing: 0px;
   color: #279cfe;
   margin-right: 0.64rem;
+}
+.receiptgoods {
+  width: 100%;
+  height: auto;
+  padding: 0.26666667rem 0;
+  border-top: 2px solid #eaeaea;
+  background: white;
+  margin-top: -1.44rem;
+  margin-bottom: 1.44rem;
+}
+.evalute {
+  width: 100%;
+  height: auto;
+  padding: 0.26666667rem 0;
+  border-top: 2px solid #eaeaea;
+  background: white;
+  margin-top: -1.44rem;
+  margin-bottom: 1.44rem;
+}
+.cancelgoods {
+  width: 100%;
+  height: auto;
+  padding: 0.26666667rem 0;
+  border-top: 2px solid #eaeaea;
+  background: white;
+  margin-top: -1.44rem;
+  margin-bottom: 1.44rem;
 }

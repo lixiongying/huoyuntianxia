@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>我的</title>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/mui.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/imageviewer.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/mymessage.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+		
+   
+		<style type="text/css">
+			.mask{
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				background: black;
+				opacity: 0.4;
+			}
+		</style>
+	
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+           <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: white;"></a>
+		    <h1 class="mui-title">我的</h1>
+		    
+
+		</header>
+		<div class="mui-content" id="pullrefresh">
+			<div class="main">
+				<div class="main_top">
+					<div class="main_top_blue"></div>
+					<div class="main_top_white"></div>
+					<div class="main_top_info">
+						<div class="info_img nologin">
+							<img class="photo head_pic" data-preview-src="" data-preview-group="1" src="../img/c8e9eef9f1c58ac516b51eaa584e7233_t01a6852a946b324a87.jpg"/>
+						</div> 
+						<div class="info_phone">
+							<div class="phone tel nologin">黎雄鹰</div>
+							<div class="ownertype">
+								货主
+							</div>
+						</div>
+						<div class="info_money nologin">
+							<div class="money">性别</div>
+							
+							<div class="wallet">男</div>
+							<div class="clear"></div>
+						</div>
+						<!--<div class="shuxian"></div>-->
+						<div class="info_order nologin">
+							<div class="number">生日</div>
+							
+							<div class="order">2018-08-30</div>
+							<div class="clear"></div>
+						</div>
+						<div class="clear"></div>
+					</div>
+					
+					
+				</div>
+				<div class="main_botton">
+					
+				</div>
+				<div class="main_logout">
+					<div class="logout" onclick="message()"><span class="his">他</span>的动态</div>
+				</div>
+				<!--<div class="main_logou myprivitet">
+					<div class="logout">添加关注</div>
+				</div>-->
+				<div class="mask">
+					
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		var userid=localStorage.getItem('user_id');
+		var urL=location.href;
+		var $userid=getUrl(urL).$userid;
+		
+		$.ajax({
+			type:"post",
+			url:globalUrl+"index.php/Mobile/JkUser/myLists",
+			data:{user_id:$userid},
+			dataType:'json',
+			success:function(res){
+				var data=res.user;
+				$('.tel').html(data.nick_name);
+				var $sex=data.sex;
+				if(userid==$userid){
+					$('.his').html('我');
+//					$('.myprivite').show();
+				}else{
+//					$('.myprivite').hide();
+					if($sex==1){
+						$('.wallet').html('男');
+						$('.his').html('他');
+					}else{
+						$('.wallet').html('女');
+						$('.his').html('她');
+					}
+				}
+				
+				
+				var birthday=data.birthday;
+				var c=timeToDate(birthday);
+				$('.order').html(c);
+				
+				if(data.car_status==0){
+					$('.ownertype').html('货主')
+				}else{
+					$('.ownertype').html('司机')
+				}
+				
+				if(data.head_pic!=''&&data.head_pic!=null&&data.head_pic!=undefined){
+					$('.head_pic').attr('src',picUrl+data.head_pic)
+				}else{
+					$('.head_pic').attr('src','../img/pic.png')
+				}
+			}
+		});
+		function message(){
+			mui.openWindow({
+				url:'mylist.html?$userid='+$userid+'',
+				id:'mylist.html'
+			})
+		}
+	</script>
+	
+</html>

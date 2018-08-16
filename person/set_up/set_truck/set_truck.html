@@ -17,6 +17,9 @@
 		<script src="../../../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
 	   
 	</head>
+	<script type="text/javascript">
+		mui.init()
+	</script>
 	<body>
 		<header class="mui-bar mui-bar-nav mui-action-back">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
@@ -31,7 +34,7 @@
 					<div class="li_img">
 							<img src="../../../img/next.png" alt="" />
 						</div>
-					<div class="li_value license" style="margin-right: 15px;">粤A55555</div>
+					<div class="li_value license" style="margin-right: 15px;"></div>
 					
 					<div class="clear"></div>
 				</div>
@@ -39,7 +42,7 @@
 					
 					<div class="li_names">车型：</div>
 					<div class="li_values">
-						<div class="value type_value">选择车型</div>
+						<div class="value type_value cat_name">选择车型</div>
 						<div class="li_img">
 							<img src="../../../img/next.png" alt="" />
 						</div>
@@ -52,10 +55,22 @@
 					
 					<div class="li_names">车长：</div>
 					<div class="li_values">
-						<div class="value length_value">选择车长</div>
+						<div class="value length_value spec_name">选择车长</div>
 						<div class="li_img">
 							<img src="../../../img/next.png" alt="" />
 						</div>
+						<div class="clear"></div>
+					</div>
+					
+					<div class="clear"></div>
+				</div>
+				<div class="main_li">
+					
+					<div class="li_names">载重：</div>
+					<div class="li_values goodsvolume">
+						<!--<div class="value length_value spec_name">选择车长</div>-->
+						 <div class="volume_three"><input type="number" id="fang"/>&nbsp;&nbsp;方</div>
+		  			     <div class="volume_two"><input type="number" id="ton"/>&nbsp;&nbsp;吨</div>
 						<div class="clear"></div>
 					</div>
 					
@@ -65,7 +80,7 @@
 					
 					<div class="li_names">特种装载：</div>
 					<div class="li_values">
-						<div class="value special_value"></div>
+						<div class="value special_value" id="yespar"></div>
 						<div class="li_img">
 							<img src="../../../img/next.png" alt="" />
 						</div>
@@ -74,7 +89,7 @@
 					
 					<div class="clear"></div>
 				</div>
-				<div class="main_li photos"  onclick="url(this)" data-url="./truck_photo.html">
+				<div class="main_li photos"  onclick="driverphoto()" data-url="./truck_photo.html">
 					
 					<div class="li_names">车辆照片：</div>
 					<div class="li_values">
@@ -209,27 +224,9 @@
 		</div>
 	</body>
 	<script type="text/javascript">
-//		修改车牌
-		function editname(obj){
-			var value = $(obj).find('.li_value').html();
-			$('.zhizhao_plate').removeClass("hide");
-			$('.zhizhao_plate').find('textarea').val(value);
-			$('.sures').addClass("hide");
-
-		}
-		$('.zhizhao').on('click',function(e){
-			$(this).parent().addClass("hide");
-			$('.sures').removeClass("hide");
-
-		})
 		
-		$('.plate_bottom').on('click',function(e){
-			var value = $(this).parent().find("textarea").val();
-			$('.license').html(value);
-			$(this).parent().parent().addClass("hide");
-			$('.sures').removeClass("hide");
+		
 
-		})
 //		修改车型
 //		function edittype(obj){
 //			$('.edittype').removeClass("hide");

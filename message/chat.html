@@ -6,10 +6,10 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
-		<title>黎雄鹰</title>
+		<title>消息</title>
 		<link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
 
-		<link rel="stylesheet" type="text/css" href="../css/chat.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/message.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/swiper-4.3.2.min.css"/>
 		<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
@@ -19,58 +19,179 @@
 	
 	
 	</head>
+	<style>
+		.friend stranger{
+			display: none;
+		}
+		.stranger{
+			/*posistion:relative;*/
+			
+		}
+		.addfriend{
+			/*posistion:absolute;*/
+			width:1.1rem;
+			top:0.2rem;
+			right:0.2rem;
+			height:1.1rem;
+			float:right;
+		}
+		.po_add{
+			width:1.1rem;
+			/*margin-right: 5px;*/
+			/*top:0.2rem;*/
+			right:0.2rem;
+			bottom: 2rem;
+			/*height:1.1rem;*/
+		}
+		.po_friends{
+			position: absolute;
+			right: 0.2rem;
+			top: 1rem;
+			font-size: 1.1rem;
+			
+		}
+		.mui-table-view-cell{
+			padding: 0;
+		}
+		.nulldata{
+			width: 100%;
+			height: 100px;
+			font-size: 1.1rem;
+			line-height: 100px;
+			text-align: center;
+			background: white;
+		}
+	</style>
+	<script>
+		mui.init();
+	</script>
 	<body>
 		
-		<header class="mui-bar mui-bar-nav mui-action-back">
-		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 class="mui-title " id="c_user_nick">黎雄鹰1</h1>
+		<header class="mui-bar mui-bar-nav">
+		    <!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+		    <h1 class="mui-title">消息</h1>
 		    
 		    <!--<span><img src="../img/faxian_jia.png"/></span>-->
 		</header>
-		<div class="mui-content">
+		<div class="mui-content" id="pullrefresh">
 			<div class="main">
-				
-				<div class="content">
-					<!--<div class="con_a">
-						<div class="cona_img">
-							<img src="../img/75c5ca005a7112cea4abb9c55a544f78_t013afb6f9efc2b4880.jpg" alt="" />
-						</div>
-						<div class='cona_text'>现在怎么样了</div>
+				<div class="system">
+					<div class="sys_pic">
+						<img src="../img/xiaoxi_xitongxiaoxi.png"/>
 					</div>
-					<div class="con_b">
-						<div class="cona_img">
-							<img src="../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg" alt="" />
-						</div>
-						<div class='cona_text'>现在学得怎么样了</div>
-					</div> -->
-		
+					<div class="sys_message">
+						<div>系统消息</div>
+						<div>插画绘制最重要的是能沉下心来去享受涂画的…</div>
+					</div>
+					<div class="sysnext">
+						<img src="../img/zhuanxianxiangqing_xiehuowangdian_up.png"/>
+					</div>
+				</div>
+				
+				<div class="">
+	                <div class="myfriend" data-type="0" onclick="showfriendid('myfriend','friend')">
+	                		我的好友
+	                </div>
+	                <div id="myfriend">
+	                <!--<div class="friend nofirends"><span>暂无好友</span></div>-->
+		                <!--<div class="friend" onclick="url(this)" data-url="chat.html" style="position: relative;">
+		                	
+							<div class="friend_head" >
+								<img src="../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/>
+							</div>
+							<div class="po_friends">1</div>
+							<div class="friend_name">
+								<div class="name">
+									黄鲜生
+								</div>
+								<div class="descrie">
+									插画绘制最重要的是能沉下心来去享受涂画的…
+								</div>
+							</div>
+						
+						</div>-->
+					</div>
 				</div>
 				
 				
-				<div class="chat">
-					<div class="chat_voice">
-						<img src="../img/yuyin.png"/>
-					</div>
-					<div class="chat_world">
-						<input type="text" name="" id="" value=""  class="content_chat"/>
-					</div>
-					<div class="chat_expression chat_image.id" id="" v onclick="showActionSheet(this)">
-						<img src="../img/biaoqing.png"/>
-					</div>
-					<div class="chat_send" onclick="send_message()">
-						发送
-					</div>
-				</div>
-			
+				
+				
+					<!--<ul id="OA_task_2" class="mui-table-view">
+						<li class="mui-table-view-cell">
+							<div class="mui-slider-right mui-disabled">
+							
+								<a class="mui-btn mui-btn-yellow mui-icon">删除</a>
+							</div>
+							<div class="mui-slider-handle friend">
+								<div class="friend_head" >
+									<img src="../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/>
+								</div>
+								<div class="friend_name">
+									<div class="name">
+										黄鲜生
+									</div>
+									<div class="descrie">
+										插画绘制最重要的是能沉下心来去享受涂画的…
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+			-->
+				
+				
+				
+				<div class="">	
+					<!--<div class="mystranger" data-type="0" onclick="showfriendid('mystranger','stranger')">
+	                		陌生人
+	                </div>-->
+	                <div id="mystranger"></div>
+	                
+	               <!--<div class="stranger" style="position: relative;">
+	                	
+						<div class="friend_head">
+							<img src="../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/>
+						</div>
+							<div style="position: absolute;" onclick="add_user(this)" class="po_add">
+									<img src="../img/chat_add.png"/>
+								</div>
+						<div class="friend_name">
+						
+							<div class="name">
+								黄鲜生
+							</div>
+							<div class="descrie">
+								插画绘制最重要的是能沉下心来去享受涂画的…
+							</div>
+						</div>
+					</div>-->
+					
+					<!--<div class="stranger" style="position: relative;">
+	                	
+						<div class="friend_head">
+							<img src="../img/b901b07bb9bbbae99e5c8fb9c27ddfae_t0130a0377e4a7ab989.jpg"/>
+						</div>
+							<div style="position: absolute;" onclick="add_user(this)" class="po_add">
+									<img src="../img/chat_add.png"/>
+								</div>
+						<div class="friend_name">
+						
+							<div class="name">
+								黄鲜生
+							</div>
+							<div class="descrie">
+								插画绘制最重要的是能沉下心来去享受涂画的…
+							</div>
+							
+						</div>
+					
+					</div>-->
+               </div>
             </div>
 		</div>
-		<script type="text/javascript">
-			var url=location.href;
-			var to_user_id=getUrl(url).id;
-//			alert(url)
-//			alert(id);
-		</script>
 	</body>
-<script src="../js/chat/chat.js" type="text/javascript" charset="utf-8"></script>
-<script src="../js/chat/uplodeImg.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	
+</script>
+<script src="../js/message.js" type="text/javascript" charset="utf-8"></script>
 </html>

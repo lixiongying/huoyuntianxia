@@ -8,15 +8,26 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
 		<title>登录</title>
 		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
-		<!--<link rel="stylesheet" type="text/css" href="css/mui.css"/>-->
+		 <link rel="stylesheet" type="text/css" href="css/mui.picker.min.css"/>
 		<link rel="stylesheet" type="text/css" href="css/nav_table.css"/>
 		<link rel="stylesheet" type="text/css" href="css/login.css"/>
 		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
 		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
 	 	<script src="js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
-      
+       	<script src="js/mui.picker.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/city.data.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+      <style type="text/css">
+      	/*.li_phone img{
+      		width: 1.2rem;
+      		height: 1.2rem;
+      	}*/
+      </style>
 	</head>
+	<script type="text/javascript">
+		mui.init()
+	</script>
 	<body>
 		
 		 <!--<nav class="mui-bar mui-bar-tab a1 bottom">
@@ -83,16 +94,69 @@
 					</div>
 				</div>
 				<div class="logintype">
-					<div class="webchat"><img src="img/wechat.png"/></div>
-					<div class="qqlogin"><img src="img/qq.png"/></div>
+					<div class="webchat" onclick="authLogin()"><img src="img/wechat.png"/></div>
+					<!--<div class="qqlogin"><img src="img/qq.png"/></div>-->
 				</div>
 			</div>
+			
+			<div class="mainone" style="display: none;">
+				
+				<div class="main_li">
+					<div class="li_phone">手机号：</div>
+					<div class="li_number">
+						<input type="tel" name="" id="phones" placeholder="请填写手机号" value="" />
+					</div>
+				</div>
+				<div class="main_li">
+					<div class="li_phone">验证码：</div>
+					<div class="li_number">
+						<input type="tel" name="" id="li_code" placeholder="请输入验证码"  value="" />
+					</div>
+					<div class="li_code send_code">获取验证码</div>
+				</div>
+				<div class="main_li">
+					<div class="li_phone">&nbsp;密&nbsp;&nbsp;码&nbsp;：</div>
+					<div class="li_number">
+						<input name="" type="password" id="password" placeholder="登录密码" value="" />
+					</div>
+				</div>
+				<div class="main_li">
+					<div class="li_phone">二次密码：</div>
+					<div class="li_number">
+						<input name="" type="password" id="passwordagain" placeholder="请再次输入密码" value="" />
+					</div>
+				</div>
+				<div class="main_li">
+					<div class="li_phone">邀请码：</div>
+					<div class="li_number">
+						<input type="text" name="" id="invitecode" placeholder="邀请码" value="" />
+					</div>
+				</div>
+				
+				<div class="main_sure">
+					<div class="sure" onclick="checkphones()">确定绑定</div>
+				</div>
+			</div>
+			
+			<div class="mask">
+				
+			</div>
+			<div class="reminders">
+				<div class="reminder_title">提示</div>
+					<div class="reminder_world" id="showCityPicker"><span class="province">请选择</span><span class="city">你所在</span><span class="district">的地区</span><div class="san"></div></div>
+					<div class="reminder_sc">
+						
+						<div class="sure" onclick="Makesure()">确定</div>
+					</div>
+				</div>
+			</div>
+			<input type="hidden" class="userId" name="" id="" value="" />
 		</div>
 	</body>
 	  <script src="js/login.js" type="text/javascript" charset="utf-8"></script>
-	<script type="text/javascript">
-
-     
-	</script>
+		<script type="text/javascript">
+	
+	     
+		</script>
 		
 </html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+		<title>发现</title>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/goodstype.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/imageviewer.css"/>
+		<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		
+	    
+		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+	   	
+	   <style type="text/css">
+	    	.tc_typeofcars .carsitem .length_two .box .addcarcolor{
+	    		color: #279cfe;;
+	    	}
+	    	 p, span {
+		      font-family: 'Microsoft Yahei'!important;
+		    }
+	    </style>
+	    <script>
+			mui.init();
+		</script>
+	</head>
+	<body>
+		
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: white;"></a>
+		    <h1 class="mui-title">货物类型</h1>
+		</header>
+		<div class="mui-content">
+			<div class="main">
+				<div class="goodstype">
+					<div class="goodsworld">
+						请输入货物类型
+					</div>
+					<div class="goodsinput">
+						<input type="text" name="" id="goodstype" value=""  placeholder="货物类型"/>
+					</div>
+				</div>
+			     
+			    <div class="goodsitem clearfix">
+			    	<div class="selectgood">
+			    		选择货物类型
+			    	</div>
+			    	<div class="itemgoods clearfix">
+			    		<div class="">
+			     		    纺织品
+				     	</div>
+				     	<div class="">
+				     		纺织品
+				     	</div>
+				     	<div class="">
+			     		纺织品
+				     	</div>
+				     	<div class="">
+				     		纺织品ss
+				     	</div>
+				     	<div class="">
+				     		纺织品ss
+				     	</div>
+			    	</div>
+			     	
+			    </div>
+			    
+			    <div class="histprygoods clearfix" style="display: none;">
+			    	<div class="">
+			     		纺织品
+			     	</div>
+			     	<div class="">
+			     		纺织品
+			     	</div>
+			     	
+			    </div>
+			    
+			    <div class="sure" onclick="sure()">
+			    	确定
+			    </div>
+			     
+			</div>    
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+	    var cargoodsid;
+	    var htmlgoods;
+		var user_id=localStorage.getItem('user_id');
+		$.ajax({
+			type:"post",
+			url:globalUrl+"index.php/Mobile/JkOrder/getcat",
+			dataType:'json',
+			success:function(res){
+				var data =res.info;
+//				alert(JSON.stringify(data))
+				var str='';
+				var datas=[];
+				var datasss=[];
+				if(Array.isArray(data)){
+					data.forEach(function(obj,index){
+						datas.push(obj.name);
+						
+//						datas.push(obj.id);
+					});
+				}
+				for(var i=0;i<datas.length;i++){
+					str+='<div class="product">'+datas[i]+'</div>';
+				}
+				$('.itemgoods').html(str);
+				$('.product').click(function(){
+                    $('#goodstype').val('')
+					$(this).addClass('addcolor').siblings().removeClass('addcolor');
+					if($(this).hasClass('addcolor')){
+						
+					    htmlgoods=$(this).html()
+						
+				       	data.forEach(function(obj,index){
+				       	
+							if(obj.name==htmlgoods){
+								cargoodsid=obj.id;
+							}
+						});
+			        }
+					
+				})
+
+	
+			}
+		});
+		
+		$('#goodstype').keyup(function(){
+			cargoodsid='';
+			$('.product').removeClass('addcolor');
+			
+		})
+		
+		function sure(){
+			var view = plus.webview.currentWebview().opener();
+			if(cargoodsid){
+				
+				
+				mui.fire(view, 'doit', {
+					cargoodsid: cargoodsid,
+					htmlgoods: htmlgoods
+					
+				});
+						
+				mui.back();
+				
+			}else if($('#goodstype').val()==''){
+				mui.toast('请选择物品类型');
+				return;
+				
+			}else{
+				var othersgoods=$('#goodstype').val();
+			
+				mui.fire(view, 'doit', {
+					othersgoods: othersgoods
+					
+				});
+						
+				mui.back();
+			}
+			
+		}
+	
+	
+	</script>
+
+</html>

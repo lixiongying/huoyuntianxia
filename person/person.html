@@ -9,12 +9,14 @@
 		<title>我的</title>
 		<link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/mui.css"/>
-<!--		<link rel="stylesheet" type="text/css" href="../css/nav_table.css"/>-->
+        <link rel="stylesheet" type="text/css" href="../css/imageviewer.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/personal_index.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
 		<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+		
+   
 		<style type="text/css">
 			.mask{
 				width: 100%;
@@ -27,25 +29,26 @@
 				opacity: 0.4;
 			}
 		</style>
+	
 	</head>
 	<body>
 		<header class="mui-bar mui-bar-nav">
 
 		    <h1 class="mui-title">我的</h1>
 		    
-		    <!--<span><img src="../img/faxian_jia.png"/></span>-->
+
 		</header>
-		<div class="mui-content">
+		<div class="mui-content" id="pullrefresh">
 			<div class="main">
 				<div class="main_top">
 					<div class="main_top_blue"></div>
 					<div class="main_top_white"></div>
 					<div class="main_top_info">
-						<div class="info_img">
-							<img class="photo head_pic" src="../img/pic.png"/>
+						<div class="info_img nologin" onclick="url(this)" data-url="">
+							<img class="photo head_pic" data-preview-src="" data-preview-group="1" src="../img/pic.png"/>
 						</div> 
 						<div class="info_phone">
-							<div class="phone tel nologin" onclick="url(this)" data-url="">17875035281</div>
+							<div class="phone tel nologin" onclick="url(this)" data-url=""></div>
 						</div>
 						<div class="info_money nologin" onclick="url(this)" data-url="mymoney/mymoney.html">
 							<div class="money">100.00</div>
@@ -72,7 +75,7 @@
 						<div class="li_icon">
 							<img src="../img/wode_fabuluxian.png" alt="" />
 						</div>
-						<div class="li_name">发布线路</div>
+						<div class="li_name">线路列表</div>
 						<div class="li_img">
 							<img src="../img/next.png" alt="" />
 						</div>
@@ -128,6 +131,7 @@
 						</div>
 						<div class="clear"></div>
 					</div>
+					
 					<div class="main_botton_li nologin" onclick="url(this)" data-url="about/about.html">
 						<div class="li_icon">
 							<img src="../img/wode_guanyuwomen.png" alt="" />
@@ -138,6 +142,28 @@
 						</div>
 						<div class="clear"></div>
 					</div>
+					<div class="main_botton_li nologin becomeadriver" onclick="url(this)" data-url="./set_up/set_driver/set_driver.html">
+						<div class="li_icon">
+							<img src="../img/shezhi_chengweisiji.png" alt="" />
+						</div>
+						<div class="li_name">成为司机</div>
+						<div class="li_img">
+							<img src="../img/next.png" alt="" />
+						</div>
+						<div class="clear"></div>
+					</div>
+					
+					<!--<div class="main_botton_li nologin" onclick="clearcache(this)">
+						<div class="li_icon">
+							<img src="../img/huancun.png" alt="" />
+						</div>
+						<div class="li_name">清楚本地缓存</div>
+						<div class="li_img">
+							<img src="../img/next.png" alt="" />
+						</div>
+						<div class="clear"></div>
+					</div>-->
+					
 					<div class="main_botton_li nologin" onclick="url(this)" data-url="set_up/set_up.html">
 						<div class="li_icon">
 							<img src="../img/wode_shezhi.png" alt="" />
@@ -159,5 +185,8 @@
 		</div>
 		
 	</body>
+	<!--<script type="text/javascript">
+		 mui.previewImage();
+	</script>-->
 	<script src="../js/person.js" type="text/javascript" charset="utf-8"></script>
 </html>

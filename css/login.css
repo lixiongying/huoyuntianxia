@@ -15,6 +15,7 @@
   height: 100%;
   background-size: 100% 100%;
   background-attachment: fixed;
+  overflow: hidden;
 }
 .piclogo {
   width: 3.57333333rem;
@@ -187,7 +188,7 @@
   float: left;
 }
 .logintype {
-  width: 100;
+  width: 100%;
   height: 1.22666667rem;
   padding: 0 2rem;
 }
@@ -195,12 +196,149 @@
   width: 1.49333333rem;
   height: 1.22666667rem;
   display: inline-block;
-  margin-left: 5.6rem;
+  margin-left: 50%;
+  margin-top: 0.53333333rem;
 }
-.logintype .qqlogin {
-  margin-top: 1.33333333rem;
-  width: 1.49333333rem;
-  height: 1.22666667rem;
-  display: inline-block;
-  margin-left: 1.86666667rem;
+.mainone {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-top: 0.53333333rem;
+}
+.mainone .main_li {
+  background: #fff;
+  width: 100%;
+  height: 2.82666667rem;
+  border-bottom: 0.05333333rem solid #f0eff4;
+  padding: 0 0.64rem;
+  position: relative;
+}
+.mainone .main_li .li_phone {
+  float: left;
+}
+.mainone .li_phone {
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 2.82666667rem;
+  letter-spacing: 0rem;
+  color: #333333;
+}
+.mainone .main_li .li_number {
+  float: left;
+  width: 8rem;
+}
+.mainone .li_number input {
+  margin-bottom: 0rem;
+  padding: 0rem 0.4rem;
+  margin-top: 0.32rem;
+  border: 0;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  color: #666666;
+}
+.mainone .main_li .li_code {
+  position: absolute;
+  top: 0.69333333rem;
+  right: 0.69333333rem;
+  padding: 0rem 0.53333333rem;
+  width: auto;
+  height: 1.44rem;
+  border-radius: 0.16rem;
+  border: solid 0.02666667rem #fdbf42;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.64rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.44rem;
+  letter-spacing: 0rem;
+  color: #fdbf42;
+}
+.mainone .main_sure {
+  width: auto;
+  margin: 2.18666667rem 0.64rem;
+}
+.mainone .main_sure .sure {
+  width: 100%;
+  height: 2.34666667rem;
+  line-height: 2.34666667rem;
+  background: #279cfe;
+  border-radius: 0.16rem;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0.02666667rem;
+  color: #ffffff;
+}
+.reminders {
+  width: 14.93333333rem;
+  left: 2.53333333rem;
+  top: 50%;
+  height: 7.46666667rem;
+  background-color: #ffffff;
+  border-radius: 0.16rem;
+  z-index: 100;
+  position: fixed;
+  display: none;
+  margin-top: -3.73333333rem;
+}
+.reminders .reminder_title {
+  width: 100%;
+  height: 2.13333333rem;
+  background-color: #f8f8f8;
+  text-align: center;
+  line-height: 2.13333333rem;
+  font-size: 0.74666667rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #279cfe;
+}
+.reminders .reminder_sc {
+  width: 100%;
+  height: 2.13333333rem;
+}
+.reminders .reminder_world {
+  width: 100%;
+  height: 3.2rem;
+  line-height: 3.2rem;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #1f1f1f;
+  position: relative;
+}
+.reminders .reminder_sc div {
+  width: 100%;
+  height: 2.13333333rem;
+  line-height: 2.13333333rem;
+  text-align: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 0.85333333rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #cccccc;
+}
+.reminders .reminder_sc .sure {
+  color: #279cfe;
+}
+.san {
+  width: 0;
+  height: 0;
+  border-left: 0.4rem solid transparent;
+  border-right: 0.4rem solid transparent;
+  border-top: 0.66666667rem solid #c7c7cc;
+  float: right;
+  position: absolute;
+  right: 2.66666667rem;
+  top: 1.28rem;
 }

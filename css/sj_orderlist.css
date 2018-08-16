@@ -42,6 +42,7 @@ header a {
   width: 100%;
   padding: 0.32rem;
   margin-top: 0.32rem;
+  margin-bottom: 0.8rem;
 }
 .itemmessage .message .message_one {
   width: 1.06666667rem;
@@ -50,7 +51,6 @@ header a {
   margin-top: 0.13333333rem;
 }
 .itemmessage .message .message_two {
-  padding-left: 0.26666667rem;
   width: 12rem;
   font-family: PingFang-SC-Bold;
   font-size: 0.74666667rem;

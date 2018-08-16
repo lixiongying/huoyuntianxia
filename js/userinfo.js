@@ -233,7 +233,7 @@ var files;
 	parms.head_pic=files;
 	parms.birthday=time;
 	parms.nick_name=$uername;
-alert(JSON.stringify(parms));
+
 
 	$.ajax({
 		url: 'http://hytx.sxnet.cc/index.php/Mobile/JkUser/SaveInfomation',
@@ -275,7 +275,12 @@ $.ajax({
 				}
 				
 			})
-			$('#userPhoto').attr('src',picUrl+data.head_pic);
+			if(data.head_pic==''||data.head_pic==undefined||data.head_pic==null){
+				$('#userPhoto').attr('src','../img/pic.png');
+			}else{
+				$('#userPhoto').attr('src',picUrl+data.head_pic);
+			}
+			
 			$('.user_name').html(data.nick_name);
 			var birthday=data.birthday;
 

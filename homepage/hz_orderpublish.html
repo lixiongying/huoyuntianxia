@@ -9,15 +9,18 @@
 		<title>订单发布</title>
 		<link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/mui.css"/>
-<!--		<link rel="stylesheet" type="text/css" href="../css/nav_table.css"/>-->
+        <link rel="stylesheet" type="text/css" href="../css/imageviewer.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/hz_orderpublish.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/swiper-4.3.2.min.css"/>
 		<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="" type="text/javascript" charset="utf-8"></script>
+		 <script src="../js/mui.previewimage.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="../js/mui.zoom.js" type="text/javascript" charset="utf-8"></script>
+		
 		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+
 	</head>
 	<body>
 		
@@ -119,7 +122,7 @@
 			    	备注:
 			    	</div>
 			    	<div class="number_two goods_remark">
-			    		备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注
+			    		<!--备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注-->
 			    	</div>
 			    	
 			    </div>
@@ -132,11 +135,23 @@
 		</div>
 	</body>
 	<script type="text/javascript">
+		mui.init({
+			beforeback: function() {
+			　　 //获得父页面的webview
+			var list = plus.webview.currentWebview().opener();
+			　　 //触发父页面的自定义事件(refresh),从而进行刷新
+			mui.fire(list, 'refresh');
+			//返回true,继续页面关闭逻辑
+			return true;
+			}
+		});
+		mui.previewImage()
 		var userid=localStorage.getItem('user_id');
 		var urL=location.href;
 		var goodsid=getUrl(urL).goods_id;
-		var shop_price=getUrl(urL).shop_price;
-		$('.shop_price').html(shop_price);
+		var shop_prices=getUrl(urL).shop_price;
+		
+		$('.shop_price').val(shop_prices);
          $.ajax({
          	type:"post",
          	url:globalUrl+"index.php/Mobile/JkOrder/userline",
@@ -144,6 +159,9 @@
          	dataType:'json',
          	success:function(res){
          		var data=res.root;
+         		var image=data.original_img;
+         		var strimage=image.split(',');
+         		
          		var str='';
          		$('.ordersn').html(data.goods_sn);
          		var type_id=data.type_id;
@@ -152,28 +170,63 @@
          		}else if(type_id==3){
          			$('.carstype').html('短途车')
          		}
-         		$('.start_address').html(data.start_address);
-         		$('.end_address').html(data.end_address);
-         		$('.cat_name').html(data.cat_name);
+         		
+         		var stradd=data.start_address;
+         		
+         		var strend=data.end_address;
+         	    var replaceStr = ',';//要替换的字符串
+				
+         		stradd=stradd.replace(new RegExp(replaceStr,'gm'),'')
+		        strend=strend.replace(new RegExp(replaceStr,'gm'),'')
+         		
+         		$('.start_address').html(stradd);
+         		$('.end_address').html(strend);
+         		if(data.cargo!=''&&data.cargo!=undefined&&data.cargo!=null){
+         			$('.cat_name').html(data.cargo);
+         		}else{
+         			$('.cat_name').html(data.cat_name);
+         		}
+//       		$('.cat_name').html(data.cat_name);
+//       		$('.cat_name').html(data.cargo);
          		$('.ton').html(data.ton);
          		$('.cube').html(data.cube);
          		var time=timeToDate(data.load_time);
          		$('.load_time').html(time);
          		$('.goods_remark').html(data.goods_remark);
-         		for(var i=0;i<data.original_img.length;i++){
-//       			str+='<div class=""><img src="'+picUrl+data.original_img[i]+'"/></div>';
+         		
+         		for(var i=0;i<strimage.length;i++){
+         			str+='<div class=""><img src="'+picUrl+strimage[i]+'" data-preview-src=""  data-preview-group="1"/></div>';
          		}
+         		
          		$('.uploadImg').html(str);
          	}
          });
+         var goodsprice;
+         $('.shop_price').keyup(function(){
+			var shop_price=$('.shop_price').val();
+			$.ajax({
+				type:"post",
+				url:globalUrl+"index.php/Mobile/JkOrder/addUserLine",
+				data:{user_id:userid,goods_id:goodsid,shop_price:shop_price},
+				dataType:'json',
+				success:function(res){
+					goodsprice=res.root.shop_price;
+//					alert(JSON.stringify(res))
+//              plus.webview.getWebviewById('person/order/orderdetail.html').evalJS("shuaxin()");
+
+				}
+			});
+		})
          
          $('.surepublish').click(function(){
+//       	var shop_price=$('.shop_price').val();
          	
          	mui.openWindow({
-         		url:'./hz_ordersure.html?shop_price='+shop_price+'&goodsid='+goodsid+'',
+         		url:'./hz_ordersure.html?shop_price='+goodsprice+'&goodsid='+goodsid+'',
 //       		url:"./hz_ordersure.html?shop_price="+shop_price+"&goodsid="+goodsid+"",
          		id:'./hz_ordersure.html'
          	})
          })
+        
 	</script>
 </html>
